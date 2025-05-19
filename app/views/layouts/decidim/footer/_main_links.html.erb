@@ -1,0 +1,12 @@
+<nav role="navigation" aria-label="<%= t("layouts.decidim.app_name") %>">
+  <h2 class="h4 mb-4"><%= t("layouts.decidim.app_name") %></h2>
+  <ul class="space-y-4 break-inside-avoid ">
+    <%= cell("decidim/footer_pages", :pages) %>
+    <li>
+      <%= link_to t("layouts.decidim.footer.terms_and_conditions"), decidim.page_path("terms-and-conditions") %>
+    </li>
+    <li>
+      <a href="#" data-dialog-open="dc-modal"><%= t("layouts.decidim.footer.data_consent_settings") %></a>
+    </li>
+  </ul>
+</nav>

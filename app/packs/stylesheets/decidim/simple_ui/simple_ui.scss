@@ -1,0 +1,65 @@
+/* css for decidim_simple_ui */
+
+header {
+  .main-bar {
+    @apply grid-cols-7;
+
+    &__logo {
+      a {
+        @apply text-2xl;
+      }
+    }
+
+    &__search {
+      @apply col-start-6 w-48;
+
+      form {
+        @apply rounded-none border bg-white;
+      }
+
+      button[type=submit] {
+        @apply w-8 h-8 top-0 right-0 bg-secondary text-white border-l border-black;
+
+        svg {
+          @apply inline fill-white;
+        }
+      }
+    }
+  }
+}
+
+.menu__bar {
+  @apply border-y border-gray-3;
+
+  &-container {
+    @apply justify-center;
+  }
+
+  &-element--link {
+    @apply text-secondary text-xl;
+  }
+}
+
+.menu-element-caret {
+  @apply border-none bg-transparent ml-0;
+
+  svg {
+    @apply bg-transparent text-secondary pt-1;
+  }
+}
+
+.decorator {
+  @apply after:rounded-none after:bg-transparent;
+}
+
+.page__title {
+  @apply h3 mb-4;
+}
+
+.topic-container {
+  @apply p-4 border border-gray-3;
+}
+
+.layout-2col {
+  @apply block;
+}

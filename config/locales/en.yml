@@ -1,0 +1,11 @@
+---
+en:
+  decidim:
+    components:
+      simple_ui:
+        name: SimpleUi
+  layouts:
+    decidim:
+      shared:
+        layout_two_col:
+          all_processes: All processes
