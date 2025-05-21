@@ -25,9 +25,9 @@
   </div>
 
   <% if current_organization.sign_in_enabled? %>
-    <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name), html: { class: "hidden" }) do |f| %>
       <div class="form__wrapper">
-        <%= f.email_field :email, placeholder: t("placeholder_email", scope: "decidim.devise.shared"), required: true %>
+        <%= f.email_field :email, placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
 
         <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
 
@@ -39,7 +39,6 @@
       <div class="form__wrapper-block">
         <button type="submit" class="button button__lg button__secondary">
           <%= t("devise.sessions.new.log_in") %>
-          <%= icon "arrow-right-line", class: "fill-current" %>
         </button>
       </div>
 
@@ -49,3 +48,5 @@
     <% end %>
   <% end %>
 <% end %>
+
+<%= append_javascript_pack_tag "decidim_simple_ui_login" %>

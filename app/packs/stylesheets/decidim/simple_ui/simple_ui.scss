@@ -87,13 +87,41 @@ header {
 }
 
 .register__separator {
-  @apply text-center flex justify-center mt-6 text-xl;
+  @apply text-center flex justify-center mt-6 text-xl mx-auto w-fit;
 
   &__text {
     @apply font-semibold text-[#002ba0];
   }
 
   svg {
-    @apply fill-[#002ba0] h-8 w-8 pb-1;
+    @apply fill-[#002ba0] h-8 w-8 pb-1 transform transition-transform duration-300;
   }
+}
+
+#session_new_user {
+  .form__wrapper label:not(.form__wrapper-checkbox-label),
+  .form__wrapper-block label:not(.form__wrapper-checkbox-label) {
+    @apply font-normal;
+  }
+
+  .form__wrapper {
+    @apply gap-6;
+  }
+
+  .form__wrapper-block {
+    @apply border-none py-1;
+
+    button {
+      @apply w-full rounded-none bg-[#002ba0];
+    }
+  }
+
+  .login__links {
+    @apply border-none;
+  }
+}
+
+.button.is-hover,
+.button:not([disabled]):not([class*=button__text]):not(label):hover {
+  @apply bg-none bg-transparent;
 }
