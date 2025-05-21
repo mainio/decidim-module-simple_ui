@@ -9,3 +9,7 @@ fi:
       shared:
         layout_two_col:
           all_processes: Kaikki prosessit
+  devise:
+    shared:
+      credentials:
+        login: Kirjaudu ylläpitäjän antamalla tunnuksella

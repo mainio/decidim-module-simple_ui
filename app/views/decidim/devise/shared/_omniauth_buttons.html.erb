@@ -1,0 +1,11 @@
+<%
+wrapper = lambda do |&block|
+  tmp = content_tag :div, class: "row" do
+    content_tag :div, class: "columns large-6 medium-centered" do
+      capture(&block)
+    end
+  end
+end
+%>
+
+<%= render "decidim/devise/shared/omniauth_buttons_plain", wrapper: wrapper %>

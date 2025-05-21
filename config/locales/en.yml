@@ -9,3 +9,7 @@ en:
       shared:
         layout_two_col:
           all_processes: All processes
+  devise:
+    shared:
+      credentials:
+        login: Login with account information

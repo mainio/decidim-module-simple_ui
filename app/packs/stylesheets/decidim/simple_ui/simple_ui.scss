@@ -63,3 +63,37 @@ header {
 .layout-2col {
   @apply block;
 }
+
+.button--social {
+  @apply w-full h-16;
+
+  &__icon {
+    @apply bg-[#002ba0] mr-px h-full w-[70px] flex items-center;
+
+    svg {
+      @apply h-8 w-8 mx-auto fill-white;
+    }
+  }
+
+  &__text {
+    @apply bg-[#002ba0] h-full w-10/12 text-xl text-white;
+  }
+}
+
+.button--mpassid {
+  .button--social__icon {
+    @apply max-w-none;
+  }
+}
+
+.register__separator {
+  @apply text-center flex justify-center mt-6 text-xl;
+
+  &__text {
+    @apply font-semibold text-[#002ba0];
+  }
+
+  svg {
+    @apply fill-[#002ba0] h-8 w-8 pb-1;
+  }
+}
