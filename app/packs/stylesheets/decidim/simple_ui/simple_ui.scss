@@ -90,11 +90,11 @@ header {
   @apply text-center flex justify-center mt-6 text-xl mx-auto w-fit;
 
   &__text {
-    @apply font-semibold text-[#002ba0];
+    @apply font-semibold;
   }
 
   svg {
-    @apply fill-[#002ba0] h-8 w-8 pb-1 transform transition-transform duration-300;
+    @apply h-8 w-8 pb-1 transform transition-transform duration-300;
   }
 }
 
@@ -124,4 +124,51 @@ header {
 .button.is-hover,
 .button:not([disabled]):not([class*=button__text]):not(label):hover {
   @apply bg-none bg-transparent;
+}
+
+#budgets.card__list-list {
+  @apply w-3/5 mx-auto;
+
+  .card__highlight {
+    @apply rounded-none ring-2 hover:ring-background;
+
+    .card__highlight-text {
+      @apply mt-8
+    }
+
+    .budget__card__highlight-vote {
+      @apply bg-[#f2fcfd] p-0;
+    }
+  }
+
+  .budget__card__highlight-vote__header {
+    @apply text-center;
+
+    .budget__card__highlight-vote__text {
+      @apply text-lg text-black;
+    }
+
+    .budget__card__highlight-vote__number {
+      @apply font-bold text-black text-3xl;
+    }
+
+  }
+
+  .budget__card__highlight-vote__button {
+    @apply rounded-none w-4/6 h-12 text-xl mx-auto;
+  }
+}
+
+#voted-budgets {
+  .card__highlight-text {
+    @apply gap-0;
+  }
+
+  a {
+    @apply pb-0;
+  }
+}
+
+.card--list__item {
+  @apply h-40;
 }
