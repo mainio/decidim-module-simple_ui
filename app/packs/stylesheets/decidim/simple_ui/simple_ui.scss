@@ -172,3 +172,11 @@ header {
 .card--list__item {
   @apply h-40;
 }
+
+.start-vote-button {
+  @apply rounded-none w-60 h-12 text-xl;
+}
+
+.pre-voting-budget-summary {
+  @apply bg-[#f2fcfd];
+}
