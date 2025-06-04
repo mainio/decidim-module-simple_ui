@@ -106,6 +106,10 @@ header {
 
   .form__wrapper {
     @apply gap-6;
+
+    input {
+      @apply rounded-none;
+    }
   }
 
   .form__wrapper-block {
@@ -119,11 +123,6 @@ header {
   .login__links {
     @apply border-none;
   }
-}
-
-.button.is-hover,
-.button:not([disabled]):not([class*=button__text]):not(label):hover {
-  @apply bg-none bg-transparent;
 }
 
 #budgets.card__list-list {
@@ -155,7 +154,38 @@ header {
   }
 
   .budget__card__highlight-vote__button {
-    @apply rounded-none w-4/6 h-12 text-xl mx-auto;
+    @apply w-4/6 h-12 text-xl mx-auto;
+
+    &.button__secondary:hover {
+      @apply text-[--primary] bg-white #{!important};
+    }
+
+    &.button__transparent-secondary:hover {
+      @apply border-[--primary] text-white #{!important};
+
+      background: #123aa0 !important;
+    }
+  }
+}
+
+.button.is-hover,
+.button:not([disabled]):not([class*=button__text]):not(label):hover {
+  @apply bg-none;
+
+  &.button__transparent-secondary {
+    @apply text-white bg-[--primary];
+
+    svg {
+      @apply fill-white;
+    }
+  }
+
+  &.button__secondary {
+    @apply text-[--primary] bg-white border-[--primary];
+
+    svg {
+      @apply fill-[--primary];
+    }
   }
 }
 
@@ -179,4 +209,8 @@ header {
 
 .pre-voting-budget-summary {
   @apply bg-[#f2fcfd];
+}
+
+.button {
+  @apply rounded-none;
 }

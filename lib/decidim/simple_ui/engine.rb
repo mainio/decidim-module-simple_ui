@@ -30,6 +30,15 @@ module Decidim
         end
       end
 
+      initializer "decidim_simple_ui.add_customizations", after: "decidim.action_controller" do
+        config.to_prepare do
+          # Controller extensions
+          Decidim::ParticipatoryProcesses::ParticipatoryProcessesController.include(
+            Decidim::SimpleUi::ParticipatoryProcessesControllerExtensions
+          )
+        end
+      end
+
       initializer "SimpleUi.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
