@@ -1,0 +1,17 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <div class="row column">
+    <%= settings_fields.translated :text_field, :title, label: t(".title") %>
+  </div>
+  <div class="row column">
+    <%= settings_fields.label :steps, t(".steps") %>
+
+    <% steps_options.each do |option| %>
+      <div class="checkbox">
+        <label>
+          <%= settings_fields.check_box :steps, { multiple: true, label: false }, option, nil %>
+          <%= t(".#{option}") %>
+        </label>
+      </div>
+    <% end %>
+  </div>
+<% end %>

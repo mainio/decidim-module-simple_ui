@@ -1,0 +1,63 @@
+<div class="py-12 homepage-content_block space-y-8">
+  <div class="mb-10">
+    <h1 class="h1 text-center">
+      <% if translated_title.blank? %>
+        <%= t("decidim.pages.home.pb_guideline.title", organization: current_organization.name) %>
+      <% else %>
+        <%= decidim_sanitize_admin translated_title %>
+      <% end %>
+    </h1>
+  </div>
+
+  <div class="flex justify-center gap-16">
+    <% if render?("idea") %>
+      <div class="flex flex-col items-center w-48">
+        <div class="h-20 w-20 rounded-full border-2 border-black flex items-center justify-center">
+          <%= icon("lightbulb-flash-line", class: "h-14 w-14") %>
+        </div>
+
+        <h5 class="h5 my-4"><%= t(".idea") %></h5>
+        <p class="text-center text-lg"><%= t(".idea_desc") %></p>
+      </div>
+    <% end %>
+
+    <% if render?("develop") %>
+      <div class="flex flex-col items-center w-48">
+        <div class="h-20 w-20 rounded-full border-2 border-black flex items-center justify-center">
+          <%= icon("settings-2-line", class: "h-14 w-14") %>
+        </div>
+
+        <h5 class="h5 my-4"><%= t(".develop") %></h5>
+        <p class="text-center text-lg"><%= t(".develop_desc") %></p>
+      </div>
+    <% end %>
+
+    <% if render?("vote")%>
+      <div class="flex flex-col items-center w-48">
+        <div class="h-20 w-20 rounded-full border-2 border-black flex items-center justify-center">
+          <%= icon("checkbox-multiple-line", class: "h-14 w-14") %>
+        </div>
+
+        <h5 class="h5 my-4"><%= t(".vote") %></h5>
+        <p class="text-center text-lg"><%= t(".vote_desc") %></p>
+      </div>
+    <% end %>
+
+    <% if render?("follow") %>
+      <div class="flex flex-col items-center w-48">
+        <div class="h-20 w-20 rounded-full border-2 border-black flex items-center justify-center">
+          <%= icon("eye-line", class: "h-14 w-14") %>
+        </div>
+
+        <h5 class="h5 my-4"><%= t(".follow") %></h5>
+        <p class="text-center text-lg"><%= t(".follow_desc") %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="text-center mt-6">
+    <a class="button button__lg md:button__xl button__secondary" title="Tutustu prosessiin" href="/pages">
+      <span><%= t(".info") %></span>
+    </a>
+  </div>
+</div>

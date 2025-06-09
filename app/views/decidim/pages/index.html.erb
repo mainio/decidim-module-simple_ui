@@ -53,12 +53,13 @@ edit_link(
         <h2 class="h2 decorator"><%= t "decidim.pages.index.standalone_pages" %></h2>
         <div class="page__grid">
           <% @orphan_pages.each do |page| %>
-            <div>
+            <%= link_to page_path(page) do %>
               <h3 class="page__title">
-                <%= link_to translated_attribute(page.title), page_path(page) %>
+                <%= translated_attribute(page.title) %>
               </h3>
               <p class="page__accordion-trigger-snippet"><%== strip_tags html_truncate(translated_attribute(page.content), length: 140, separator: "...") %></p>
-            </div>
+              <p class="read-more"><%= t(".more") %></p>
+            <% end %>
           <% end %>
         </div>
       </div>

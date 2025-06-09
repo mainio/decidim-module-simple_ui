@@ -1,0 +1,8 @@
+<div class="filter-container border-t border-background pt-2" role="menuitem">
+  <span class="font-semibold"><%= t(id, scope: label_scope) %></span>
+
+  <div id="<%= id %>-menu">
+    <% data_checkboxes_tree_id = "#{method}-#{id}-#{collection.leaf.value}" %>
+    <%= form.dropdown_label(collection, method, check_boxes_tree_id:, parent_id: nil) %>
+  </div>
+</div>

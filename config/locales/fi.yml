@@ -1,12 +1,52 @@
 ---
 fi:
   decidim:
+    content_blocks:
+      custom_hero:
+        name: Muokattava pääkuva
+        title: Tervetuloa
+      custom_hero_settings_form:
+        title: Otsikko
+        description: Kuvaus
+        button_text: CTA -painikkeen teksti
+        hero_image: Pääkuva
+      pb_guideline:
+        name: Osallistuvan budjetoinnin ohjeistus
+        title: Osallistuvan budjetoinnin ohjeistus
+        idea: Ideoi
+        idea_desc: Kerro omia ideoitasi siitä, mitä kunnan tulisi sinun mielestäsi tehdä tai toteuttaa varoilla.
+        develop: Kehitä
+        develop_desc: Osallistu yhteiskehittämisen työpajoihin ja kehitä ideoita paremmiksi muiden kanssa.
+        vote: Äänestä
+        vote_desc: Päätä yhdessä muiden kanssa, mitkä äänestettävistä ehdotuksista toteutetaan.
+        follow: Seuraa
+        follow_desc: Seuraa hankkeiden toteutumista ja osallistu hankkeiden kehittämiseen kommentoimalla.
+        info: Tutustu prosessiin
+      pb_guideline_settings_form:
+        title: Otsikko
+        steps: Vaiheet
+        idea: Ideoi
+        develop: Kehitä
+        vote: Äänestä
+        follow: Seuraa
+      current_topic:
+        name: Ajankohtaista
+      current_topic_settings_form:
+        title: Otsikko
+        description: Kuvaus
+        button_text: CTA -painikkeen teksti
     components:
       simple_ui:
         name: SimpleUi
+    pages:
+      home:
+        custom_hero:
+          participate_title: Osallistu prosesseihin alustalla
   layouts:
     decidim:
       shared:
+        layout_center:
+          more: Lue lisää
         layout_two_col:
           all_processes: Kaikki prosessit
   devise:

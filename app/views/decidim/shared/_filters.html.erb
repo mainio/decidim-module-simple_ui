@@ -1,0 +1,44 @@
+<% filter_sections = [] unless local_assigns.has_key?(:filter_sections) %>
+<% search_label = t("decidim.searches.filters.search") unless local_assigns.has_key?(:search_label) %>
+
+<% if filter_sections.present? || local_assigns.has_key?(:search_variable) %>
+  <%= filter_form_for filter, url_for, class: "new_filter self-stretch", data: { filters: "", component: "accordion" } do |form| %>
+
+    <button id="dropdown-trigger-filters" data-component="dropdown" data-target="dropdown-menu-filters" data-open-md="true">
+      <%= icon "arrow-down-s-line" %>
+      <%= icon "arrow-up-s-line" %>
+      <span>
+        <%= local_assigns.has_key?(:search_variable) ? t("filter_and_search", scope: "decidim.searches.filters_small_view") : t("filter", scope: "decidim.searches.filters_small_view") %>
+      </span>
+    </button>
+
+    <div class="p-2" id="dropdown-menu-filters">
+      <% if local_assigns.has_key?(:skip_to_id) %>
+        <%= link_to t("skip", scope: "decidim.shared.filter_form_help"), "##{skip_to_id}", class: "filter-skip", role: "menuitem" %>
+      <% end %>
+
+      <h5 class="h5 pb-2 text-md"><%= t(".search") %></h5>
+      <% if local_assigns.has_key?(:search_variable) %>
+        <div class="filter-search filter-container rounded-none border border-black bg-white" role="menuitem">
+          <%= form.search_field search_variable,
+                                label: false,
+                                placeholder: t(".search_placeholder"),
+                                title: search_label,
+                                "aria-label": search_label,
+                                class: "h-10 p-2 rounded-none" %>
+        </div>
+      <% end %>
+
+      <% filter_sections.each do |f| %>
+        <%= form.collection_filter(**f) %>
+      <% end %>
+
+      <button class="button button__secondary mt-6 h-10 w-2/6" type="submit" aria-label="<%= search_label %>">
+        <%= t(".search_bar") %>
+      </button>
+
+      <%= yield %>
+    </div>
+
+  <% end %>
+<% end %>

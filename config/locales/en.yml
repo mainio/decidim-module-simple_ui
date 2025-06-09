@@ -1,12 +1,48 @@
 ---
 en:
   decidim:
+    content_blocks:
+      custom_hero:
+        name: Customizable hero
+        title: Welcome
+      custom_hero_settings_form:
+        title: Title
+        description: Description
+        button_text: CTA -button text
+        hero_image: Home image
+      pb_guideline:
+        name: Participatory budgeting guideline
+        title: Participatory budgeting guideline
+        idea: Idea
+        idea_desc: Share your ideas about how the city's budget should be used.
+        develop: Develop
+        develop_desc: Take part in workshops for co-development and better your ideas with others.
+        vote: Vote
+        vote_desc: Decide with other participants which proposals will be executed.
+        follow: Follow
+        follow_desc: Follow the execution of projects and take part in developing them by commenting.
+        info: Read more
+      pb_guideline_settings_form:
+        title: Title
+        steps: Steps
+        idea: Idea
+        develop: Develop
+        vote: Vote
+        follow: Follow
+      current_topic:
+        name: Current topic
+      current_topic_settings_form:
+        title: Title
+        description: Description
+        button_text: CTA -button text
     components:
       simple_ui:
         name: SimpleUi
   layouts:
     decidim:
       shared:
+        layout_center:
+          more: Read more
         layout_two_col:
           all_processes: All processes
   devise:
