@@ -32,10 +32,13 @@ module Decidim
 
       initializer "decidim_simple_ui.add_customizations", after: "decidim.action_controller" do
         config.to_prepare do
-          # Controller extensions
-          Decidim::ParticipatoryProcesses::ParticipatoryProcessesController.include(
-            Decidim::SimpleUi::ParticipatoryProcessesControllerExtensions
+          # Cell extensions
+          Decidim::ContentBlocks::ParticipatorySpaceHeroCell.include(
+            Decidim::SimpleUi::ParticipatorySpaceHeroCellExtensions
           )
+
+          # Helper extensions
+          Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper.include(Decidim::SimpleUi::ParticipatoryProcessHelperExtensions)
         end
       end
 

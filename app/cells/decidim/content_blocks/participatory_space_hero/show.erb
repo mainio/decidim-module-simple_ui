@@ -1,0 +1,16 @@
+<section id="hero-<%= resource&.id %>" data-process-hero class="mt-8">
+  <div class="participatory-space__hero">
+    <div class="participatory-space__hero-text">
+      <h1 class="h1 text-black text-5xl w-5/6">
+        <%= title_text %>
+      </h1>
+      <p class="participatory-space__hero-slogan w-5/6">
+        <%= subtitle_text %>
+      </p>
+    </div>
+
+    <div class="w-3/6 mr-6">
+      <%= cell "decidim/nav_links", nav_items %>
+    </div>
+  </div>
+</section>

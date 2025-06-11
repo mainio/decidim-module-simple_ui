@@ -122,7 +122,7 @@ footer {
     @apply border-none py-1;
 
     button {
-      @apply w-full rounded-none bg-[#002ba0];
+      @apply bg-[#002ba0];
     }
   }
 
@@ -191,6 +191,14 @@ footer {
 
     svg {
       @apply fill-[--primary];
+    }
+  }
+
+  &.budget__card__prevote-explore-button {
+    @apply text-white bg-[--primary];
+
+    svg {
+      @apply fill-white;
     }
   }
 }
@@ -281,4 +289,57 @@ footer {
 
 .homepage-content_block:nth-child(even) {
   @apply bg-gray-3;
+}
+
+.datefilter-dropdown {
+  @apply flex text-lg border p-1 w-28;
+}
+
+.active-filter {
+  @apply mr-1;
+}
+
+.dropdown-menu-process-date {
+  @apply w-28 border;
+
+  .filter {
+    span {
+      @apply text-lg;
+    }
+  }
+}
+
+header .main-bar__links-desktop svg {
+  @apply h-8 w-8;
+}
+
+.button--social {
+  &.is-hover,
+  &:not([disabled]):not([class*="button__text"]):not(label):hover {
+    @apply hover:bg-transparent;
+  }
+}
+
+.button--social__text {
+  @apply flex justify-center items-center;
+}
+
+.participatory-space__hero {
+  @apply flex justify-between bg-[#f2fcfd] p-8;
+
+  .participatory-space__hero-text {
+    @apply w-3/6 text-left ml-28 pt-0 break-words;
+  }
+
+  .participatory-space__hero-slogan {
+    @apply text-black font-normal;
+  }
+}
+
+.participatory-space__nav-item {
+  @apply bg-[--primary] text-white p-2 w-3/6 h-14 text-xl font-semibold pl-4;
+
+  svg {
+    @apply h-6 w-6;
+  }
 }

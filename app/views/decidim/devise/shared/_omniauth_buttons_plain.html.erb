@@ -37,7 +37,7 @@
   <% unless other_providers.empty? %>
     <%= wrapper.call do %>
       <div class="other-providers mt-6">
-        <div class="text-center mb-2 font-semibold w-4/12 mx-auto">
+        <div class="text-center mb-2 font-semibold w-6/12 mx-auto">
           <p><%= t("devise.shared.links.sign_in_with_omniauth") %> </p>
         </div>
         <div class="row w-9/12 mx-auto">
@@ -61,7 +61,7 @@
     <%- if current_organization.sign_in_enabled? %>
       <span class="register__separator cursor-pointer">
         <span class="register__separator__text"><%= t("devise.shared.credentials.login") %></span>
-        <%= icon "arrow-up-s-line", class: "w-8 h-8 flex-none text-secondary fill-current"%>
+        <%= icon "arrow-down-s-line", class: "w-8 h-8 flex-none text-secondary fill-current"%>
       </span>
     <%- end %>
   <% end %>

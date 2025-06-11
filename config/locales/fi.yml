@@ -42,6 +42,11 @@ fi:
       home:
         custom_hero:
           participate_title: Osallistu prosesseihin alustalla
+    shared:
+      filters:
+        collection:
+          choose: Valitse
+          show: "Näytä:"
   layouts:
     decidim:
       shared:
