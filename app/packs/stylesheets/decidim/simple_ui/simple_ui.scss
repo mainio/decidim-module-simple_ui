@@ -29,6 +29,8 @@ header {
 }
 
 footer {
+  @apply mb-0;
+
   .main-footer__down {
     @apply border-t-0 flex flex-wrap items-center gap-6 container py-6 text-white;
   }
