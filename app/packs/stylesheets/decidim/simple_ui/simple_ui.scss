@@ -73,10 +73,10 @@ footer {
 }
 
 .button--social {
-  @apply w-full h-16;
+  @apply max-[465px]:h-auto flex items-stretch w-full h-16;
 
   &__icon {
-    @apply bg-[#002ba0] mr-px h-full w-[70px] flex items-center;
+    @apply bg-[#002ba0] mr-px w-[70px] flex items-center;
 
     svg {
       @apply h-8 w-8 mx-auto fill-white;
@@ -84,7 +84,12 @@ footer {
   }
 
   &__text {
-    @apply bg-[#002ba0] h-full w-10/12 text-xl text-white;
+    @apply bg-[#002ba0] h-full w-10/12 text-xl text-white flex justify-center items-center;
+  }
+
+  &.is-hover,
+  &:not([disabled]):not([class*="button__text"]):not(label):hover {
+    @apply hover:bg-transparent;
   }
 }
 
@@ -206,6 +211,10 @@ footer {
 }
 
 #voted-budgets {
+  .budget__card__highlight-vote {
+    @apply mt-0;
+  }
+
   .card__highlight-text {
     @apply gap-0;
   }
@@ -213,10 +222,6 @@ footer {
   a {
     @apply pb-0;
   }
-}
-
-.card--list__item {
-  @apply h-40;
 }
 
 .start-vote-button {
@@ -313,17 +318,6 @@ footer {
 
 header .main-bar__links-desktop svg {
   @apply h-8 w-8;
-}
-
-.button--social {
-  &.is-hover,
-  &:not([disabled]):not([class*="button__text"]):not(label):hover {
-    @apply hover:bg-transparent;
-  }
-}
-
-.button--social__text {
-  @apply flex justify-center items-center;
 }
 
 .participatory-space__hero {

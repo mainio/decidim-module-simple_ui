@@ -14,7 +14,7 @@
   <% unless strong_providers.empty? %>
     <%= wrapper.call do %>
       <div class="strong-providers">
-        <div class="row w-9/12 mx-auto">
+        <div class="row xl:w-9/12 mx-auto">
           <div class="space-y-6 columns medium-8 medium-centered text-center">
             <%- strong_providers.each do |provider| %>
               <div class="social-register">
@@ -40,7 +40,7 @@
         <div class="text-center mb-2 font-semibold w-6/12 mx-auto">
           <p><%= t("devise.shared.links.sign_in_with_omniauth") %> </p>
         </div>
-        <div class="row w-9/12 mx-auto">
+        <div class="row xl:w-9/12 mx-auto">
           <div class="space-y-6 columns medium-8 medium-centered text-center">
             <%- other_providers.each do |provider| %>
               <div class="social-register">
