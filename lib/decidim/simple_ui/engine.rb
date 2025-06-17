@@ -36,6 +36,9 @@ module Decidim
           Decidim::ContentBlocks::ParticipatorySpaceHeroCell.include(
             Decidim::SimpleUi::ParticipatorySpaceHeroCellExtensions
           )
+          Decidim::ContentBlocks::ParticipatorySpaceMetadataCell.include(
+            Decidim::SimpleUi::ParticipatorySpaceMetadataCellExtensions
+          )
 
           # Helper extensions
           Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper.include(Decidim::SimpleUi::ParticipatoryProcessHelperExtensions)

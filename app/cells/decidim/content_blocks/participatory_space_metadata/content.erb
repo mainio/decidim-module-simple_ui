@@ -1,0 +1,48 @@
+<div class="participatory-space__metadata-steps">
+  <h2 class="h2"><%= t("participatory_process_steps.index.process_steps", scope: "decidim") %></h2>
+    <div>
+      <div class="participatory-space__metadata-steps__list-container" data-component="accordion" data-multiselectable="false" data-collapsible="false">
+        <ol class="participatory-space__metadata-steps__list">
+          <% resource.steps.each_with_index do |step, i| %>
+            <li>
+              <%# NOTE: The following markup is duplicated to fulfill a11y requirements %>
+              <% if resource.steps.length == 1 %>
+                <div id="trigger-process-steps-<%= i %>" class="participatory-space__metadata-steps__step<%= " is-active" if step.active %>">
+                  <span><%= step.position + 1 %></span>
+                  <span>
+                    <span class="participatory-space__metadata-steps__step-title">
+                      <span class="participatory-space__metadata-steps__step-current"><%= t("active_step", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
+                      <%= decidim_escape_translated(step.title) %>
+                    </span>
+
+                    <div id="panel-process-steps-<%= i %>" class="editor-content">
+                      <%= decidim_sanitize_editor_admin(translated_attribute(step.description)) %>
+                    </div>
+
+                    <span class="participatory-space__metadata-steps__step-dates"><%= step_dates(step) %></span>
+                  </span>
+                </div>
+              <% else %>
+                <div class="participatory-space__metadata-steps__step<%= " is-active" if step.active %>">
+                  <span><%= step.position + 1 %></span>
+                  <span>
+                    <span class="participatory-space__metadata-steps__step-title">
+                      <span class="participatory-space__metadata-steps__step-current"><%= t("active_step", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
+                      <span class="step-title"><%= decidim_escape_translated(step.title) %></span>
+                    </span>
+
+                    <span class="participatory-space__metadata-steps__step-dates"><%= step_dates(step) %></span>
+
+                    <div id="panel-process-steps-<%= i %>" class="editor-content text-black">
+                      <%= decidim_sanitize_editor_admin(translated_attribute(step.description)) %>
+                    </div>
+                  </span>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

@@ -37,7 +37,7 @@ edit_link(
                 <div id="panel-<%= ix %>" class="page__panel">
                   <ul role="menu">
                     <% topic.pages.each do |page| %>
-                      <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary font-bold" %></li>
+                      <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary font-bold break-all" %></li>
                     <% end %>
                   </ul>
                 </div>
