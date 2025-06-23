@@ -2,7 +2,7 @@
   <div class="mb-10">
     <h1 class="h1 text-center">
       <% if translated_title.blank? %>
-        <%= t("decidim.pages.home.pb_guideline.title", organization: current_organization.name) %>
+        <%= t("decidim.pages.home.guideline.title", organization: current_organization.name) %>
       <% else %>
         <%= decidim_sanitize_admin translated_title %>
       <% end %>
@@ -55,9 +55,5 @@
     <% end %>
   </div>
 
-  <div class="text-center mt-6">
-    <a class="button button__lg md:button__xl button__secondary" title="Tutustu prosessiin" href="/pages">
-      <span><%= t(".info") %></span>
-    </a>
-  </div>
+  <%= render :cta_button %>
 </div>

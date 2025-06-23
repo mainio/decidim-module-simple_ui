@@ -71,17 +71,20 @@ module Decidim
           settings.attribute :title, type: :text, translated: true
           settings.attribute :description, type: :text, translated: true
           settings.attribute :button_text, type: :text, translated: true
+          settings.attribute :button_url, type: :text, translated: true
         end
       end
 
-      Decidim.content_blocks.register(:homepage, :pb_guideline) do |content_block|
-        content_block.cell = "decidim/content_blocks/pb_guideline"
-        content_block.public_name_key = "decidim.content_blocks.pb_guideline.name"
-        content_block.settings_form_cell = "decidim/content_blocks/pb_guideline_settings_form"
+      Decidim.content_blocks.register(:homepage, :guideline) do |content_block|
+        content_block.cell = "decidim/content_blocks/guideline"
+        content_block.public_name_key = "decidim.content_blocks.guideline.name"
+        content_block.settings_form_cell = "decidim/content_blocks/guideline_settings_form"
 
         content_block.settings do |settings|
           settings.attribute :title, type: :text, translated: true
           settings.attribute :steps, type: :array
+          settings.attribute :button_text, type: :text, translated: true
+          settings.attribute :button_url, type: :text, translated: true
         end
       end
 
@@ -94,6 +97,7 @@ module Decidim
           settings.attribute :title, type: :text, translated: true
           settings.attribute :description, type: :text, translated: true
           settings.attribute :button_text, type: :text, translated: true
+          settings.attribute :button_url, type: :text, translated: true
         end
       end
     end

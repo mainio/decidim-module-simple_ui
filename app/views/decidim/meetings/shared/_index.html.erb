@@ -1,0 +1,51 @@
+<% add_decidim_page_title(t("decidim.meetings.directory.meetings.index.meetings")) %>
+
+<%= append_stylesheet_pack_tag "decidim_meetings", media: "all" %>
+<%= append_javascript_pack_tag "decidim_meetings" %>
+
+<% content_for :aside do %>
+  <%= render partial: "decidim/meetings/shared/meetings_aside", locals: { main_action: true, search_variable:, filter_options:, component: } %>
+<% end %>
+
+<div class="space-y-8 py-6">
+  <div class="w-4/6 mx-auto">
+    <% if display_map %>
+      <div class="simple-map">
+        <%= cell "decidim/meetings/meetings_map", search.result %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row column component-background">
+    <div class="w-4/6 mx-auto space-y-4">
+      <h1 id="proposals-count" class="title-decorator text-center"><%= translated_attribute(component.name) %></h1>
+
+      <p class="text-center text-xl"><%= t(".intro", component: translated_attribute(component.name)) %></p>
+    </div>
+  </div>
+
+  <div class="row column w-4/6 mx-auto">
+    <% unless meetings.length.zero? %>
+      <h2 class="h2 decorator"><%= t("meetings_count", scope: "decidim.meetings.meetings.count", count: meetings.total_count) %></h2>
+    <% end %>
+  </div>
+
+  <div class="w-4/6 mx-auto">
+    <div class="flex justify-between gap-10">
+      <div class="border border-background h-min">
+        <%= render partial: "decidim/meetings/shared/filters", locals: {
+              search_variable:,
+              filter_options: filter_options || {}
+            } %>
+      </div>
+
+      <% if display_announcement %>
+        <%= render partial: "decidim/shared/component_announcement" %>
+      <% end %>
+
+      <section id="meetings" class="layout-main__section layout-main__heading w-full">
+        <%= render partial: "decidim/meetings/shared/meetings", locals: { component: } %>
+      </section>
+    </div>
+  </div>
+</div>

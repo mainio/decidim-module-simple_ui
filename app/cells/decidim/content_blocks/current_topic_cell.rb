@@ -23,6 +23,10 @@ module Decidim
         translated_attribute(model.settings.button_text)
       end
 
+      def button_url
+        translated_attribute(model.settings.button_url)
+      end
+
       private
 
       # A MD5 hash of model attributes because is needed because

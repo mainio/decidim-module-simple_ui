@@ -1,6 +1,18 @@
 ---
 en:
   decidim:
+    accountability:
+      result_l:
+        explore: Open
+      results:
+        home:
+          intro: "The %{component} component allows participants to know the status of a project’s implementation and to follow its evolution."
+    blogs:
+      post_l:
+        explore: Open
+      posts:
+        index:
+          intro: The %{component} component allows people to read multiple posts ordered by date.
     content_blocks:
       custom_hero:
         name: Customizable hero
@@ -9,10 +21,11 @@ en:
         title: Title
         description: Description
         button_text: CTA -button text
+        button_url: CTA -button URL
         hero_image: Home image
-      pb_guideline:
-        name: Participatory budgeting guideline
-        title: Participatory budgeting guideline
+      guideline:
+        name: Guideline
+        title: Guideline
         idea: Idea
         idea_desc: Share your ideas about how the city's budget should be used.
         develop: Develop
@@ -22,9 +35,11 @@ en:
         follow: Follow
         follow_desc: Follow the execution of projects and take part in developing them by commenting.
         info: Read more
-      pb_guideline_settings_form:
+      guideline_settings_form:
         title: Title
         steps: Steps
+        button_text: CTA -button text
+        button_url: CTA -button URL
         idea: Idea
         develop: Develop
         vote: Vote
@@ -35,13 +50,32 @@ en:
         title: Title
         description: Description
         button_text: CTA -button text
+        button_url: CTA -button URL
     components:
       simple_ui:
         name: SimpleUi
+    debates:
+      debate_l:
+        explore: Open
+      debates:
+        index:
+          intro: "The %{component} component allows people to have discussions, without voting nor prioritization. It also allows to close debates, by adding conclusions or a summary of what the discussion was about."
+    meetings:
+      meeting_l:
+        explore: Open
+      shared:
+        index:
+          intro: "%{component} are where people come together to discuss or inform about a given topic."
     pages:
       home:
         custom_hero:
-          participate_title: Osallistu prosesseihin alustalla
+          participate_title: Participate
+    proposals:
+      proposal_l:
+        explore: Open
+      proposals:
+        index:
+          intro: The %{component} component allows people to create, comment, and give support to different proposals.
     shared:
       filters:
         collection:

@@ -1,0 +1,9 @@
+<% if debates.empty? %>
+  <%= cell("decidim/announcement", params[:filter].present? ? t(".empty_filters") : t(".empty")) %>
+<% else %>
+  <div class="card__list-list">
+    <%= render paginated_debates %>
+  </div>
+
+  <%= decidim_paginate paginated_debates %>
+<% end %>

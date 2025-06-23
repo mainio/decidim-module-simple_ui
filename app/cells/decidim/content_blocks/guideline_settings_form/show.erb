@@ -2,6 +2,7 @@
   <div class="row column">
     <%= settings_fields.translated :text_field, :title, label: t(".title") %>
   </div>
+
   <div class="row column">
     <%= settings_fields.label :steps, t(".steps") %>
 
@@ -13,5 +14,13 @@
         </label>
       </div>
     <% end %>
+  </div>
+
+  <div class="row column">
+    <%= settings_fields.translated :text_field, :button_text, label: t(".button_text") %>
+  </div>
+
+  <div class="row column">
+    <%= settings_fields.translated :text_field, :button_url, label: t(".button_url") %>
   </div>
 <% end %>

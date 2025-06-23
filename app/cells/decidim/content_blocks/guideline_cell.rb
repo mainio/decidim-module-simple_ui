@@ -2,11 +2,19 @@
 
 module Decidim
   module ContentBlocks
-    class PbGuidelineCell < Decidim::ViewModel
+    class GuidelineCell < Decidim::ViewModel
       include Decidim::SanitizeHelper
 
       def translated_title
         translated_attribute(model.settings.title)
+      end
+
+      def translated_button_text
+        translated_attribute(model.settings.button_text)
+      end
+
+      def button_url
+        translated_attribute(model.settings.button_url)
       end
 
       def render?(step)
@@ -19,7 +27,7 @@ module Decidim
       # the model does not respond to cache_key_with_version nor updated_at method
       def cache_hash
         hash = []
-        hash << "decidim/content_blocks/pb_guideline"
+        hash << "decidim/content_blocks/guideline"
         hash << Digest::MD5.hexdigest(model.attributes.to_s)
         hash << current_organization.cache_key_with_version
         hash << I18n.locale.to_s

@@ -2,7 +2,7 @@
 
 module Decidim
   module ContentBlocks
-    class PbGuidelineSettingsFormCell < Decidim::ViewModel
+    class GuidelineSettingsFormCell < Decidim::ViewModel
       alias form model
 
       def content_block

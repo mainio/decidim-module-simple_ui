@@ -23,6 +23,10 @@ module Decidim
         translated_attribute(model.settings.button_text)
       end
 
+      def button_url
+        translated_attribute(model.settings.button_url)
+      end
+
       def hero_image
         model.images_container.attached_uploader(:hero_image).url
       end

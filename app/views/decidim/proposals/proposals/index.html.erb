@@ -1,0 +1,79 @@
+<% add_decidim_page_title(t("name", scope: "decidim.components.proposals")) %>
+
+<% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
+<% append_javascript_pack_tag "decidim_proposals" %>
+
+<div class="space-y-8 py-6">
+  <div class="row column component-background">
+    <div class="w-4/6 mx-auto space-y-4">
+      <h1 id="proposals-count" class="title-decorator text-center"><%= component_name %></h1>
+
+      <p class="text-center text-xl"><%= t(".intro", component: component_name) %></p>
+
+      <div class="w-4/6 mx-auto flex gap-4">
+        <% if component_settings.collaborative_drafts_enabled? %>
+          <%= link_to collaborative_drafts_path, class: "button button__lg button__transparent-secondary w-3/6" do %>
+            <span><%= t("collaborative_drafts_list", scope: "decidim.proposals.proposals.index") %></span>
+            <%= icon "edit-2-line" %>
+          <% end %>
+        <% end %>
+
+        <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
+          <%= action_authorized_link_to :create, new_proposal_path, class: "button button__lg button__secondary w-3/6", data: { "redirect_url" => new_proposal_path } do %>
+            <span><%= t("new_proposal", scope: "decidim.proposals.proposals.index") %></span>
+            <%= icon "add-line" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row column w-4/6 mx-auto">
+    <% unless @proposals.empty? %>
+      <h2 class="h2 decorator"><%= t("count", scope: "decidim.proposals.proposals.index", count: @proposals.total_count) %></h2>
+    <% end %>
+  </div>
+
+  <div class="w-4/6 mx-auto">
+    <div class="flex justify-between gap-10">
+      <div class="border border-background h-min">
+        <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont, skip_to_id: "proposals" } do %>
+          <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+        <% end %>
+      </div>
+
+      <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
+        <div class="proposal-list__map">
+          <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
+            <template id="marker-popup">
+              <div class="space-y-6">
+                <a href="${link}" class="card__list">
+                  <div class="card__list-content">
+                    <h3 class="h4 card__list-title">${title}</h3>
+                    <div class="card__list-metadata">
+                      {{each JSON.parse(items)}}
+                        <span>{{html icon}}{{html text}}</span>
+                      {{/each}}
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </template>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= render partial: "decidim/shared/component_announcement" %>
+
+      <% if show_voting_rules? %>
+        <section class="layout-main__section">
+          <%= render partial: "voting_rules" %>
+        </section>
+      <% end %>
+
+      <section id="proposals" class="layout-main__section layout-main__heading w-full">
+        <%= render partial: "proposals" %>
+      </section>
+    </div>
+  </div>
+</div>

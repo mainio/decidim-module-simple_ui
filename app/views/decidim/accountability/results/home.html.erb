@@ -1,0 +1,44 @@
+<% add_decidim_page_title component_name %>
+<%= append_javascript_pack_tag "decidim_accountability" %>
+<%= append_stylesheet_pack_tag "decidim_accountability" %>
+
+<div class="space-y-8 py-6">
+  <div class="row column component-background">
+    <div class="w-4/6 mx-auto space-y-4 text-center">
+      <h1 class="title-decorator"><%= component_name %></h1>
+
+      <% if component_settings.intro %>
+        <p class="text-center text-xl"><%= decidim_sanitize_admin translated_attribute(component_settings.intro) %></p>
+      <% else %>
+        <p class="text-center text-xl"><%= t(".intro", component: component_name) %></p>
+      <% end %>
+
+      <% if component_settings.display_progress_enabled? %>
+        <%= cell(
+              "decidim/accountability/status",
+              nil,
+              title: t("decidim.accountability.results.home_header.global_status"),
+              progress: progress_calculator(current_scope, nil).presence,
+              extra_classes: "accountability__status__home"
+            ) %>
+      <% end %>
+
+      <%= render partial: "scope_filters" %>
+    </div>
+  </div>
+
+  <div class="w-4/6 mx-auto">
+    <section>
+      <% if first_class_categories.empty? %>
+        <%= cell("decidim/announcement",
+                params[:filter].present? ?
+                t("empty_filters", scope: "decidim.accountability.results.home") :
+                t("empty", scope: "decidim.accountability.results.home")) %>
+      <% end %>
+
+      <% results.each do |result| %>
+        <%= cell "decidim/accountability/result_l", result, url_extra_params: { included_in: result.to_gid } %>
+      <% end %>
+    </section>
+  </div>
+</div>

@@ -138,6 +138,16 @@ footer {
   }
 }
 
+.component-background {
+  @apply bg-[#f2fcfd] py-4;
+}
+
+#highlighted-processes {
+  .card__highlight {
+    @apply hover:ring-[--primary];
+  }
+}
+
 #budgets.card__list-list {
   @apply w-3/5 mx-auto;
 
@@ -225,7 +235,7 @@ footer {
 }
 
 .start-vote-button {
-  @apply rounded-none w-60 h-12 text-xl;
+  @apply rounded-none h-12 text-xl;
 }
 
 .pre-voting-budget-summary {
@@ -492,5 +502,35 @@ header .main-bar__links-desktop svg {
 .active-caret {
   svg {
     @apply fill-[--primary];
+  }
+}
+
+.card__list {
+  @apply border border-background hover:border-background px-0;
+}
+
+.card__list-content {
+  @apply flex flex-row justify-between w-full h-32;
+}
+
+.simple-card-button {
+  @apply button button__lg button__secondary;
+}
+
+.meeting-list__map {
+  @apply md:mt-0 md:ml-0;
+}
+
+.simple-map {
+  @apply aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
+}
+
+a.card__list[id^="accountability__result_"] {
+  @apply gap-0;
+}
+
+.form-defaults {
+  input[type="search"]:not(.reset-defaults) {
+    @apply bg-white;
   }
 }

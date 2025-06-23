@@ -1,6 +1,18 @@
 ---
 fi:
   decidim:
+    accountability:
+      result_l:
+        explore: Tutustu
+      results:
+        home:
+          intro: "%{component} -komponentin avulla voit seurata hankkeiden edistymistä."
+    blogs:
+      post_l:
+        explore: Tutustu
+      posts:
+        index:
+          intro: "%{component} -komponentti listaa blogikirjoituksia jotka ovat ihmisten luettavissa."
     content_blocks:
       custom_hero:
         name: Muokattava pääkuva
@@ -9,10 +21,11 @@ fi:
         title: Otsikko
         description: Kuvaus
         button_text: CTA -painikkeen teksti
+        button_url: CTA -painikkeen URL
         hero_image: Pääkuva
-      pb_guideline:
-        name: Osallistuvan budjetoinnin ohjeistus
-        title: Osallistuvan budjetoinnin ohjeistus
+      guideline:
+        name: Ohjeistus
+        title: Ohjeistus
         idea: Ideoi
         idea_desc: Kerro omia ideoitasi siitä, mitä kunnan tulisi sinun mielestäsi tehdä tai toteuttaa varoilla.
         develop: Kehitä
@@ -22,9 +35,11 @@ fi:
         follow: Seuraa
         follow_desc: Seuraa hankkeiden toteutumista ja osallistu hankkeiden kehittämiseen kommentoimalla.
         info: Tutustu prosessiin
-      pb_guideline_settings_form:
+      guideline_settings_form:
         title: Otsikko
         steps: Vaiheet
+        button_text: CTA -painikkeen teksti
+        button_url: CTA -painikkeen URL
         idea: Ideoi
         develop: Kehitä
         vote: Äänestä
@@ -35,13 +50,32 @@ fi:
         title: Otsikko
         description: Kuvaus
         button_text: CTA -painikkeen teksti
+        button_url: CTA -painikkeen URL
     components:
       simple_ui:
         name: SimpleUi
+    debates:
+      debate_l:
+        explore: Tutustu
+      debates:
+        index:
+          intro: "%{component} -komponentti mahdollistaa keskustelun ilman äänestämistä tai priorisointia. Keskusteluja voi myös sulkea lisäämällä sille yhteenvedon."
+    meetings:
+      meeting_l:
+        explore: Tutustu
+      shared:
+        index:
+          intro: "%{component} ovat tilaisuuksia, joissa ihmiset kokoontuvat keskustelemaan tai jakamaan tietoa tietystä aiheesta."
     pages:
       home:
         custom_hero:
           participate_title: Osallistu prosesseihin alustalla
+    proposals:
+      proposal_l:
+        explore: Tutustu
+      proposals:
+        index:
+          intro: "%{component} -komponentin avulla voit luoda, kommentoida ja tukea erilaisia ehdotuksia."
     shared:
       filters:
         collection:
