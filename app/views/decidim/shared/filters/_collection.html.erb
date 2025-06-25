@@ -1,12 +1,11 @@
 <% if id == "process-date" %>
-  <div class="filter-container flex flex-col items-end" role="menuitem">
-    <div class="flex justify-end items-center text-lg">
-      <span class="mr-2"><%= t(".show") %></span>
-      <button class="datefilter-dropdown">
-        <span class="active-filter"><%= t(".choose") %></span>
-        <%= icon "arrow-down-s-line", class: "h-6 w-6 mt-px transition-transform duration-300" %>
-      </button>
-    </div>
+  <div class="relative inline-block text-left flex items-center gap-2">
+    <span class="text-lg"><%= t(".show") %></span>
+    <button class="datefilter-dropdown">
+      <span class="active-filter"><%= t(".choose") %></span>
+      <%= icon "arrow-down-s-line", class: "h-6 w-6 mt-px transition-transform duration-300" %>
+    </button>
+
     <div id="panel-dropdown-menu-process-date" class="dropdown-menu-process-date hidden">
       <%= form.send(
           "collection_#{builder_type}",

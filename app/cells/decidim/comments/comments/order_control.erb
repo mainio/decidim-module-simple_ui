@@ -1,0 +1,47 @@
+<div class="relative inline-block text-left flex items-center gap-2">
+  <span class="text-lg"><%= t(".order") %></span>
+  <button
+    id="comment-dropdown-button"
+    type="button"
+    class="inline-flex justify-center items-center w-full border border-black p-1 bg-white text-md relative"
+  >
+    <%= t("decidim.components.comment_order_selector.order.#{order}") %>
+    <%= icon "arrow-down-s-line", class: "h-6 w-6 mt-px transition-transform duration-300" %>
+  </button>
+
+  <div
+    id="comment-dropdown-menu"
+    class="hidden absolute w-56 top-full bg-white border border-background z-50"
+  >
+    <div class="py-1" role="menu" aria-orientation="vertical">
+      <% available_orders.each do |order_value| %>
+        <%= link_to(
+          t("decidim.components.comment_order_selector.order.#{order_value}"),
+          decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value, reload: 1),
+          remote: true,
+          class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 #{'font-bold underline' if order_value == order}",
+          role: "menuitem",
+          aria: { controls: threads_node_id }
+        ) %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById("comment-dropdown-button");
+    const menu = document.getElementById("comment-dropdown-menu");
+
+    button.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!menu.contains(e.target) && !button.contains(e.target)) {
+        menu.classList.add("hidden");
+      }
+    });
+  });
+</script>

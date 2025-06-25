@@ -23,12 +23,11 @@ $(() => {
   })
 
   const datefilterDropdown = document.querySelector(".datefilter-dropdown");
-  const processDateMenu = document.getElementById("panel-dropdown-menu-process-date");
   const caret = datefilterDropdown.querySelector("svg");
 
   datefilterDropdown.addEventListener("click", (ev) => {
     ev.preventDefault();
-    processDateMenu.classList.toggle("hidden");
+    processDate.classList.toggle("hidden");
     caret.classList.toggle("rotate-180");
   })
 })

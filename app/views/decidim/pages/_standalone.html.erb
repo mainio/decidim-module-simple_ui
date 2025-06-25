@@ -1,0 +1,21 @@
+<div class="w-4/6 mx-auto">
+  <div class="text-left py-12">
+    <h1 class="h1 decorator inline-block text-left">
+      <%= title %>
+    </h1>
+  </div>
+
+  <div class="page__container w-4/6 mb-16">
+    <%= cell "decidim/tos_page", :announcement %>
+
+    <div class="editor-content">
+      <% page_content_blocks.each do |content_block| %>
+        <%= cell content_block.manifest.cell, content_block %>
+      <% end %>
+
+      <%= decidim_sanitize_editor_admin translated_attribute page.content %>
+    </div>
+
+    <%= cell "decidim/tos_page", :form %>
+  </div>
+</div>

@@ -51,6 +51,9 @@ fi:
         description: Kuvaus
         button_text: CTA -painikkeen teksti
         button_url: CTA -painikkeen URL
+    comments:
+      comments:
+        order: "Järjestä: "
     components:
       simple_ui:
         name: SimpleUi

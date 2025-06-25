@@ -51,6 +51,9 @@ en:
         description: Description
         button_text: CTA -button text
         button_url: CTA -button URL
+    comments:
+      comments:
+        order: "Order: "
     components:
       simple_ui:
         name: SimpleUi

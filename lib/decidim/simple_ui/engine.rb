@@ -41,7 +41,9 @@ module Decidim
           )
 
           # Helper extensions
-          Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper.include(Decidim::SimpleUi::ParticipatoryProcessHelperExtensions)
+          Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper.include(
+            Decidim::SimpleUi::ParticipatoryProcessHelperExtensions
+          )
         end
       end
 
