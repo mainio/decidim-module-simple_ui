@@ -1,0 +1,5 @@
+var $proposals = $('#proposals');
+var $proposalCount = $('#proposal-count');
+
+$proposals.html('<%= j(render partial: "proposals").strip.html_safe %>');
+morphdom($proposalCount[0], '<%= j(render partial: "count").strip.html_safe %>');

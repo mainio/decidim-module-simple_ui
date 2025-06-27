@@ -3,10 +3,6 @@
 <%= append_stylesheet_pack_tag "decidim_meetings", media: "all" %>
 <%= append_javascript_pack_tag "decidim_meetings" %>
 
-<% content_for :aside do %>
-  <%= render partial: "decidim/meetings/shared/meetings_aside", locals: { main_action: true, search_variable:, filter_options:, component: } %>
-<% end %>
-
 <div class="space-y-8 py-6">
   <div class="w-4/6 mx-auto">
     <% if display_map %>
@@ -18,7 +14,7 @@
 
   <div class="row column component-background">
     <div class="w-4/6 mx-auto space-y-4">
-      <h1 id="proposals-count" class="title-decorator text-center"><%= translated_attribute(component.name) %></h1>
+      <h1 class="title-decorator text-center"><%= translated_attribute(component.name) %></h1>
 
       <p class="text-center text-xl"><%= t(".intro", component: translated_attribute(component.name)) %></p>
     </div>
@@ -26,7 +22,9 @@
 
   <div class="row column w-4/6 mx-auto">
     <% unless meetings.length.zero? %>
-      <h2 class="h2 decorator"><%= t("meetings_count", scope: "decidim.meetings.meetings.count", count: meetings.total_count) %></h2>
+      <h2 id="meeting-count" class="h2 decorator">
+        <%= t("meetings_count", scope: "decidim.meetings.meetings.count", count: meetings.total_count) %>
+      </h2>
     <% end %>
   </div>
 
@@ -43,9 +41,9 @@
         <%= render partial: "decidim/shared/component_announcement" %>
       <% end %>
 
-      <section id="meetings" class="layout-main__section layout-main__heading w-full">
+      <main id="meetings" class="layout-main__section layout-main__heading w-full">
         <%= render partial: "decidim/meetings/shared/meetings", locals: { component: } %>
-      </section>
+      </main>
     </div>
   </div>
 </div>

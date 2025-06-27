@@ -1,7 +1,7 @@
 <div class="py-12 homepage-content_block">
-  <div class="flex flex-col space-y-8 items-center justify-center md:flex-row">
+  <div class="flex flex-col space-y-8 justify-center md:flex-row">
     <div class="w-1/2 md:w-1/3 md:space-y-12">
-      <h1 class="h1 md:w-2/3">
+      <h1 class="h1 md:w-5/6">
         <% if translated_title.blank? %>
           <%= t("decidim.pages.home.custom_hero.title", organization: current_organization.name) %>
         <% else %>
@@ -19,8 +19,8 @@
       <%= render :cta_button %>
     </div>
 
-    <div class="px-8 md:w-1/3 md:px-0">
-      <%= image_tag hero_image %>
+    <div class="px-8 md:w-1/3 md:px-0 aspect-square">
+      <%= image_tag hero_image, alt: image_alt %>
     </div>
   </div>
 </div>

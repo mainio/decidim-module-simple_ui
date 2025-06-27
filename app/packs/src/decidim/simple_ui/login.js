@@ -2,7 +2,7 @@ $(() => {
   const revealButton = document.querySelector(".register__separator");
   const loginForm = document.getElementById("session_new_user");
   const svgIcon = revealButton.querySelector("svg");
-  const alert = document.querySelector(".flash.alert");
+  const alert = document.querySelector("header>.container>.flash.alert");
 
   if (alert) {
     loginForm.classList.toggle("hidden");

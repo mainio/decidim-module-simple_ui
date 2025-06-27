@@ -1,5 +1,5 @@
 <div class="relative inline-block text-left flex items-center gap-2">
-  <span class="text-lg"><%= t(".order") %></span>
+  <span class="text-md"><%= t(".order") %></span>
   <button
     id="comment-dropdown-button"
     type="button"
@@ -29,9 +29,13 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  function initializeDropdown() {
     const button = document.getElementById("comment-dropdown-button");
     const menu = document.getElementById("comment-dropdown-menu");
+
+    if (!button || !menu || button.dataset.bound) return;
+
+    button.dataset.bound = true;
 
     button.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -43,5 +47,26 @@
         menu.classList.add("hidden");
       }
     });
+  }
+
+  function observeComments() {
+    const commentsContainer = document.querySelector('aside[aria-label="comments"]');
+
+    if (!commentsContainer) return;
+
+    const observer = new MutationObserver(() => {
+      const comments = document.querySelector("[data-decidim-comments]");
+      if (comments && !comments.dataset.processed) {
+        comments.dataset.processed = "true";
+        initializeDropdown();
+      }
+    })
+
+    observer.observe(commentsContainer, { childList: true, subtree: true });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initializeDropdown();
+    observeComments();
   });
 </script>

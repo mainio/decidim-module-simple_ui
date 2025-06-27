@@ -31,6 +31,10 @@ module Decidim
         model.images_container.attached_uploader(:hero_image).url
       end
 
+      def image_alt
+        translated_attribute(model.settings.image_alt).presence || File.basename(URI.parse(hero_image).path)
+      end
+
       private
 
       # A MD5 hash of model attributes because is needed because

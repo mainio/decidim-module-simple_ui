@@ -6,7 +6,7 @@
 <div class="space-y-8 py-6">
   <div class="row column component-background">
     <div class="w-4/6 mx-auto space-y-4">
-      <h1 id="proposals-count" class="title-decorator text-center"><%= component_name %></h1>
+      <h1 class="title-decorator text-center"><%= component_name %></h1>
 
       <p class="text-center text-xl"><%= t(".intro", component: component_name) %></p>
 
@@ -30,7 +30,7 @@
 
   <div class="row column w-4/6 mx-auto">
     <% unless @proposals.empty? %>
-      <h2 class="h2 decorator"><%= t("count", scope: "decidim.proposals.proposals.index", count: @proposals.total_count) %></h2>
+      <%= render partial: "count" %>
     <% end %>
   </div>
 
@@ -71,9 +71,9 @@
         </section>
       <% end %>
 
-      <section id="proposals" class="layout-main__section layout-main__heading w-full">
+      <main id="proposals" class="layout-main__section layout-main__heading w-full">
         <%= render partial: "proposals" %>
-      </section>
+      </main>
     </div>
   </div>
 </div>

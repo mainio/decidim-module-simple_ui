@@ -17,7 +17,7 @@
         <%= link_to t("skip", scope: "decidim.shared.filter_form_help"), "##{skip_to_id}", class: "filter-skip", role: "menuitem" %>
       <% end %>
 
-      <h5 class="h5 pb-2 text-md"><%= t(".search") %></h5>
+      <h6 class="pb-2 h6"><%= t(".search") %></h6>
       <% if local_assigns.has_key?(:search_variable) %>
         <div class="filter-search filter-container rounded-none border border-black bg-white" role="menuitem">
           <%= form.search_field search_variable,

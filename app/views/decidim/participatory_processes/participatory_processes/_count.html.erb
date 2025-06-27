@@ -1,3 +1,3 @@
 <% date_filter_text = %w(active upcoming past all).include?(params.dig(:filter, :with_date)) ? params.dig(:filter, :with_date) : default_date_filter %>
 
-<h2 id="process-count" class="h5 md:h3 decorator"><%= t(date_filter_text, scope: "decidim.participatory_processes.participatory_processes.filters.counters", count: collection.total_count) %></h2>
+<h2 id="process-count" class="h2 decorator"><%= t(date_filter_text, scope: "decidim.participatory_processes.participatory_processes.filters.counters", count: collection.total_count) %></h2>

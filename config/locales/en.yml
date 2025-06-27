@@ -23,6 +23,7 @@ en:
         button_text: CTA -button text
         button_url: CTA -button URL
         hero_image: Home image
+        image_alt: Image text
       guideline:
         name: Guideline
         title: Guideline

@@ -21,3 +21,9 @@
     <%= images_fields.upload :hero_image, label: t(".hero_image") %>
   </div>
 <% end %>
+
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <div class="row column">
+    <%= settings_fields.translated :text_field, :image_alt, label: t(".image_alt") %>
+  </div>
+<% end %>

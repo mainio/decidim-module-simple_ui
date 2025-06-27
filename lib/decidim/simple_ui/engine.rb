@@ -74,6 +74,7 @@ module Decidim
           settings.attribute :description, type: :text, translated: true
           settings.attribute :button_text, type: :text, translated: true
           settings.attribute :button_url, type: :text, translated: true
+          settings.attribute :image_alt, type: :text, translated: true
         end
       end
 

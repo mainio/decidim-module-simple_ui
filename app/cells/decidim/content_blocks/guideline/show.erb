@@ -1,12 +1,12 @@
 <div class="py-12 homepage-content_block space-y-8">
   <div class="mb-10">
-    <h1 class="h1 text-center">
+    <h2 class="h2 text-center">
       <% if translated_title.blank? %>
         <%= t("decidim.pages.home.guideline.title", organization: current_organization.name) %>
       <% else %>
         <%= decidim_sanitize_admin translated_title %>
       <% end %>
-    </h1>
+    </h2>
   </div>
 
   <div class="flex flex-col items-center space-y-8 md:flex-row md:justify-center md:gap-16 md:space-y-0">
@@ -16,8 +16,8 @@
           <%= icon("lightbulb-flash-line", class: "h-14 w-14") %>
         </div>
 
-        <h5 class="h5 my-4"><%= t(".idea") %></h5>
-        <p class="text-center text-lg"><%= t(".idea_desc") %></p>
+        <p class="h4 my-4"><%= t(".idea") %></p>
+        <p class="text-center text-base"><%= t(".idea_desc") %></p>
       </div>
     <% end %>
 
@@ -27,8 +27,8 @@
           <%= icon("settings-2-line", class: "h-14 w-14") %>
         </div>
 
-        <h5 class="h5 my-4"><%= t(".develop") %></h5>
-        <p class="text-center text-lg"><%= t(".develop_desc") %></p>
+        <p class="h4 my-4"><%= t(".develop") %></p>
+        <p class="text-center text-base"><%= t(".develop_desc") %></p>
       </div>
     <% end %>
 
@@ -38,8 +38,8 @@
           <%= icon("checkbox-multiple-line", class: "h-14 w-14") %>
         </div>
 
-        <h5 class="h5 my-4"><%= t(".vote") %></h5>
-        <p class="text-center text-lg"><%= t(".vote_desc") %></p>
+        <p class="h4 my-4"><%= t(".vote") %></p>
+        <p class="text-center text-base"><%= t(".vote_desc") %></p>
       </div>
     <% end %>
 
@@ -49,8 +49,8 @@
           <%= icon("eye-line", class: "h-14 w-14") %>
         </div>
 
-        <h5 class="h5 my-4"><%= t(".follow") %></h5>
-        <p class="text-center text-lg"><%= t(".follow_desc") %></p>
+        <p class="h4 my-4"><%= t(".follow") %></p>
+        <p class="text-center text-base"><%= t(".follow_desc") %></p>
       </div>
     <% end %>
   </div>

@@ -16,7 +16,7 @@
 
   <div class="row column w-4/6 mx-auto">
     <% unless debates.empty? %>
-      <h2 class="h2 decorator"><%= t("debates_count", scope: "decidim.debates.debates.count", count: paginated_debates.total_count) %></h2>
+      <%= render partial: "count"%>
     <% end %>
   </div>
 
@@ -30,9 +30,9 @@
 
       <%= render partial: "decidim/shared/component_announcement" %>
 
-      <section id="debates" class="layout-main__section layout-main__heading w-full">
+      <main id="debates" class="layout-main__section layout-main__heading w-full">
         <%= render partial: "debates" %>
-      </section>
+      </main>
     </div>
   </div>
 </div>

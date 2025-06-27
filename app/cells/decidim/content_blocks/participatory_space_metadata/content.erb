@@ -12,7 +12,7 @@
                   <span>
                     <span class="participatory-space__metadata-steps__step-title">
                       <span class="participatory-space__metadata-steps__step-current"><%= t("active_step", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
-                      <%= decidim_escape_translated(step.title) %>
+                      <h3 class="h3"><%= decidim_escape_translated(step.title) %></h3>
                     </span>
 
                     <div id="panel-process-steps-<%= i %>" class="editor-content">
@@ -28,12 +28,12 @@
                   <span>
                     <span class="participatory-space__metadata-steps__step-title">
                       <span class="participatory-space__metadata-steps__step-current"><%= t("active_step", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
-                      <span class="step-title"><%= decidim_escape_translated(step.title) %></span>
+                      <h3 class="step-title h3"><%= decidim_escape_translated(step.title) %></h3>
                     </span>
 
                     <span class="participatory-space__metadata-steps__step-dates"><%= step_dates(step) %></span>
 
-                    <div id="panel-process-steps-<%= i %>" class="editor-content text-black">
+                    <div id="panel-process-steps-<%= i %>" class="editor-content text-black text-md">
                       <%= decidim_sanitize_editor_admin(translated_attribute(step.description)) %>
                     </div>
                   </span>
