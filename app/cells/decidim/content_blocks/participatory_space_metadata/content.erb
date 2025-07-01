@@ -1,3 +1,5 @@
+<% active_step = resource.steps.find_index(&:active) %>
+
 <div class="participatory-space__metadata-steps">
   <h2 class="h2"><%= t("participatory_process_steps.index.process_steps", scope: "decidim") %></h2>
     <div>
@@ -15,7 +17,7 @@
                       <h3 class="h3"><%= decidim_escape_translated(step.title) %></h3>
                     </span>
 
-                    <div id="panel-process-steps-<%= i %>" class="editor-content">
+                    <div id="panel-process-steps-<%= i %>" class="editor-content text-black text-md mb-2">
                       <%= decidim_sanitize_editor_admin(translated_attribute(step.description)) %>
                     </div>
 
@@ -23,7 +25,7 @@
                   </span>
                 </div>
               <% else %>
-                <div class="participatory-space__metadata-steps__step<%= " is-active" if step.active %>">
+                <div class="participatory-space__metadata-steps__step<%= " is-active" if step.active %> <%= " is-future" if i > active_step %>">
                   <span><%= step.position + 1 %></span>
                   <span>
                     <span class="participatory-space__metadata-steps__step-title">
@@ -33,7 +35,7 @@
 
                     <span class="participatory-space__metadata-steps__step-dates"><%= step_dates(step) %></span>
 
-                    <div id="panel-process-steps-<%= i %>" class="editor-content text-black text-md">
+                    <div id="panel-process-steps-<%= i %>" class="editor-content text-black text-md mt-2">
                       <%= decidim_sanitize_editor_admin(translated_attribute(step.description)) %>
                     </div>
                   </span>

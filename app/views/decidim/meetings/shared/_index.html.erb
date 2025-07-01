@@ -3,8 +3,16 @@
 <%= append_stylesheet_pack_tag "decidim_meetings", media: "all" %>
 <%= append_javascript_pack_tag "decidim_meetings" %>
 
-<div class="space-y-8 py-6">
-  <div class="w-4/6 mx-auto">
+<div class="space-y-8">
+  <div class="row column component-background">
+    <div class="one-col mx-auto space-y-4">
+      <h1 class="title-decorator text-center"><%= translated_attribute(component.name) %></h1>
+
+      <p class="text-center text-xl"><%= t(".intro", component: translated_attribute(component.name)) %></p>
+    </div>
+  </div>
+
+  <div class="one-col mx-auto">
     <% if display_map %>
       <div class="simple-map">
         <%= cell "decidim/meetings/meetings_map", search.result %>
@@ -12,15 +20,7 @@
     <% end %>
   </div>
 
-  <div class="row column component-background">
-    <div class="w-4/6 mx-auto space-y-4">
-      <h1 class="title-decorator text-center"><%= translated_attribute(component.name) %></h1>
-
-      <p class="text-center text-xl"><%= t(".intro", component: translated_attribute(component.name)) %></p>
-    </div>
-  </div>
-
-  <div class="row column w-4/6 mx-auto">
+  <div class="row column one-col mx-auto">
     <% unless meetings.length.zero? %>
       <h2 id="meeting-count" class="h2 decorator">
         <%= t("meetings_count", scope: "decidim.meetings.meetings.count", count: meetings.total_count) %>
@@ -28,8 +28,8 @@
     <% end %>
   </div>
 
-  <div class="w-4/6 mx-auto">
-    <div class="flex justify-between gap-10">
+  <div class="double-col_off mx-auto">
+    <div>
       <div class="border border-background h-min">
         <%= render partial: "decidim/meetings/shared/filters", locals: {
               search_variable:,
@@ -40,10 +40,10 @@
       <% if display_announcement %>
         <%= render partial: "decidim/shared/component_announcement" %>
       <% end %>
-
-      <main id="meetings" class="layout-main__section layout-main__heading w-full">
-        <%= render partial: "decidim/meetings/shared/meetings", locals: { component: } %>
-      </main>
     </div>
+
+    <main id="meetings" class="layout-main__section layout-main__heading w-full">
+      <%= render partial: "decidim/meetings/shared/meetings", locals: { component: } %>
+    </main>
   </div>
 </div>

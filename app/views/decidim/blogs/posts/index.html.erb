@@ -2,9 +2,9 @@
 <%= append_javascript_pack_tag "decidim_blogs" %>
 <%= append_stylesheet_pack_tag "decidim_blogs" %>
 
-<div class="space-y-8 py-6">
+<div class="space-y-8">
   <div class="row column component-background">
-    <div class="w-4/6 mx-auto space-y-4 text-center">
+    <div class="one-col mx-auto space-y-4 text-center">
       <h1 class="title-decorator"><%= component_name %></h1>
 
       <p class="text-center text-xl"><%= t(".intro", component: component_name) %></p>
@@ -13,13 +13,13 @@
 
   <%= render partial: "decidim/shared/component_announcement" %>
 
-  <div class="row column w-4/6 mx-auto">
+  <div class="row column one-col mx-auto">
     <% unless posts.empty? %>
       <h2 class="h2 decorator"><%= t("count", scope: "decidim.blogs.posts.index", count: posts.length) %></h2>
     <% end %>
   </div>
 
-  <div class="w-4/6 mx-auto">
+  <div class="one-col mx-auto">
     <div class="flex justify-between gap-10">
       <section id="blogs" class="layout-main__section layout-main__heading">
         <% if posts.empty? %>

@@ -29,7 +29,7 @@ header {
 }
 
 footer {
-  @apply mb-0;
+  @apply mt-16;
 
   .main-footer__down {
     @apply border-t-0 flex flex-wrap items-center gap-6 container py-6 text-white;
@@ -37,10 +37,10 @@ footer {
 }
 
 .menu__bar {
-  @apply border-y border-gray-3;
+  @apply border-y-2 border-gray-3;
 
   &-container {
-    @apply justify-center;
+    @apply justify-center gap-16;
   }
 
   &-element--link {
@@ -144,11 +144,17 @@ footer {
 
 #highlighted-processes {
   .card__highlight {
-    @apply hover:ring-[--primary];
+    @apply hover:ring-[--primary] mb-8;
 
     &-text {
       @apply text-black text-md;
     }
+  }
+}
+
+#processes-grid {
+  a.card__grid {
+    @apply hover:ring-[--primary];
   }
 }
 
@@ -197,6 +203,24 @@ footer {
   span {
     @apply text-sm text-black truncate whitespace-nowrap first-letter:uppercase;
   }
+
+  &-container {
+    [data-controls*="panel"] {
+
+      & > span {
+        @apply text-black;
+      }
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      &:checked {
+        + span + span {
+          @apply w-full absolute top-0 left-0 bg-transparent h-full rounded block;
+        }
+      }
+    }
+  }
 }
 
 .page__grid {
@@ -211,7 +235,7 @@ footer {
 
 .simple-tabs {
   .vertical-tabs {
-    @apply mt-12;
+    @apply container mt-12;
 
     nav {
       @apply p-2 border-y border-background text-lg flex flex-col gap-4 items-center justify-center h-44 md:items-start;
@@ -283,18 +307,6 @@ header .main-bar__links-desktop svg {
   }
 }
 
-.participatory-space__hero {
-  @apply flex justify-between bg-[#f2fcfd] p-8;
-
-  .participatory-space__hero-text {
-    @apply w-full text-left pt-0 break-all xl:ml-28 xl:w-3/6;
-  }
-
-  .participatory-space__hero-slogan {
-    @apply text-black font-normal;
-  }
-}
-
 .participatory-space__nav-item {
   @apply bg-[--primary] text-white p-2 h-14 text-lg font-semibold pl-4 w-full xl:w-3/6;
 
@@ -305,14 +317,14 @@ header .main-bar__links-desktop svg {
 
 .participatory-space {
   &__hero {
-    @apply backdrop-brightness-[30%];
+    @apply double-col p-8 backdrop-brightness-100;
 
     &-text {
-      @apply container text-center text-white space-y-6 md:px-16 pt-10 pb-14 md:[&_a_+_a]:ml-6;
+      @apply text-left space-y-6 w-full p-0 md:[&_a_+_a]:ml-6;
     }
 
     &-slogan {
-      @apply text-lg font-semibold;
+      @apply text-lg text-black font-normal;
     }
   }
 
@@ -376,7 +388,7 @@ header .main-bar__links-desktop svg {
 
   &__metadata {
     &-steps {
-      @apply font-normal pb-16;
+      @apply font-normal;
 
       &__list {
         @apply space-y-6 relative;
@@ -386,19 +398,19 @@ header .main-bar__links-desktop svg {
         }
 
         > * {
-          @apply relative before:absolute before:w-px before:-z-10 before:left-[18px] before:bg-gray-3 before:h-[calc(100%+1.5rem)] last:before:h-[36px] before:-top-[18px] first:before:top-[18px];
+          @apply relative before:absolute before:w-px before:-z-10 before:left-8 before:bg-gray-3 before:h-[calc(100%+1.5rem)] last:before:h-[36px] before:-top-[18px] first:before:top-[18px];
         }
       }
 
       &__step {
-        @apply flex items-baseline gap-2 text-left;
+        @apply flex items-baseline gap-6 text-left;
 
         > :first-child {
-          @apply flex-none w-12 h-12 rounded-full inline-grid place-items-center text-black text-[32px] font-bold bg-background;
+          @apply flex-none w-16 h-16 rounded-full inline-grid place-items-center text-black text-[32px] font-bold bg-background;
         }
 
         > :last-child {
-          @apply flex flex-col gap-1.5 relative;
+          @apply flex flex-col gap-2 relative;
         }
 
         &-title {
@@ -427,6 +439,12 @@ header .main-bar__links-desktop svg {
         &.is-active {
           > :first-child {
             @apply bg-[--primary] text-white text-[32px] font-bold;
+          }
+        }
+
+        &.is-future {
+          > :first-child {
+            @apply bg-white text-[--primary] text-[32px] font-bold ring ring-[--primary];
           }
         }
       }
@@ -508,6 +526,87 @@ a.card__list[id^="accountability__result_"] {
 
 .page__container {
   .editor-content {
-    @apply text-md text-black;
+    @apply text-black text-md;
+  }
+}
+
+.vertical-tabs {
+  .editor-content {
+    .rich-text-display {
+      @apply text-black text-md;
+    }
+  }
+}
+
+.one-col {
+  @apply container grid grid-cols-1 py-5;
+}
+
+.double-col {
+  @apply container grid grid-cols-1 md:grid-cols-2 gap-4 py-5;
+}
+
+.double-col_off {
+  @apply container grid grid-cols-1 md:grid-cols-[1fr_5fr] gap-4 py-5;
+}
+
+.guideline {
+  @apply container flex flex-col items-center space-y-8 md:flex-row md:justify-between md:gap-24 md:space-y-0;
+}
+
+.process-banner {
+  @apply p-0 bg-[#f2fcfd];
+}
+
+#floating-helper-tip {
+  @apply hidden;
+}
+
+.accountability__status{
+  &-simple {
+    &_title {
+      @apply text-black mx-auto text-[28px] italic;
+    }
+    &_value {
+      @apply text-black mx-auto text-4xl font-bold;
+    }
+  }
+}
+
+.accountability__filters-simple {
+  @apply border border-background h-min p-2;
+
+  .filter-container {
+    @apply mt-8 pt-2 border-t border-background;
+  }
+
+  .filter-container-search {
+    @apply rounded-none border border-black bg-white;
+  }
+}
+
+#blogs {
+  .card__list {
+    @apply w-4/6;
+  }
+}
+
+.project-action-container {
+  @apply items-center py-4;
+
+  a {
+    @apply button__lg w-min mt-0;
+  }
+}
+
+.layout-item__aside {
+  @apply component-background h-min;
+
+  [id^="proposal-"][id$="vote-button"] {
+    @apply flex justify-center;
+
+    button {
+      @apply w-min;
+    }
   }
 }

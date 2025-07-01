@@ -1,0 +1,10 @@
+<p class="accountability__status-simple_title"><%= title %></p>
+
+<div class="accountability__status-simple_value">
+  <% if progress.present? %>
+    <span><%= display_percentage progress %></span>
+  <% end %>
+  <% if count %>
+    <span><%= count %></span>
+  <% end %>
+</div>

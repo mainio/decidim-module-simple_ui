@@ -1,7 +1,7 @@
 <%= append_javascript_pack_tag "decidim_accountability" %>
 <%= append_stylesheet_pack_tag "decidim_accountability" %>
 
-<div class="space-y-8 py-6">
+<div class="space-y-8">
   <div class="row column component-background">
     <div class="w-4/6 mx-auto space-y-4 text-center">
       <h1 class="title-decorator"><%= component_name %></h1>
@@ -17,16 +17,15 @@
               "decidim/accountability/status",
               nil,
               title: t("decidim.accountability.results.home_header.global_status"),
-              progress: progress_calculator(current_scope, nil).presence,
-              extra_classes: "accountability__status__home"
+              progress: progress_calculator(current_scope, nil).presence
             ) %>
       <% end %>
-
-      <%= render partial: "scope_filters" %>
     </div>
   </div>
 
-  <div class="w-4/6 mx-auto">
+  <div class="double-col mx-auto">
+    <%= render partial: "scope_filters" %>
+
     <section id="results">
       <%= cell "decidim/accountability/results", results %>
       <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope) %>

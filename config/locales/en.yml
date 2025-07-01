@@ -5,6 +5,12 @@ en:
       result_l:
         explore: Open
       results:
+        search:
+          search_bar: Search
+          search_placeholder: Search
+        scope_filters:
+          category: Scope
+          search_bar: Search
         home:
           intro: "The %{component} component allows participants to know the status of a project’s implementation and to follow its evolution."
     blogs:
@@ -74,6 +80,10 @@ en:
       home:
         custom_hero:
           participate_title: Participate
+    participatory_processes:
+      participatory_processes:
+        index:
+          all_processes: All processes
     proposals:
       proposal_l:
         explore: Open
@@ -85,13 +95,13 @@ en:
         collection:
           choose: Choose
           show: "Show:"
+      flag_modal:
+        report: Report
   layouts:
     decidim:
       shared:
         layout_center:
           more: Read more
-        layout_two_col:
-          all_processes: All processes
   devise:
     shared:
       credentials:

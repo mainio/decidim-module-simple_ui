@@ -5,6 +5,12 @@ fi:
       result_l:
         explore: Tutustu
       results:
+        search:
+          search_bar: Hakusana
+          search_placeholder: Kirjoita hakusana
+        scope_filters:
+          category: Teema
+          search_bar: Hae
         home:
           intro: "%{component} -komponentin avulla voit seurata hankkeiden edistymistä."
     blogs:
@@ -74,6 +80,10 @@ fi:
       home:
         custom_hero:
           participate_title: Osallistu prosesseihin alustalla
+    participatory_processes:
+      participatory_processes:
+        index:
+          all_processes: Kaikki prosessit
     proposals:
       proposal_l:
         explore: Tutustu
@@ -85,13 +95,13 @@ fi:
         collection:
           choose: Valitse
           show: "Näytä:"
+      flag_modal:
+        report: Ilmoita
   layouts:
     decidim:
       shared:
         layout_center:
           more: Lue lisää
-        layout_two_col:
-          all_processes: Kaikki prosessit
   devise:
     shared:
       credentials:

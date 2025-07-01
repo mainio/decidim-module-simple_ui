@@ -2,32 +2,33 @@
 <%= append_javascript_pack_tag "decidim_accountability" %>
 <%= append_stylesheet_pack_tag "decidim_accountability" %>
 
-<div class="space-y-8 py-6">
+<div class="space-y-8">
   <div class="row column component-background">
-    <div class="w-4/6 mx-auto space-y-4 text-center">
+    <div class="one-col mx-auto space-y-4 text-center">
       <h1 class="title-decorator"><%= component_name %></h1>
 
-      <% if component_settings.intro %>
-        <p class="text-center text-xl"><%= decidim_sanitize_admin translated_attribute(component_settings.intro) %></p>
-      <% else %>
-        <p class="text-center text-xl"><%= t(".intro", component: component_name) %></p>
-      <% end %>
+      <div class="text-xl">
+        <% if component_settings.intro %>
+          <%= decidim_sanitize_admin translated_attribute(component_settings.intro) %>
+        <% else %>
+          <p><%= t(".intro", component: component_name) %></p>
+        <% end %>
+      </div>
 
       <% if component_settings.display_progress_enabled? %>
         <%= cell(
               "decidim/accountability/status",
               nil,
               title: t("decidim.accountability.results.home_header.global_status"),
-              progress: progress_calculator(current_scope, nil).presence,
-              extra_classes: "accountability__status__home"
+              progress: progress_calculator(current_scope, nil).presence
             ) %>
       <% end %>
-
-      <%= render partial: "scope_filters" %>
     </div>
   </div>
 
-  <div class="w-4/6 mx-auto">
+  <div class="double-col_off mx-auto">
+    <%= render partial: "scope_filters" %>
+
     <section>
       <% if first_class_categories.empty? %>
         <%= cell("decidim/announcement",

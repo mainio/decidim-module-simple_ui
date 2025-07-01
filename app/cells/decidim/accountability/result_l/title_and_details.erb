@@ -1,0 +1,16 @@
+<div class="p-4">
+  <h3 class="h3 card__list-title">
+    <%= title %>
+  </h3>
+  <%= render :description %>
+</div>
+<div class="w-48 component-background p-2 flex flex-col gap-4 justify-center items-center">
+  <div class="text-[28px] font-bold">
+    <%= display_percentage result.progress %>
+  </div>
+
+  <span class="simple-card-button">
+    <%= t(".explore") %>
+    <%= icon "arrow-right-line" %>
+  </span>
+</div>

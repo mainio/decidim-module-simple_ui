@@ -1,6 +1,6 @@
-<div class="space-y-8 py-6">
+<div class="space-y-8">
   <div class="row column component-background">
-    <div class="w-4/6 mx-auto space-y-4 text-center">
+    <div class="one-col mx-auto space-y-4 text-center">
       <h1 class="title-decorator"><%= component_name %></h1>
 
       <p class="text-center text-xl"><%= t(".intro", component: component_name) %></p>
@@ -14,14 +14,14 @@
     </div>
   </div>
 
-  <div class="row column w-4/6 mx-auto">
+  <div class="row column one-col mx-auto">
     <% unless debates.empty? %>
       <%= render partial: "count"%>
     <% end %>
   </div>
 
-  <div class="w-4/6 mx-auto">
-    <div class="flex justify-between gap-10">
+  <div class="double-col_off mx-auto">
+    <div>
       <div class="border border-background h-min">
         <%= render layout: "decidim/shared/filters", locals: { filter_sections:, search_variable:, skip_to_id: "debates" } do %>
           <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
@@ -29,10 +29,10 @@
       </div>
 
       <%= render partial: "decidim/shared/component_announcement" %>
-
-      <main id="debates" class="layout-main__section layout-main__heading w-full">
-        <%= render partial: "debates" %>
-      </main>
     </div>
+
+    <main id="debates" class="layout-main__section layout-main__heading w-full">
+      <%= render partial: "debates" %>
+    </main>
   </div>
 </div>

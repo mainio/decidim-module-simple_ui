@@ -11,29 +11,28 @@ edit_link(
 <%= append_stylesheet_pack_tag "decidim_participatory_processes", media: "all" %>
 <%= append_javascript_pack_tag "decidim_participatory_processes" %>
 
-<%= render layout:"layouts/decidim/shared/layout_two_col" do %>
-  <h1 class="h1 text-center pb-4"><%= t(".all_processes") %></h1>
-  <%= participatory_space_floating_help %>
+<div>
+  <h1 class="h1 text-center py-16"><%= t(".all_processes") %></h1>
 
   <% if promoted_collection.any? %>
-    <section id="highlighted-processes" class="layout-main__section layout-main__heading">
-      <h2 class="h2 decorator"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h2>
+    <section id="highlighted-processes" class="one-col">
+      <h2 class="h2 decorator pb-8"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h2>
 
       <% promoted_collection.each do |promoted_item| %>
-        <%= card_for promoted_item, highlight: true, size: :g %>
+        <%= card_for promoted_item, highlight: true, size: :g, class: "kik" %>
       <% end %>
     </section>
   <% end %>
 
-  <div class="flex justify-between items-center mt-6 mb-2">
+  <div class="double-col">
     <%= render partial: "count" %>
 
     <%= render partial: "decidim/shared/process_filters", locals: { filter_sections:, skip_to_id: "processes-grid" } %>
   </div>
 
-  <section id="processes-grid" class="layout-main__section layout-main__heading">
+  <section id="processes-grid" class="one-col">
     <%= render partial: "collection" %>
   </section>
-<% end %>
+</div>
 
 <%= append_javascript_pack_tag "decidim_simple_ui_process_filters" %>
