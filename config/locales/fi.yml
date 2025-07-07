@@ -95,6 +95,7 @@ fi:
         collection:
           choose: Valitse
           show: "Näytä:"
+        filter: Hakuvalinnat
       flag_modal:
         report: Ilmoita
   layouts:

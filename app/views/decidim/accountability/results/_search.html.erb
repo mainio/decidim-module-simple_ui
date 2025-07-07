@@ -1,15 +1,17 @@
 <%= form_tag results_path, method: :get do %>
   <p class="pb-2 h6"><%= t(".search_bar") %></p>
-
-  <div class="filter-search filter-container-search">
-      <%= search_field_tag(
-            "filter[search_text_cont]",
-            nil,
-            class: "input-group-field",
-            placeholder: t("search_placeholder", scope: "decidim.accountability.results.search"),
-            value: "",
-            title: t("search", scope: "decidim.accountability.results.search"),
-            data: { disable_dynamic_change: true }
-          ) %>
-  </div>
+  <label>
+    <span class="sr-only"><%= t("search", scope: "decidim.accountability.results.search") %></span>
+    <div class="filter-search filter-container-search">
+        <%= search_field_tag(
+              "filter[search_text_cont]",
+              nil,
+              class: "input-group-field",
+              placeholder: t("search_placeholder", scope: "decidim.accountability.results.search"),
+              value: "",
+              title: t("search", scope: "decidim.accountability.results.search"),
+              data: { disable_dynamic_change: true }
+            ) %>
+    </div>
+  </label>
 <% end %>

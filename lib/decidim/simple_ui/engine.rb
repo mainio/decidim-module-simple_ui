@@ -39,6 +39,12 @@ module Decidim
           Decidim::ContentBlocks::ParticipatorySpaceMetadataCell.include(
             Decidim::SimpleUi::ParticipatorySpaceMetadataCellExtensions
           )
+          Decidim::ShareButtonCell.include(
+            Decidim::SimpleUi::ShareButtonCellExtensions
+          )
+          Decidim::Meetings::JoinMeetingButtonCell.include(
+            Decidim::SimpleUi::JoinMeetingButtonCellExtensions
+          )
 
           # Helper extensions
           Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper.include(

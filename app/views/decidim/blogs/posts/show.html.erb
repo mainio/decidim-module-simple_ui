@@ -18,12 +18,13 @@
 <%= append_javascript_pack_tag "decidim_blogs" %>
 <%= append_stylesheet_pack_tag "decidim_blogs" %>
 
-<%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
+<% content_for :aside do %>
+  <%= render partial: "actions" %>
+<% end %>
 
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { columns: 10 } do %>
   <section class="layout-main__section layout-main__heading">
-    <div class="flex justify-center">
-      <h1 class="title-decorator my-12"><%= translated_attribute post.title %></h1>
-    </div>
+    <h1 class="title-decorator"><%= translated_attribute post.title %></h1>
 
     <% if post.photo.present? %>
       <div class="blog__image grow">
@@ -42,8 +43,6 @@
     </div>
 
     <%= attachments_for post %>
-
-    <%= render partial: "actions" %>
   </section>
 
   <section class="layout-main__section">

@@ -1,6 +1,6 @@
 <div class="py-12 homepage-content_block">
-  <div class="double-col">
-    <div class="md:space-y-12">
+  <div class="custom_hero-container">
+    <div class="px-2 md:px-0 md:space-y-12">
       <h1 class="h1">
         <% if translated_title.blank? %>
           <%= t("decidim.pages.home.custom_hero.title", organization: current_organization.name) %>
@@ -19,7 +19,7 @@
       <%= render :cta_button %>
     </div>
 
-    <div class="flex justify-end">
+    <div class="custom_hero-image">
       <%= image_tag hero_image, alt: image_alt %>
     </div>
   </div>

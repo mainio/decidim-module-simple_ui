@@ -5,15 +5,15 @@
       <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } unless @proposal.withdrawn? %>
     </div>
   </section>
-
-  <div class="border-t w-full mt-4">
-    <div class="flex flex-col w-4/6 gap-2 mx-auto project-action-container">
-      <%= cell "decidim/share_button", nil, default_classes: false %>
-      <%= cell "decidim/report_button", @proposal, button_classes: "button button__lg button__transparent-secondary" %>
-      <%= cell "decidim/comments_button", nil %>
-    </div>
-  </div>
 <% end %>
+
+<div class="<%= "action-divider" if current_user %>">
+  <div class="record-action-container">
+    <%= cell "decidim/share_button", nil, default_classes: false %>
+    <%= cell "decidim/report_button", @proposal, button_classes: "button button__lg button__transparent-secondary" %>
+    <%= cell "decidim/comments_button", nil %>
+  </div>
+</div>
 
 <% if (@proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal)) || (amendments_enabled? && @proposal.amendable? && current_component.current_settings.amendment_creation_enabled && can_participate_in_private_space?) || amendments_enabled? && can_react_to_emendation?(@proposal) || @proposal.withdrawable_by?(current_user) %>
   <section class="layout-aside__section layout-aside__buttons">

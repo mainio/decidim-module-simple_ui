@@ -1,5 +1,5 @@
 <% if id == "process-date" %>
-  <div class="relative inline-block text-left flex items-center gap-2">
+  <div class="flex flex-col gap-2 relative w-full md:flex-row md:text-left md:items-center" role="menuitem">
     <span class="text-md"><%= t(".show") %></span>
     <button class="datefilter-dropdown">
       <span class="active-filter"><%= t(".choose") %></span>
@@ -37,7 +37,7 @@
           :last
       ) do |builder| %>
         <div class="filter">
-          <%= builder.label { builder.send(builder_type.singularize, class: "reset-defaults") + filter_text_for(builder.text) } %>
+          <%= builder.label { builder.send(builder_type.singularize, class: "reset-defaults", data: { disable_dynamic_change: true }) + filter_text_for(builder.text) } %>
         </div>
       <% end %>
     </div>

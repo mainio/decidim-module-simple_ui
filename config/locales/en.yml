@@ -95,6 +95,7 @@ en:
         collection:
           choose: Choose
           show: "Show:"
+      filter: Filters
       flag_modal:
         report: Report
   layouts:

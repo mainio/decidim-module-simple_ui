@@ -1,12 +1,10 @@
-<div>
-  <ul id="dropdown-menu-participatory-space" class="space-y-2">
-    <% model.each do |item| %>
-      <li role="menuitem" class="flex justify-end">
-        <%= link_to item[:url], class: "participatory-space__nav-item" do %>
-          <%= item[:name] %>
-          <%= icon "arrow-right-line" %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<ul id="dropdown-menu-participatory-space" class="space-y-2" role="menu">
+  <% model.each do |item| %>
+    <li role="menuitem" class="flex justify-end">
+      <%= link_to item[:url], class: "participatory-space__nav-item" do %>
+        <%= item[:name] %>
+        <%= icon "arrow-right-line" %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

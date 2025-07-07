@@ -23,7 +23,7 @@ edit_link(
       <div class="space-y-6">
         <h2 class="h2 decorator"><%= t "decidim.pages.index.topics" %></h2>
 
-        <div class="grid grid-cols-2 gap-4 place-content-center" id="topics-grid">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 place-content-center" id="topics-grid">
           <% @topics.each_with_index do |topic, ix| %>
             <% if topic.pages.any? %>
               <div class="topic-container">
@@ -37,7 +37,7 @@ edit_link(
                 <div id="panel-<%= ix %>" class="page__panel">
                   <ul role="menu">
                     <% topic.pages.each do |page| %>
-                      <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary h6 break-all" %></li>
+                      <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary h6 break-words" %></li>
                     <% end %>
                   </ul>
                 </div>

@@ -1,4 +1,4 @@
-<div class="simple-tabs">
+<main class="simple-tabs">
   <h1 class="container h1 mt-6"><%= translated_attribute page.title %></h1>
 
   <div class="vertical-tabs">
@@ -15,8 +15,8 @@
       <%= cell "decidim/tos_page", :form %>
     </section>
 
-    <nav>
-      <h3 class="h3"><%= title %></h3>
+    <nav role="menu">
+      <span class="h3"><%= title %></span>
 
       <% pages.each do |sibling| %>
         <p class="<%= "is-active" if page == sibling %>" role="menuitem">
@@ -25,4 +25,4 @@
       <% end %>
     </nav>
   </div>
-</div>
+</main>

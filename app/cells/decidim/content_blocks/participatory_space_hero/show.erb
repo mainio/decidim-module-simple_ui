@@ -1,7 +1,7 @@
 <section id="hero-<%= resource&.id %>" data-process-hero class="content-block process-banner">
   <div class="participatory-space__hero">
     <div class="participatory-space__hero-text">
-      <h1 class="h1 text-black text-5xl">
+      <h1 class="h1 text-black break-words md:break-normal">
         <%= title_text %>
       </h1>
       <p class="participatory-space__hero-slogan">
@@ -10,7 +10,7 @@
     </div>
 
     <div>
-      <%= cell "decidim/nav_links", nav_items %>
+      <%= cell "decidim/nav_links", nav_items unless resource.is_a?(Decidim::ParticipatoryProcessGroup) %>
     </div>
   </div>
 </section>

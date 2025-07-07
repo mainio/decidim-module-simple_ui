@@ -11,7 +11,7 @@ edit_link(
 <%= append_stylesheet_pack_tag "decidim_participatory_processes", media: "all" %>
 <%= append_javascript_pack_tag "decidim_participatory_processes" %>
 
-<div>
+<main>
   <h1 class="h1 text-center py-16"><%= t(".all_processes") %></h1>
 
   <% if promoted_collection.any? %>
@@ -33,6 +33,6 @@ edit_link(
   <section id="processes-grid" class="one-col">
     <%= render partial: "collection" %>
   </section>
-</div>
+</main>
 
 <%= append_javascript_pack_tag "decidim_simple_ui_process_filters" %>

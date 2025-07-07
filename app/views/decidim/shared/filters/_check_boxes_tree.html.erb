@@ -1,5 +1,5 @@
-<div class="filter-container border-t border-background pt-2" role="menuitem">
-  <h6 class="h6"><%= t(id, scope: label_scope) %></h6>
+<div class="filter-container" role="menuitem">
+  <span class="h6"><%= t(id, scope: label_scope) %></span>
 
   <div id="<%= id %>-menu">
     <% data_checkboxes_tree_id = "#{method}-#{id}-#{collection.leaf.value}" %>

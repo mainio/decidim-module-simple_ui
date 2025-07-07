@@ -3,7 +3,7 @@
 <% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <% append_javascript_pack_tag "decidim_proposals" %>
 
-<div class="space-y-8">
+<section role="region" aria-label="Meetings header" class="space-y-8">
   <div class="row column component-background">
     <div class="one-col mx-auto space-y-4">
       <h1 class="title-decorator text-center"><%= component_name %></h1>
@@ -33,7 +33,9 @@
       <%= render partial: "count" %>
     <% end %>
   </div>
+</section>
 
+<main>
   <div class="double-col_off mx-auto">
     <div>
       <div class="border border-background h-min">
@@ -72,8 +74,8 @@
       <% end %>
     </div>
 
-    <main id="proposals" class="layout-main__section layout-main__heading w-full">
+    <div id="proposals" class="layout-main__section layout-main__heading w-full">
       <%= render partial: "proposals" %>
-    </main>
+    </div>
   </div>
-</div>
+</main>
