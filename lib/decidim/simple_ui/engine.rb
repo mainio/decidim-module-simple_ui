@@ -46,6 +46,11 @@ module Decidim
             Decidim::SimpleUi::JoinMeetingButtonCellExtensions
           )
 
+          # Controller extensions
+          Decidim::HomepageController.include(
+            Decidim::SimpleUi::HomepageControllerExtensions
+          )
+
           # Helper extensions
           Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper.include(
             Decidim::SimpleUi::ParticipatoryProcessHelperExtensions
