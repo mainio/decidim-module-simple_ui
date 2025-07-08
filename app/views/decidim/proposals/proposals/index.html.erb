@@ -10,7 +10,7 @@
 
       <p class="text-center text-xl"><%= t(".intro", component: component_name) %></p>
 
-      <div class="mx-auto flex gap-4 items-center">
+      <div class="mx-auto flex flex-col gap-4 items-center lg:flex-row">
         <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) && component_settings.collaborative_drafts_enabled? %>
           <%= link_to collaborative_drafts_path, class: "button button__lg button__transparent-secondary" do %>
             <span><%= t("collaborative_drafts_list", scope: "decidim.proposals.proposals.index") %></span>

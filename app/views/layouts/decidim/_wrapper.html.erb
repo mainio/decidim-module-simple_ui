@@ -14,6 +14,10 @@ end
   <header>
     <%= render partial: "layouts/decidim/admin_links" if current_user && allowed_to?(:read, :admin_dashboard) %>
     <%= render partial: "layouts/decidim/header/main" %>
+    <% if  Decidim.module_installed?(:nav) %>
+      <%= render partial: "decidim/nav/shared/action_panel_links", locals: { navigable: current_organization, mobile: true } %>
+    <% end %>
+
     <% if display_flash_messages.present? %>
       <div class="container">
         <%= display_flash_messages %>
