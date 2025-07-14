@@ -45,7 +45,13 @@
     <%= attachments_for post %>
   </section>
 
-  <section class="layout-main__section">
-    <%= comments_for post %>
+  <section class="layout-main__section layout-main__buttons">
+    <% if endorsements_enabled? %>
+      <%= endorsement_buttons_cell(post) %>
+    <% end %>
   </section>
+
+  <% content_for :item_footer do %>
+    <%= comments_for post %>
+  <% end %>
 <% end %>

@@ -1,9 +1,5 @@
 <div class="w-full">
   <div class="record-action-container">
-    <% if endorsements_enabled? %>
-      <%= endorsement_buttons_cell(post) %>
-    <% end %>
-
     <%= cell "decidim/share_button", nil, default_classes: false %>
     <%= cell "decidim/report_button", post, button_classes: "button button__lg button__transparent-secondary" %>
     <%= cell "decidim/comments_button", nil %>

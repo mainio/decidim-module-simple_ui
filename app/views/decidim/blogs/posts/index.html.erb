@@ -5,7 +5,7 @@
 <main class="space-y-8">
   <div class="row column component-background">
     <div class="one-col mx-auto space-y-4 text-center">
-      <h1 class="title-decorator"><%= component_name %></h1>
+      <h1 class="title-decorator h2 md:h1"><%= component_name %></h1>
 
       <p class="text-center text-xl"><%= t(".intro", component: component_name) %></p>
     </div>
@@ -15,7 +15,7 @@
 
   <div class="row column one-col mx-auto">
     <% unless posts.empty? %>
-      <h2 class="h2 decorator"><%= t("count", scope: "decidim.blogs.posts.index", count: posts.length) %></h2>
+      <h2 class="h3 decorator md:h2"><%= t("count", scope: "decidim.blogs.posts.index", count: posts.length) %></h2>
     <% end %>
   </div>
 

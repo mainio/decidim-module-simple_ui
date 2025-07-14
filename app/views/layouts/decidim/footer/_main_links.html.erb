@@ -1,6 +1,6 @@
 <nav role="navigation" aria-label="<%= t("layouts.decidim.app_name") %>">
-  <p class="h6 mb-4"><%= t("layouts.decidim.app_name") %></p>
-  <ul class="space-y-4 break-inside-avoid ">
+  <p class="h6 mb-6 md:mb-4"><%= t("layouts.decidim.app_name") %></p>
+  <ul class="space-y-6 break-inside-avoid md:space-y-4">
     <%= cell("decidim/footer_pages", :pages) %>
     <li>
       <%= link_to t("layouts.decidim.footer.terms_and_conditions"), decidim.page_path("terms-and-conditions") %>

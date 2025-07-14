@@ -10,7 +10,7 @@ edit_link(
 <%= render layout:"layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
 
   <div class="text-center py-10">
-    <h1 class="title-decorator inline-block text-left mb-12">
+    <h1 class="title-decorator inline-block text-left mb-12 h2 md:h1">
       <%= t "decidim.pages.index.title" %>
     </h1>
     <p class="text-xl">
@@ -21,7 +21,7 @@ edit_link(
   <div class="space-y-16">
     <% if @topics.any? %>
       <div class="space-y-6">
-        <h2 class="h2 decorator"><%= t "decidim.pages.index.topics" %></h2>
+        <h2 class="h3 decorator md:h2"><%= t "decidim.pages.index.topics" %></h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 place-content-center" id="topics-grid">
           <% @topics.each_with_index do |topic, ix| %>
@@ -35,9 +35,9 @@ edit_link(
                 </div>
 
                 <div id="panel-<%= ix %>" class="page__panel">
-                  <ul role="menu">
+                  <ul role="menu" class="space-y-3">
                     <% topic.pages.each do |page| %>
-                      <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary h6 break-words" %></li>
+                      <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-[--primary] h6 break-words" %></li>
                     <% end %>
                   </ul>
                 </div>
@@ -50,7 +50,7 @@ edit_link(
 
     <% if @orphan_pages.any? %>
       <div class="space-y-6">
-        <h2 class="h2 decorator"><%= t "decidim.pages.index.standalone_pages" %></h2>
+        <h2 class="h3 decorator md:h2"><%= t "decidim.pages.index.standalone_pages" %></h2>
         <div class="page__grid">
           <% @orphan_pages.each do |page| %>
             <%= link_to page_path(page) do %>

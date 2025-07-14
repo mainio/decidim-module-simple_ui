@@ -12,11 +12,11 @@ edit_link(
 <%= append_javascript_pack_tag "decidim_participatory_processes" %>
 
 <main>
-  <h1 class="h1 text-center py-16"><%= t(".all_processes") %></h1>
+  <h1 class="h2 text-center py-16 md:h1"><%= t(".all_processes") %></h1>
 
   <% if promoted_collection.any? %>
     <section id="highlighted-processes" class="one-col">
-      <h2 class="h2 decorator pb-8"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h2>
+      <h2 class="h3 decorator pb-8 md:h2"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h2>
 
       <% promoted_collection.each do |promoted_item| %>
         <%= card_for promoted_item, highlight: true, size: :g, class: "kik" %>

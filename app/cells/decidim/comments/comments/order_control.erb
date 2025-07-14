@@ -1,9 +1,9 @@
-<div class="relative inline-block text-left flex items-center gap-2">
-  <span class="text-md"><%= t(".order") %></span>
+<div class="relative text-left flex items-center gap-2">
+  <span class="hidden md:inline text-md"><%= t(".order") %></span>
   <button
     id="comment-dropdown-button"
     type="button"
-    class="inline-flex justify-center items-center w-full border border-black p-1 bg-white text-md relative"
+    class="inline-flex justify-center items-center md:w-full border border-black p-1 bg-white text-sm relative md:text-md"
   >
     <%= t("decidim.components.comment_order_selector.order.#{order}") %>
     <%= icon "arrow-down-s-line", class: "h-6 w-6 mt-px transition-transform duration-300" %>

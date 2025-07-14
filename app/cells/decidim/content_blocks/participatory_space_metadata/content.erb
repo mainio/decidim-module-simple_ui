@@ -1,7 +1,7 @@
 <% active_step = resource.steps.find_index(&:active) %>
 
 <div class="participatory-space__metadata-steps">
-  <h2 class="h2"><%= t("participatory_process_steps.index.process_steps", scope: "decidim") %></h2>
+  <h2 class="h3 md:h2"><%= t("participatory_process_steps.index.process_steps", scope: "decidim") %></h2>
     <div>
       <div class="participatory-space__metadata-steps__list-container" data-component="accordion" data-multiselectable="false" data-collapsible="false">
         <ol class="participatory-space__metadata-steps__list">
@@ -14,7 +14,7 @@
                   <span>
                     <span class="participatory-space__metadata-steps__step-title">
                       <span class="participatory-space__metadata-steps__step-current"><%= t("active_step", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
-                      <h3 class="h3"><%= decidim_escape_translated(step.title) %></h3>
+                      <h3 class="step-title"><%= decidim_escape_translated(step.title) %></h3>
                     </span>
 
                     <div id="panel-process-steps-<%= i %>" class="editor-content text-black text-md mb-2">
@@ -30,7 +30,7 @@
                   <span>
                     <span class="participatory-space__metadata-steps__step-title">
                       <span class="participatory-space__metadata-steps__step-current"><%= t("active_step", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
-                      <h3 class="step-title h3"><%= decidim_escape_translated(step.title) %></h3>
+                      <h3 class="step-title"><%= decidim_escape_translated(step.title) %></h3>
                     </span>
 
                     <span class="participatory-space__metadata-steps__step-dates"><%= step_dates(step) %></span>
