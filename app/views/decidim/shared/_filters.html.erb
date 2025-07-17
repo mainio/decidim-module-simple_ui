@@ -35,9 +35,11 @@
         <%= form.collection_filter(**f) %>
       <% end %>
 
-      <button class="button button__secondary mt-6 h-10 w-2/6" type="submit" aria-label="<%= search_label %>">
-        <%= t(".search_bar") %>
-      </button>
+      <div role="menuitem">
+        <button class="button button__secondary mt-6 h-10 w-2/6" type="submit" aria-label="<%= search_label %>">
+          <%= t(".search_bar") %>
+        </button>
+      </div>
 
       <%= yield %>
     </div>

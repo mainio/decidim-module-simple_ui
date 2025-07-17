@@ -19,6 +19,14 @@ en:
       posts:
         index:
           intro: The %{component} component allows people to read multiple posts ordered by date.
+    comments:
+      comment_form:
+        add_comment: Add comment
+      comments:
+        order: "Order: "
+    components:
+      simple_ui:
+        name: SimpleUi
     content_blocks:
       custom_hero:
         name: Customizable hero
@@ -58,12 +66,6 @@ en:
         description: Description
         button_text: CTA -button text
         button_url: CTA -button URL
-    comments:
-      comments:
-        order: "Order: "
-    components:
-      simple_ui:
-        name: SimpleUi
     debates:
       debate_l:
         explore: Open

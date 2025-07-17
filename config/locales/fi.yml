@@ -19,6 +19,14 @@ fi:
       posts:
         index:
           intro: "%{component} -komponentti listaa blogikirjoituksia jotka ovat ihmisten luettavissa."
+    comments:
+      comment_form:
+        add_comment: Lisää kommentti
+      comments:
+        order: "Järjestä: "
+    components:
+      simple_ui:
+        name: SimpleUi
     content_blocks:
       custom_hero:
         name: Muokattava pääkuva
@@ -58,12 +66,6 @@ fi:
         description: Kuvaus
         button_text: CTA -painikkeen teksti
         button_url: CTA -painikkeen URL
-    comments:
-      comments:
-        order: "Järjestä: "
-    components:
-      simple_ui:
-        name: SimpleUi
     debates:
       debate_l:
         explore: Tutustu

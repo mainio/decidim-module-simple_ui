@@ -3,12 +3,12 @@
 <% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <% append_javascript_pack_tag "decidim_proposals" %>
 
-<section role="region" aria-label="Meetings header" class="space-y-8">
+<section role="region" aria-label="Meetings header">
   <div class="row column component-background">
     <div class="one-col mx-auto space-y-4">
       <h1 class="title-decorator text-center h2 md:h1"><%= component_name %></h1>
 
-      <p class="text-center text-xl"><%= t(".intro", component: component_name) %></p>
+      <p class="text-center text-xl w-4/6 mx-auto"><%= t(".intro", component: component_name) %></p>
 
       <div class="mx-auto flex flex-col gap-4 items-center lg:flex-row">
         <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) && component_settings.collaborative_drafts_enabled? %>

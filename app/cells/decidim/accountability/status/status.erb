@@ -1,10 +1,12 @@
-<h2 class="accountability__status-simple_title"><%= title %></h2>
-
-<div class="accountability__status-simple_value">
-  <% if progress.present? %>
-    <span><%= display_percentage progress %></span>
-  <% end %>
-  <% if count %>
-    <span><%= count %></span>
-  <% end %>
+<div class="flex justify-center items-center gap-4">
+  <h2 class="accountability__status-simple_title"><%= title %></h2>
+  -
+  <div class="accountability__status-simple_value">
+    <% if progress.present? %>
+      <span><%= display_percentage progress %></span>
+    <% end %>
+    <% if count %>
+      <span><%= count %></span>
+    <% end %>
+  </div>
 </div>

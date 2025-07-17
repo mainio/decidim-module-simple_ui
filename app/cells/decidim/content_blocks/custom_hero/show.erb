@@ -1,22 +1,23 @@
 <div class="homepage-content_block custom-hero">
   <div class="custom_hero-container">
-    <div class="px-2 md:px-0 md:space-y-12">
-      <h1 class="h2 md:h1">
+    <div class="px-2 space-y-8 md:px-0 md:flex md:flex-col">
+      <h1 class="h2 md:h1 flex-1">
         <% if translated_title.blank? %>
           <%= t("decidim.pages.home.custom_hero.title", organization: current_organization.name) %>
         <% else %>
           <%= decidim_sanitize_admin translated_title %>
         <% end %>
       </h1>
-      <p class="my-4 text-xl">
+      <p class="text-xl flex-1">
         <% if translated_description.blank? %>
           <%= t("decidim.pages.home.custom_hero.introduction") %>
         <% else %>
           <%= decidim_sanitize_admin translated_description %>
         <% end %>
       </p>
-
-      <%= render :cta_button %>
+      <div class="flex-1">
+        <%= render :cta_button %>
+      </div>
     </div>
 
     <div class="custom_hero-image">
