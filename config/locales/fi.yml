@@ -79,6 +79,8 @@ fi:
         index:
           intro: "%{component} ovat tilaisuuksia, joissa ihmiset kokoontuvat keskustelemaan tai jakamaan tietoa tietystä aiheesta."
     pages:
+      index:
+        more: Lue lisää
       home:
         custom_hero:
           participate_title: Osallistu prosesseihin alustalla
@@ -100,11 +102,6 @@ fi:
         filter: Hakuvalinnat
       flag_modal:
         report: Ilmoita
-  layouts:
-    decidim:
-      shared:
-        layout_center:
-          more: Lue lisää
   devise:
     shared:
       credentials:

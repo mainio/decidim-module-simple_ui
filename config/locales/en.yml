@@ -79,6 +79,8 @@ en:
         index:
           intro: "%{component} are where people come together to discuss or inform about a given topic."
     pages:
+      index:
+        more: Read more
       home:
         custom_hero:
           participate_title: Participate
@@ -100,11 +102,6 @@ en:
       filter: Filters
       flag_modal:
         report: Report
-  layouts:
-    decidim:
-      shared:
-        layout_center:
-          more: Read more
   devise:
     shared:
       credentials:
