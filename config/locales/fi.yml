@@ -37,7 +37,7 @@ fi:
         button_text: CTA -painikkeen teksti
         button_url: CTA -painikkeen URL
         hero_image: Pääkuva
-        image_alt: Kuvateksti
+        image_alt: Kuvan vaihtoehtoisteksti
       guideline:
         name: Ohjeistus
         title: Ohjeistus
