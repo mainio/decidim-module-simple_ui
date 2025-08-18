@@ -68,6 +68,12 @@ footer {
   @apply p-4 border border-gray-3;
 }
 
+.layout-1col {
+  &.cols-12 > * {
+    @apply col-span-12 self-start;
+  }
+}
+
 .layout-2col {
   @apply block;
 }
@@ -771,10 +777,10 @@ a.card__list[id^="accountability__result_"] {
 
   [data-dialog-container] {
     @apply block;
-  }
 
-  svg {
-    @apply inline mb-2.5;
+    > svg {
+      @apply inline mb-2.5 me-2.5;
+    }
   }
 }
 
