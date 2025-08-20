@@ -43,7 +43,7 @@ footer {
 
   &-mobile {
     a {
-      @apply text-xl font-bold font-bio;
+      @apply text-xl font-bold;
     }
   }
 }
@@ -106,7 +106,7 @@ footer {
 }
 
 .page__title {
-  @apply text-[22px] font-bio md:h3;
+  @apply text-[22px] md:h3;
 }
 
 .register__separator {
@@ -482,7 +482,7 @@ header .main-bar__links-desktop svg {
 
         &-title {
           .step-title {
-            @apply text-black text-[22px] font-bio md:h3;
+            @apply text-black text-[22px] md:h3;
           }
         }
 
