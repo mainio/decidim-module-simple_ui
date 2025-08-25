@@ -93,7 +93,7 @@ footer {
 }
 
 .page__title {
-  @apply text-[22px] font-serif md:h3;
+  @apply text-[22px] md:h3;
 }
 
 .register__separator {
@@ -478,7 +478,7 @@ header .main-bar__links-desktop svg {
 
         &-title {
           .step-title {
-            @apply text-black text-[22px] font-serif md:h3;
+            @apply text-black text-[22px] md:h3;
           }
         }
 
