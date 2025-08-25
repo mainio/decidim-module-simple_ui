@@ -2,22 +2,35 @@
 
 header {
   .main-bar {
-    @apply grid-cols-7;
+    @apply flex grid-cols-none;
 
     &__search {
-      @apply col-start-6 w-48;
+      @apply col-auto w-[13.75rem] ml-auto justify-self-end;
 
       form {
         @apply rounded-none border bg-white;
       }
 
+      input[type="text"] {
+        @apply leading-7 px-2;
+      }
+
       button[type=submit] {
-        @apply w-8 h-8 top-0 right-0 bg-secondary text-white border-l border-black;
+        @apply w-9 h-full top-0 right-0 bg-secondary text-white border-l border-black;
 
         svg {
           @apply inline fill-white;
         }
       }
+    }
+
+    &__links-desktop,
+    > *:last-child {
+      @apply col-auto md:col-auto lg:col-auto justify-self-end;
+    }
+
+    &__links-desktop {
+      @apply ml-0;
     }
   }
 }
@@ -27,32 +40,6 @@ footer {
 
   .main-footer__down {
     @apply border-t-0 flex flex-wrap items-center gap-6 container py-6 text-white;
-  }
-}
-
-.menu__bar {
-  @apply border-y-2 border-gray-3;
-
-  &-container {
-    @apply justify-center gap-16;
-  }
-
-  &-element--link {
-    @apply text-[--primary] text-xl;
-  }
-
-  &-mobile {
-    a {
-      @apply text-xl font-bold font-bio;
-    }
-  }
-}
-
-.menu-element-caret {
-  @apply border-none bg-transparent ml-0;
-
-  svg {
-    @apply bg-transparent text-[--primary] pt-1;
   }
 }
 
@@ -106,7 +93,7 @@ footer {
 }
 
 .page__title {
-  @apply text-[22px] font-bio md:h3;
+  @apply text-[22px] font-serif md:h3;
 }
 
 .register__separator {
@@ -173,7 +160,9 @@ footer {
 }
 
 .button.is-hover,
-.button:not([disabled]):not([class*=button__text]):not(label):hover {
+.button.is-focus,
+.button:not([disabled]):not([class*=button__text]):not(label):hover,
+.button:not([disabled]):not([class*=button__text]):not(label):focus {
   @apply bg-none;
 
   &.button__transparent-secondary {
@@ -203,6 +192,10 @@ footer {
 
 .button {
   @apply rounded-none;
+}
+
+a.button {
+  @apply hover:no-underline focus:no-underline;
 }
 
 [type='search'] {
@@ -297,7 +290,12 @@ footer {
 }
 
 .homepage-content_block.custom-hero {
-  @apply bg-[#f2fcfd] pb-12 md:py-12;
+  @apply bg-[#f2fcfd] pb-12 md:pt-5 md:pb-9;
+}
+
+.homepage-content_block.py-homepage {
+  padding-top: 3.65rem;
+  padding-bottom: 3.65rem;
 }
 
 .datefilter-dropdown {
@@ -345,15 +343,19 @@ footer {
 }
 
 header .main-bar__links-desktop svg {
-  @apply h-8 w-8;
+  @apply h-9 w-9;
 
   & + span {
-    @apply text-xs font-bold;
+    @apply font-bold mt-1;
   }
 }
 
 .custom_hero-container {
-  @apply flex flex-col-reverse gap-4 pb-5 md:container md:grid md:grid-cols-2 md:py-5;
+  @apply flex flex-col-reverse gap-4 pb-5 md:container lg:grid lg:grid-cols-2 lg:py-5;
+}
+
+.custom_hero-text {
+  @apply container space-y-8 md:mx-0 md:px-0 lg:mt-4 lg:flex lg:flex-col;
 }
 
 .custom_hero-image {
@@ -374,12 +376,6 @@ header .main-bar__links-desktop svg {
 
 .comment__opinion-container {
   @apply flex-col md:flex-row
-}
-
-#custom-hero-cta,
-#guideline-cta,
-#current-topic-cta {
-  @apply py-5;
 }
 
 .participatory-space {
@@ -482,7 +478,7 @@ header .main-bar__links-desktop svg {
 
         &-title {
           .step-title {
-            @apply text-black text-[22px] font-bio md:h3;
+            @apply text-black text-[22px] font-serif md:h3;
           }
         }
 
@@ -532,7 +528,13 @@ header .main-bar__links-desktop svg {
 }
 
 .submenu-element {
-  @apply text-left pl-4;
+  @apply text-left;
+
+  .button {
+    & > span {
+      @apply text-left;
+    }
+  }
 }
 
 .menu__bar-submenu {
@@ -540,7 +542,7 @@ header .main-bar__links-desktop svg {
 }
 
 .active-link {
-  @apply no-underline text-[--primary];
+  @apply text-[--primary];
 }
 
 .active-caret {
@@ -641,8 +643,16 @@ a.card__list[id^="accountability__result_"] {
   @apply container grid grid-cols-1 md:grid-cols-[5fr_1fr] gap-4 py-5;
 }
 
-.guideline {
-  @apply container flex flex-col items-center space-y-8 md:items-start md:flex-row md:justify-between md:gap-24 md:space-y-0;
+.instructions {
+  @apply container flex flex-col items-center space-y-8 md:items-start md:flex-row md:justify-between md:gap-8 md:space-y-0;
+}
+
+.infolift {
+  @apply container;
+
+  &__content {
+    @apply mx-auto md:max-w-[34rem] text-center;
+  }
 }
 
 .process-banner {
