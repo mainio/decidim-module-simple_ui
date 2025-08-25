@@ -1,0 +1,21 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <div class="row column">
+    <%= settings_fields.translated :text_field, :title, label: t(".title") %>
+  </div>
+
+  <div class="row column">
+    <%= settings_fields.translated :text_field, :button_text, label: t(".button_text") %>
+  </div>
+
+  <div class="row column">
+    <%= settings_fields.translated :text_field, :button_url, label: t(".button_url") %>
+  </div>
+
+  <div class="row column">
+    <label><%= t(".sections") %></label>
+  </div>
+
+  <%= render view: :sections, locals: { settings_fields: settings_fields } %>
+<% end %>
+
+<%= append_javascript_pack_tag "decidim_simple_ui_content_blocks_admin" %>

@@ -2,23 +2,29 @@
 
 module Decidim
   module ContentBlocks
-    class GuidelineCell < Decidim::ViewModel
+    class InfoliftCell < Decidim::ViewModel
+      include Decidim::CtaButtonHelper
       include Decidim::SanitizeHelper
 
-      def translated_title
-        translated_attribute(model.settings.title)
+      # Needed so that the `CtaButtonHelper` can work.
+      def decidim_participatory_processes
+        Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
       end
 
-      def translated_button_text
-        translated_attribute(model.settings.button_text)
+      def title
+        model.settings.title
+      end
+
+      def description
+        model.settings.description
+      end
+
+      def button_text
+        model.settings.button_text
       end
 
       def button_url
         translated_attribute(model.settings.button_url)
-      end
-
-      def render?(step)
-        model.settings.steps.include?(step)
       end
 
       private
@@ -27,7 +33,7 @@ module Decidim
       # the model does not respond to cache_key_with_version nor updated_at method
       def cache_hash
         hash = []
-        hash << "decidim/content_blocks/guideline"
+        hash << "decidim/content_blocks/infolift"
         hash << Digest::MD5.hexdigest(model.attributes.to_s)
         hash << current_organization.cache_key_with_version
         hash << I18n.locale.to_s

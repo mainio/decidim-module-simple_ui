@@ -38,9 +38,16 @@ en:
         button_url: CTA -button URL
         hero_image: Home image
         image_alt: Image text
-      guideline:
-        name: Guideline
-        title: Guideline
+      infolift:
+        name: Informational lift
+      infolift_settings_form:
+        title: Title
+        description: Description
+        button_text: CTA button text
+        button_url: CTA button URL
+      instructions:
+        name: Instructions
+        title: Instructions
         idea: Idea
         idea_desc: Share your ideas about how the city's budget should be used.
         develop: Develop
@@ -50,22 +57,24 @@ en:
         follow: Follow
         follow_desc: Follow the execution of projects and take part in developing them by commenting.
         info: Read more
-      guideline_settings_form:
+      instructions_settings_form:
+        add: Add
+        button_text: CTA button text
+        button_url: CTA button URL
+        down: Down
+        icons:
+          lightbulb-flash-line: Light bulb
+          settings-2-line: Cogwheel
+          checkbox-multiple-line: Checked box
+          eye-line: Eye
+        remove: Remove
+        section: Section
+        section_description: Section description
+        section_icon: Section icon
+        section_title: Section title
+        sections: Sections
         title: Title
-        steps: Steps
-        button_text: CTA -button text
-        button_url: CTA -button URL
-        idea: Idea
-        develop: Develop
-        vote: Vote
-        follow: Follow
-      current_topic:
-        name: Current topic
-      current_topic_settings_form:
-        title: Title
-        description: Description
-        button_text: CTA -button text
-        button_url: CTA -button URL
+        up: Up
     debates:
       debate_l:
         explore: Open

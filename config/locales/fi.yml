@@ -38,34 +38,35 @@ fi:
         button_url: CTA -painikkeen URL
         hero_image: Pääkuva
         image_alt: Kuvan vaihtoehtoisteksti
-      guideline:
-        name: Ohjeistus
-        title: Ohjeistus
-        idea: Ideoi
-        idea_desc: Kerro omia ideoitasi siitä, mitä kunnan tulisi sinun mielestäsi tehdä tai toteuttaa varoilla.
-        develop: Kehitä
-        develop_desc: Osallistu yhteiskehittämisen työpajoihin ja kehitä ideoita paremmiksi muiden kanssa.
-        vote: Äänestä
-        vote_desc: Päätä yhdessä muiden kanssa, mitkä äänestettävistä ehdotuksista toteutetaan.
-        follow: Seuraa
-        follow_desc: Seuraa hankkeiden toteutumista ja osallistu hankkeiden kehittämiseen kommentoimalla.
-        info: Tutustu prosessiin
-      guideline_settings_form:
-        title: Otsikko
-        steps: Vaiheet
-        button_text: CTA -painikkeen teksti
-        button_url: CTA -painikkeen URL
-        idea: Ideoi
-        develop: Kehitä
-        vote: Äänestä
-        follow: Seuraa
-      current_topic:
-        name: Ajankohtaista
-      current_topic_settings_form:
+      infolift:
+        name: Tiedotusasia
+      infolift_settings_form:
         title: Otsikko
         description: Kuvaus
         button_text: CTA -painikkeen teksti
         button_url: CTA -painikkeen URL
+      instructions:
+        name: Ohjeistus
+        title: Ohjeistus
+        info: Tutustu prosessiin
+      instructions_settings_form:
+        add: Lisää
+        button_text: CTA-painikkeen teksti
+        button_url: CTA-painikkeen URL
+        down: Alas
+        icons:
+          lightbulb-flash-line: Hehkulamppu
+          settings-2-line: Hammasratas
+          checkbox-multiple-line: Valittu ruutu
+          eye-line: Silmä
+        remove: Poista
+        section: Osio
+        section_description: Osion kuvaus
+        section_icon: Osion kuvake
+        section_title: Osion otsikko
+        sections: Osiot
+        title: Otsikko
+        up: Ylös
     debates:
       debate_l:
         explore: Tutustu

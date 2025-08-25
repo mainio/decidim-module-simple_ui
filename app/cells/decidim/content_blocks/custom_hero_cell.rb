@@ -11,16 +11,16 @@ module Decidim
         Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
       end
 
-      def translated_title
-        translated_attribute(model.settings.title)
+      def title
+        model.settings.title
       end
 
-      def translated_description
-        translated_attribute(model.settings.description)
+      def description
+        model.settings.description
       end
 
-      def translated_button_text
-        translated_attribute(model.settings.button_text)
+      def button_text
+        model.settings.button_text
       end
 
       def button_url
