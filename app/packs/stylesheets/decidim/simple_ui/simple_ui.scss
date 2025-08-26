@@ -722,7 +722,7 @@ a.card__list[id^="accountability__result_"] {
   }
 
   [data-dialog-title] {
-    @apply text-4xl text-black font-semibold inline focus:outline-none;
+    @apply text-4xl md:text-5xl text-black font-semibold inline focus:outline-none;
   }
 
   [data-dialog-container] {
