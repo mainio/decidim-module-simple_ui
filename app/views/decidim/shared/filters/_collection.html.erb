@@ -1,5 +1,5 @@
 <% if id == "process-date" %>
-  <div class="flex flex-col gap-2 relative w-full md:flex-row md:text-left md:items-center" role="menuitem">
+  <div class="flex flex-col gap-2 relative w-full md:flex-row md:text-left md:items-center">
     <span class="text-md"><%= t(".show") %></span>
     <button class="datefilter-dropdown">
       <span class="active-filter"><%= t(".choose") %></span>
@@ -21,7 +21,7 @@
     </div>
   </div>
 <% else %>
-  <div class="filter-container" role="menuitem">
+  <div class="filter-container">
     <button id="trigger-menu-<%= id %>" data-controls="panel-dropdown-menu-<%= id %>" data-open="false" data-open-md="true">
       <%= icon "arrow-down-s-line" %>
       <%= icon "arrow-up-s-line" %>

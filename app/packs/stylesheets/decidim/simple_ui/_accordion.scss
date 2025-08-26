@@ -1,0 +1,15 @@
+.accordion {
+  &-trigger {
+    button {
+      &[aria-expanded="true"] {
+        .accordion-trigger-arrow {
+          @apply rotate-180;
+        }
+      }
+    }
+
+    &-arrow {
+      @apply w-6 h-6 ml-3;
+    }
+  }
+}

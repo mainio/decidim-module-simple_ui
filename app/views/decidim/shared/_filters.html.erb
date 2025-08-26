@@ -12,31 +12,32 @@
       <%= icon "arrow-up-s-line" %>
     </button>
 
-    <div class="p-2 space-y-2" id="dropdown-menu-filters">
+    <div class="space-y-1" id="dropdown-menu-filters">
       <% if local_assigns.has_key?(:skip_to_id) %>
         <%= link_to t("skip", scope: "decidim.shared.filter_form_help"), "##{skip_to_id}", class: "filter-skip", role: "menuitem" %>
       <% end %>
 
-      <p class="pb-2 h6" role="menuitem" aria-disabled="true"><%= t(".search") %></p>
+      <div class="filter-container">
+        <% if local_assigns.has_key?(:search_variable) %>
+          <%= form.label(search_variable, t(".search"), class: "filter-container__title") %>
 
-      <% if local_assigns.has_key?(:search_variable) %>
-        <div class="filter-search" role="menuitem">
-          <%= form.search_field search_variable,
-                                label: false,
-                                placeholder: t(".search_placeholder"),
-                                title: search_label,
-                                "aria-label": search_label,
-                                data: { disable_dynamic_change: true },
-                                class: "h-10 p-2 rounded-none" %>
-        </div>
-      <% end %>
+          <div class="filter-search">
+            <%= form.search_field search_variable,
+                                  label: false,
+                                  placeholder: t(".search_placeholder"),
+                                  title: search_label,
+                                  "aria-label": search_label,
+                                  data: { disable_dynamic_change: true } %>
+          </div>
+        <% end %>
+      </div>
 
       <% filter_sections.each do |f| %>
         <%= form.collection_filter(**f) %>
       <% end %>
 
-      <div role="menuitem">
-        <button class="button button__secondary mt-6 h-10 w-2/6" type="submit" aria-label="<%= search_label %>">
+      <div class="filter-container">
+        <button class="button button__lg button__secondary" type="submit" aria-label="<%= search_label %>">
           <%= t(".search_bar") %>
         </button>
       </div>

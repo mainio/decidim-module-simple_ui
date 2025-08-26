@@ -15,10 +15,10 @@
     <%= wrapper.call do %>
       <div class="strong-providers">
         <div class="row mx-auto">
-          <div class="space-y-6 columns medium-8 medium-centered text-center">
+          <div class="space-y-9 columns medium-8 medium-centered text-center">
             <%- strong_providers.each do |provider| %>
               <div class="social-register">
-                <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button--social button--#{normalize_provider_name(provider)}", method: :post do %>
+                <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button__secondary button--social button--#{normalize_provider_name(provider)}", method: :post do %>
                   <span class="button--social__icon">
                     <%= oauth_icon provider %>
                   </span>
@@ -41,10 +41,10 @@
           <p><%= t("devise.shared.links.sign_in_with_omniauth") %> </p>
         </div>
         <div class="row mx-auto">
-          <div class="space-y-6 columns medium-8 medium-centered text-center">
+          <div class="space-y-9 columns medium-8 medium-centered text-center">
             <%- other_providers.each do |provider| %>
               <div class="social-register">
-                <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button--social button--#{normalize_provider_name(provider)}", method: :post do %>
+                <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button__secondary button--social button--#{normalize_provider_name(provider)}", method: :post do %>
                   <span class="button--social__icon">
                     <%= oauth_icon provider %>
                   </span>
@@ -59,11 +59,4 @@
       </div>
     <% end %>
   <% end %>
-
-  <%- if current_organization.sign_in_enabled? %>
-    <span class="register__separator cursor-pointer">
-      <span class="register__separator__text"><%= t("devise.shared.credentials.login") %></span>
-      <%= icon "arrow-down-s-line", class: "w-6 h-6 flex-none text-[--primary] fill-current"%>
-    </span>
-  <%- end %>
 <% end %>

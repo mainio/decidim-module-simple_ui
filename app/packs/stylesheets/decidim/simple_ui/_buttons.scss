@@ -1,0 +1,64 @@
+.button {
+  @apply rounded-none;
+
+  svg {
+    fill: currentColor
+  }
+}
+
+a.button {
+  @apply hover:no-underline focus:no-underline;
+}
+
+.button.is-hover,
+.button.is-focus,
+.button:not([disabled]):not([class*=button__text]):not(label):hover,
+.button:not([disabled]):not([class*=button__text]):not(label):focus {
+  @apply bg-none;
+
+  &.button__transparent-secondary {
+    @apply text-white bg-[--primary];
+
+    svg {
+      @apply fill-white;
+    }
+  }
+
+  &.button__secondary {
+    @apply text-[--primary] bg-white border-[--primary];
+
+    svg {
+      @apply fill-[--primary];
+    }
+  }
+
+  &.budget__card__prevote-explore-button {
+    @apply text-white bg-[--primary];
+
+    svg {
+      @apply fill-white;
+    }
+  }
+}
+
+.button--social {
+  @apply flex items-stretch w-full text-lg;
+
+  &__icon {
+    @apply flex items-center w-[4.4rem] px-4 border-r;
+
+    svg {
+      @apply h-9 w-9 mx-auto;
+    }
+  }
+
+  &__text {
+    @apply grow px-6 py-3;
+  }
+
+  &.button--mpassid {
+    .button--social__icon {
+      @apply max-w-none px-4;
+    }
+  }
+}

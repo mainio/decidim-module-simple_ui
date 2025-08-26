@@ -1,52 +1,40 @@
 <% add_decidim_page_title(t("devise.sessions.new.log_in")) %>
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
-
   <div class="flex justify-center">
-    <h1 class="title-decorator my-12"><%= t("devise.sessions.new.log_in") %></h1>
+    <h1 class="title-decorator mt-12 mb-20"><%= t("devise.sessions.new.log_in") %></h1>
   </div>
 
-  <div class="login__info font-semibold">
-    <% if !current_organization.sign_in_enabled? %>
-      <p>
-        <%= t(".sign_in_disabled") %>
-      </p>
-    <% elsif !current_organization.sign_up_enabled? %>
-      <p>
-        <%= t(".sign_up_disabled") %>
-      </p>
-    <% end %>
-  </div>
+  <% if !current_organization.sign_in_enabled? %>
+    <div class="login__info font-semibold">
+      <p><%= t(".sign_in_disabled") %></p>
+    </div>
+  <% elsif !current_organization.sign_up_enabled? %>
+    <div class="login__info font-semibold">
+      <p><%= t(".sign_up_disabled") %></p>
+    </div>
+  <% end %>
 
-  <div class="omniauth-buttons">
+  <div class="omniauth-buttons mb-9">
     <% cache current_organization do %>
       <%= render "decidim/devise/shared/omniauth_buttons" %>
     <% end %>
   </div>
 
   <% if current_organization.sign_in_enabled? %>
-    <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name), html: { class: "hidden" }) do |f| %>
-      <div class="form__wrapper">
-        <%= f.email_field :email, placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
-
-        <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
-
-        <% if devise_mapping.rememberable? %>
-          <%= f.check_box :remember_me, label_options: { class: "form__wrapper-checkbox-label" } %>
-        <% end %>
-      </div>
-
-      <div>
-        <button type="submit" class="button button__lg button__secondary w-full">
-          <%= t("devise.sessions.new.log_in") %>
+    <div class="flex flex-col accordion" data-component="accordion">
+      <div class="accordion-trigger text-center text-lg">
+        <button id="accordion-trigger-login" class="button button__text-secondary" data-controls="accordion-panel-login">
+          <span><%= t("devise.shared.credentials.login") %></span>
+          <span>
+            <%= icon "arrow-down-s-line", class: "accordion-trigger-arrow" %>
+          </span>
         </button>
       </div>
 
-      <div class="login__links">
-        <%= render "decidim/devise/shared/links" %>
+      <div id="accordion-panel-login" class="accordion-panel" aria-hidden="true">
+        <%= render "decidim/devise/sessions/login_form" %>
       </div>
-    <% end %>
+    </div>
   <% end %>
 <% end %>
-
-<%= append_javascript_pack_tag "decidim_simple_ui_login" %>

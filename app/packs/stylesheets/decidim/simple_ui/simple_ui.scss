@@ -1,5 +1,8 @@
 /* css for decidim_simple_ui */
 
+@use "stylesheets/decidim/simple_ui/buttons";
+@use "stylesheets/decidim/simple_ui/accordion";
+
 header {
   .main-bar {
     @apply flex grid-cols-none;
@@ -63,33 +66,6 @@ footer {
 
 .layout-2col {
   @apply block;
-}
-
-.button--social {
-  @apply max-[465px]:h-auto flex items-stretch w-full h-16;
-
-  &__icon {
-    @apply bg-[#002ba0] mr-px w-[70px] flex items-center;
-
-    svg {
-      @apply h-8 w-8 mx-auto fill-white;
-    }
-  }
-
-  &__text {
-    @apply bg-[#002ba0] h-full w-10/12 text-lg p-1 font-bold text-white flex justify-center items-center;
-  }
-
-  &.is-hover,
-  &:not([disabled]):not([class*="button__text"]):not(label):hover {
-    @apply hover:bg-transparent;
-  }
-}
-
-.button--mpassid {
-  .button--social__icon {
-    @apply max-w-none;
-  }
 }
 
 .page__title {
@@ -159,45 +135,6 @@ footer {
   }
 }
 
-.button.is-hover,
-.button.is-focus,
-.button:not([disabled]):not([class*=button__text]):not(label):hover,
-.button:not([disabled]):not([class*=button__text]):not(label):focus {
-  @apply bg-none;
-
-  &.button__transparent-secondary {
-    @apply text-white bg-[--primary];
-
-    svg {
-      @apply fill-white;
-    }
-  }
-
-  &.button__secondary {
-    @apply text-[--primary] bg-white border-[--primary];
-
-    svg {
-      @apply fill-[--primary];
-    }
-  }
-
-  &.budget__card__prevote-explore-button {
-    @apply text-white bg-[--primary];
-
-    svg {
-      @apply fill-white;
-    }
-  }
-}
-
-.button {
-  @apply rounded-none;
-}
-
-a.button {
-  @apply hover:no-underline focus:no-underline;
-}
-
 [type='search'] {
   @apply outline-offset-0;
 }
@@ -220,10 +157,13 @@ a.button {
   }
 
   &-container {
-    @apply border-x-0 border-b-0 border-t border-background mt-2 pt-2;
+    @apply border-x-0 border-t-0 rounded-none border-b border-background mt-2 px-2 py-3;
+
+    &__title {
+      @apply block h6 mb-1;
+    }
 
     [data-controls*="panel"] {
-
       & > span {
         @apply text-black;
       }
@@ -636,11 +576,11 @@ a.card__list[id^="accountability__result_"] {
 }
 
 .double-col_off {
-  @apply container grid grid-cols-1 md:grid-cols-[1fr_5fr] gap-4 py-5;
+  @apply container grid grid-cols-1 md:grid-cols-[23fr_73fr] gap-4 md:gap-11 py-5;
 }
 
 .double-col_off_reverse {
-  @apply container grid grid-cols-1 md:grid-cols-[5fr_1fr] gap-4 py-5;
+  @apply container grid grid-cols-1 md:grid-cols-[73fr_23fr] gap-4 md:gap-11 py-5;
 }
 
 .instructions {
@@ -678,7 +618,7 @@ a.card__list[id^="accountability__result_"] {
   @apply border border-background h-min p-2;
 
   .filter-container {
-    @apply mt-8 pt-2 border-t border-background;
+    @apply mt-8 p-2 border-t border-background;
   }
 
   .filter-container-search {
