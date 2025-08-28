@@ -62,9 +62,13 @@
         <div>
           <%= cell("decidim/announcement", t("sign_in_disabled", scope: "decidim.devise.sessions.new"), callout_class: "warning" ) %>
 
-          <% cache current_organization do %>
-            <%= render partial: "decidim/devise/shared/omniauth_buttons", locals: { is_horizontal: true } %>
-          <% end %>
+          <div class="mt-8 md:grid md:grid-cols-6">
+            <div class="md:col-span-4 md:col-start-2">
+              <% cache current_organization do %>
+                <%= render partial: "decidim/devise/shared/omniauth_buttons", locals: { is_horizontal: true } %>
+              <% end %>
+            </div>
+          </div>
         </div>
       <% end %>
   <% end %>
