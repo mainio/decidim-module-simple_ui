@@ -2,50 +2,52 @@
 <% search_label = t("decidim.searches.filters.search") unless local_assigns.has_key?(:search_label) %>
 
 <% if filter_sections.present? || local_assigns.has_key?(:search_variable) %>
-  <%= filter_form_for filter, url_for, class: "new_filter self-stretch accordion", data: { filters: "", component: "accordion" } do |form| %>
+  <%= filter_form_for filter, url_for, class: "new_filter self-stretch", data: { filters: "" } do |form| %>
 
-    <div class="accordion-trigger">
-      <button id="accordion-trigger-filters" class="button button__text-secondary" data-component="accordion" data-controls="accordion-panel-filters" data-open-md="true">
-        <span>
-          <%= t(".filter") %>
-        </span>
-        <span>
-          <%= icon "arrow-down-s-line", class: "accordion-trigger-arrow" %>
-        </span>
-      </button>
-    </div>
-
-    <div class="space-y-1 accordion-panel" id="accordion-panel-filters" aria-hidden="true">
-      <% if local_assigns.has_key?(:skip_to_id) %>
-        <%= link_to t("skip", scope: "decidim.shared.filter_form_help"), "##{skip_to_id}", class: "filter-skip" %>
-      <% end %>
-
-      <div class="filter-container">
-        <% if local_assigns.has_key?(:search_variable) %>
-          <%= form.label(search_variable, t(".search"), class: "filter-container__title") %>
-
-          <div class="filter-search">
-            <%= form.search_field search_variable,
-                                  label: false,
-                                  placeholder: t(".search_placeholder"),
-                                  title: search_label,
-                                  "aria-label": search_label,
-                                  data: { disable_dynamic_change: true } %>
-          </div>
-        <% end %>
-      </div>
-
-      <% filter_sections.each do |f| %>
-        <%= form.collection_filter(**f) %>
-      <% end %>
-
-      <div class="filter-container">
-        <button class="button button__lg button__secondary" type="submit" aria-label="<%= search_label %>">
-          <%= t(".search_bar") %>
+    <div class="accordion" data-component="accordion">
+      <div class="accordion-trigger">
+        <button id="accordion-trigger-filters" class="button button__text-secondary" data-controls="accordion-panel-filters" data-open-md="true">
+          <span>
+            <%= t(".filter") %>
+          </span>
+          <span>
+            <%= icon "arrow-down-s-line", class: "accordion-trigger-arrow" %>
+          </span>
         </button>
       </div>
 
-      <%= yield %>
+      <div class="space-y-1 accordion-panel" id="accordion-panel-filters" aria-hidden="true">
+        <% if local_assigns.has_key?(:skip_to_id) %>
+          <%= link_to t("skip", scope: "decidim.shared.filter_form_help"), "##{skip_to_id}", class: "filter-skip" %>
+        <% end %>
+
+        <div class="filter-container">
+          <% if local_assigns.has_key?(:search_variable) %>
+            <%= form.label(search_variable, t(".search"), class: "filter-container__title") %>
+
+            <div class="filter-search">
+              <%= form.search_field search_variable,
+                                    label: false,
+                                    placeholder: t(".search_placeholder"),
+                                    title: search_label,
+                                    "aria-label": search_label,
+                                    data: { disable_dynamic_change: true } %>
+            </div>
+          <% end %>
+        </div>
+
+        <% filter_sections.each do |f| %>
+          <%= form.collection_filter(**f) %>
+        <% end %>
+
+        <div class="filter-container">
+          <button class="button button__lg button__secondary" type="submit" aria-label="<%= search_label %>">
+            <%= t(".search_bar") %>
+          </button>
+        </div>
+
+        <%= yield %>
+      </div>
     </div>
 
   <% end %>
