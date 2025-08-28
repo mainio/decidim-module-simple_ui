@@ -9,14 +9,20 @@ module Decidim
       paths["db/migrate"] = nil
       paths["lib/tasks"] = nil
 
-      routes do
-        # Add admin engine routes here
-        # resources :simple_ui do
-        #   collection do
-        #     resources :exports, only: [:create]
-        #   end
-        # end
-        # root to: "simple_ui#index"
+      initializer "decidim_simple_ui_admin.component_settings" do
+        # Add the extra settings for all components needed to add extra data
+        # needed to be managed dynamically through the admin panel.
+        [:blogs, :debates, :meetings, :proposals, :sortitions].each do |manifest_name|
+          component = Decidim.find_component_manifest(manifest_name)
+          next unless component
+
+          component.settings(:global) do |settings|
+            settings.attribute :intro, type: :text, translated: true, editor: true
+
+            m = Decidim::SimpleUi::SettingsManipulator.new(settings)
+            m.move_attribute_before(:intro, :announcement)
+          end
+        end
       end
 
       def load_seed

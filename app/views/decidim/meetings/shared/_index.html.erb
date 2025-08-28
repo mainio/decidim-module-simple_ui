@@ -8,7 +8,7 @@
     <div class="one-col mx-auto space-y-4">
       <h1 class="title-decorator text-center h2 md:h1"><%= translated_attribute(component.name) %></h1>
 
-      <p class="text-center text-xl w-4/6 mx-auto"><%= t(".intro", component: translated_attribute(component.name)) %></p>
+      <%= render partial: "decidim/shared/components/intro" %>
     </div>
   </div>
 

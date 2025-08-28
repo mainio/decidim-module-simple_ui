@@ -42,13 +42,13 @@ a.button {
 }
 
 .button--social {
-  @apply flex items-stretch w-full text-lg;
+  @apply flex items-stretch w-full text-sm sm:text-md md:text-lg;
 
   &__icon {
     @apply flex items-center w-[4.4rem] px-4 border-r;
 
     svg {
-      @apply h-9 w-9 mx-auto;
+      @apply h-6 w-6 mx-auto sm:h-9 sm:w-9;
     }
   }
 

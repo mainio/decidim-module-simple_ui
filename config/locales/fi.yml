@@ -11,22 +11,39 @@ fi:
         scope_filters:
           category: Teema
           search_bar: Hae
-        home:
-          intro: "%{component} -komponentin avulla voit seurata hankkeiden edistymistä."
     blogs:
       post_l:
         explore: Tutustu
-      posts:
-        index:
-          intro: "%{component} -komponentti listaa blogikirjoituksia jotka ovat ihmisten luettavissa."
     comments:
       comment_form:
         add_comment: Lisää kommentti
       comments:
         order: "Järjestä: "
     components:
-      simple_ui:
-        name: SimpleUi
+      accountability:
+        settings:
+          global:
+            intro: Kuvaus
+      blogs:
+        settings:
+          global:
+            intro: Kuvaus
+      debates:
+        settings:
+          global:
+            intro: Kuvaus
+      meetings:
+        settings:
+          global:
+            intro: Kuvaus
+      proposals:
+        settings:
+          global:
+            intro: Kuvaus
+      sortitions:
+        settings:
+          global:
+            intro: Kuvaus
     content_blocks:
       custom_hero:
         name: Muokattava pääkuva
@@ -70,15 +87,9 @@ fi:
     debates:
       debate_l:
         explore: Tutustu
-      debates:
-        index:
-          intro: "%{component} -komponentti mahdollistaa keskustelun ilman äänestämistä tai priorisointia. Keskusteluja voi myös sulkea lisäämällä sille yhteenvedon."
     meetings:
       meeting_l:
         explore: Tutustu
-      shared:
-        index:
-          intro: "%{component} ovat tilaisuuksia, joissa ihmiset kokoontuvat keskustelemaan tai jakamaan tietoa tietystä aiheesta."
     pages:
       index:
         more: Lue lisää
@@ -94,7 +105,11 @@ fi:
         explore: Tutustu
       proposals:
         index:
-          intro: "%{component} -komponentin avulla voit luoda, kommentoida ja tukea erilaisia ehdotuksia."
+          count:
+            one: "%{count} idea"
+            other: "%{count} ideaa"
+        show:
+          back_to_listing: Näytä muut ideat
     shared:
       filters:
         collection:

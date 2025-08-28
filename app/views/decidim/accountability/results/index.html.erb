@@ -6,13 +6,7 @@
     <div class="one-col mx-auto space-y-4 text-center">
       <h1 class="title-decorator h2 md:h1"><%= component_name %></h1>
 
-      <div class="text-xl w-4/6 mx-auto">
-        <% if component_settings.intro %>
-          <%= decidim_sanitize_admin translated_attribute(component_settings.intro) %>
-        <% else %>
-          <p><%= t(".intro", component: component_name) %></p>
-        <% end %>
-      </div>
+      <%= render partial: "decidim/shared/components/intro" %>
 
       <% if component_settings.display_progress_enabled? %>
         <%= cell(

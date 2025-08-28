@@ -1,0 +1,11 @@
+<% intro = translated_attribute(component_settings.intro) %>
+
+<% if intro.present? || local_assigns.has_key?(:fallback) %>
+  <div class="text-center text-xl md:w-4/6 mx-auto">
+    <% if intro.present? %>
+      <%= decidim_sanitize_admin intro %>
+    <% else %>
+      <p><%= fallback %></p>
+    <% end %>
+  </div>
+<% end %>

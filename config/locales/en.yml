@@ -11,22 +11,39 @@ en:
         scope_filters:
           category: Scope
           search_bar: Search
-        home:
-          intro: "The %{component} component allows participants to know the status of a project’s implementation and to follow its evolution."
     blogs:
       post_l:
         explore: Open
-      posts:
-        index:
-          intro: The %{component} component allows people to read multiple posts ordered by date.
     comments:
       comment_form:
         add_comment: Add comment
       comments:
         order: "Order: "
     components:
-      simple_ui:
-        name: SimpleUi
+      accountability:
+        settings:
+          global:
+            intro: Description
+      blogs:
+        settings:
+          global:
+            intro: Description
+      debates:
+        settings:
+          global:
+            intro: Description
+      meetings:
+        settings:
+          global:
+            intro: Description
+      proposals:
+        settings:
+          global:
+            intro: Description
+      sortitions:
+        settings:
+          global:
+            intro: Description
     content_blocks:
       custom_hero:
         name: Customizable hero
@@ -78,15 +95,9 @@ en:
     debates:
       debate_l:
         explore: Open
-      debates:
-        index:
-          intro: "The %{component} component allows people to have discussions, without voting nor prioritization. It also allows to close debates, by adding conclusions or a summary of what the discussion was about."
     meetings:
       meeting_l:
         explore: Open
-      shared:
-        index:
-          intro: "%{component} are where people come together to discuss or inform about a given topic."
     pages:
       index:
         more: Read more
@@ -102,7 +113,11 @@ en:
         explore: Open
       proposals:
         index:
-          intro: The %{component} component allows people to create, comment, and give support to different proposals.
+          count:
+            one: "%{count} idea"
+            other: "%{count} ideas"
+        show:
+          back_to_listing: Show other ideas
     shared:
       filters:
         collection:

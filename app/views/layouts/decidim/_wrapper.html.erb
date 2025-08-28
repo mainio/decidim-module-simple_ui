@@ -10,6 +10,8 @@ if respond_to?(:current_component) && current_component && can_be_managed?(curre
 end
 %>
 
+<%= append_javascript_pack_tag "decidim_simple_ui", defer: false %>
+
 <div class="layout-container">
   <header>
     <%= render partial: "layouts/decidim/admin_links" if current_user && allowed_to?(:read, :admin_dashboard) %>

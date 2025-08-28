@@ -7,7 +7,7 @@
     <div class="one-col mx-auto space-y-4 text-center">
       <h1 class="title-decorator h2 md:h1"><%= component_name %></h1>
 
-      <p class="text-center text-xl w-4/6 mx-auto"><%= t(".intro", component: component_name) %></p>
+      <%= render partial: "decidim/shared/components/intro" %>
     </div>
   </div>
 

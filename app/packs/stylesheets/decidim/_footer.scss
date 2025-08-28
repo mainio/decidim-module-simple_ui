@@ -43,9 +43,9 @@ footer {
     [id*="dropdown-menu"] {
       @apply py-0 mx-0 w-full;
 
-      &[aria-hidden="true"] {
-        @apply md:hidden;
-      }
+      // &[aria-hidden="true"] {
+      //   @apply md:hidden;
+      // }
     }
   }
 

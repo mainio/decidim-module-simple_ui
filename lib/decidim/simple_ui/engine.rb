@@ -55,10 +55,13 @@ module Decidim
           Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper.include(
             Decidim::SimpleUi::ParticipatoryProcessHelperExtensions
           )
+          Decidim::Proposals::ApplicationHelper.include(
+            Decidim::SimpleUi::ProposalsApplicationHelperExtensions
+          )
         end
       end
 
-      initializer "SimpleUi.webpacker.assets_path" do
+      initializer "decidim_simple_ui.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 

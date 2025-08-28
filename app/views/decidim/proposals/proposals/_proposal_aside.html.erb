@@ -7,34 +7,36 @@
   </section>
 <% end %>
 
-<div class="<%= "action-divider" if current_user %>">
+<section class="layout-aside__section">
   <div class="record-action-container">
     <%= cell "decidim/share_button", nil, default_classes: false %>
     <%= cell "decidim/report_button", @proposal, button_classes: "button button__lg button__transparent-secondary" %>
     <%= cell "decidim/comments_button", nil %>
   </div>
-</div>
+</section>
 
 <% if (@proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal)) || (amendments_enabled? && @proposal.amendable? && current_component.current_settings.amendment_creation_enabled && can_participate_in_private_space?) || amendments_enabled? && can_react_to_emendation?(@proposal) || @proposal.withdrawable_by?(current_user) %>
-  <section class="layout-aside__section layout-aside__buttons">
-    <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
-      <%= link_to edit_proposal_path(@proposal), class: "button button__sm button__transparent-secondary w-full" do %>
-      <span><%= t("edit_proposal", scope: "decidim.proposals.proposals.show") %></span>
-      <%= icon "pencil-line" %>
+  <section class="layout-aside__section layout-aside__buttons action-divider">
+    <div class="record-action-container">
+      <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
+        <%= link_to edit_proposal_path(@proposal), class: "button button__sm button__transparent-secondary w-full" do %>
+        <span><%= t("edit_proposal", scope: "decidim.proposals.proposals.show") %></span>
+        <%= icon "pencil-line" %>
+        <% end %>
+      <% else %>
+        <%= amend_button_for @proposal %>
       <% end %>
-    <% else %>
-      <%= amend_button_for @proposal %>
-    <% end %>
 
-    <% if amendments_enabled? && can_react_to_emendation?(@proposal) %>
-      <%= emendation_actions_for @proposal %>
-    <% end %>
-
-    <% if @proposal.withdrawable_by?(current_user) %>
-      <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "button button__sm button__transparent-secondary w-full", title: t("withdraw_btn_hint", scope: "decidim.proposals.proposals.show" ), data: { confirm: t("withdraw_confirmation_html", scope: "decidim.proposals.proposals.show" ) } do %>
-        <span><%= t("withdraw_proposal", scope: "decidim.proposals.proposals.show") %></span>
+      <% if amendments_enabled? && can_react_to_emendation?(@proposal) %>
+        <%= emendation_actions_for @proposal %>
       <% end %>
-    <% end %>
+
+      <% if @proposal.withdrawable_by?(current_user) %>
+        <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "button button__sm button__transparent-secondary w-full", title: t("withdraw_btn_hint", scope: "decidim.proposals.proposals.show" ), data: { confirm: t("withdraw_confirmation_html", scope: "decidim.proposals.proposals.show" ) } do %>
+          <span><%= t("withdraw_proposal", scope: "decidim.proposals.proposals.show") %></span>
+        <% end %>
+      <% end %>
+    </div>
   </section>
 <% end %>
 
