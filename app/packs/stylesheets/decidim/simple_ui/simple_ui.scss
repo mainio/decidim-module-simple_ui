@@ -3,6 +3,7 @@
 @use "stylesheets/decidim/simple_ui/buttons";
 @use "stylesheets/decidim/simple_ui/forms";
 @use "stylesheets/decidim/simple_ui/accordion";
+@use "stylesheets/decidim/simple_ui/content_blocks";
 
 header {
   .main-bar {
@@ -393,6 +394,10 @@ header .main-bar__links-desktop svg {
 
 .steps {
   --step-color: #cacaca;
+
+  h2 {
+    @apply mt-0;
+  }
 
   &__list {
     @apply relative list-none mt-0;

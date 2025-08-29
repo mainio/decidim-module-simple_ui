@@ -1,0 +1,5 @@
+.participatory-space__container {
+  .content-block + .content-block {
+    @apply pb-0;
+  }
+}
