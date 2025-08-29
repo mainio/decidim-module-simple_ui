@@ -71,50 +71,52 @@ module Decidim
         Decidim.icons.register(name: "settings-2-line", icon: "settings-2-line", category: "system", description: "Settings-2", engine: :core)
       end
 
-      Decidim.content_blocks.register(:homepage, :custom_hero) do |content_block|
-        content_block.cell = "decidim/content_blocks/custom_hero"
-        content_block.public_name_key = "decidim.content_blocks.custom_hero.name"
-        content_block.settings_form_cell = "decidim/content_blocks/custom_hero_settings_form"
+      initializer "decidim_simple_ui.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :custom_hero) do |content_block|
+          content_block.cell = "decidim/content_blocks/custom_hero"
+          content_block.public_name_key = "decidim.content_blocks.custom_hero.name"
+          content_block.settings_form_cell = "decidim/content_blocks/custom_hero_settings_form"
 
-        content_block.images = [
-          {
-            name: :hero_image,
-            uploader: "Decidim::HomepageImageUploader"
-          }
-        ]
+          content_block.images = [
+            {
+              name: :hero_image,
+              uploader: "Decidim::HomepageImageUploader"
+            }
+          ]
 
-        content_block.settings do |settings|
-          settings.attribute :title, type: :text, translated: true
-          settings.attribute :description, type: :text, translated: true
-          settings.attribute :button_text, type: :text, translated: true
-          settings.attribute :button_url, type: :text, translated: true
-          settings.attribute :image_alt, type: :text, translated: true
+          content_block.settings do |settings|
+            settings.attribute :title, type: :text, translated: true
+            settings.attribute :description, type: :text, translated: true
+            settings.attribute :button_text, type: :text, translated: true
+            settings.attribute :button_url, type: :text, translated: true
+            settings.attribute :image_alt, type: :text, translated: true
+          end
         end
-      end
 
-      Decidim.content_blocks.register(:homepage, :instructions) do |content_block|
-        content_block.cell = "decidim/content_blocks/instructions"
-        content_block.public_name_key = "decidim.content_blocks.instructions.name"
-        content_block.settings_form_cell = "decidim/content_blocks/instructions_settings_form"
+        Decidim.content_blocks.register(:homepage, :instructions) do |content_block|
+          content_block.cell = "decidim/content_blocks/instructions"
+          content_block.public_name_key = "decidim.content_blocks.instructions.name"
+          content_block.settings_form_cell = "decidim/content_blocks/instructions_settings_form"
 
-        content_block.settings do |settings|
-          settings.attribute :title, type: :text, translated: true
-          settings.attribute :button_text, type: :text, translated: true
-          settings.attribute :button_url, type: :text, translated: true
-          settings.attribute :sections, type: :array
+          content_block.settings do |settings|
+            settings.attribute :title, type: :text, translated: true
+            settings.attribute :button_text, type: :text, translated: true
+            settings.attribute :button_url, type: :text, translated: true
+            settings.attribute :sections, type: :array
+          end
         end
-      end
 
-      Decidim.content_blocks.register(:homepage, :infolift) do |content_block|
-        content_block.cell = "decidim/content_blocks/infolift"
-        content_block.public_name_key = "decidim.content_blocks.infolift.name"
-        content_block.settings_form_cell = "decidim/content_blocks/infolift_settings_form"
+        Decidim.content_blocks.register(:homepage, :infolift) do |content_block|
+          content_block.cell = "decidim/content_blocks/infolift"
+          content_block.public_name_key = "decidim.content_blocks.infolift.name"
+          content_block.settings_form_cell = "decidim/content_blocks/infolift_settings_form"
 
-        content_block.settings do |settings|
-          settings.attribute :title, type: :text, translated: true
-          settings.attribute :description, type: :text, translated: true
-          settings.attribute :button_text, type: :text, translated: true
-          settings.attribute :button_url, type: :text, translated: true
+          content_block.settings do |settings|
+            settings.attribute :title, type: :text, translated: true
+            settings.attribute :description, type: :text, translated: true
+            settings.attribute :button_text, type: :text, translated: true
+            settings.attribute :button_url, type: :text, translated: true
+          end
         end
       end
     end
