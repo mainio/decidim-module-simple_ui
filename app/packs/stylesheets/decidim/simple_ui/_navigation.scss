@@ -1,0 +1,49 @@
+header .main-bar__links-desktop svg {
+  @apply h-9 w-9;
+
+  & + span {
+    @apply font-bold mt-1;
+  }
+}
+
+.participatory-space__nav-item {
+  @apply bg-[--primary] text-white p-2 h-14 text-lg font-semibold pl-4 w-full xl:w-3/6;
+
+  svg {
+    @apply h-6 w-6;
+  }
+}
+
+.submenu-element {
+  @apply text-left;
+
+  .button {
+    & > span {
+      @apply text-left;
+    }
+  }
+}
+
+.menu__bar-submenu {
+  @apply border-t-background;
+}
+
+.active-link {
+  @apply text-[--primary];
+}
+
+.active-caret {
+  svg {
+    @apply fill-[--primary];
+  }
+}
+
+.menu-element-caret-mobile {
+  svg {
+    @apply fill-[--primary];
+  }
+}
+
+.submenu-element-mobile {
+  @apply border-background;
+}

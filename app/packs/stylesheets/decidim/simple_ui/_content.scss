@@ -1,0 +1,21 @@
+.decorator {
+  @apply after:rounded-none after:bg-transparent;
+}
+
+.page__title {
+  @apply h3 text-[22px] mb-4 md:h3;
+}
+
+.page__container {
+  .editor-content {
+    @apply text-black text-md;
+  }
+}
+
+.read-more {
+  @apply pt-4 font-semibold text-[--primary];
+}
+
+.simple-card-button {
+  @apply button button__lg button__secondary;
+}

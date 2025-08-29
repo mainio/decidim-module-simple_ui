@@ -1,3 +1,33 @@
 .label-required {
   @apply ms-2;
 }
+
+[type='search'] {
+  @apply outline-offset-0;
+}
+
+.form-defaults {
+  /* text-like inputs */
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="email"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  select,
+  textarea {
+    &:not(.reset-defaults) {
+      @apply rounded-none border-black;
+    }
+  }
+
+  input[type="search"]:not(.reset-defaults) {
+    @apply border-none bg-white;
+  }
+}

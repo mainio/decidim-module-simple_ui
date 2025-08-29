@@ -1,0 +1,38 @@
+.register__separator {
+  @apply text-center flex justify-center mt-6 text-xl mx-auto w-fit;
+
+  &__text {
+    @apply font-bold text-md md:text-lg;
+  }
+
+  svg {
+    @apply h-8 w-8 pb-1 transform transition-transform duration-300;
+  }
+}
+
+#session_new_user {
+  .form__wrapper label:not(.form__wrapper-checkbox-label),
+  .form__wrapper-block label:not(.form__wrapper-checkbox-label) {
+    @apply font-normal text-md;
+  }
+
+  .form__wrapper {
+    @apply gap-6;
+
+    input {
+      @apply rounded-none;
+    }
+  }
+
+  .form__wrapper-block {
+    @apply border-none py-1;
+
+    button {
+      @apply bg-[#002ba0];
+    }
+  }
+
+  .login__links {
+    @apply border-none;
+  }
+}

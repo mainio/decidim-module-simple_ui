@@ -1,0 +1,7 @@
+.comment__opinion-container {
+  @apply flex-col md:flex-row
+}
+
+.add-comment {
+  @apply bg-[#f2fcfd] p-2;
+}

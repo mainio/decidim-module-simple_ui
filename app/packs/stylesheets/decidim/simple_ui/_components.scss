@@ -1,0 +1,62 @@
+.component-background {
+  @apply bg-[#f2fcfd] py-4 mb-10;
+}
+
+.component-background-color {
+  @apply bg-[#f2fcfd];
+}
+
+.accountability {
+  &__project {
+    &-aside {
+      background-color: transparent !important;
+    }
+  }
+}
+
+.accountability__status{
+  &-simple {
+    &_title {
+      @apply text-black text-xl;
+    }
+    &_value {
+      @apply text-black text-xl font-bold;
+    }
+  }
+}
+
+.meeting-list__map {
+  @apply md:mt-0 md:ml-0;
+}
+
+.simple-map {
+  @apply aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
+}
+
+.record-action-container {
+  @apply items-center py-4 flex flex-col gap-2 mx-8;
+
+  > * {
+    @apply w-full;
+  }
+
+  a {
+    @apply button__lg mt-0;
+  }
+}
+
+.action-divider {
+  @apply relative;
+
+  &::before {
+    @apply content-[""] absolute h-[1px] left-0 right-0 bg-black;
+  }
+}
+
+.listing-back-link {
+  @apply container grid grid-cols-12 text-xl font-semibold text-[--primary] pt-6;
+
+  a {
+    @apply col-span-full;
+  }
+}

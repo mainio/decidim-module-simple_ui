@@ -1,0 +1,17 @@
+[data-dialog] {
+  [data-dialog-actions] {
+    @apply flex-nowrap;
+  }
+
+  [data-dialog-title] {
+    @apply text-4xl md:text-5xl text-black font-semibold inline focus:outline-none;
+  }
+
+  [data-dialog-container] {
+    @apply block;
+
+    > svg {
+      @apply inline mb-4 me-2.5;
+    }
+  }
+}

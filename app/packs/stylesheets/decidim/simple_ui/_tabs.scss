@@ -1,0 +1,42 @@
+.simple-tabs {
+  @apply py-12;
+
+  h1 {
+    @apply break-words;
+  }
+  .vertical-tabs {
+    @apply container mt-12;
+
+    nav {
+      @apply p-2 border-x-0 border-y border-background text-lg flex flex-col gap-4 items-start justify-center;
+
+      h3 {
+        @apply mb-1;
+      }
+
+      .is-active {
+        @apply underline;
+      }
+
+      p {
+        @apply text-[--primary] h6;
+      }
+    }
+
+    >*:first-child {
+      @apply col-span-7;
+    }
+
+    >*:last-child {
+      @apply col-span-7 md:col-span-3;
+    }
+  }
+}
+
+.vertical-tabs {
+  .editor-content {
+    .rich-text-display {
+      @apply text-black text-md;
+    }
+  }
+}

@@ -1,5 +1,54 @@
+.homepage-content_block:nth-child(even) {
+  @apply bg-gray-5;
+}
+
+.homepage-content_block.custom-hero {
+  @apply bg-[#f2fcfd] pb-12 md:pt-5 md:pb-9;
+}
+
+.homepage-content_block.py-homepage {
+  padding-top: 3.65rem;
+  padding-bottom: 3.65rem;
+}
+
 .participatory-space__container {
   .content-block + .content-block {
     @apply pb-0;
+  }
+}
+
+.custom_hero-container {
+  @apply flex flex-col-reverse gap-4 pb-5 md:container lg:grid lg:grid-cols-2 lg:py-5;
+}
+
+.custom_hero-text {
+  @apply container space-y-8 md:mx-0 md:px-0 lg:mt-4 lg:flex lg:flex-col;
+}
+
+.custom_hero-image {
+  @apply mb-4 md:mb-0;
+
+  img {
+    @apply w-full md:max-w-full;
+  }
+}
+
+.content-block__description.editor-content {
+  .rich-text-display {
+    p {
+      @apply text-black text-md;
+    }
+  }
+}
+
+.instructions {
+  @apply container flex flex-col items-center space-y-8 md:items-start md:flex-row md:justify-between md:gap-8 md:space-y-0;
+}
+
+.infolift {
+  @apply container;
+
+  &__content {
+    @apply prose mx-auto md:max-w-[34rem] text-center;
   }
 }
