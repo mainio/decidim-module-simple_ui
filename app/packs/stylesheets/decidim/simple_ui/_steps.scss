@@ -1,0 +1,79 @@
+.steps {
+  --step-color: #cacaca;
+
+  h2 {
+    @apply mt-0;
+  }
+
+  &__list {
+    @apply relative list-none mt-0;
+
+    &-container {
+      @apply flex flex-col md:flex-row gap-6 md:gap-0 divide-background-3 md:divide-x md:[&>*]:px-10 first:[&>*]:pl-0 last:[&>*]:pr-0;
+    }
+
+    > li {
+      @apply ps-0 my-0 relative;
+
+      &:last-child {
+        .steps__step {
+          @apply pb-0;
+
+          &::before {
+            @apply hidden;
+          }
+        }
+      }
+    }
+  }
+
+  &__step {
+    @apply flex pb-5;
+
+    &::before {
+      @apply content-[""] absolute w-[1px] h-full bg-[--step-color] left-6 md:left-[2.2rem];
+    }
+
+    &__number {
+      @apply z-10 flex flex-initial shrink-0 items-center justify-center lining-nums w-12 h-12 md:w-[4.4rem] md:h-[4.4rem] rounded-full text-center text-black text-[1.4rem] md:text-[2rem] font-bold bg-[--step-color] border-2 border-[--step-color];
+    }
+
+    &__content {
+      @apply block ml-4 sm:ml-7;
+
+      .editor-content {
+        @apply mt-3 text-md;
+      }
+    }
+
+    &__title {
+      .heading {
+        @apply my-0 text-black h3;
+      }
+    }
+
+    &__dates {
+      @apply text-black text-sm whitespace-nowrap;
+    }
+
+    &__note {
+      @apply italic text-sm;
+    }
+
+    &.is-active {
+      .steps__step__number {
+        @apply bg-[--primary] border-[--primary] text-white text-[32px] font-bold;
+      }
+
+      .steps__step__content {
+        @apply mt-0;
+      }
+    }
+
+    &.is-future {
+      .steps__step__number {
+        @apply bg-white border-[--primary] text-[--primary] text-[32px] font-bold;
+      }
+    }
+  }
+}
