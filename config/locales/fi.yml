@@ -97,6 +97,9 @@ fi:
         custom_hero:
           participate_title: Osallistu prosesseihin alustalla
     participatory_processes:
+      content_blocks:
+        phases:
+          name: Vaiheet
       participatory_processes:
         index:
           all_processes: Kaikki prosessit

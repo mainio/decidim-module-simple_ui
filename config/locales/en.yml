@@ -105,6 +105,9 @@ en:
         custom_hero:
           participate_title: Participate
     participatory_processes:
+      content_blocks:
+        phases:
+          name: Phases
       participatory_processes:
         index:
           all_processes: All processes

@@ -389,68 +389,79 @@ header .main-bar__links-desktop svg {
       @apply flex items-center gap-1 text-white font-semibold hover:underline [&>svg]:fill-current;
     }
   }
+}
 
-  &__metadata {
-    &-steps {
-      @apply font-normal;
+.steps {
+  --step-color: #cacaca;
 
-      &__list {
-        @apply space-y-6 relative;
+  &__list {
+    @apply relative list-none mt-0;
 
-        &-container {
-          @apply mt-8 flex flex-col md:flex-row gap-6 md:gap-0 divide-background-3 md:divide-x md:[&>*]:px-10 first:[&>*]:pl-0 last:[&>*]:pr-0;
-        }
+    &-container {
+      @apply flex flex-col md:flex-row gap-6 md:gap-0 divide-background-3 md:divide-x md:[&>*]:px-10 first:[&>*]:pl-0 last:[&>*]:pr-0;
+    }
 
-        > * {
-          @apply relative before:absolute before:w-px before:-z-10 before:left-8 before:bg-gray-3 before:h-[calc(100%+1.5rem)] last:before:h-[36px] before:-top-[18px] first:before:top-[18px];
+    > li {
+      @apply ps-0 my-0 relative;
+
+      &:last-child {
+        .steps__step {
+          @apply pb-0;
+
+          &::before {
+            @apply hidden;
+          }
         }
       }
+    }
+  }
 
-      &__step {
-        @apply flex items-baseline gap-6 text-left;
+  &__step {
+    @apply flex pb-5;
 
-        > :first-child {
-          @apply flex-none w-12 h-12 md:w-16 md:h-16 rounded-full inline-grid place-items-center text-black text-[22px] md:text-[32px] font-bold bg-background;
-        }
+    &::before {
+      @apply content-[""] absolute w-[1px] h-full bg-[--step-color] left-6 md:left-[2.2rem];
+    }
 
-        > :last-child {
-          @apply flex flex-col gap-2 relative;
-        }
+    &__number {
+      @apply z-10 flex flex-initial shrink-0 items-center justify-center lining-nums w-12 h-12 md:w-[4.4rem] md:h-[4.4rem] rounded-full text-center text-black text-[1.4rem] md:text-[2rem] font-bold bg-[--step-color] border-2 border-[--step-color];
+    }
 
-        &-title {
-          .step-title {
-            @apply text-black text-[22px] md:h3;
-          }
-        }
+    &__content {
+      @apply block ml-4 sm:ml-7;
 
-        &-dates {
-          @apply text-black text-sm whitespace-nowrap;
-        }
+      .editor-content {
+        @apply mt-3 text-md;
+      }
+    }
 
-        &-current {
-          @apply absolute -translate-y-full italic text-sm invisible;
-        }
+    &__title {
+      .heading {
+        @apply my-0 text-black h3;
+      }
+    }
 
-        &[aria-expanded="true"] &-title {
-          @apply font-semibold;
-        }
+    &__dates {
+      @apply text-black text-sm whitespace-nowrap;
+    }
 
-        &.is-active &-current {
-          @apply visible;
+    &__note {
+      @apply italic text-sm;
+    }
 
-        }
+    &.is-active {
+      .steps__step__number {
+        @apply bg-[--primary] border-[--primary] text-white text-[32px] font-bold;
+      }
 
-        &.is-active {
-          > :first-child {
-            @apply bg-[--primary] text-white text-[32px] font-bold;
-          }
-        }
+      .steps__step__content {
+        @apply mt-0;
+      }
+    }
 
-        &.is-future {
-          > :first-child {
-            @apply bg-white text-[--primary] text-[32px] font-bold ring ring-[--primary];
-          }
-        }
+    &.is-future {
+      .steps__step__number {
+        @apply bg-white border-[--primary] text-[--primary] text-[32px] font-bold;
       }
     }
   }
@@ -592,7 +603,7 @@ a.card__list[id^="accountability__result_"] {
   @apply container;
 
   &__content {
-    @apply mx-auto md:max-w-[34rem] text-center;
+    @apply prose mx-auto md:max-w-[34rem] text-center;
   }
 }
 
@@ -677,7 +688,6 @@ a.card__list[id^="accountability__result_"] {
 }
 
 .action-divider {
-  // @apply border-t mt-4;
   @apply relative;
 
   &::before {

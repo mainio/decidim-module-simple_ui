@@ -72,6 +72,7 @@ module Decidim
       end
 
       initializer "decidim_simple_ui.content_blocks" do
+        # Home page
         Decidim.content_blocks.register(:homepage, :custom_hero) do |content_block|
           content_block.cell = "decidim/content_blocks/custom_hero"
           content_block.public_name_key = "decidim.content_blocks.custom_hero.name"
@@ -116,6 +117,14 @@ module Decidim
             settings.attribute :description, type: :text, translated: true
             settings.attribute :button_text, type: :text, translated: true
             settings.attribute :button_url, type: :text, translated: true
+          end
+        end
+
+        # Processes
+        if Decidim.module_installed?(:participatory_processes)
+          Decidim.content_blocks.register(:participatory_process_homepage, :phases) do |content_block|
+            content_block.cell = "decidim/participatory_processes/content_blocks/phases"
+            content_block.public_name_key = "decidim.participatory_processes.content_blocks.phases.name"
           end
         end
       end

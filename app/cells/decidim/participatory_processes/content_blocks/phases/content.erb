@@ -1,0 +1,32 @@
+<div class="content-block__description">
+  <div class="steps">
+    <h2 class="h3 md:h2"><%= t("participatory_process_steps.index.process_steps", scope: "decidim") %></h2>
+    <div>
+      <div class="steps__list-container">
+        <ol class="steps__list">
+          <% steps.each_with_index do |step, idx| %>
+            <li>
+              <div class="<%= step_classes_for(step, idx) %>">
+                <span class="steps__step__number"><span><%= step.position + 1 %></span></span>
+                <span class="steps__step__content">
+                  <span class="steps__step__title">
+                    <% if step.active %>
+                      <span class="steps__step__note"><%= t("active_step", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
+                    <% end %>
+                    <h3 class="heading"><%= decidim_escape_translated(step.title) %></h3>
+                  </span>
+
+                  <span class="steps__step__dates"><%= step_dates(step) %></span>
+
+                  <div id="panel-process-steps-<%= idx %>" class="editor-content">
+                    <%= decidim_sanitize_editor_admin(translated_attribute(step.description)) %>
+                  </div>
+                </span>
+              </div>
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
