@@ -123,7 +123,7 @@ en:
         collection:
           choose: Choose
           show: "Show:"
-      filter: Filters
+        filter: Filters
       flag_modal:
         report: Report
   devise:
