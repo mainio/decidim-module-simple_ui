@@ -2,6 +2,7 @@
 
 @use "stylesheets/decidim/simple_ui/buttons";
 @use "stylesheets/decidim/simple_ui/forms";
+@use "stylesheets/decidim/simple_ui/filters";
 @use "stylesheets/decidim/simple_ui/accordion";
 @use "stylesheets/decidim/simple_ui/content_blocks";
 
@@ -149,39 +150,6 @@ footer {
   @apply mx-0 md:mx-3.5;
 }
 
-.filter {
-  span {
-    @apply text-sm text-black truncate whitespace-nowrap first-letter:uppercase;
-  }
-
-  &-search {
-    @apply rounded-none border border-black bg-white;
-  }
-
-  &-container {
-    @apply border-x-0 border-t-0 rounded-none border-b border-background mt-2 px-2 py-3;
-
-    &__title {
-      @apply block h6 mb-1;
-    }
-
-    [data-controls*="panel"] {
-      & > span {
-        @apply text-black;
-      }
-    }
-
-    input[type="checkbox"],
-    input[type="radio"] {
-      &:checked {
-        + span + span {
-          @apply w-full absolute top-0 left-0 bg-transparent h-full rounded block;
-        }
-      }
-    }
-  }
-}
-
 .page__grid {
   .page__title {
     @apply text-[--primary];
@@ -238,50 +206,6 @@ footer {
 .homepage-content_block.py-homepage {
   padding-top: 3.65rem;
   padding-bottom: 3.65rem;
-}
-
-.datefilter-dropdown {
-  @apply inline-flex justify-between items-center w-full border border-black p-1 bg-white text-md relative md:justify-center;
-}
-
-#accordion-trigger-filters {
-  @apply border-none md:hidden;
-
-  span {
-    @apply text-[--primary];
-  }
-
-  svg {
-    @apply fill-[--primary];
-  }
-}
-
-.active-filter {
-  @apply mr-1;
-}
-
-.dropdown-menu-process-date {
-  @apply absolute w-56 top-full bg-white border border-background z-50;
-
-  .filter {
-    label {
-      @apply flex items-center px-4 py-2 text-sm cursor-pointer transition-colors duration-200;
-    }
-
-    input:checked + span {
-      @apply font-bold underline;
-    }
-
-    span + span {
-      @apply hidden;
-    }
-
-    input[type="radio"] {
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-    }
-  }
 }
 
 header .main-bar__links-desktop svg {
@@ -472,18 +396,6 @@ header .main-bar__links-desktop svg {
   }
 }
 
-#accordion-panel-filters {
-  @apply border border-background h-min;
-
-  input {
-    @apply bg-white;
-  }
-}
-
-#accordion-panel-filters.no-border {
-  @apply border-0;
-}
-
 .submenu-element {
   @apply text-left;
 
@@ -628,18 +540,6 @@ a.card__list[id^="accountability__result_"] {
     &_value {
       @apply text-black text-xl font-bold;
     }
-  }
-}
-
-.accountability__filters-simple {
-  @apply border border-background h-min p-2;
-
-  .filter-container {
-    @apply mt-8 p-2 border-t border-background;
-  }
-
-  .filter-container-search {
-    @apply rounded-none border border-black bg-white;
   }
 }
 
