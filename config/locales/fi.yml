@@ -93,9 +93,6 @@ fi:
     pages:
       index:
         more: Lue lisää
-      home:
-        intro:
-          participate_title: Osallistu prosesseihin alustalla
     participatory_processes:
       content_blocks:
         phases:
