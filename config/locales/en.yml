@@ -11,6 +11,8 @@ en:
         scope_filters:
           category: Scope
           search_bar: Search
+        show:
+          back_to_listing: Show other results
     blogs:
       post_l:
         explore: Open
@@ -98,6 +100,9 @@ en:
     meetings:
       meeting_l:
         explore: Open
+      meetings:
+        show:
+          back_to_listing: Show other meetings
     pages:
       index:
         more: Read more

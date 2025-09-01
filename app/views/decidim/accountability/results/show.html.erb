@@ -1,0 +1,23 @@
+<% add_decidim_meta_tags({
+                           description: translated_attribute(result.description),
+                           title: translated_attribute(result.title),
+                           url: result_url(result.id)
+                         }) %>
+
+<%
+edit_link(
+  resource_locator(result).edit,
+  :update,
+  :result,
+  result:
+)
+%>
+
+<%= append_javascript_pack_tag "decidim_accountability" %>
+<%= append_stylesheet_pack_tag "decidim_accountability" %>
+
+<% content_for :item_header do %>
+  <%= render partial: "decidim/shared/components/back_link", locals: { url: results_path, text: t(".back_to_listing") } %>
+<% end %>
+
+<%= render partial: "project", locals: { result: } %>

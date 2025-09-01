@@ -11,6 +11,8 @@ fi:
         scope_filters:
           category: Teema
           search_bar: Hae
+        show:
+          back_to_listing: Näytä muut tulokset
     blogs:
       post_l:
         explore: Tutustu
@@ -90,6 +92,9 @@ fi:
     meetings:
       meeting_l:
         explore: Tutustu
+      meetings:
+        show:
+          back_to_listing: Näytä muut tapaamiset
     pages:
       index:
         more: Lue lisää
