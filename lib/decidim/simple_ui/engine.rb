@@ -120,11 +120,20 @@ module Decidim
           end
         end
 
+        # Participatory spaces
+        participatory_space_defaults = [:hero, :main_data, :phases]
+
         # Processes
         if Decidim.module_installed?(:participatory_processes)
           Decidim.content_blocks.register(:participatory_process_homepage, :phases) do |content_block|
             content_block.cell = "decidim/participatory_processes/content_blocks/phases"
             content_block.public_name_key = "decidim.participatory_processes.content_blocks.phases.name"
+          end
+
+          Decidim.content_blocks.for(:participatory_process_homepage).each do |content_block|
+            puts content_block.name.inspect
+
+            content_block.default = participatory_space_defaults.include?(content_block.name)
           end
         end
       end
