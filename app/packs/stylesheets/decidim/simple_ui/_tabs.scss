@@ -5,10 +5,10 @@
     @apply break-words;
   }
   .vertical-tabs {
-    @apply container mt-12;
+    @apply container mt-12 gap-8 lg:gap-8 md:grid-cols-12;
 
     nav {
-      @apply p-2 border-x-0 border-y border-background text-lg flex flex-col gap-4 items-start justify-center;
+      @apply py-5 border-x-0 border-y border-background text-lg flex flex-col gap-5 items-start justify-center;
 
       h3 {
         @apply mb-1;
@@ -24,11 +24,11 @@
     }
 
     >*:first-child {
-      @apply col-span-7;
+      @apply col-span-full md:col-span-7;
     }
 
     >*:last-child {
-      @apply col-span-7 md:col-span-3;
+      @apply col-span-full md:col-span-4 md:col-start-9;
     }
   }
 }

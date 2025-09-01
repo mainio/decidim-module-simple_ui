@@ -93,6 +93,9 @@ fi:
     pages:
       index:
         more: Lue lisää
+        standalone_pages: Sivut ilman aihetta
+        subheading: Tietoa tästä palvelusta ja ohjeita osallistumisalustan käyttöön.
+        topics: Aihealueet
     participatory_processes:
       content_blocks:
         phases:

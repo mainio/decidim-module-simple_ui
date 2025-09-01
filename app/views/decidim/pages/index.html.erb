@@ -7,10 +7,11 @@ edit_link(
 )
 %>
 
-<div class="one-col">
 
-  <div class="text-center py-10">
-    <h1 class="title-decorator inline-block text-left mb-12 h2 md:h1">
+
+<main class="one-col">
+  <div class="text-center pt-7 pb-11">
+    <h1 class="title-decorator inline-block text-left mb-6 h2 md:h1">
       <%= t "decidim.pages.index.title" %>
     </h1>
     <p class="text-xl">
@@ -28,14 +29,12 @@ edit_link(
             <% if topic.pages.any? %>
               <div class="topic-container">
                 <div>
-                  <h3 id="title-<%= ix %>" class="page__title">
-                    <%= link_to translated_attribute(topic.title), page_path(topic.pages.first) %>
-                  </h3>
+                  <h3 id="title-<%= ix %>" class="page__title"><%= translated_attribute(topic.title) %></h3>
                   <p class="page__snippet"><%= translated_attribute topic.description %></p>
                 </div>
 
                 <div id="panel-<%= ix %>" class="page__panel">
-                  <ul role="menu" class="space-y-3">
+                  <ul role="menu" class="space-y-2">
                     <% topic.pages.each do |page| %>
                       <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-[--primary] h6 break-words" %></li>
                     <% end %>
@@ -49,7 +48,7 @@ edit_link(
     <% end %>
 
     <% if @orphan_pages.any? %>
-      <div class="space-y-6">
+      <div class="space-y-7">
         <h2 class="h3 decorator md:h2"><%= t "decidim.pages.index.standalone_pages" %></h2>
         <div class="page__grid">
           <% @orphan_pages.each do |page| %>
@@ -57,7 +56,7 @@ edit_link(
               <h3 class="page__title">
                 <%= translated_attribute(page.title) %>
               </h3>
-              <p class="page__accordion-trigger-snippet"><%== strip_tags html_truncate(translated_attribute(page.content), length: 140, separator: "...") %></p>
+              <p class="page__accordion-trigger-snippet"><%== strip_tags html_truncate(translated_attribute(page.content), length: 360, separator: "...") %></p>
               <p class="read-more"><%= t(".more") %></p>
             <% end %>
           <% end %>
@@ -65,5 +64,4 @@ edit_link(
       </div>
     <% end %>
   </div>
-
-</div>
+</main>

@@ -101,6 +101,9 @@ en:
     pages:
       index:
         more: Read more
+        standalone_pages: Pages without a topic
+        subheading: Information about this service and instructions for using the participation platform.
+        topics: Topics
     participatory_processes:
       content_blocks:
         phases:

@@ -19,9 +19,15 @@
       <span class="h3"><%= title %></span>
 
       <% pages.each do |sibling| %>
-        <p class="<%= "is-active" if page == sibling %>" role="menuitem">
-          <%= link_to translated_attribute(sibling.title), page_path(sibling.slug) %>
-        </p>
+        <% if page == sibling %>
+          <p class="is-active" role="menuitem">
+            <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), aria: { current: "page" } %>
+          </p>
+        <% else %>
+          <p role="menuitem">
+            <%= link_to translated_attribute(sibling.title), page_path(sibling.slug) %>
+          </p>
+        <% end %>
       <% end %>
     </nav>
   </div>
