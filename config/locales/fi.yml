@@ -45,14 +45,14 @@ fi:
           global:
             intro: Kuvaus
     content_blocks:
-      custom_hero:
-        name: Muokattava pääkuva
+      intro:
+        name: Johdanto
         title: Tervetuloa
-      custom_hero_settings_form:
+      intro_settings_form:
         title: Otsikko
         description: Kuvaus
-        button_text: CTA -painikkeen teksti
-        button_url: CTA -painikkeen URL
+        button_text: CTA-painikkeen teksti
+        button_url: CTA-painikkeen URL
         hero_image: Pääkuva
         image_alt: Kuvan vaihtoehtoisteksti
       infolift:
@@ -60,8 +60,8 @@ fi:
       infolift_settings_form:
         title: Otsikko
         description: Kuvaus
-        button_text: CTA -painikkeen teksti
-        button_url: CTA -painikkeen URL
+        button_text: CTA-painikkeen teksti
+        button_url: CTA-painikkeen URL
       instructions:
         name: Ohjeistus
         title: Ohjeistus
@@ -94,7 +94,7 @@ fi:
       index:
         more: Lue lisää
       home:
-        custom_hero:
+        intro:
           participate_title: Osallistu prosesseihin alustalla
     participatory_processes:
       content_blocks:

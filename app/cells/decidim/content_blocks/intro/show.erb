@@ -1,16 +1,16 @@
 <div class="homepage-content_block custom-hero">
-  <div class="custom_hero-container">
-    <div class="custom_hero-text">
+  <div class="intro-container">
+    <div class="intro-text">
       <h1 class="h2 md:h1 flex-1">
         <% if translated_attribute(title).blank? %>
-          <%= t("decidim.pages.home.custom_hero.title", organization: current_organization.name) %>
+          <%= t("decidim.pages.home.intro.title", organization: current_organization.name) %>
         <% else %>
           <%= decidim_escape_translated title %>
         <% end %>
       </h1>
       <div class="text-xl">
         <% if translated_attribute(description).blank? %>
-          <p><%= t("decidim.pages.home.custom_hero.introduction") %></p>
+          <p><%= t("decidim.pages.home.intro.introduction") %></p>
         <% else %>
           <%= decidim_sanitize_admin translated_attribute(description) %>
         <% end %>
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="custom_hero-image">
+    <div class="intro-image">
       <%= image_tag hero_image, alt: image_alt %>
     </div>
   </div>

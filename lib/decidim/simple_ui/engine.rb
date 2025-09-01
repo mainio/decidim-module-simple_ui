@@ -73,10 +73,10 @@ module Decidim
 
       initializer "decidim_simple_ui.content_blocks" do
         # Home page
-        Decidim.content_blocks.register(:homepage, :custom_hero) do |content_block|
-          content_block.cell = "decidim/content_blocks/custom_hero"
-          content_block.public_name_key = "decidim.content_blocks.custom_hero.name"
-          content_block.settings_form_cell = "decidim/content_blocks/custom_hero_settings_form"
+        Decidim.content_blocks.register(:homepage, :intro) do |content_block|
+          content_block.cell = "decidim/content_blocks/intro"
+          content_block.public_name_key = "decidim.content_blocks.intro.name"
+          content_block.settings_form_cell = "decidim/content_blocks/intro_settings_form"
 
           content_block.images = [
             {

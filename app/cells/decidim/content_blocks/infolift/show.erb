@@ -3,7 +3,7 @@
     <div class="mb-8">
       <h2 class="h3 md:h2 text-center">
         <% if translated_attribute(title).blank? %>
-          <%= t("decidim.pages.home.custom_hero.title", organization: current_organization.name) %>
+          <%= t("decidim.pages.home.intro.title", organization: current_organization.name) %>
         <% else %>
           <%= decidim_escape_translated title %>
         <% end %>
@@ -13,7 +13,7 @@
     <div class="infolift__content">
       <div class="text-xl">
         <% if translated_attribute(description).blank? %>
-          <p><%= t("decidim.pages.home.custom_hero.introduction") %></p>
+          <p><%= t("decidim.pages.home.intro.introduction") %></p>
         <% else %>
           <%= decidim_sanitize_admin translated_attribute(description) %>
         <% end %>

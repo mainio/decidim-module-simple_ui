@@ -2,7 +2,7 @@
 
 module Decidim
   module ContentBlocks
-    class CustomHeroCell < Decidim::ViewModel
+    class IntroCell < Decidim::ViewModel
       include Decidim::CtaButtonHelper
       include Decidim::SanitizeHelper
 
@@ -41,7 +41,7 @@ module Decidim
       # the model does not respond to cache_key_with_version nor updated_at method
       def cache_hash
         hash = []
-        hash << "decidim/content_blocks/custom_hero"
+        hash << "decidim/content_blocks/intro"
         hash << Digest::MD5.hexdigest(model.attributes.to_s)
         hash << current_organization.cache_key_with_version
         hash << I18n.locale.to_s

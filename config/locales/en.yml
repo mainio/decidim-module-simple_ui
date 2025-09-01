@@ -45,14 +45,14 @@ en:
           global:
             intro: Description
     content_blocks:
-      custom_hero:
-        name: Customizable hero
+      intro:
+        name: Intro
         title: Welcome
-      custom_hero_settings_form:
+      intro_settings_form:
         title: Title
         description: Description
-        button_text: CTA -button text
-        button_url: CTA -button URL
+        button_text: CTA button text
+        button_url: CTA button URL
         hero_image: Home image
         image_alt: Image text
       infolift:
@@ -102,7 +102,7 @@ en:
       index:
         more: Read more
       home:
-        custom_hero:
+        intro:
           participate_title: Participate
     participatory_processes:
       content_blocks:

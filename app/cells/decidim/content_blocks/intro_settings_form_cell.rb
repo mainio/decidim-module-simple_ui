@@ -2,7 +2,7 @@
 
 module Decidim
   module ContentBlocks
-    class CustomHeroSettingsFormCell < Decidim::ViewModel
+    class IntroSettingsFormCell < Decidim::ViewModel
       alias form model
 
       def content_block
