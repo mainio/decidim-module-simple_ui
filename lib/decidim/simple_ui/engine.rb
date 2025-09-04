@@ -131,8 +131,6 @@ module Decidim
           end
 
           Decidim.content_blocks.for(:participatory_process_homepage).each do |content_block|
-            puts content_block.name.inspect
-
             content_block.default = participatory_space_defaults.include?(content_block.name)
           end
         end
