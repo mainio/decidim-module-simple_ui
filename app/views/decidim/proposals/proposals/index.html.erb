@@ -19,7 +19,15 @@
         <% end %>
 
         <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
-          <%= action_authorized_link_to :create, new_proposal_path, class: "button button__lg button__secondary", data: { "redirect_url" => new_proposal_path } do %>
+          <%
+            redirect_url =
+              if Decidim.module_installed?(:privacy) && !user_signed_in?
+                proposals_path(open: :new)
+              else
+                new_proposal_path
+              end
+          %>
+          <%= action_authorized_link_to :create, new_proposal_path, class: "button button__lg button__secondary", data: { "redirect_url" => redirect_url, action: "new_proposal" } do %>
             <span><%= t("new_proposal", scope: "decidim.proposals.proposals.index") %></span>
             <%= icon "add-line" %>
           <% end %>
@@ -79,3 +87,18 @@
     </div>
   </div>
 </main>
+
+<% if params[:open] == "new" %>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var link = document.querySelector("a[data-action='new_proposal']")
+  if (!link) {
+    return;
+  }
+
+  setTimeout(function() {
+    link.click();
+  }, 1000);
+});
+</script>
+<% end %>
