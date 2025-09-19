@@ -124,6 +124,9 @@ fi:
           choose: Valitse
           show: "Näytä:"
         filter: Hakuvalinnat
+        search: Haku
+        search_placeholder: Syötä hakusana
+        search_bar: Hae
       flag_modal:
         report: Ilmoita
   devise:

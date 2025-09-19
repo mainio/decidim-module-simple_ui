@@ -132,6 +132,9 @@ en:
           choose: Choose
           show: "Show:"
         filter: Filters
+        search: Search
+        search_placeholder: Type a keyword
+        search_bar: Search
       flag_modal:
         report: Report
   devise:
