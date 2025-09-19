@@ -1,20 +1,20 @@
 <div class="py-homepage homepage-content_block">
   <div class="infolift">
-    <div class="mb-8">
-      <% unless translated_attribute(title).blank? %>
+    <% unless translated_attribute(title).blank? %>
+      <div class="mb-8">
         <h2 class="h3 md:h2 text-center">
           <%= decidim_escape_translated title %>
         </h2>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
-    <div class="infolift__content">
-      <% unless translated_attribute(description).blank? %>
+    <% unless translated_attribute(description).blank? %>
+      <div class="infolift__content">
         <div class="text-xl">
             <%= decidim_sanitize_admin translated_attribute(description) %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
     <% unless translated_attribute(button_text).blank? %>
       <%= render :cta_button %>
