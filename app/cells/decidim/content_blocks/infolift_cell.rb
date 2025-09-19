@@ -6,6 +6,12 @@ module Decidim
       include Decidim::CtaButtonHelper
       include Decidim::SanitizeHelper
 
+      def show
+        return if title.blank? && description.blank?
+
+        super
+      end
+
       # Needed so that the `CtaButtonHelper` can work.
       def decidim_participatory_processes
         Decidim::ParticipatoryProcesses::Engine.routes.url_helpers

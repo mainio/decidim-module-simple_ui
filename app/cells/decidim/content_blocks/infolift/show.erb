@@ -1,25 +1,23 @@
 <div class="py-homepage homepage-content_block">
   <div class="infolift">
     <div class="mb-8">
-      <h2 class="h3 md:h2 text-center">
-        <% if translated_attribute(title).blank? %>
-          <%= t("decidim.pages.home.intro.title", organization: current_organization.name) %>
-        <% else %>
+      <% unless translated_attribute(title).blank? %>
+        <h2 class="h3 md:h2 text-center">
           <%= decidim_escape_translated title %>
-        <% end %>
-      </h2>
+        </h2>
+      <% end %>
     </div>
 
     <div class="infolift__content">
-      <div class="text-xl">
-        <% if translated_attribute(description).blank? %>
-          <p><%= t("decidim.pages.home.intro.introduction") %></p>
-        <% else %>
-          <%= decidim_sanitize_admin translated_attribute(description) %>
-        <% end %>
-      </div>
+      <% unless translated_attribute(description).blank? %>
+        <div class="text-xl">
+            <%= decidim_sanitize_admin translated_attribute(description) %>
+        </div>
+      <% end %>
     </div>
 
-    <%= render :cta_button %>
+    <% unless translated_attribute(button_text).blank? %>
+      <%= render :cta_button %>
+    <% end %>
   </div>
 </div>

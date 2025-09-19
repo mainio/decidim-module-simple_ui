@@ -6,6 +6,12 @@ module Decidim
       include Decidim::CtaButtonHelper
       include Decidim::SanitizeHelper
 
+      def show
+        return if title.blank? && description.blank?
+
+        super
+      end
+
       # Needed so that the `CtaButtonHelper` can work.
       def decidim_participatory_processes
         Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
@@ -28,11 +34,11 @@ module Decidim
       end
 
       def hero_image
-        model.images_container.attached_uploader(:hero_image).url
+        model.images_container.attached_uploader(:hero_image)&.url
       end
 
       def image_alt
-        translated_attribute(model.settings.image_alt).presence || File.basename(URI.parse(hero_image).path)
+        translated_attribute(model.settings.image_alt).presence || (hero_image.present? ? File.basename(URI.parse(hero_image).path) : "image_alt")
       end
 
       private

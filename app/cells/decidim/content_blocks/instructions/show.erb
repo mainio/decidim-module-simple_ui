@@ -1,11 +1,9 @@
 <div class="py-homepage homepage-content_block space-y-12">
-  <h2 class="h3 md:h2 text-center">
-    <% if translated_attribute(title).blank? %>
-      <%= t("decidim.pages.home.instructions.title", organization: current_organization.name) %>
-    <% else %>
-      <%= decidim_escape_translated title %>
-    <% end %>
-  </h2>
+  <% unless translated_attribute(title).blank? %>
+    <h2 class="h3 md:h2 text-center">
+        <%= decidim_escape_translated title %>
+    </h2>
+  <% end %>
 
   <div class="instructions">
     <% sections.each do |section| %>
@@ -14,11 +12,18 @@
           <%= icon(section.icon, class: "h-12 w-12") %>
         </div>
 
-        <p class="h4 my-3"><%= decidim_escape_translated section.title %></p>
-        <p class="text-center text-md"><%= decidim_sanitize_admin translated_attribute(section.description) %></p>
+        <% unless translated_attribute(section.title) %>
+          <p class="h4 my-3"><%= decidim_escape_translated section.title %></p>
+        <% end %>
+
+        <% unless translated_attribute(section.description) %>
+          <p class="text-center text-md"><%= decidim_sanitize_admin translated_attribute(section.description) %></p>
+        <% end %>
       </div>
     <% end %>
   </div>
 
-  <%= render :cta_button %>
+  <% unless translated_attribute(button_text).blank? %>
+    <%= render :cta_button %>
+  <% end %>
 </div>

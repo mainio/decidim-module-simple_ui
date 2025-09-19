@@ -5,6 +5,12 @@ module Decidim
     class InstructionsCell < Decidim::ViewModel
       include Decidim::SanitizeHelper
 
+      def show
+        return if title.blank?
+
+        super
+      end
+
       def title
         model.settings.title
       end
