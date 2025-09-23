@@ -1,7 +1,7 @@
 <div class="homepage-content_block custom-hero">
   <div class="intro-container">
     <div class="intro-text">
-      <h1 class="h2 md:h1 flex-1">
+      <h1 class="h2 md:h1">
         <% if translated_attribute(title).blank? %>
           <%= t("decidim.pages.home.intro.title", organization: current_organization.name) %>
         <% else %>
