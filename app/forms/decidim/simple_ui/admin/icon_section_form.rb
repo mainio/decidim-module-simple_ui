@@ -22,7 +22,19 @@ module Decidim
         end
 
         def self.available_icons
-          @available_icons ||= %w(lightbulb-flash-line settings-2-line checkbox-multiple-line eye-line)
+          @available_icons ||= %w(
+            lightbulb-flash-line
+            settings-2-line
+            checkbox-multiple-line
+            eye-line
+            login-box-line
+            discuss-line
+            map-pin-line
+            pencil-line
+            calendar-line
+            like
+            share
+          )
         end
       end
     end
