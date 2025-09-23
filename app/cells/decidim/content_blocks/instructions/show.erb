@@ -1,24 +1,26 @@
-<div class="py-homepage homepage-content_block space-y-12">
-  <h2 class="h3 md:h2 text-center">
-    <% if translated_attribute(title).blank? %>
-      <%= t("decidim.pages.home.instructions.title", organization: current_organization.name) %>
-    <% else %>
-      <%= decidim_escape_translated title %>
-    <% end %>
-  </h2>
+<div class="py-homepage homepage-content_block">
+  <div class="container">
+    <h2 class="h3 md:h2 text-center">
+      <% if translated_attribute(title).blank? %>
+        <%= t("decidim.pages.home.instructions.title", organization: current_organization.name) %>
+      <% else %>
+        <%= decidim_escape_translated title %>
+      <% end %>
+    </h2>
 
-  <div class="instructions">
-    <% sections.each do |section| %>
-      <div class="flex flex-col items-center">
-        <div class="p-2 rounded-full border-2 border-black flex items-center justify-center">
-          <%= icon(section.icon, class: "h-12 w-12") %>
+    <div class="instructions">
+      <% sections.each do |section| %>
+        <div class="instructions__item">
+          <div class="p-2 rounded-full border-2 border-black flex items-center justify-center">
+            <%= icon(section.icon, class: "h-12 w-12") %>
+          </div>
+
+          <h3 class="instructions__item__title"><%= decidim_escape_translated section.title %></h3>
+          <p class="text-center text-md"><%= description_for(section) %></p>
         </div>
+      <% end %>
+    </div>
 
-        <p class="h4 my-3"><%= decidim_escape_translated section.title %></p>
-        <p class="text-center text-md"><%= decidim_sanitize_admin translated_attribute(section.description) %></p>
-      </div>
-    <% end %>
+    <%= render :cta_button %>
   </div>
-
-  <%= render :cta_button %>
 </div>
