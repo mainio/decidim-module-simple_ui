@@ -24,4 +24,5 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "decidim-core", Decidim::SimpleUi::DECIDIM_VERSION
+  s.add_dependency "text-hyphen", "~> 1.5"
 end
