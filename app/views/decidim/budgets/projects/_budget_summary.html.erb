@@ -1,0 +1,22 @@
+<div id="order-progress<%= "-responsive" if responsive %>" class="budget-summary <%= responsive ? "block md:hidden" : "hidden md:block" %>" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
+  <% if include_heading %>
+    <% if current_order_checked_out? %>
+      <%= t("title", scope: "decidim.budgets.projects.budget_summary.checked_out") %>
+      <div class="budget-summary__content__header">
+        <span class="budget-summary__content__header--title">
+          <%= t("name", scope: "decidim.components.budgets") %>
+        </span>
+        /
+        <%= translated_attribute(budget.title) %>
+        <p class="budget-summary__content__header--description">
+          <%= t("description", scope: "decidim.budgets.projects.budget_summary.checked_out") %>
+        </p>
+      </div>
+    <% else %>
+      <p class="budget-summary__progressbox--checked_out">
+        <%= current_rule_description %>
+      </p>
+    <% end %>
+  <% end %>
+  <%= render partial: "order_progress_summary_content", locals: { responsive: , include_heading: } %>
+</div>

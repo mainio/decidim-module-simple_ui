@@ -16,6 +16,9 @@ fi:
     blogs:
       post_l:
         explore: Tutustu
+    budgets:
+      project_l:
+        explore: Tutustu
     comments:
       comment_form:
         add_comment: Lisää kommentti

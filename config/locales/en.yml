@@ -16,6 +16,9 @@ en:
     blogs:
       post_l:
         explore: Open
+    budgets:
+      project_l:
+        explore: Open
     comments:
       comment_form:
         add_comment: Add comment

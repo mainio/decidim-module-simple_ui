@@ -1,0 +1,17 @@
+    <% if current_order.projects_rule? %>
+      <span class="budget-summary__progressbar-legend budget-summary__progressbar-marks_right" data-total-allocation="<%= current_order.available_allocation %>">
+        <%= t("votes", scope: "decidim.budgets.projects.order_progress") %>
+
+        <strong class="budget-summary__progressbar-legend-strong">
+          <%= current_order.maximum_projects - current_order.projects.size %>
+        </strong>
+      </span>
+    <% else %>
+      <span class="budget-summary__progressbar-legend budget-summary__progressbar-marks_right" data-total-allocation="<%= current_order.available_allocation %>">
+        <%= t("budget", scope: "decidim.budgets.projects.order_progress") %>
+
+        <strong class="budget-summary__progressbar-legend-strong">
+          <%= budget_to_currency(budget.total_budget - current_order&.total_budget.to_f) %>
+        </strong>
+      </span>
+    <% end %>
