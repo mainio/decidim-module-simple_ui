@@ -3,47 +3,47 @@
 <% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <% append_javascript_pack_tag "decidim_proposals" %>
 
-<section role="region" aria-label="Meetings header">
-  <div class="row column component-background">
-    <div class="one-col mx-auto space-y-4">
-      <h1 class="title-decorator text-center h2 md:h1"><%= component_name %></h1>
+<main>
+  <section>
+    <div class="row column component-background">
+      <div class="one-col mx-auto space-y-4">
+        <h1 class="title-decorator text-center h2 md:h1"><%= component_name %></h1>
 
-      <%= render partial: "decidim/shared/components/intro" %>
+        <%= render partial: "decidim/shared/components/intro" %>
 
-      <div class="mx-auto flex flex-col gap-4 items-center lg:flex-row">
-        <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) && component_settings.collaborative_drafts_enabled? %>
-          <%= link_to collaborative_drafts_path, class: "button button__lg button__transparent-secondary" do %>
-            <span><%= t("collaborative_drafts_list", scope: "decidim.proposals.proposals.index") %></span>
-            <%= icon "edit-2-line" %>
+        <div class="mx-auto flex flex-col gap-4 items-center lg:flex-row">
+          <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) && component_settings.collaborative_drafts_enabled? %>
+            <%= link_to collaborative_drafts_path, class: "button button__lg button__transparent-secondary" do %>
+              <span><%= t("collaborative_drafts_list", scope: "decidim.proposals.proposals.index") %></span>
+              <%= icon "edit-2-line" %>
+            <% end %>
           <% end %>
-        <% end %>
 
-        <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
-          <%
-            redirect_url =
-              if Decidim.module_installed?(:privacy) && !user_signed_in?
-                proposals_path(open: :new)
-              else
-                new_proposal_path
-              end
-          %>
-          <%= action_authorized_link_to :create, new_proposal_path, class: "button button__lg button__secondary", data: { "redirect_url" => redirect_url, action: "new_proposal" } do %>
-            <span><%= t("new_proposal", scope: "decidim.proposals.proposals.index") %></span>
-            <%= icon "add-line" %>
+          <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
+            <%
+              redirect_url =
+                if Decidim.module_installed?(:privacy) && !user_signed_in?
+                  proposals_path(open: :new)
+                else
+                  new_proposal_path
+                end
+            %>
+            <%= action_authorized_link_to :create, new_proposal_path, class: "button button__lg button__secondary", data: { "redirect_url" => redirect_url, action: "new_proposal" } do %>
+              <span><%= t("new_proposal", scope: "decidim.proposals.proposals.index") %></span>
+              <%= icon "add-line" %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row column one-col mx-auto">
-    <% unless @proposals.empty? %>
-      <%= render partial: "count" %>
-    <% end %>
-  </div>
-</section>
+    <div class="row column one-col mx-auto">
+      <% unless @proposals.empty? %>
+        <%= render partial: "count" %>
+      <% end %>
+    </div>
+  </section>
 
-<main>
   <div class="double-col_off mx-auto">
     <div>
       <div>
@@ -51,7 +51,16 @@
           <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
         <% end %>
       </div>
+      <%= render partial: "decidim/shared/component_announcement" %>
 
+      <% if show_voting_rules? %>
+        <section class="layout-main__section">
+          <%= render partial: "voting_rules" %>
+        </section>
+      <% end %>
+    </div>
+
+    <div class="layout-main__section layout-main__heading w-full">
       <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
         <div class="proposal-list__map">
           <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
@@ -73,17 +82,9 @@
         </div>
       <% end %>
 
-      <%= render partial: "decidim/shared/component_announcement" %>
-
-      <% if show_voting_rules? %>
-        <section class="layout-main__section">
-          <%= render partial: "voting_rules" %>
-        </section>
-      <% end %>
-    </div>
-
-    <div id="proposals" class="layout-main__section layout-main__heading w-full">
-      <%= render partial: "proposals" %>
+      <div id="proposals">
+        <%= render partial: "proposals" %>
+      </div>
     </div>
   </div>
 </main>

@@ -1,29 +1,31 @@
-<div class="py-homepage homepage-content_block space-y-12">
-  <% unless translated_attribute(title).blank? %>
-    <h2 class="h3 md:h2 text-center">
-        <%= decidim_escape_translated title %>
-    </h2>
-  <% end %>
+<div class="py-homepage homepage-content_block">
+  <div class="container">
+    <% unless translated_attribute(title).blank? %>
+      <h2 class="h3 md:h2 text-center">
+          <%= decidim_escape_translated title %>
+      </h2>
+    <% end %>
 
-  <div class="instructions">
-    <% sections.each do |section| %>
-      <div class="flex flex-col items-center">
-        <div class="p-2 rounded-full border-2 border-black flex items-center justify-center">
-          <%= icon(section.icon, class: "h-12 w-12") %>
+    <div class="instructions">
+      <% sections.each do |section| %>
+        <div class="instructions__item">
+          <div class="p-2 rounded-full border-2 border-black flex items-center justify-center">
+            <%= icon(section.icon, class: "h-12 w-12") %>
+          </div>
+
+          <% unless translated_attribute(section.title).blank? %>
+            <h3 class="instructions__item__title"><%= decidim_escape_translated section.title %></p>
+          <% end %>
+
+          <% unless translated_attribute(section.description).blank? %>
+            <p class="text-center text-md"><%= decidim_sanitize_admin translated_attribute(section.description) %></p>
+          <% end %>
         </div>
+      <% end %>
+    </div>
 
-        <% unless translated_attribute(section.title).blank? %>
-          <p class="h4 my-3"><%= decidim_escape_translated section.title %></p>
-        <% end %>
-
-        <% unless translated_attribute(section.description).blank? %>
-          <p class="text-center text-md"><%= decidim_sanitize_admin translated_attribute(section.description) %></p>
-        <% end %>
-      </div>
+    <% unless translated_attribute(button_text).blank? %>
+      <%= render :cta_button %>
     <% end %>
   </div>
-
-  <% unless translated_attribute(button_text).blank? %>
-    <%= render :cta_button %>
-  <% end %>
 </div>

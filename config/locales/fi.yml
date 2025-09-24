@@ -81,6 +81,13 @@ fi:
           settings-2-line: Hammasratas
           checkbox-multiple-line: Valittu ruutu
           eye-line: Silmä
+          login-box-line: Kirjautuminen
+          discuss-line: Keskustelu
+          map-pin-line: Karttapiste
+          pencil-line: Kynä
+          calendar-line: Kalenteri
+          like: Tykkäys
+          share: Jako
         remove: Poista
         section: Osio
         section_description: Osion kuvaus

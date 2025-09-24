@@ -9,10 +9,6 @@ module Decidim
         options[:content_block]
       end
 
-      def steps_options
-        %w(idea develop vote follow)
-      end
-
       private
 
       def section_model_for(section_params)
