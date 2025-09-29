@@ -1,0 +1,68 @@
+<div id="order-dropdown" class="relative text-left flex items-center gap-2">
+  <span class="hidden md:inline text-md"><%= t("simple_ui.orders.order") %></span>
+  <button
+    id="order-dropdown-button"
+    type="button"
+    class="inline-flex justify-center items-center md:w-full border border-black p-1 bg-white text-sm relative md:text-md"
+  >
+    <%= t("simple_ui.orders.#{order}") %>
+    <%= icon "arrow-down-s-line", class: "h-6 w-6 mt-px transition-transform duration-300" %>
+  </button>
+
+  <div
+    id="order-dropdown-menu"
+    class="hidden absolute w-56 top-full bg-white border border-background z-50"
+  >
+    <div class="py-1" role="menu" aria-orientation="vertical">
+      <% orders.each do |order_value| %>
+        <%= order_link order_value,
+                   i18n_scope:,
+                   title: t("simple_ui.orders.#{order_value}"),
+                   role: :menuitem,
+                   class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 #{'font-bold underline' if order_value == order}" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initializeDropdown() {
+    const button = document.getElementById("order-dropdown-button");
+    const menu = document.getElementById("order-dropdown-menu");
+
+    if (!button || !menu || button.dataset.bound) return;
+
+    button.dataset.bound = true;
+
+    button.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!menu.contains(e.target) && !button.contains(e.target)) {
+        menu.classList.add("hidden");
+      }
+    });
+  }
+
+  function observeList() {
+    const controllerName = "<%= controller.controller_name %>"
+    const listContainer = document.getElementById(controllerName);
+
+    if (!listContainer) return;
+
+    const observer = new MutationObserver(() => {
+      if (listContainer) {
+        initializeDropdown();
+      }
+    })
+
+    observer.observe(listContainer, { childList: true, subtree: true });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initializeDropdown();
+    observeList();
+  });
+</script>

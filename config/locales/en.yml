@@ -151,3 +151,9 @@ en:
     shared:
       credentials:
         login: Login with account information
+  simple_ui:
+    orders:
+      order: "Order: "
+      random: "Random"
+      highest_cost: Highest cost
+      lowest_cost: Lowest cost

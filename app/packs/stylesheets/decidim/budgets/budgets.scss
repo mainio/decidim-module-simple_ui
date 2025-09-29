@@ -122,6 +122,12 @@
   }
 }
 
+#order-progress-responsive {
+  .budget-summary__progressbox--checked_out {
+    @apply block pt-2;
+  }
+}
+
 .budget-summary {
   .budget-summary__progressbox--checked_out {
     @apply px-4 lg:px-16;

@@ -143,3 +143,9 @@ fi:
     shared:
       credentials:
         login: Kirjaudu ylläpitäjän antamalla tunnuksella
+  simple_ui:
+    orders:
+      order: "Järjestä: "
+      random: Satunnainen
+      highest_cost: Kallein ensin
+      lowest_cost: Edullisin ensin

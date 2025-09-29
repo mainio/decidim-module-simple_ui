@@ -24,7 +24,7 @@ module Decidim
         ActiveSupport.on_load(:action_controller) do
           simple_views = Decidim::SimpleUi::Engine.root.join("app", "views")
 
-            prepend_view_path(simple_views) if Decidim.module_installed? :privacy
+            prepend_view_path(simple_views) if Decidim.module_installed?(:privacy)
         end
       end
 

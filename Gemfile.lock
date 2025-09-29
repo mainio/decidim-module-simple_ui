@@ -3,6 +3,7 @@ PATH
   specs:
     decidim-simple_ui (0.28.0)
       decidim-core (~> 0.28.0)
+      text-hyphen (~> 1.5)
 
 GEM
   remote: https://rubygems.org/
@@ -742,6 +743,7 @@ GEM
     temple (0.10.3)
     terminal-table (4.0.0)
       unicode-display_width (>= 1.1.1, < 4)
+    text-hyphen (1.5.0)
     thor (1.3.2)
     tilt (2.6.0)
     timeout (0.4.3)
