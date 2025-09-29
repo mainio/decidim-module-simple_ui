@@ -5,16 +5,6 @@
     <h1 class="title-decorator mt-12 mb-20"><%= t("devise.sessions.new.log_in") %></h1>
   </div>
 
-  <% if !current_organization.sign_in_enabled? %>
-    <div class="login__info font-semibold">
-      <p><%= t(".sign_in_disabled") %></p>
-    </div>
-  <% elsif !current_organization.sign_up_enabled? %>
-    <div class="login__info font-semibold">
-      <p><%= t(".sign_up_disabled") %></p>
-    </div>
-  <% end %>
-
   <div class="omniauth-buttons mb-9">
     <% cache current_organization do %>
       <%= render "decidim/devise/shared/omniauth_buttons" %>
