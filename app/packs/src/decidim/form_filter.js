@@ -72,10 +72,9 @@ export default class FormFilterComponent {
         }
       }
 
-      const $searchInput = this.$form.find('input[type="search"]');
       const $submitButton = this.$form.find('button[type="submit"]');
 
-      $searchInput.on("keydown", function(e) {
+      this.$form.on("keydown", 'input[type="search"], input[type="checkbox"], input[type="radio"]',  function(e) {
         if (e.key === "Enter") {
           e.preventDefault();
           $submitButton.click();
