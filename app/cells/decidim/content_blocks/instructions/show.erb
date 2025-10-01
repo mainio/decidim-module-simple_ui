@@ -14,11 +14,11 @@
           </div>
 
           <% unless translated_attribute(section.title).blank? %>
-            <h3 class="instructions__item__title"><%= decidim_escape_translated section.title %></p>
+            <h3 class="instructions__item__title"><%= decidim_escape_translated section.title %></h3>
           <% end %>
 
           <% unless translated_attribute(section.description).blank? %>
-            <p class="text-center text-md"><%= decidim_sanitize_admin translated_attribute(section.description) %></p>
+            <p class="text-center text-md"><%= description_for(section) %></p>
           <% end %>
         </div>
       <% end %>
