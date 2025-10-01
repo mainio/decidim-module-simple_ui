@@ -55,10 +55,26 @@ export default class FormFilterComponent {
       this.mounted = true;
       let queue = 0;
 
-      const $searchInput = this.$form.find('input[type="search"]');
+      const savedFiltersJSON = sessionStorage.getItem("filteredParams");
+
+      if (savedFiltersJSON) {
+        const savedFilters = JSON.parse(savedFiltersJSON);
+        const pathName = this.$form.attr("action");
+        const savedPath = savedFilters[pathName];
+
+        if (savedPath) {
+          const originalGetLocation = this._getLocation;
+          this._getLocation = () => savedPath;
+
+          this._onPopState();
+
+          this._getLocation = originalGetLocation;
+        }
+      }
+
       const $submitButton = this.$form.find('button[type="submit"]');
 
-      $searchInput.on("keydown", function(e) {
+      this.$form.on("keydown", 'input[type="search"], input[type="checkbox"], input[type="radio"]',  function(e) {
         if (e.key === "Enter") {
           e.preventDefault();
           $submitButton.click();
@@ -84,6 +100,9 @@ export default class FormFilterComponent {
       });
 
       $(document).on("ajax:success", () => {
+        const [currentPath] = this._currentStateAndPath();
+        this._saveFilters(currentPath);
+
         queue -= 1;
         if (queue <= 0 && contentContainer.length > 0) {
           contentContainer.removeClass("spinner-container");
