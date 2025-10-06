@@ -107,6 +107,12 @@ en:
     debates:
       debate_l:
         explore: Open
+    forms:
+      admin:
+        models:
+          components:
+            requires_tos_agreement: Requires acceptance of terms of service
+            title: Title
     meetings:
       meeting_l:
         explore: Open

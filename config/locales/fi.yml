@@ -99,6 +99,12 @@ fi:
     debates:
       debate_l:
         explore: Tutustu
+    forms:
+      admin:
+        models:
+          components:
+            requires_tos_agreement: Vaatii käyttöehtojen hyväksynnän
+            title: Otsikko
     meetings:
       meeting_l:
         explore: Tutustu

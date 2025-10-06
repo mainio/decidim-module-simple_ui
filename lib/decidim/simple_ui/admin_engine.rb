@@ -25,6 +25,19 @@ module Decidim
         end
       end
 
+      initializer "decidim_simple_ui_admin.add_customizations", after: "decidim.action_controller" do
+        config.to_prepare do
+          if Decidim.module_installed?(:forms)
+            Decidim::Forms::Admin::UpdateQuestionnaire.include(
+              Decidim::SimpleUi::Admin::UpdateQuestionnaireExtensions
+            )
+            Decidim::Forms::Admin::QuestionnaireForm.include(
+              Decidim::SimpleUi::Admin::QuestionnaireFormExtensions
+            )
+          end
+        end
+      end
+
       def load_seed
         nil
       end

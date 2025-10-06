@@ -11,8 +11,8 @@ repeating titles on all subpages).
 
 ## Usage
 
-SimpleUi automatically applies some customizations to the Decidim UI after
-adding it as a dependency. There are no further steps to apply the module.
+Simple UI automatically applies some customizations to the Decidim UI after
+installing it following the instructions listed in the installation section.
 
 The best experience is achieved together with the `decidim-nav` module available
 at:
@@ -29,6 +29,27 @@ features for proposals, please also see the
 [`decidim-simple_proposal`](https://github.com/mainio/decidim-module-simple_proposal)
 module.
 
+### Optional survey terms of service
+
+By default, the surveys component requires the user to accept the terms of
+service when they answer it. However, for most simple use cases this is
+unnecessary which is why we made it optional for all questionnaires. The option
+is enabled for all old surveys there may be in the database when installing this
+module.
+
+Please note that there are still valid use cases when you would need the survey
+respondents to agree to the terms of service, such as:
+
+- Collecting personal details from unregistered users, e.g. if you have a
+  question for the respondent's name (or other personal details).
+- Collecting extra personal details from registered users other than those
+  listed in the service's privacy policy, e.g. if you are asking for the users'
+  phone numbers which they would not normally provide during the registration.
+- There are some legal other requirements for utilizing the survey responses,
+  such as you want to publish some of the individual answers in your material,
+  in which case you might need the respondents to provide you with the rights or
+  a license to use that content elsewhere (e.g. on your website).
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -41,6 +62,8 @@ And then execute:
 
 ```bash
 bundle
+bundle exec rails decidim_simple_ui:install:migrations
+bundle exec rails db:migrate
 ```
 
 ## Contributing
