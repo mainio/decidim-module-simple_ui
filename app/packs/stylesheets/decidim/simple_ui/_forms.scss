@@ -30,4 +30,10 @@
   input[type="search"]:not(.reset-defaults) {
     @apply border-none bg-white;
   }
+
+  .input-group {
+    .input-group-label {
+      @apply border-black;
+    }
+  }
 }
