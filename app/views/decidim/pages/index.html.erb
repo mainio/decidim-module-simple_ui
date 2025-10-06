@@ -30,7 +30,9 @@ edit_link(
               <div class="topic-container">
                 <div>
                   <h3 id="title-<%= ix %>" class="page__title"><%= translated_attribute(topic.title) %></h3>
-                  <p class="page__snippet"><%= translated_attribute topic.description %></p>
+                  <% if (desc = translated_attribute(topic.description)).present? %>
+                    <p class="page__snippet mb-4"><%= desc %></p>
+                  <% end %>
                 </div>
 
                 <div id="panel-<%= ix %>" class="page__panel">
