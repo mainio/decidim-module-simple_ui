@@ -7,7 +7,7 @@
 }
 
 a.button {
-  @apply hover:no-underline focus:no-underline;
+  @apply no-underline hover:no-underline focus:no-underline;
 }
 
 .button.is-hover,
