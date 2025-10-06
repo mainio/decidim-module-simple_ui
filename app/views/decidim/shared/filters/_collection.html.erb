@@ -6,7 +6,7 @@
       <%= icon "arrow-down-s-line", class: "h-6 w-6 mt-px transition-transform duration-300" %>
     </button>
 
-    <div id="panel-dropdown-menu-process-date" class="dropdown-menu-process-date hidden">
+    <div id="panel-dropdown-menu-process-date" class="dropdown-menu-process-date hidden" role="menu">
       <%= form.send(
           "collection_#{builder_type}",
           method,
@@ -14,7 +14,7 @@
           :first,
           :last
       ) do |builder| %>
-        <div class="filter">
+        <div class="filter" role="menu-item">
           <%= builder.label { builder.send(builder_type.singularize, class: "reset-defaults hidden") + filter_text_for(builder.text) } %>
         </div>
       <% end %>
