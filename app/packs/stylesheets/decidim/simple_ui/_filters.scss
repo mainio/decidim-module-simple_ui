@@ -91,10 +91,8 @@
       @apply hidden;
     }
 
-    input[type="radio"] {
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
+    &:focus-within {
+      @apply bg-[#e4eeff99];
     }
   }
 }

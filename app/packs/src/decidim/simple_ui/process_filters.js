@@ -9,23 +9,23 @@ const setFilterText = (target) => {
 }
 
 $(() => {
-  const processDate = document.getElementById("panel-dropdown-menu-process-date");
-  const datefilterDropdown = document.querySelector(".datefilter-dropdown");
-  const caret = datefilterDropdown.querySelector("svg");
-  const activeFilter = processDate.querySelector('input[checked="checked"]');
+  const processDateMenu = document.getElementById("panel-dropdown-menu-process-date");
+  const dateFilterTrigger = document.getElementById("trigger-menu-process-date");
+  const caret = dateFilterTrigger.querySelector("svg");
+  const activeFilter = processDateMenu.querySelector('input[checked="checked"]');
 
   if(activeFilter) {
     setFilterText(activeFilter);
   }
 
   const closeDropdown = () => {
-    if(!processDate.classList.contains("hidden")) {
-      processDate.classList.add("hidden");
+    if(!processDateMenu.classList.contains("hidden")) {
+      processDateMenu.classList.add("hidden");
       caret.classList.remove("rotate-180");
     }
   }
 
-  processDate.addEventListener("change", (ev) => {
+  processDateMenu.addEventListener("change", (ev) => {
     const target = ev.target;
 
     if (target.matches('input[name="filter[with_date]"]')) {
@@ -35,18 +35,26 @@ $(() => {
   })
 
   const toggleDropdown = () => {
-    processDate.classList.toggle("hidden");
+    processDateMenu.classList.toggle("hidden");
     caret.classList.toggle("rotate-180");
   }
 
-
-  datefilterDropdown.addEventListener("click", (ev) => {
+  dateFilterTrigger.addEventListener("click", (ev) => {
     ev.preventDefault();
     toggleDropdown();
+    const radios = processDateMenu.querySelectorAll('input[type="radio"][name="filter[with_date]"]');
+
+    if (ev.detail === 0) {
+      if (activeFilter) {
+        activeFilter.focus()
+      } else {
+        radios[0].focus();
+      }
+    }
   })
 
   document.addEventListener("click", (ev) => {
-    const isInside = processDate.contains(ev.target) || datefilterDropdown.contains(ev.target);
+    const isInside = processDateMenu.contains(ev.target) || dateFilterTrigger.contains(ev.target);
     if (!isInside) {
       closeDropdown();
     }

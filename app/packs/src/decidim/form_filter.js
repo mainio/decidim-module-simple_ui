@@ -75,9 +75,42 @@ export default class FormFilterComponent {
       const $submitButton = this.$form.find('button[type="submit"]');
 
       this.$form.on("keydown", 'input[type="search"], input[type="checkbox"], input[type="radio"]',  function(e) {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          $submitButton.click();
+        const $inputs = $(this).closest("form").find('input[type="radio"][name="filter[with_date]"]');
+        const processDateMenu = document.getElementById("panel-dropdown-menu-process-date");
+        const dateFilterTrigger = document.getElementById("trigger-menu-process-date");
+        const caret = dateFilterTrigger.querySelector("svg");
+
+        const inputs = $inputs.toArray();
+        const currentIndex = inputs.indexOf(e.target);
+
+        switch (e.key) {
+          case "Enter":
+            e.preventDefault();
+            $submitButton.click();
+            break;
+          case "ArrowDown":
+            e.preventDefault();
+            if (inputs.length) {
+              const nextIndex = currentIndex === -1 || currentIndex === inputs.length - 1 ? 0 : currentIndex + 1;
+              inputs[nextIndex].focus();
+            }
+            break;
+
+          case "ArrowUp":
+            e.preventDefault();
+            if (inputs.length) {
+              const prevIndex = currentIndex <= 0 ? inputs.length - 1 : currentIndex - 1;
+              inputs[prevIndex].focus();
+            }
+            break;
+
+          case "Escape":
+            e.preventDefault();
+            if (processDateMenu && !processDateMenu.classList.contains("hidden")) {
+              processDateMenu.classList.add("hidden");
+              caret.classList.remove("rotate-180");
+              dateFilterTrigger.focus();
+            }
         }
       })
 

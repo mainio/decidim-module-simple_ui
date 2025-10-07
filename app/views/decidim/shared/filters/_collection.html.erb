@@ -1,12 +1,12 @@
 <% if id == "process-date" %>
   <div class="flex flex-col gap-2 relative w-full md:flex-row md:text-left md:items-center">
     <span class="text-md"><%= t(".show") %></span>
-    <button class="datefilter-dropdown">
+    <button id="trigger-menu-process-date" class="datefilter-dropdown" data-control="panel-dropdown-menu-process-date" aria-controls="panel-dropdown-menu-process-date" aria-expanded="false">
       <span class="active-filter"><%= t(".choose") %></span>
       <%= icon "arrow-down-s-line", class: "h-6 w-6 mt-px transition-transform duration-300" %>
     </button>
 
-    <div id="panel-dropdown-menu-process-date" class="dropdown-menu-process-date hidden" role="menu">
+    <div id="panel-dropdown-menu-process-date" class="dropdown-menu-process-date hidden" aria-orientation="vertical" aria-labelledby="trigger-menu-process-date" role="menu">
       <%= form.send(
           "collection_#{builder_type}",
           method,
@@ -14,8 +14,8 @@
           :first,
           :last
       ) do |builder| %>
-        <div class="filter" role="menu-item">
-          <%= builder.label { builder.send(builder_type.singularize, class: "reset-defaults hidden") + filter_text_for(builder.text) } %>
+        <div class="filter" role="menuitem">
+          <%= builder.label { builder.send(builder_type.singularize, class: "reset-defaults sr-only") + filter_text_for(builder.text) } %>
         </div>
       <% end %>
     </div>
