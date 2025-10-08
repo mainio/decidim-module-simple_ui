@@ -3,6 +3,9 @@
     <%= title %>
   </p>
   <%= render :description %>
+  <% if respond_to?(:more_info?) && more_info? %>
+    <%= cell("decidim/tags", resource, context: { extra_classes: ["gap-4 md:gap-16"] }).call(:card_tag)%>
+  <% end %>
 </div>
 <div class="component-background-color p-2 flex justify-start items-center md:justify-center">
   <span class="button button__lg button__secondary">
