@@ -37,11 +37,17 @@ module Decidim
           Decidim::ContentBlocks::ParticipatorySpaceMetadataCell.include(
             Decidim::SimpleUi::ParticipatorySpaceMetadataCellExtensions
           )
+          Decidim::Meetings::JoinMeetingButtonCell.include(
+            Decidim::SimpleUi::JoinMeetingButtonCellExtensions
+          )
+          Decidim::Proposals::ProposalLCell.include(
+            Decidim::SimpleUi::ProposalLCellExtensions
+          )
           Decidim::ShareButtonCell.include(
             Decidim::SimpleUi::ShareButtonCellExtensions
           )
-          Decidim::Meetings::JoinMeetingButtonCell.include(
-            Decidim::SimpleUi::JoinMeetingButtonCellExtensions
+          Decidim::TagsCell.include(
+            Decidim::SimpleUi::TagsCellExtensions
           )
 
           # Controller extensions
