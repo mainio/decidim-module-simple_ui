@@ -78,7 +78,9 @@ export default class FormFilterComponent {
         const $inputs = $(this).closest("form").find('input[type="radio"][name="filter[with_date]"]');
         const processDateMenu = document.getElementById("panel-dropdown-menu-process-date");
         const dateFilterTrigger = document.getElementById("trigger-menu-process-date");
-        const caret = dateFilterTrigger.querySelector("svg");
+        if (dateFilterTrigger) {
+          const caret = dateFilterTrigger.querySelector("svg");
+        }
 
         const inputs = $inputs.toArray();
         const currentIndex = inputs.indexOf(e.target);
