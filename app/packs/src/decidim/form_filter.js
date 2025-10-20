@@ -56,7 +56,6 @@ export default class FormFilterComponent {
       let queue = 0;
 
       const savedFiltersJSON = sessionStorage.getItem("filteredParams");
-
       if (savedFiltersJSON) {
         const savedFilters = JSON.parse(savedFiltersJSON);
         const pathName = this.$form.attr("action");
@@ -303,7 +302,7 @@ export default class FormFilterComponent {
     }
 
     // Only one instance should submit the form on browser history navigation
-    if (this.popStateSubmiter) {
+    if (this.popStateSubmiter && this.changeEvents) {
       Rails.fire(this.$form[0], "submit");
     }
 
@@ -339,18 +338,30 @@ export default class FormFilterComponent {
    */
   _currentStateAndPath() {
     const formAction = this.$form.attr("action");
-    const params = this.$form.find("input:not(.ignore-filter)").serialize();
 
-    let path = "";
-    let currentState = {};
+    const params = new URLSearchParams();
+    this.$form.find("input:not(.ignore-filter), select:not(.ignore-filter)")
+      .filter((_, el) => {
+        if (el.type === "checkbox" || el.type === "radio") {
+          return el.checked;
+        }
+        return el.value !== "";
+      })
+      .serializeArray()
+      .forEach(({ name, value }) => {
+        params.append(name, value);
+      })
 
-    if (formAction.indexOf("?") < 0) {
-      path = `${formAction}?${params}`;
-    } else {
-      path = `${formAction}&${params}`;
-    }
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.forEach((value, key) => {
+      if (!params.has(key)) {
+        params.append(key, value);
+      }
+    })
 
-    return [path, currentState];
+    let path = `${formAction.split("?")[0]}?${params.toString()}`;
+    console.log(path)
+    return [path, {}];
   }
 
   /**
