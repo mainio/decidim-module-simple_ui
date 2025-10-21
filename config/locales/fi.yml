@@ -155,3 +155,4 @@ fi:
       random: Satunnainen
       highest_cost: Kallein ensin
       lowest_cost: Edullisin ensin
+      most_voted: Eniten ääniä saaneet ensin
