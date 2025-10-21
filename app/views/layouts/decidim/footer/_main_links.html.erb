@@ -1,5 +1,5 @@
-<nav role="navigation" aria-label="<%= t("layouts.decidim.app_name") %>">
-  <p class="h6 mb-2 md:mb-2"><%= t("layouts.decidim.app_name") %></p>
+<nav role="navigation" aria-label="<%= translated_attribute(current_organization.name) %>">
+  <p class="h6 mb-2 md:mb-2"><%= translated_attribute(current_organization.name) %></p>
   <ul class="space-y-1 break-inside-avoid md:space-y-1">
     <%= cell("decidim/footer_pages", :pages) %>
     <li>
