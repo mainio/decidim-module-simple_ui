@@ -360,7 +360,6 @@ export default class FormFilterComponent {
     })
 
     let path = `${formAction.split("?")[0]}?${params.toString()}`;
-    console.log(path)
     return [path, {}];
   }
 
