@@ -1,0 +1,22 @@
+<div>
+  <div class="form__wrapper">
+    <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
+
+    <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
+  </div>
+
+  <div class="login__modal-links">
+    <%= link_to t("decidim.shared.login_modal.sign_up"), decidim.new_user_registration_path, class: "sign-up-link" if current_organization.sign_up_enabled? %>
+    <%= link_to t("devise.shared.links.forgot_your_password"), new_password_path(:user) %>
+  </div>
+</div>
+
+<div data-dialog-actions>
+  <button type="button" class="button button__lg button__transparent-secondary" data-dialog-close="loginModal">
+    <%= t("cancel", scope: "decidim.admin.actions") %>
+  </button>
+  <button type="submit" class="button button__lg button__secondary">
+    <%= t("devise.sessions.new.log_in") %>
+    <%= icon "arrow-right-line", class: "fill-current" %>
+  </button>
+</div>
