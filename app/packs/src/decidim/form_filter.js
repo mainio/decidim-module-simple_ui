@@ -55,24 +55,30 @@ export default class FormFilterComponent {
       this.mounted = true;
       let queue = 0;
 
-      const savedFiltersJSON = sessionStorage.getItem("filteredParams");
-      if (savedFiltersJSON) {
-        const savedFilters = JSON.parse(savedFiltersJSON);
-        const pathName = this.$form.attr("action");
-        const savedPath = savedFilters[pathName];
+      if (window.performance?.getEntriesByType("navigation")[0]?.type === "back_forward") {
+        const savedFiltersJSON = sessionStorage.getItem("filteredParams");
+        if (savedFiltersJSON) {
+          const savedFilters = JSON.parse(savedFiltersJSON);
+          const pathName = this.$form.attr("action");
+          const savedPath = savedFilters[pathName];
 
-        if (savedPath) {
-          const originalGetLocation = this._getLocation;
-          this._getLocation = () => savedPath;
+          if (savedPath) {
+            const originalGetLocation = this._getLocation;
+            this._getLocation = () => savedPath;
 
-          this._onPopState();
+            this._onPopState();
 
-          this._getLocation = originalGetLocation;
+            this._getLocation = originalGetLocation;
+          }
         }
       }
 
-      const $submitButton = this.$form.find('button[type="submit"]');
+      const resetButton = document.getElementById("reset-filters");
+      resetButton.addEventListener("click", () => {
+        this._clearForm();
+      })
 
+      const $submitButton = this.$form.find('button[type="submit"]');
       this.$form.on("keydown", 'input[type="search"], input[type="checkbox"], input[type="radio"]',  function(e) {
         const $inputs = $(this).closest("form").find('input[type="radio"][name="filter[with_date]"]');
         const processDateMenu = document.getElementById("panel-dropdown-menu-process-date");
@@ -258,6 +264,8 @@ export default class FormFilterComponent {
       // I need the this to iterate a jQuery collection
       $(this)[0].checked = true; // eslint-disable-line no-invalid-this
     });
+
+    this.$form.find("input[type=search").val("");
   }
 
   /**
@@ -360,7 +368,8 @@ export default class FormFilterComponent {
     })
 
     let path = `${formAction.split("?")[0]}?${params.toString()}`;
-    console.log(path)
+    this._saveFilters(path)
+
     return [path, {}];
   }
 

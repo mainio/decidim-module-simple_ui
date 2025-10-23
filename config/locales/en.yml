@@ -148,6 +148,7 @@ en:
           choose: Choose
           show: "Show:"
         filter: Filters
+        reset_filters: Reset filters
         search: Search
         search_placeholder: Type a keyword
         search_bar: Search

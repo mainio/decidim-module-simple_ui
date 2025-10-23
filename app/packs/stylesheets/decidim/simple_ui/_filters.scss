@@ -46,6 +46,18 @@
   &-container {
     @apply border-x-0 border-t-0 rounded-none border-b border-background mt-2 px-2 py-3;
 
+    &__buttons {
+      @apply flex items-center gap-10 flex-row px-4 md:flex-col md:gap-4 lg:gap-8 xl:gap-14 lg:flex-row;
+
+      .reset-button {
+        @apply text-md font-semibold text-secondary flex items-center justify-center max-w-24;
+
+        &:hover {
+          @apply underline;
+        }
+      }
+    }
+
     &__title {
       @apply block h6 mb-1;
     }

@@ -40,9 +40,12 @@
           <%= form.collection_filter(**f) %>
         <% end %>
 
-        <div class="filter-container">
+        <div class="filter-container filter-container__buttons">
           <button class="button button__lg button__secondary" type="submit" aria-label="<%= search_label %>">
             <%= t(".search_bar") %>
+          </button>
+          <button id="reset-filters" class="reset-button" aria-label="reset-filters">
+            <%= t(".reset_filters") %>
           </button>
         </div>
 

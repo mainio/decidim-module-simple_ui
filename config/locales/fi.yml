@@ -140,6 +140,7 @@ fi:
           choose: Valitse
           show: "Näytä:"
         filter: Hakuvalinnat
+        reset_filters: Tyhjennä hakuvalinnat
         search: Haku
         search_placeholder: Syötä hakusana
         search_bar: Hae
