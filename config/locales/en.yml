@@ -144,6 +144,7 @@ en:
           back_to_listing: Show other ideas
     shared:
       filters:
+        clear_filters: Clear search and reload results
         collection:
           choose: Choose
           show: "Show:"
