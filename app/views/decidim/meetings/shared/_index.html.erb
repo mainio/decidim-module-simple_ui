@@ -12,14 +12,6 @@
     </div>
   </div>
 
-  <div class="one-col mx-auto">
-    <% if display_map %>
-      <div class="simple-map">
-        <%= cell "decidim/meetings/meetings_map", search.result %>
-      </div>
-    <% end %>
-  </div>
-
   <div class="row column one-col mx-auto">
     <% unless meetings.length.zero? %>
       <h2 id="meeting-count" class="h3 decorator md:h2">
@@ -45,6 +37,12 @@
     </div>
 
     <div id="meetings" class="layout-main__section layout-main__heading w-full">
+      <% if display_map %>
+        <div class="meetings-list__map">
+          <%= cell "decidim/meetings/meetings_map", search.result %>
+        </div>
+      <% end %>
+
       <%= render partial: "decidim/meetings/shared/meetings", locals: { component: } %>
     </div>
   </div>

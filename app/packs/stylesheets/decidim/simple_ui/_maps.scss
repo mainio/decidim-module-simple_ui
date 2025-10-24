@@ -1,5 +1,6 @@
 .layout-main__section {
-  .proposal-list__map {
-    @apply ml-0 mt-0;
+  .proposal-list__map,
+  .meetings-list__map {
+    @apply ml-0 mt-0 aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
   }
 }
