@@ -24,15 +24,15 @@
     <%= render partial: "scope_filters" %>
 
     <section>
-      <% if first_class_categories.empty? %>
+      <% if results.empty? %>
         <%= cell("decidim/announcement",
                 params[:filter].present? ?
                 t("empty_filters", scope: "decidim.accountability.results.home") :
                 t("empty", scope: "decidim.accountability.results.home")) %>
-      <% end %>
-
-      <% results.each do |result| %>
-        <%= cell "decidim/accountability/result_l", result, url_extra_params: { included_in: result.to_gid } %>
+      <% else %>
+        <% results.each do |result| %>
+          <%= cell "decidim/accountability/result_l", result, url_extra_params: { included_in: result.to_gid } %>
+        <% end %>
       <% end %>
     </section>
   </div>
