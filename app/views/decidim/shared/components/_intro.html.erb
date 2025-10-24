@@ -1,7 +1,7 @@
 <% intro = translated_attribute(component_settings.intro) if component_settings.respond_to?(:intro) %>
 
 <% if intro.present? || local_assigns.has_key?(:fallback) %>
-  <div class="text-center text-xl md:w-4/6 mx-auto component-intro">
+  <div class="component-intro">
     <% if intro.present? %>
       <%= decidim_sanitize_admin intro %>
     <% else %>

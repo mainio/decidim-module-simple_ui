@@ -59,6 +59,6 @@
 
 .component-intro {
   p {
-    @apply mb-[1em];
+    @apply mb-[1em] text-center text-xl mx-auto md:w-4/6;
   }
 }
