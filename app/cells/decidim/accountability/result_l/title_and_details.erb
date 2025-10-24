@@ -4,9 +4,14 @@
   </p>
   <%= render :description %>
 </div>
-<div class="component-background-color p-2 flex flex-row-reverse gap-4 justify-between items-center md:justify-center md:flex-col md:items-center">
-  <div class="text-[28px] font-bold">
-    <%= display_percentage result.progress %>
+<div class="card__details">
+  <div class="card__details__info">
+    <div class="card__details__info__label">
+      <%= t("decidim.accountability.models.result.fields.progress") %>
+    </div>
+    <div class="card__details__info__data">
+      <%= display_percentage result.progress %>
+    </div>
   </div>
 
   <span class="button button__lg button__secondary">
