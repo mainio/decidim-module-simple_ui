@@ -56,3 +56,9 @@
     @apply col-span-full;
   }
 }
+
+.component-intro {
+  p {
+    @apply mb-[1em];
+  }
+}
