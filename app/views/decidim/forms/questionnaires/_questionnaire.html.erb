@@ -64,6 +64,8 @@
                 <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>
               </div>
             </div>
+          <% elsif current_participatory_space.can_participate?(current_user) %>
+            <%= form.hidden_field :tos_agreement, value: "1" %>
           <% end %>
         <% end %>
 
