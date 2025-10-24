@@ -136,6 +136,7 @@ fi:
           back_to_listing: Näytä muut ideat
     shared:
       filters:
+        clear_filters: Tyhjennä hakuvalinnat ja lataa tulokset uudestaan
         collection:
           choose: Valitse
           show: "Näytä:"
