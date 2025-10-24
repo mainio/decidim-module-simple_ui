@@ -31,7 +31,7 @@
                 t("empty", scope: "decidim.accountability.results.home")) %>
       <% else %>
         <% results.each do |result| %>
-          <%= cell "decidim/accountability/result_l", result, url_extra_params: { included_in: result.to_gid } %>
+          <%= cell "decidim/accountability/result_l", result %>
         <% end %>
       <% end %>
     </section>
