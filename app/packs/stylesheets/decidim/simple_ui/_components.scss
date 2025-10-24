@@ -25,10 +25,6 @@
   }
 }
 
-.meeting-list__map {
-  @apply md:mt-0 md:ml-0;
-}
-
 .simple-map {
   @apply aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
 }

@@ -1,0 +1,43 @@
+.card__details {
+  @apply component-background-color p-2 flex flex-row-reverse gap-4 justify-between items-center md:justify-center md:flex-col md:items-center;
+
+  &__info {
+    @apply flex flex-col text-center gap-2;
+
+    &__label {
+      @apply text-md;
+    }
+
+    &__data {
+      @apply text-[28px] font-bold;
+    }
+  }
+}
+
+.card__list {
+  @apply border border-background hover:border-background hover:no-underline px-0;
+
+  &-content {
+    @apply flex flex-col w-full md:flex-row md:justify-between;
+  }
+}
+
+a.card__list[id^="accountability__result_"] {
+  @apply gap-0;
+}
+
+#highlighted-processes {
+  .card__highlight {
+    @apply hover:ring-[--primary] mb-8;
+
+    &-text {
+      @apply text-black text-md;
+    }
+  }
+}
+
+#blogs {
+  .card__list {
+    @apply w-full md:w-4/6;
+  }
+}
