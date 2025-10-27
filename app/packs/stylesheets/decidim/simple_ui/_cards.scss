@@ -17,6 +17,10 @@
 .card__list {
   @apply border border-background hover:border-background hover:no-underline px-0;
 
+  &-title_large {
+    @apply text-[--primary] inline-block align-middle;
+  }
+
   &-content {
     @apply flex flex-col w-full md:flex-row md:justify-between;
   }
