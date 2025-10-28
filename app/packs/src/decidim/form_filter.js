@@ -74,9 +74,11 @@ export default class FormFilterComponent {
       }
 
       const resetButton = document.getElementById("reset-filters");
-      resetButton.addEventListener("click", () => {
-        this._clearForm();
-      })
+      if (resetButton) {
+        resetButton.addEventListener("click", () => {
+          this._clearForm();
+        })
+      }
 
       const $submitButton = this.$form.find('button[type="submit"]');
       this.$form.on("keydown", 'input[type="search"], input[type="checkbox"], input[type="radio"]',  function(e) {

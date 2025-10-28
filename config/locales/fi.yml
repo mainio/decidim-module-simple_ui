@@ -122,6 +122,13 @@ fi:
         phases:
           name: Vaiheet
       participatory_processes:
+        filters:
+          counters:
+            past:
+              one: 1 päättynyt prosessi
+              other: "%{count} päättynyttä prosessia"
+          names:
+            past: Päättyneet
         index:
           all_processes: Kaikki prosessit
     proposals:
