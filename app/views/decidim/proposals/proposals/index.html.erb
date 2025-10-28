@@ -66,10 +66,11 @@
           <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
             <template id="marker-popup">
               <div class="space-y-6">
-                <a href="${link}" class="card__list">
-                  <div class="card__list-content">
-                    <h3 class="h4 card__list-title">${title}</h3>
-                    <div class="card__list-metadata">
+                <a href="${link}" class="tooltip">
+                  <div class="tooltip-content">
+                    <h3 class="h4 tooltip-title">${title}</h3>
+                    <p class="line-clamp-2">${body}</p>
+                    <div class="tooltip-metadata">
                       {{each JSON.parse(items)}}
                         <span>{{html icon}}{{html text}}</span>
                       {{/each}}

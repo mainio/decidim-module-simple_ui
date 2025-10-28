@@ -4,3 +4,31 @@
     @apply ml-0 mt-0 aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
   }
 }
+
+.leaflet-popup {
+  .leaflet-popup-close-button {
+    @apply pt-2.5 pr-2.5;
+  }
+
+  .leaflet-popup-content-wrapper {
+    @apply bg-gray-3;
+
+    .tooltip {
+      &-content {
+        @apply space-y-4;
+      }
+
+      &-title {
+        @apply text-[--primary];
+      }
+
+      &-metadata {
+        @apply flex gap-10;
+
+        span {
+          @apply flex gap-4;
+        }
+      }
+    }
+  }
+}

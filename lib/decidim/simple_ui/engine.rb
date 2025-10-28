@@ -62,6 +62,12 @@ module Decidim
           Decidim::Proposals::ApplicationHelper.include(
             Decidim::SimpleUi::ProposalsApplicationHelperExtensions
           )
+          Decidim::Proposals::MapHelper.include(
+            Decidim::SimpleUi::Proposals::MapHelperExtensions
+          )
+          Decidim::Meetings::MapHelper.include(
+            Decidim::SimpleUi::Meetings::MapHelperExtensions
+          )
         end
       end
 

@@ -1,0 +1,17 @@
+<%= dynamic_map_for meetings_data_for_map(geocoded_meetings) do %>
+  <template id="marker-popup">
+    <div class="space-y-6">
+      <a href="${link}" class="tooltip">
+        <div class="tooltip-content">
+          <h3 class="h4 tooltip-title">${title}</h3>
+          <p class="line-clamp-2">${description}</p>
+          <div class="tooltip-metadata">
+            {{each JSON.parse(items)}}
+              <span>{{html icon}}${text}</span>
+            {{/each}}
+          </div>
+        </div>
+      </a>
+    </div>
+  </template>
+<% end.html_safe %>
