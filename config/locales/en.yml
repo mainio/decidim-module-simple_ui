@@ -107,6 +107,7 @@ en:
     debates:
       debate_l:
         explore: Open
+        participate: Participate
     forms:
       admin:
         models:

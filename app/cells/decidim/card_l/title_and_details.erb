@@ -9,7 +9,7 @@
 </div>
 <div class="component-background-color p-2 flex justify-start items-center md:justify-center">
   <span class="button button__lg button__secondary">
-    <%= t(".explore") %>
+    <%= model.is_a?(Decidim::Debates::Debate) && model.open? ? t(".participate") : t(".explore") %>
     <%= icon "arrow-right-line" %>
   </span>
 </div>

@@ -99,6 +99,7 @@ fi:
     debates:
       debate_l:
         explore: Tutustu
+        participate: Osallistu
     forms:
       admin:
         models:
