@@ -5,7 +5,7 @@ footer {
     @apply bg-gray-4;
 
     &__top {
-      @apply flex flex-col lg:flex-row gap-8 container pt-7 pb-10;
+      @apply flex flex-col lg:flex-row container pt-7 pb-10;
     }
 
     &__down {
