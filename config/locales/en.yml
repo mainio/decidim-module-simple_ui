@@ -50,6 +50,8 @@ en:
           global:
             intro: Description
     content_blocks:
+      hero:
+        name: Basic information and CTA
       intro:
         name: Intro
         title: Welcome
@@ -133,6 +135,8 @@ en:
         topics: Topics
     participatory_processes:
       content_blocks:
+        hero:
+          name: Basic information and CTA
         phases:
           name: Phases
       participatory_processes:

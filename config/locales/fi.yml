@@ -50,6 +50,8 @@ fi:
           global:
             intro: Kuvaus
     content_blocks:
+      hero:
+        name: Perustiedot ja toimintopainike (Call to Action)
       intro:
         name: Johdanto
         title: Tervetuloa
@@ -125,6 +127,8 @@ fi:
         topics: Aihealueet
     participatory_processes:
       content_blocks:
+        hero:
+          name: Perustiedot ja toimintopainike (Call to Action)
         phases:
           name: Vaiheet
       participatory_processes:
