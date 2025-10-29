@@ -135,6 +135,23 @@ module Decidim
 
         # Processes
         if Decidim.module_installed?(:participatory_processes)
+          Decidim.content_blocks.register(:participatory_process_homepage, :large_image) do |content_block|
+            content_block.cell = "decidim/content_blocks/participatory_space_large_image"
+            content_block.settings_form_cell = "decidim/content_blocks/participatory_space_large_image_settings_form"
+            content_block.public_name_key = "decidim.content_blocks.participatory_space_large_image.name"
+
+            content_block.images = [
+              {
+                name: :image,
+                uploader: "Decidim::BackgroundImageUploader"
+              }
+            ]
+
+            content_block.settings do |settings|
+              settings.attribute :alt_text, type: :text, translated: true
+            end
+          end
+
           Decidim.content_blocks.register(:participatory_process_homepage, :phases) do |content_block|
             content_block.cell = "decidim/participatory_processes/content_blocks/phases"
             content_block.public_name_key = "decidim.participatory_processes.content_blocks.phases.name"

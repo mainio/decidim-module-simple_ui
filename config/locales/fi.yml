@@ -96,6 +96,11 @@ fi:
         sections: Osiot
         title: Otsikko
         up: Ylös
+      participatory_space_large_image:
+        name: Suuri kuva
+      participatory_space_large_image_settings_form:
+        alt_text: Kuvan vaihtoehtoisteksti
+        image: Kuva
     debates:
       debate_l:
         explore: Tutustu

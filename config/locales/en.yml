@@ -104,6 +104,11 @@ en:
         sections: Sections
         title: Title
         up: Up
+      participatory_space_large_image:
+        name: Large image
+      participatory_space_large_image_settings_form:
+        alt_text: Alternative text for the image
+        image: Image
     debates:
       debate_l:
         explore: Open
