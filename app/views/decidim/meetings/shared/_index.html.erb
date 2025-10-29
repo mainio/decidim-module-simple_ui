@@ -2,11 +2,12 @@
 
 <%= append_stylesheet_pack_tag "decidim_meetings", media: "all" %>
 <%= append_javascript_pack_tag "decidim_meetings" %>
+<% title = component.present? ? translated_attribute(component.name) : t("decidim.components.meetings.name") %>
 
 <section role="region" aria-label="Meetings header">
   <div class="row column component-background">
     <div class="one-col mx-auto space-y-4">
-      <h1 class="title-decorator text-center h2 md:h1"><%= translated_attribute(component.name) %></h1>
+      <h1 class="title-decorator text-center h2 md:h1"><%= title %></h1>
 
       <%= render partial: "decidim/shared/components/intro" %>
     </div>
