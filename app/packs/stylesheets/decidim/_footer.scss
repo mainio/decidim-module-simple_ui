@@ -5,7 +5,7 @@ footer {
     @apply bg-gray-4;
 
     &__top {
-      @apply flex flex-col lg:grid lg:grid-cols-[minmax(210px,328px)_minmax(210px,328px)_minmax(calc((2*210px)+32px),calc((2*328px)+32px))] gap-8 container pt-7 pb-10;
+      @apply flex flex-col lg:grid lg:grid-cols-[minmax(210px,328px)_minmax(calc((3*210px)+64px),calc((3*328px)+64px))] gap-8 container pt-7 pb-10;
     }
 
     &__down {
