@@ -61,3 +61,9 @@
     @apply prose mx-auto md:max-w-[34rem] text-center;
   }
 }
+
+.participatory-space-hero {
+  img {
+    @apply aspect-[2/1] md:aspect-[5/2] lg:aspect-[3/1] xl:aspect-[5/1] object-cover;
+  }
+}
