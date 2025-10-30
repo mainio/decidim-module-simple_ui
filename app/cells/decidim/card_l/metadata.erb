@@ -1,3 +1,7 @@
-<div class="card__list-metadata">
-  <%= cell metadata_cell, resource, links: !has_link_to_resource?, **options %>
-</div>
+<% cell = cell(metadata_cell, resource) %>
+
+<% if cell.respond_to?(:state_item) %>
+  <div class="card__list-metadata">
+    <%= cell.state_item[:text] if cell.state_item.present? %>
+  </div>
+<% end %>

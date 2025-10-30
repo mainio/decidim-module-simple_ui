@@ -3,6 +3,7 @@
     <%= title %>
   </p>
   <%= render :description %>
+  <%= render :metadata %>
   <% if respond_to?(:more_info?) && more_info? %>
     <%= cell("decidim/tags", resource, context: { extra_classes: ["gap-4 md:gap-4"] }).call(:card_tag)%>
   <% end %>

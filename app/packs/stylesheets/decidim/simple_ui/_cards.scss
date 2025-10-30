@@ -24,6 +24,10 @@
   &-content {
     @apply flex flex-col w-full md:flex-row md:justify-between;
   }
+
+  &-metadata {
+    @apply mt-2;
+  }
 }
 
 a.card__list[id^="accountability__result_"] {
