@@ -17,6 +17,12 @@
 .card__list {
   @apply border border-background hover:border-background hover:no-underline px-0;
 
+  &:hover {
+    .card__list-title_large {
+      @apply underline;
+    }
+  }
+
   &-title_large {
     @apply text-[--primary] inline-block align-middle;
   }
