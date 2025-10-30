@@ -7,6 +7,9 @@
       <p class="participatory-space__hero-slogan">
         <%= subtitle_text %>
       </p>
+      <% if has_cta? %>
+        <%= link_to cta_text, cta_path, class: "button button__lg button__secondary", data: { cta: "" } %>
+      <% end %>
     </div>
 
     <div class="pt-4">
