@@ -178,6 +178,8 @@ fi:
       footer:
         main:
           socials: Sosiaaliset mediat
+      omnipresent_banner:
+        omnipresent_banner: Alustanlaajuinen banneri
       shared:
         layout_center:
           account_settings_menu: Tilin asetukset -valikko

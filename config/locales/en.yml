@@ -179,6 +179,8 @@ en:
       footer:
         main:
           socials: Social media
+      omnipresent_banner:
+        omnipresent_banner: Omnipresent banner
       shared:
         layout_center:
           account_settings_menu: Account settings menu
