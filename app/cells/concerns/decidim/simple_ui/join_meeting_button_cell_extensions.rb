@@ -7,7 +7,7 @@ module Decidim
 
       included do
         def button_classes
-          "button button__xl button__secondary w-4/6"
+          "button button__xl button__secondary w-4/6 mb-4"
         end
       end
     end

@@ -25,12 +25,12 @@
 
     <%= yield %>
   <% end %>
-  <aside class="layout-item__aside" aria-label="aside">
+  <aside class="layout-item__aside" aria-label=<%= t(".aside") %>>
     <%= yield :aside %>
   </aside>
   <%# this aside is for moving comments and versions at the bottom of the page only in responsive. %>
   <% if content_for?(:item_footer) %>
-    <aside class="layout-item__main layout-item__aside--footer" aria-label="comments">
+    <aside class="layout-item__main layout-item__aside--footer" aria-label=<%= t(".comments") %>>
       <%= yield :item_footer %>
     </aside>
   <% end %>

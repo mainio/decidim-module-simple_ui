@@ -121,6 +121,9 @@ fi:
       meetings:
         show:
           back_to_listing: Näytä muut tapaamiset
+      shared:
+        index:
+          header: Tapaamisten ylätunniste
     pages:
       index:
         more: Lue lisää
@@ -170,6 +173,17 @@ fi:
     shared:
       credentials:
         login: Kirjaudu ylläpitäjän antamalla tunnuksella
+  layouts:
+    decidim:
+      footer:
+        main:
+          socials: Sosiaaliset mediat
+      shared:
+        layout_center:
+          account_settings_menu: Tilin asetukset -valikko
+        layout_item:
+          aside: Sivuvalikko
+          comments: Kommentit
   simple_ui:
     orders:
       order: "Järjestä: "

@@ -9,7 +9,7 @@
   </header>
 
   <div class="vertical-tabs">
-    <nav aria-label="menu-vertical">
+    <nav aria-label=<%= t(".account_settings_menu") %>>
       <button type="button" id="dropdown-trigger-profile" data-open-md="true" data-component="dropdown" data-target="dropdown-menu-profile">
         <span><%= user_menu.active_item&.label || t("decidim.searches.filters.jump_to") %></span>
         <%= icon "arrow-down-s-line" %>

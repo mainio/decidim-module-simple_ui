@@ -129,6 +129,9 @@ en:
       meetings:
         show:
           back_to_listing: Show other meetings
+      shared:
+        index:
+          header: Meetings header
     pages:
       index:
         more: Read more
@@ -171,6 +174,17 @@ en:
     shared:
       credentials:
         login: Login with account information
+  layouts:
+    decidim:
+      footer:
+        main:
+          socials: Social media
+      shared:
+        layout_center:
+          account_settings_menu: Account settings menu
+        layout_item:
+          aside: Aside
+          comments: Comments
   simple_ui:
     orders:
       order: "Order: "
