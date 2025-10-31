@@ -50,6 +50,8 @@ en:
           global:
             intro: Description
     content_blocks:
+      cta_settings_form:
+        show_menu: Show menu
       hero:
         name: Basic information and CTA
       intro:

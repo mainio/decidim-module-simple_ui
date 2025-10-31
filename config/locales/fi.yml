@@ -50,6 +50,8 @@ fi:
           global:
             intro: Kuvaus
     content_blocks:
+      cta_settings_form:
+        show_menu: Näytä valikko
       hero:
         name: Perustiedot ja toimintopainike (Call to Action)
       intro:

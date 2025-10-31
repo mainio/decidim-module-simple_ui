@@ -12,6 +12,12 @@ module Decidim
         def nav_items
             process_nav_items(resource)
         end
+
+        def show_menu?
+          return unless model
+
+          model.settings.show_menu
+        end
       end
     end
   end

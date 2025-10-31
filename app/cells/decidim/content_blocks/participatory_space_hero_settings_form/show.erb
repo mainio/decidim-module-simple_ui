@@ -6,4 +6,8 @@
   <div class="row column">
     <%= settings_fields.translated :text_field, :button_url, label: t("decidim.content_blocks.cta_settings_form.button_url") %>
   </div>
+
+  <div class="row column">
+    <%= settings_fields.check_box :show_menu, label: t("decidim.content_blocks.cta_settings_form.show_menu") %>
+  </div>
 <% end %>

@@ -12,8 +12,10 @@
       <% end %>
     </div>
 
-    <div class="pt-4">
-      <%= cell "decidim/nav_links", nav_items unless resource.is_a?(Decidim::ParticipatoryProcessGroup) %>
-    </div>
+    <% if show_menu? %>
+      <div class="pt-4">
+        <%= cell "decidim/nav_links", nav_items unless resource.is_a?(Decidim::ParticipatoryProcessGroup) %>
+      </div>
+    <% end %>
   </div>
 </section>
