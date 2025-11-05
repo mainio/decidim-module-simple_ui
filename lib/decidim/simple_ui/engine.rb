@@ -20,11 +20,22 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::SimpleUi::Engine.root}/app/views")
       end
 
-      initializer "decidim_simple_ui.view_priority" do
-        ActiveSupport.on_load(:action_controller) do
-          simple_views = Decidim::SimpleUi::Engine.root.join("app", "views")
+      initializer "decidim_simple_ui.view_priority", after: "decidim_privacy.prepend_view_path" do |app|
+        config.after_initialize do
+          next unless Decidim.module_installed?(:privacy)
 
-            prepend_view_path(simple_views) if Decidim.module_installed?(:privacy)
+          root = app.root.to_s
+
+          paths = []
+
+          ActionController::Base.view_paths.paths.each do |resolver|
+            paths << resolver
+            next unless resolver.path.start_with?(root)
+
+            paths << "#{Decidim::SimpleUi::Engine.root}/app/views"
+          end
+
+          ActionController::Base.view_paths = paths
         end
       end
 
