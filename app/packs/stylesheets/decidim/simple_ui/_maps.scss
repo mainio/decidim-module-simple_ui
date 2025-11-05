@@ -11,7 +11,7 @@
   }
 
   .leaflet-popup-content-wrapper {
-    @apply bg-gray-3;
+    @apply bg-gray-3 text-[#757575];
 
     .tooltip {
       &-content {
