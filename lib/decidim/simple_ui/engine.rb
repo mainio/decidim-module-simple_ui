@@ -60,6 +60,9 @@ module Decidim
           Decidim::TagsCell.include(
             Decidim::SimpleUi::TagsCellExtensions
           )
+          Decidim::AddressCell.include(
+            Decidim::SimpleUi::AddressCellExtensions
+          )
 
           # Controller extensions
           Decidim::HomepageController.include(
