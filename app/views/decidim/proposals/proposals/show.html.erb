@@ -32,6 +32,7 @@ back_path = component_settings.participatory_texts_enabled? ? main_component_pat
 
 <% content_for :aside do %>
   <%= render partial: "proposal_aside" %>
+  <%= render partial: "voting_rules" %>
 <% end %>
 
 <% content_for :item_header do %>
@@ -41,8 +42,6 @@ back_path = component_settings.participatory_texts_enabled? ? main_component_pat
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: } do %>
 
   <section class="layout-main__section layout-main__heading">
-    <%= render partial: "voting_rules" %>
-
     <% if @proposal.emendation? %>
       <h1 class="h2 decorator"><%= t("changes_at_title", scope: "decidim.proposals.proposals.show", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h1>
     <% else %>
@@ -73,6 +72,8 @@ back_path = component_settings.participatory_texts_enabled? ? main_component_pat
           ) %>
     <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
       <div class="editor-content">
+        <%= image_tag @proposal.photo.url, alt: "main-image" %>
+
         <%= render_proposal_body(@proposal) %>
       </div>
     <% end %>

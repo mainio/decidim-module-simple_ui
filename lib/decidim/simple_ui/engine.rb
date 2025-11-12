@@ -68,6 +68,12 @@ module Decidim
           Decidim::HomepageController.include(
             Decidim::SimpleUi::HomepageControllerExtensions
           )
+          Decidim::Proposals::ProposalsController.include(
+            Decidim::SimpleUi::ProposalsControllerExtensions
+          )
+          Decidim::Proposals::ProposalVotesController.include(
+            Decidim::SimpleUi::ProposalsControllerExtensions
+          )
 
           # Helper extensions
           Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper.include(
@@ -82,6 +88,15 @@ module Decidim
           Decidim::Meetings::MapHelper.include(
             Decidim::SimpleUi::Meetings::MapHelperExtensions
           )
+        end
+      end
+
+      initializer "decidim_simple_ui.add_global_component_settings" do
+        config.to_prepare do
+          manifest = Decidim.find_component_manifest("proposals")
+          manifest.settings(:global) do |settings|
+            settings.attribute :main_image, type: :boolean, default: false
+          end
         end
       end
 

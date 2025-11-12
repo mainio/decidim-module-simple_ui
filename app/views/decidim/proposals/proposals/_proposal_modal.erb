@@ -1,0 +1,25 @@
+<%= decidim_modal id: "proposal-modal-#{proposal.id}", class: "proposal-modal" do %>
+  <div data-dialog-container>
+    <h2 id="dialog-title-proposal-modal" tabindex="-1" data-dialog-title> <%= translated_attribute(proposal.title) %></h2>
+
+    <div class="proposal-info">
+      <div class="layout-author">
+        <%= cell "decidim/coauthorships", proposal, context_actions: [:date] %>
+      </div>
+
+      <% if component_settings.main_image && proposal.photo.present? %>
+        <div>
+          <%= image_tag proposal.photo.url, alt: "main-image", class: (respond_to?(:supports?) && supports? ? "cursor-pointer" : "") %>
+        </div>
+      <% end %>
+      <div>
+        <%= strip_tags(translated_attribute(proposal.body)) %>
+      </div>
+    </div>
+  </div>
+
+  <div data-dialog-actions>
+    <button data-dialog-close="proposal-modal-<%= proposal.id %>" class="button button__lg button__transparent-secondary text-sm md:text-lg"><%= t(".close") %></button>
+    <%= link_to t(".explore"), proposal_path(proposal), class: "button button__lg button__secondary" %>
+  </div>
+<% end %>

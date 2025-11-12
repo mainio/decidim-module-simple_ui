@@ -1,16 +1,40 @@
-<div class="p-4">
+<% if respond_to?(:main_image?) && main_image? && model.photo.present? %>
+  <div class="max-w-80" <% if respond_to?(:supports?) && supports? %>data-dialog-open="proposal-modal-<%= model.id %>"<% end %>>
+    <%= image_tag proposal.photo.url, alt: "main-image", class: (respond_to?(:supports?) && supports? ? "cursor-pointer" : "") %>
+  </div>
+<% end %>
+<div class="p-4 <%= 'cursor-pointer' if respond_to?(:supports?) && supports? %>"
+  <% if respond_to?(:supports?) && supports? %>
+    data-dialog-open="proposal-modal-<%= model.id %>"
+  <% end %>
+>
   <p class="h3 card__list-title_large">
     <%= title %>
   </p>
+
   <%= render :description %>
   <%= render :metadata %>
+
   <% if respond_to?(:more_info?) && more_info? %>
     <%= cell("decidim/tags", resource, context: { extra_classes: ["gap-4 md:gap-4"] }).call(:card_tag)%>
   <% end %>
 </div>
-<div class="component-background-color p-2 flex justify-start items-center md:justify-center">
-  <span class="button button__lg button__secondary min-w-44">
-    <%= model.is_a?(Decidim::Debates::Debate) && model.open? ? t(".participate") : t(".explore") %>
-    <%= icon "arrow-right-line" %>
-  </span>
+<div class="<%= respond_to?(:supports?) && supports? ? 'component-background-color vote-open' : 'component-background-color card-open' %>">
+  <% if respond_to?(:supports?) && supports? %>
+    <div>
+      <%= t(".proposal_vote_count") %>
+    </div>
+
+    <div class="font-bold text-2xl">
+      <%= model.proposal_votes_count %>
+    </div>
+
+    <%= view_context.render partial: "decidim/proposals/proposals/vote_button", locals: { proposal: model, from_proposals_list: false } unless model.withdrawn? %>
+  <% else %>
+    <span class="button button__lg button__secondary min-w-44">
+      <%= model.is_a?(Decidim::Debates::Debate) && model.open? ? t(".participate") : t(".explore") %>
+      <%= icon "arrow-right-line" %>
+    </span>
+  <% end %>
 </div>
+

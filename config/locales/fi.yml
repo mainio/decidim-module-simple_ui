@@ -45,6 +45,9 @@ fi:
         settings:
           global:
             intro: Kuvaus
+            main_image: Näytä pääkuva
+            main_image_help_text: Tämä asetus lisää ensimmäisen liitetyn kuvan komponentin listausnäkymään sekä näyttää
+                                  sen korostettuna yksittäisnäkymässä.
       sortitions:
         settings:
           global:
@@ -149,11 +152,15 @@ fi:
     proposals:
       proposal_l:
         explore: Tutustu
+        proposal_vote_count: Ääntä
       proposals:
         index:
           count:
             one: "%{count} idea"
             other: "%{count} ideaa"
+        proposal_modal:
+          close: Sulje
+          explore: Tutustu
         show:
           back_to_listing: Näytä muut ideat
     shared:

@@ -35,6 +35,10 @@ module Decidim
               Decidim::SimpleUi::Admin::QuestionnaireFormExtensions
             )
           end
+
+          Decidim::Admin::ComponentsController.include(
+            Decidim::SimpleUi::Admin::ComponentsControllerExtensions
+          )
         end
       end
 

@@ -1,0 +1,9 @@
+#voting-rules {
+  #remaining-votes-count {
+    @apply mt-4;
+  }
+}
+
+#voting-rules.flash {
+  @apply mb-0 mt-4;
+}

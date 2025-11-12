@@ -59,3 +59,15 @@ a.card__list[id^="accountability__result_"] {
 .tag-container {
   @apply mt-3;
 }
+
+.card-open {
+  @apply p-2 flex justify-start items-center md:justify-center;
+}
+
+.vote-open {
+  @apply p-4 flex flex-col items-center justify-center space-y-2;
+
+  [id^="proposal-"][id$="vote-button"] {
+      @apply min-w-44;
+    }
+}

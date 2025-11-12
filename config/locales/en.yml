@@ -45,6 +45,9 @@ en:
         settings:
           global:
             intro: Description
+            main_image: Show main image
+            main_image_help_text: This setting will add the first image attached to the component listing page and show
+                                  it highlighted in the single record page.
       sortitions:
         settings:
           global:
@@ -150,13 +153,20 @@ en:
     proposals:
       proposal_l:
         explore: Open
+        proposal_vote_count: Votes
       proposals:
         index:
           count:
             one: "%{count} idea"
             other: "%{count} ideas"
+        proposal_modal:
+          close: Close
+          explore: Open
         show:
           back_to_listing: Show other ideas
+        voting_rules:
+          vote_limit:
+            votes: "Remaining supports: %{number}"
     shared:
       filters:
         clear_filters: Clear search and reload results

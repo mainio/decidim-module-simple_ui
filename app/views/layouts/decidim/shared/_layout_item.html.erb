@@ -25,7 +25,7 @@
 
     <%= yield %>
   <% end %>
-  <aside class="layout-item__aside" aria-label=<%= t(".aside") %>>
+  <aside class="layout-item__aside  <%= 'component-background-color' unless controller.controller_name == 'proposals' %>" aria-label=<%= t(".aside") %>>
     <%= yield :aside %>
   </aside>
   <%# this aside is for moving comments and versions at the bottom of the page only in responsive. %>
