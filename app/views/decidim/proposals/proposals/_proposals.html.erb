@@ -7,7 +7,7 @@
 <% if @proposals.empty? %>
   <%= cell("decidim/announcement", params[:filter].present? ? t(".empty_filters") : t(".empty")) %>
 <% else %>
-  <div class="card__list-list">
+  <div class="<%= component_settings.main_image ? 'card__list-image_list' : 'card__list-list' %>">
     <%= render @proposals %>
   </div>
 

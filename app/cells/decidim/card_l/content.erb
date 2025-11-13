@@ -1,9 +1,9 @@
 <% if respond_to?(:supports?) && supports? %>
-  <%= content_tag(:div, class: "card__list-content") do %>
+  <%= content_tag(:div, class: respond_to?(:main_image?) && main_image? ? "card__list-image_content" : "card__list-content") do %>
     <%= render :title_and_details %>
   <% end %>
 <% elsif has_link_to_resource? && !link_whole_card? %>
-  <%= link_to resource_path, class: "card__list-content" do %>
+  <%= link_to resource_path, class: respond_to?(:main_image?) && main_image? ? "card__list-image_content" : "card__list-content" do %>
     <%= render :title_and_details %>
   <% end %>
 <% else %>

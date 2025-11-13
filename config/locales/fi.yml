@@ -153,6 +153,7 @@ fi:
       proposal_l:
         explore: Tutustu
         proposal_vote_count: Ääntä
+        votes_hidden: Äänet piilotettu
       proposals:
         index:
           count:

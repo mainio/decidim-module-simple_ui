@@ -154,6 +154,7 @@ en:
       proposal_l:
         explore: Open
         proposal_vote_count: Votes
+        votes_hidden: Votes hidden
       proposals:
         index:
           count:

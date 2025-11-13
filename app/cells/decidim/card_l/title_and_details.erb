@@ -1,5 +1,5 @@
-<% if respond_to?(:main_image?) && main_image? && model.photo.present? %>
-  <div class="max-w-80" <% if respond_to?(:supports?) && supports? %>data-dialog-open="proposal-modal-<%= model.id %>"<% end %>>
+<% if respond_to?(:main_image?) && main_image? %>
+  <div class="card__list-image" <% if respond_to?(:supports?) && supports? %>data-dialog-open="proposal-modal-<%= model.id %>"<% end %>>
     <%= image_tag proposal.photo.url, alt: "main-image", class: (respond_to?(:supports?) && supports? ? "cursor-pointer" : "") %>
   </div>
 <% end %>
@@ -8,7 +8,7 @@
     data-dialog-open="proposal-modal-<%= model.id %>"
   <% end %>
 >
-  <p class="h3 card__list-title_large">
+  <p class="h3 card__list-title_large <%= 'title_large-image' if respond_to?(:main_image?) && main_image? %>">
     <%= title %>
   </p>
 
@@ -21,13 +21,15 @@
 </div>
 <div class="<%= respond_to?(:supports?) && supports? ? 'component-background-color vote-open' : 'component-background-color card-open' %>">
   <% if respond_to?(:supports?) && supports? %>
-    <div>
-      <%= t(".proposal_vote_count") %>
-    </div>
+    <% if !current_settings.votes_hidden? %>
+      <div>
+        <%= t(".proposal_vote_count") %>
+      </div>
 
-    <div class="font-bold text-2xl">
-      <%= model.proposal_votes_count %>
-    </div>
+      <div class="font-bold text-2xl">
+        <%= model.proposal_votes_count %>
+      </div>
+    <% end %>
 
     <%= view_context.render partial: "decidim/proposals/proposals/vote_button", locals: { proposal: model, from_proposals_list: false } unless model.withdrawn? %>
   <% else %>

@@ -71,9 +71,11 @@ back_path = component_settings.participatory_texts_enabled? ? main_component_pat
             path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) }
           ) %>
     <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
-      <div class="editor-content">
-        <%= image_tag @proposal.photo.url, alt: "main-image" %>
+      <% if @proposal.photo.present? %>
+        <%= image_tag @proposal.photo.url, alt: "main-image", class: "object-cover aspect-[1.5] mb-4" %>
+      <% end %>
 
+      <div class="editor-content">
         <%= render_proposal_body(@proposal) %>
       </div>
     <% end %>
