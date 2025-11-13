@@ -33,6 +33,16 @@
 
   &-image_content {
     @apply grid 2xl:flex 2xl:justify-between;
+
+    .placeholder-image {
+      @apply max-2xl:ml-0 w-full h-full relative aspect-[1.5] object-cover rounded 2xl:w-1/5;
+
+      margin-left: calc(calc(1rem + 4px) * -1);
+
+      &_background {
+        @apply w-full h-full bg-primary opacity-10 absolute top-0 left-5 z-10 rounded 2xl:left-0;
+      }
+    }
   }
 
   &-image_list {

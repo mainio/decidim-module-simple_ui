@@ -1,14 +1,27 @@
-<% if respond_to?(:main_image?) && main_image? %>
-  <div class="card__list-image" <% if respond_to?(:supports?) && supports? %>data-dialog-open="proposal-modal-<%= model.id %>"<% end %>>
-    <%= image_tag proposal.photo.url, alt: "main-image", class: (respond_to?(:supports?) && supports? ? "cursor-pointer" : "") %>
-  </div>
+<%
+  supports_enabled = respond_to?(:supports?) && supports?
+  main_image_enabled = respond_to?(:main_image?) && main_image?
+%>
+
+<% if main_image_enabled %>
+  <% if proposal.photo.present? %>
+    <div class="card__list-image" <% if supports_enabled %>data-dialog-open="proposal-modal-<%= model.id %>"<% end %>>
+      <%= image_tag proposal.photo.url, alt: "main-image", class: (supports_enabled ? "cursor-pointer" : "") %>
+    </div>
+  <% else %>
+    <div class="placeholder-image <%= supports_enabled ? "cursor-pointer" : "" %>" <% if supports_enabled %>data-dialog-open="proposal-modal-<%= model.id %>"<% end %>>
+      <div class="placeholder-image_background">
+      </div>
+      <%= external_icon "media/images/placeholder-card-l.svg", class: "card__placeholder-l 2xl:static" %>
+    </div>
+  <% end %>
 <% end %>
-<div class="p-4 <%= 'cursor-pointer' if respond_to?(:supports?) && supports? %>"
-  <% if respond_to?(:supports?) && supports? %>
+<div class="p-4 <%= 'cursor-pointer' if supports_enabled %>"
+  <% if supports_enabled %>
     data-dialog-open="proposal-modal-<%= model.id %>"
   <% end %>
 >
-  <p class="h3 card__list-title_large <%= 'title_large-image' if respond_to?(:main_image?) && main_image? %>">
+  <p class="h3 card__list-title_large <%= 'title_large-image' if main_image_enabled %>">
     <%= title %>
   </p>
 
@@ -19,8 +32,8 @@
     <%= cell("decidim/tags", resource, context: { extra_classes: ["gap-4 md:gap-4"] }).call(:card_tag)%>
   <% end %>
 </div>
-<div class="<%= respond_to?(:supports?) && supports? ? 'component-background-color vote-open' : 'component-background-color card-open' %>">
-  <% if respond_to?(:supports?) && supports? %>
+<div class="<%= supports_enabled ? 'component-background-color vote-open' : 'component-background-color card-open' %>">
+  <% if supports_enabled %>
     <% if !current_settings.votes_hidden? %>
       <div>
         <%= t(".proposal_vote_count") %>
