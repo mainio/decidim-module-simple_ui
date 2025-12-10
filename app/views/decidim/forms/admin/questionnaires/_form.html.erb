@@ -35,7 +35,6 @@
                    id: tabs_id_for_question(blank_question),
                    editable: questionnaire.questions_editable?,
                    answer_option_template_selector: "#answer-option-template-dummy",
-                   location_option_template_selector: ("#location-option-template-dummy" if Decidim.module_installed?(:forms_locations)),
                    map_option_template_selector: ("#map-option-template-dummy" if Decidim.module_installed?(:forms_locations)),
                    display_condition_template_selector: "#display-condition-template-dummy",
                    matrix_row_template_selector: "#matrix-row-template-dummy" %>
@@ -53,7 +52,6 @@
                    editable: questionnaire.questions_editable? %>
       </script>
       <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-dummy" %>
-      <%= render "decidim/forms/admin/questionnaires/location_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "location-option-template-dummy" if Decidim.module_installed?(:forms_locations) %>
       <%= render "decidim/forms/admin/questionnaires/map_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "map-option-template-dummy" if Decidim.module_installed?(:forms_locations) %>
       <%= render "decidim/forms/admin/questionnaires/display_condition_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "display-condition-template-dummy" %>
       <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-dummy" %>
@@ -82,12 +80,10 @@
                      editable: questionnaire.questions_editable?,
                      display_condition_template_selector: "#display-condition-template-#{index}",
                      answer_option_template_selector: "#answer-option-template-#{index}",
-                     location_option_template_selector: ("#location-option-template-#{index}" if Decidim.module_installed?(:forms_locations)),
                      map_option_template_selector: ("#map-option-template-#{index}" if Decidim.module_installed?(:forms_locations)),
                      matrix_row_template_selector: "#matrix-row-template-#{index}" %>
           <%= render "decidim/forms/admin/questionnaires/display_condition_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "display-condition-template-#{index}" %>
           <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-#{index}" %>
-          <%= render "decidim/forms/admin/questionnaires/location_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "location-option-template-#{index}" if Decidim.module_installed?(:forms_locations) %>
           <%= render "decidim/forms/admin/questionnaires/map_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "map-option-template-#{index}" if Decidim.module_installed?(:forms_locations) %>
           <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-#{index}" %>
         <% end %>
