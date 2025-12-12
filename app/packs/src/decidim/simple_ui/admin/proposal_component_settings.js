@@ -1,7 +1,10 @@
 $(() => {
   const attachmentsAllowed = document.querySelector("#component_settings_attachments_allowed");
-  const attachmentsAllowedContainer = attachmentsAllowed.closest("div.row.column");
   const mainImage = document.querySelector("#component_settings_main_image");
+
+  if (!attachmentsAllowed || !mainImage) { return; }
+
+  const attachmentsAllowedContainer = attachmentsAllowed.closest("div.row.column");
   const mainImageContainer = mainImage.closest("div.row.column");
 
   attachmentsAllowedContainer.insertAdjacentElement("afterend", mainImageContainer);
