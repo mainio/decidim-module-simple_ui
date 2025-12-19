@@ -22,7 +22,10 @@ end
     <% end %>
 
     <%= render partial: "layouts/decidim/header/menu" %>
-    <%= render partial: "layouts/decidim/header/mobile_account_menu" if Decidim.module_installed?(:nav) %>
+    <% if Decidim.module_installed?(:nav) %>
+      <%= render partial: "layouts/decidim/header/mobile_account_menu" %>
+      <%= render partial: "layouts/decidim/breadcrumbs" unless controller.is_a?(Decidim::HomepageController) %>
+    <% end %>
   </header>
 
   <div id="content" data-content class="<%= "no-padding" if @frontpage %>">
