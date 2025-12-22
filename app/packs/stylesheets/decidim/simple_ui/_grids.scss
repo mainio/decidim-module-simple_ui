@@ -16,4 +16,13 @@
   .read-more {
     @apply h6;
   }
+
+  a:hover,
+  a:focus {
+    @apply no-underline;
+
+    .page__title {
+      @apply underline decoration-[--primary];
+    }
+  }
 }
