@@ -197,6 +197,16 @@ module Decidim
             content_block.default = participatory_space_defaults.include?(content_block.name)
           end
         end
+
+        # Assemblies
+        if Decidim.module_installed?(:assemblies)
+          content_blocks = Array(Decidim.content_blocks.for(:assembly_homepage))
+          hero = content_blocks.find { |b| b.name == :hero }
+
+          hero.settings do |settings|
+            settings.attribute :show_menu, type: :boolean, default: true
+          end
+        end
       end
     end
   end
