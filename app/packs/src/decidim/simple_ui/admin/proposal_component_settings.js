@@ -1,6 +1,16 @@
 $(() => {
+  const language = document.documentElement.getAttribute("lang") || "en";
+
   const attachmentsAllowed = document.querySelector("#component_settings_attachments_allowed");
   const mainImage = document.querySelector("#component_settings_main_image");
+  const main_image_translations = {
+    en: {
+      main_image_help_text: "This setting will add the first image attached to the component listing page and show it highlighted in the single record page."
+    },
+    fi: {
+      main_image_help_text: "Tämä asetus lisää ensimmäisen liitetyn kuvan komponentin listausnäkymään sekä näyttää sen korostettuna yksittäisnäkymässä."
+    }
+  }
 
   if (!attachmentsAllowed || !mainImage) { return; }
 
@@ -16,8 +26,8 @@ $(() => {
       const helpText = document.createElement("p");
 
       helpText.className = "help-text";
-      // helpText.textContent = I18n.t("decidim.admin.components.proposals.settings.global.main_image_help_text");
-      helpText.textContent = "Placeholder"
+      helpText.textContent = main_image_translations[language]?.main_image_help_text
+        || main_image_translations["en"].main_image_help_text;
       mainImageContainer.appendChild(helpText);
     }
   }
