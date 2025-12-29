@@ -164,13 +164,19 @@ module Decidim
 
         # Processes
         if Decidim.module_installed?(:participatory_processes)
-          content_blocks = Array(Decidim.content_blocks.for(:participatory_process_homepage))
-          hero = content_blocks.find { |b| b.name == :hero }
+          process_content_blocks = Array(Decidim.content_blocks.for(:participatory_process_homepage))
+          process_hero = process_content_blocks.find { |b| b.name == :hero }
 
-          hero.settings do |settings|
+          process_hero.settings do |settings|
             settings.attribute :show_menu, type: :boolean, default: true
           end
 
+          process_group_content_blocks = Array(Decidim.content_blocks.for(:participatory_process_group_homepage))
+          process_group_hero = process_group_content_blocks.find { |b| b.name == :hero }
+
+          process_group_hero.settings do |settings|
+            settings.attribute :show_menu, type: :boolean, default: true
+          end
           Decidim.content_blocks.register(:participatory_process_homepage, :large_image) do |content_block|
             content_block.cell = "decidim/content_blocks/participatory_space_large_image"
             content_block.settings_form_cell = "decidim/content_blocks/participatory_space_large_image_settings_form"
