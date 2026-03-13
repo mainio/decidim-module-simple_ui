@@ -11,11 +11,11 @@ module Decidim
         end
 
         def main_image?
-          component_settings.main_image
+          model.component.settings.main_image
         end
 
         def supports?
-          current_settings.votes_enabled? && current_user
+          model.component.current_settings.votes_enabled? && current_user
         end
       end
     end

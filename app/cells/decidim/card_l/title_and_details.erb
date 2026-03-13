@@ -34,7 +34,7 @@
 </div>
 <div class="<%= supports_enabled ? 'component-background-color vote-open' : 'component-background-color card-open' %>">
   <% if supports_enabled %>
-    <% if !current_settings.votes_hidden? %>
+    <% if !model.component.current_settings.votes_hidden? %>
       <div>
         <%= t(".proposal_vote_count") %>
       </div>
