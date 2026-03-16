@@ -5,7 +5,9 @@
     type="button"
     class="inline-flex justify-center items-center md:w-full border border-black p-1 bg-white text-sm relative md:text-md"
   >
-    <%= t("simple_ui.orders.#{order}") %>
+    <span id="order-dropdown-label">
+      <%= t("simple_ui.orders.#{order}") %>
+    </span>
     <%= icon "arrow-down-s-line", class: "h-6 w-6 mt-px transition-transform duration-300" %>
   </button>
 
@@ -27,12 +29,27 @@
 
 <script>
   function initializeDropdown() {
+    const label = document.getElementById("order-dropdown-label");
     const button = document.getElementById("order-dropdown-button");
     const menu = document.getElementById("order-dropdown-menu");
+    const items = menu.querySelectorAll("[role='menuitem']");
 
     if (!button || !menu || button.dataset.bound) return;
 
     button.dataset.bound = true;
+
+    items.forEach(item => {
+      item.addEventListener("click", () => {
+        label.textContent = item.textContent.trim();
+
+        items.forEach(i => {
+          i.classList.remove("font-bold", "underline");
+        })
+
+        item.classList.add("font-bold", "underline");
+        menu.classList.add("hidden");
+      })
+    })
 
     button.addEventListener("click", (e) => {
       e.stopPropagation();
