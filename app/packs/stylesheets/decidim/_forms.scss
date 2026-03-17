@@ -197,3 +197,14 @@ input[type="search"]::-webkit-search-cancel-button {
 
   background-color: rgb(var(--secondary-rgb) / 0.05);
 }
+
+// This is for voting mode filter, for some reason it doesn't inherit padding
+.voting-wrapper {
+  .new_filter {
+    .filter-search {
+      input {
+        @apply px-4 py-[0.85rem];
+      }
+    }
+  }
+}
