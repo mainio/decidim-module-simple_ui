@@ -12,7 +12,8 @@ Decidim::Webpacker.register_entrypoints(
   decidim_simple_ui_proposal_settings: "#{base_path}/app/packs/entrypoints/decidim_simple_ui_proposal_settings.js"
 )
 Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/simple_ui/simple_ui")
-Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/accountability/results")
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/simple_ui/accountability/results")
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/simple_ui/proposals/proposals")
 
-Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/budgets/budgets") unless Decidim.module_installed? :budgets_booth
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/simple_ui/budgets/budgets") unless Decidim.module_installed? :budgets_booth
 
