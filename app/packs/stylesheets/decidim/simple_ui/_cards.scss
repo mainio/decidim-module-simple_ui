@@ -36,7 +36,7 @@
   }
 
   &-image_content {
-    @apply grid 2xl:flex 2xl:justify-between;
+    @apply h-full grid 2xl:flex 2xl:justify-between 2xl:h-auto;
 
     .placeholder-image {
       @apply w-full h-full ml-0 relative rounded overflow-hidden aspect-[1.5] 2xl:-ml-[calc(1rem+4px)] 2xl:w-1/5;
