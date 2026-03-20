@@ -12,11 +12,11 @@
     <div class="placeholder-image <%= supports_enabled ? "cursor-pointer" : "" %>" <% if supports_enabled %>data-dialog-open="proposal-modal-<%= model.id %>"<% end %>>
       <div class="placeholder-image_background">
       </div>
-      <%= external_icon "media/images/placeholder-card-l.svg", class: "card__placeholder-l 2xl:static" %>
+      <%= external_icon "media/images/placeholder-card-l.svg", class: "card__placeholder-l 2xl:relative" %>
     </div>
   <% end %>
 <% end %>
-<div class="p-4 <%= 'cursor-pointer' if supports_enabled %>"
+<div class="p-4 <%= '2xl:min-w-[511px]' if main_image_enabled %> <%= 'cursor-pointer' if supports_enabled %>"
   <% if supports_enabled %>
     data-dialog-open="proposal-modal-<%= model.id %>"
   <% end %>

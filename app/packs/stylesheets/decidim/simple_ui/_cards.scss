@@ -23,6 +23,10 @@
     }
   }
 
+  & + & {
+    @apply mt-0;
+  }
+
   &-title_large {
     @apply text-[--primary] inline-block align-middle;
   }
@@ -35,12 +39,10 @@
     @apply grid 2xl:flex 2xl:justify-between;
 
     .placeholder-image {
-      @apply max-2xl:ml-0 w-full h-full relative aspect-[1.5] object-cover rounded 2xl:w-1/5;
-
-      margin-left: calc(calc(1rem + 4px) * -1);
+      @apply w-full h-full ml-0 relative rounded overflow-hidden aspect-[1.5] 2xl:-ml-[calc(1rem+4px)] 2xl:w-1/5;
 
       &_background {
-        @apply w-full h-full bg-primary opacity-10 absolute top-0 left-5 z-10 rounded 2xl:left-0;
+        @apply w-full h-full bg-primary opacity-10 absolute top-0 2xl:left-5 z-10 rounded 2xl:left-0;
       }
     }
   }
