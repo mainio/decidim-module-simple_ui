@@ -17,7 +17,7 @@ edit_link(
 <%= append_stylesheet_pack_tag "decidim_accountability" %>
 
 <% content_for :item_header do %>
-  <%= render partial: "decidim/shared/components/back_link", locals: { url: results_path, text: t(".back_to_listing") } %>
+  <%= render partial: "decidim/shared/components/back_link", locals: { url: main_component_path(result.component), text: t(".back_to_listing") } %>
 <% end %>
 
 <%= render partial: "project", locals: { result: } %>
