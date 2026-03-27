@@ -11,7 +11,7 @@ module Decidim
         end
 
         def main_image?
-          model.component.settings.main_image
+          model.component.settings.main_image && controller.is_a?(Decidim::Proposals::ProposalsController)
         end
 
         def supports?
