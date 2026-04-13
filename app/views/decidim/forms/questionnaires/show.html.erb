@@ -6,6 +6,12 @@
 <%= append_stylesheet_pack_tag "decidim_forms" %>
 <%= append_javascript_pack_tag "decidim_forms" %>
 
+<% if current_component.manifest_name == "surveys" %>
+  <div class="row column one-col">
+    <%= render partial: "decidim/shared/component_announcement" %>
+  </div>
+<% end %>
+
 <main>
   <div class="row column component-background mb-8">
     <div class="one-col mx-auto space-y-4">
@@ -26,8 +32,6 @@
   </div>
 
   <%= render layout: "layouts/decidim/shared/layout_center", locals: { main_enabled: false } do %>
-    <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
-
     <% unless questionnaire_for.try(:component)&.try(:published?) %>
       <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.questionnaire_not_published.body"), callout_class: "warning") %>
     <% end %>

@@ -20,6 +20,10 @@ edit_link(
   }
 %>
 
+<div class="row column one-col">
+  <%= render partial: "decidim/shared/component_announcement" %>
+</div>
+
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: debates_path, commentable: debate } do %>
   <section class="layout-main__section layout-main__heading">
     <h1 class="h2 decorator">

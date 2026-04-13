@@ -18,6 +18,10 @@
 <%= append_javascript_pack_tag "decidim_blogs" %>
 <%= append_stylesheet_pack_tag "decidim_blogs" %>
 
+<div class="row column one-col">
+  <%= render partial: "decidim/shared/component_announcement" %>
+</div>
+
 <% content_for :aside do %>
   <%= render partial: "actions" %>
 <% end %>

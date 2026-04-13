@@ -2,6 +2,10 @@
 <%= append_javascript_pack_tag "decidim_blogs" %>
 <%= append_stylesheet_pack_tag "decidim_blogs" %>
 
+<div class="row column one-col">
+  <%= render partial: "decidim/shared/component_announcement" %>
+</div>
+
 <main>
   <div class="row column component-background">
     <div class="one-col mx-auto space-y-4 text-center">
@@ -10,8 +14,6 @@
       <%= render partial: "decidim/shared/components/intro" %>
     </div>
   </div>
-
-  <%= render partial: "decidim/shared/component_announcement" %>
 
   <div class="row column one-col mx-auto">
     <% unless posts.empty? %>

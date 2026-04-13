@@ -3,6 +3,10 @@
 <% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <% append_javascript_pack_tag "decidim_proposals" %>
 
+<div class="row column one-col">
+  <%= render partial: "decidim/shared/component_announcement" %>
+</div>
+
 <main>
   <section>
     <div class="row column component-background">
@@ -51,7 +55,6 @@
           <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
         <% end %>
       </div>
-      <%= render partial: "decidim/shared/component_announcement" %>
 
       <% if show_voting_rules? %>
         <section class="layout-main__section">

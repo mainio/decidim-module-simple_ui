@@ -4,6 +4,12 @@
 <%= append_javascript_pack_tag "decidim_meetings" %>
 <% title = component.present? ? translated_attribute(component.name) : t("decidim.components.meetings.name") %>
 
+<% if display_announcement %>
+  <div class="row column one-col">
+    <%= render partial: "decidim/shared/component_announcement" %>
+  </div>
+<% end %>
+
 <section role="region" aria-label=<%= t(".header") %>>
   <div class="row column component-background">
     <div class="one-col mx-auto space-y-4">
@@ -40,10 +46,6 @@
               filter_options: filter_options || {}
             } %>
       </div>
-
-      <% if display_announcement %>
-        <%= render partial: "decidim/shared/component_announcement" %>
-      <% end %>
     </div>
 
     <div id="meetings" class="layout-main__section layout-main__heading w-full">

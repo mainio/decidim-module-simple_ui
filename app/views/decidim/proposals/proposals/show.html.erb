@@ -30,6 +30,10 @@ back_path = component_settings.participatory_texts_enabled? ? main_component_pat
 <% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <% append_javascript_pack_tag "decidim_proposals" %>
 
+<div class="row column one-col">
+  <%= render partial: "decidim/shared/component_announcement" %>
+</div>
+
 <% content_for :aside do %>
   <%= render partial: "proposal_aside" %>
   <%= render partial: "voting_rules" %>
