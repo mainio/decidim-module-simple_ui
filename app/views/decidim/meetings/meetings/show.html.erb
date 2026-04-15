@@ -22,8 +22,8 @@ edit_link(
   <%= render partial: "decidim/shared/components/back_link", locals: { url: meetings_path, text: t(".back_to_listing") } %>
 <% end %>
 
-<div class="row column one-col">
+<aside class="row column one-col" aria-label="Announcement">
   <%= render partial: "decidim/shared/component_announcement" %>
-</div>
+</aside>
 
 <%= render partial: "meeting", locals: { meeting: } %>

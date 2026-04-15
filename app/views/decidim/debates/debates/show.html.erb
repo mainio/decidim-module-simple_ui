@@ -20,9 +20,9 @@ edit_link(
   }
 %>
 
-<div class="row column one-col">
+<aside class="row column one-col" aria-label="Announcement">
   <%= render partial: "decidim/shared/component_announcement" %>
-</div>
+</aside>
 
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: debates_path, commentable: debate } do %>
   <section class="layout-main__section layout-main__heading">

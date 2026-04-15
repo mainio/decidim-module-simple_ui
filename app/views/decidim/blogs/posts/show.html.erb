@@ -18,9 +18,9 @@
 <%= append_javascript_pack_tag "decidim_blogs" %>
 <%= append_stylesheet_pack_tag "decidim_blogs" %>
 
-<div class="row column one-col">
+<aside class="row column one-col" aria-label="Announcement">
   <%= render partial: "decidim/shared/component_announcement" %>
-</div>
+</aside>
 
 <% content_for :aside do %>
   <%= render partial: "actions" %>

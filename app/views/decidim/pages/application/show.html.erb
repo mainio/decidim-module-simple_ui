@@ -3,13 +3,15 @@
                            description: translated_attribute(@page.body)
                          }) %>
 
+<aside class="row column one-col" aria-label="Announcement">
+  <%= render partial: "decidim/shared/component_announcement" %>
+</aside>
+
 <main class="space-y-8">
   <div class="one-col mx-auto space-y-4 text-center">
     <h1 class="h2 decorator inline-block text-left py-12 md:h1">
       <%= translated_attribute(@page.title) %>
     </h1>
-
-    <%= render partial: "decidim/shared/component_announcement" %>
 
     <div class="editor-content text-left text-md text-black">
       <% if translated_attribute(@page.body).empty? || translated_attribute(@page.body) == "<p></p>" %>
