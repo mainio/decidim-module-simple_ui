@@ -10,10 +10,10 @@ module Decidim
           _validators[:tos].reject! { |validator| validator.is_a?(TranslatablePresenceValidator) } if _validators[:tos].present?
 
           _validate_callbacks.each do |callback|
-            next unless callback.raw_filter.respond_to?(:attributes)
-            next unless callback.raw_filter.attributes.include?(:tos)
+            next unless callback.filter.respond_to?(:attributes)
+            next unless callback.filter.attributes.include?(:tos)
 
-            callback.raw_filter.attributes.delete(:tos)
+            callback.filter.attributes.delete(:tos)
           end
 
           attribute :requires_tos_agreement, :boolean, default: false

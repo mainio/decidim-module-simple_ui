@@ -181,6 +181,11 @@ fi:
     shared:
       credentials:
         login: Kirjaudu ylläpitäjän antamalla tunnuksella
+      links:
+        sign_in_with_omniauth: "Kirjaudu palvelulla:"
+      omniauth:
+        developer:
+          sign_in_button: Kirjaudu kehittäjätunnuksilla
   layouts:
     decidim:
       footer:
