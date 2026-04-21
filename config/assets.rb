@@ -16,4 +16,3 @@ Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/simple_ui/acc
 Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/simple_ui/proposals/proposals")
 
 Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/simple_ui/budgets/budgets") unless Decidim.module_installed? :budgets_booth
-

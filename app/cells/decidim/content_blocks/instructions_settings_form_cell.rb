@@ -20,7 +20,6 @@ module Decidim
       end
 
       def available_icon_options
-
         @available_icon_options ||= SimpleUi::Admin::IconSectionForm.available_icons.map do |icon|
           [t(".icons.#{icon}"), icon]
         end

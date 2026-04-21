@@ -6,10 +6,10 @@ class AddTosRequiresTosAgreementToDecidimFormsQuestionnaires < ActiveRecord::Mig
   end
 
   def change
-    add_column :decidim_forms_questionnaires, :requires_tos_agreement, :boolean, default: false
+    add_column :decidim_forms_questionnaires, :requires_tos_agreement, :boolean, default: false, null: false
 
     # Make the option `true` for all existing questionnaires assuming they have
     # required user's consent.
-    FormsQuestionnaire.update_all(requires_tos_agreement: true)
+    FormsQuestionnaire.update_all(requires_tos_agreement: true) # rubocop:disable Rails/SkipsModelValidations
   end
 end

@@ -6,8 +6,6 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        # rubocop:disable Metrics/CyclomaticComplexity
-        # rubocop:disable Metrics/PerceivedComplexity
         def filter_sections
           @filter_sections ||= begin
             items = []
@@ -24,9 +22,6 @@ module Decidim
               items.append(method: :activity, collection: activity_filter_values, label_scope: "decidim.proposals.proposals.filters", id: "activity", type: :radio_buttons)
             end
           end
-          # rubocop:enable Metrics/PerceivedComplexity
-          # rubocop:enable Metrics/CyclomaticComplexity
-
           items.reject { |item| item[:collection].blank? }
         end
       end

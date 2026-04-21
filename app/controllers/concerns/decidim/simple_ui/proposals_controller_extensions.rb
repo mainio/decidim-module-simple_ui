@@ -14,17 +14,11 @@ module Decidim
         def rules
           rules = []
 
-          if vote_limit_enabled?
-            rules << t("decidim.proposals.proposals.voting_rules.vote_limit.description", limit: component_settings.vote_limit)
-          end
+          rules << t("decidim.proposals.proposals.voting_rules.vote_limit.description", limit: component_settings.vote_limit) if vote_limit_enabled?
 
-          if proposal_limit_enabled?
-            rules << t("decidim.proposals.proposals.voting_rules.proposal_limit.description", limit: proposal_limit)
-          end
+          rules << t("decidim.proposals.proposals.voting_rules.proposal_limit.description", limit: proposal_limit) if proposal_limit_enabled?
 
-          if threshold_per_proposal_enabled?
-            rules << t("decidim.proposals.proposals.voting_rules.threshold_per_proposal.description", limit: threshold_per_proposal)
-          end
+          rules << t("decidim.proposals.proposals.voting_rules.threshold_per_proposal.description", limit: threshold_per_proposal) if threshold_per_proposal_enabled?
 
           if can_accumulate_supports_beyond_threshold?
             rules << t("decidim.proposals.proposals.voting_rules.can_accumulate_supports_beyond_threshold.description", limit: threshold_per_proposal)

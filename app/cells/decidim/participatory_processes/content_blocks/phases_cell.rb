@@ -4,9 +4,9 @@ module Decidim
   module ParticipatoryProcesses
     module ContentBlocks
       class PhasesCell < Decidim::ContentBlocks::ParticipatorySpaceMetadataCell
-      def show
-        render
-      end
+        def show
+          render
+        end
 
         private
 
