@@ -10,11 +10,11 @@ module Decidim
 
       included do
         def nav_items
-            process_nav_items(resource)
+          process_nav_items(resource)
         end
 
         def show_menu?
-          return unless model
+          return false unless model
 
           model.settings.show_menu
         end

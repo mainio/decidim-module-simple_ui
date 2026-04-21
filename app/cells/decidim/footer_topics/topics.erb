@@ -1,0 +1,10 @@
+<div class="grid grid-cols-1 gap-x-8 gap-y-10 text-md text-white md:grid-cols-2">
+  <nav role="navigation" aria-label="<%= t("layouts.decidim.footer.help") %>" class="inline-block">
+    <div class="h6 mb-2 md:mb-2"><%= t("layouts.decidim.footer.help") %></div>
+    <ul class="space-y-1 break-inside-avoid md:space-y-1">
+      <% topics.each do |topic| %>
+        <%= topic_item(topic) %>
+      <% end %>
+    </ul>
+  </nav>
+</div>

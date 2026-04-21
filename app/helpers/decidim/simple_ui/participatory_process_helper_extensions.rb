@@ -6,7 +6,6 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-
         def filter_sections
           [
             { method: :with_date, collection: filter_dates_values, label_scope: "decidim.participatory_processes.participatory_processes.filters", id: "process-date" }
