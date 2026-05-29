@@ -15,6 +15,12 @@ module Decidim
         # root to: "simple_ui#index"
       end
 
+      initializer "decidim_simple_ui.add_helpers" do
+        ActiveSupport.on_load(:action_controller) do
+          helper Decidim::SimpleUi::ApplicationHelper
+        end
+      end
+
       initializer "decidim_simple_ui.add_cells_view_paths", before: "decidim_core.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::SimpleUi::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::SimpleUi::Engine.root}/app/views")

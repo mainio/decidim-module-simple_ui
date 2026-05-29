@@ -3,7 +3,7 @@
 <% if intro.present? || local_assigns.has_key?(:fallback) %>
   <div class="component-intro">
     <% if intro.present? %>
-      <%= decidim_sanitize_admin intro %>
+      <%= style_rich_text(decidim_sanitize_admin(intro)) %>
     <% else %>
       <p><%= fallback %></p>
     <% end %>
