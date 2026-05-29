@@ -74,6 +74,9 @@ module Decidim
           Decidim::Proposals::ProposalVotesController.include(
             Decidim::SimpleUi::ProposalsControllerExtensions
           )
+          Decidim::Accountability::ResultsController.include(
+            Decidim::SimpleUi::ResultsControllerExtensions
+          )
 
           # Helper extensions
           Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper.include(
