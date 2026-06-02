@@ -21,20 +21,11 @@
   </div>
 
   <div class="double-col_off mx-auto">
-    <%= render partial: "scope_filters" %>
+    <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont } do %>
+    <% end %>
 
-    <section>
-      <% if results.empty? %>
-        <%= cell("decidim/announcement",
-                params[:filter].present? ?
-                t("empty_filters", scope: "decidim.accountability.results.home") :
-                t("empty", scope: "decidim.accountability.results.home")) %>
-      <% else %>
-        <% results.each do |result| %>
-          <%= cell "decidim/accountability/result_l", result %>
-        <% end %>
-        <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope) %>
-      <% end %>
+    <section id="results">
+      <%= render partial: "results", locals: { results: results } %>
     </section>
   </div>
 </main>
