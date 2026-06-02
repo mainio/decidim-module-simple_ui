@@ -16,7 +16,7 @@ module Decidim
               items = []
 
               if current_component.has_subscopes?
-                items.append(method: :with_scope, collection: filter_scopes_values, label_scope: "decidim.proposals.proposals.filters", id: "scope")
+                items.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.proposals.proposals.filters", id: "scope")
               end
             end
             # rubocop:enable Metrics/PerceivedComplexity
