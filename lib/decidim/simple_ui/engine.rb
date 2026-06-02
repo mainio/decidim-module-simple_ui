@@ -100,6 +100,11 @@ module Decidim
           Decidim::Accountability::ApplicationHelper.include(
             Decidim::SimpleUi::Accountability::ApplicationHelperExtensions
           )
+
+          # Model extensions
+          Decidim::Accountability::Result.include(
+            Decidim::SimpleUi::ResultExtensions
+          )
         end
       end
 
