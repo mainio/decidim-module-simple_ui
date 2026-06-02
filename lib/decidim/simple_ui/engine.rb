@@ -97,6 +97,9 @@ module Decidim
           Decidim::Meetings::MapHelper.include(
             Decidim::SimpleUi::Meetings::MapHelperExtensions
           )
+          Decidim::Accountability::ApplicationHelper.include(
+            Decidim::SimpleUi::Accountability::ApplicationHelperExtensions
+          )
         end
       end
 
