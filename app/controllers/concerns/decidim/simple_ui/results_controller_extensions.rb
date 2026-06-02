@@ -8,14 +8,23 @@ module Decidim
       included do
         private
 
-      def results
-        @results ||= begin
-          parent_id = params[:parent_id].presence
-          search.result.where(
-            parent_id: [parent_id] + Decidim::Accountability::Result.where(parent_id:).pluck(:id)
-          ).page(params[:page]).per(params[:per_page] || 25)
+        def results
+          @results ||= begin
+            parent_id = params[:parent_id].presence
+            search.result.where(
+              parent_id: [parent_id] + Decidim::Accountability::Result.where(parent_id:).pluck(:id)
+            ).page(params[:page]).per(params[:per_page] || 25)
+          end
         end
-      end
+
+        def default_filter_params
+          {
+            search_text_cont: "",
+            with_scope: "",
+            with_any_scope: "",
+            with_category: ""
+          }
+        end
       end
     end
   end
