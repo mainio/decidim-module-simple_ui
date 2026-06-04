@@ -60,9 +60,6 @@ module Decidim
           Decidim::Proposals::ProposalLCell.include(
             Decidim::SimpleUi::ProposalLCellExtensions
           )
-          Decidim::ShareButtonCell.include(
-            Decidim::SimpleUi::ShareButtonCellExtensions
-          )
           Decidim::TagsCell.include(
             Decidim::SimpleUi::TagsCellExtensions
           )
