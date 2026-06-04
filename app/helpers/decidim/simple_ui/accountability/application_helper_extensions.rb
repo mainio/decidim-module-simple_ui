@@ -15,8 +15,11 @@ module Decidim
             @filter_sections ||= begin
               items = []
 
-              if current_component.has_subscopes?
-                items.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.proposals.proposals.filters", id: "scope")
+              current_component.available_taxonomy_filters.each do |taxonomy_filter|
+                items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+                            collection: filter_taxonomy_values_for(taxonomy_filter),
+                            label: decidim_sanitize_translated(taxonomy_filter.name),
+                            id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
               end
             end
             # rubocop:enable Metrics/PerceivedComplexity
