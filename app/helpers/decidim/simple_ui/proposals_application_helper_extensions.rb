@@ -10,17 +10,16 @@ module Decidim
           @filter_sections ||= begin
             items = []
             if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled
-              items.append(method: :with_any_state, collection: filter_proposals_state_values, label_scope: "decidim.proposals.proposals.filters", id: "state")
+              items.append(method: :with_any_state, collection: filter_proposals_state_values, label: t("decidim.proposals.proposals.filters.state"), id: "state")
             end
-            if current_component.has_subscopes?
-              items.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.proposals.proposals.filters", id: "scope")
+            current_component.available_taxonomy_filters.each do |taxonomy_filter|
+              items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+                           collection: filter_taxonomy_values_for(taxonomy_filter),
+                           label: decidim_sanitize_translated(taxonomy_filter.name),
+                           id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
             end
-            if current_component.categories.any?
-              items.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.proposals.proposals.filters", id: "category")
-            end
-            if current_user
-              items.append(method: :activity, collection: activity_filter_values, label_scope: "decidim.proposals.proposals.filters", id: "activity", type: :radio_buttons)
-            end
+
+            items.append(method: :activity, collection: activity_filter_values, label: t("decidim.proposals.proposals.filters.state"), id: "activity", type: :radio_buttons) if current_user
           end
           items.reject { |item| item[:collection].blank? }
         end
