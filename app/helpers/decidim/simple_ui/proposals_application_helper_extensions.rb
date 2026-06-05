@@ -19,7 +19,10 @@ module Decidim
                            id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
             end
 
-            items.append(method: :activity, collection: activity_filter_values, label: t("decidim.proposals.proposals.filters.state"), id: "activity", type: :radio_buttons) if current_user
+            if current_user
+              items.append(method: :activity, collection: activity_filter_values, label: t("decidim.proposals.proposals.filters.state"), id: "activity",
+                           type: :radio_buttons)
+            end
           end
           items.reject { |item| item[:collection].blank? }
         end
