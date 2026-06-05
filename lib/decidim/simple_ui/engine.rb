@@ -66,6 +66,9 @@ module Decidim
           Decidim::AddressCell.include(
             Decidim::SimpleUi::AddressCellExtensions
           )
+          Decidim::MapCell.include(
+            Decidim::SimpleUi::MapCellExtensions
+          )
 
           # Controller extensions
           Decidim::HomepageController.include(
@@ -87,12 +90,6 @@ module Decidim
           )
           Decidim::Proposals::ApplicationHelper.include(
             Decidim::SimpleUi::ProposalsApplicationHelperExtensions
-          )
-          Decidim::Proposals::MapHelper.include(
-            Decidim::SimpleUi::Proposals::MapHelperExtensions
-          )
-          Decidim::Meetings::MapHelper.include(
-            Decidim::SimpleUi::Meetings::MapHelperExtensions
           )
           Decidim::Accountability::ApplicationHelper.include(
             Decidim::SimpleUi::Accountability::ApplicationHelperExtensions
