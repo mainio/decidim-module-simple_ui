@@ -7,7 +7,7 @@ module Decidim
 
       included do
         def card_tag
-          render :card_tag if category? || scope?
+          render :card_tag if taxonomies.any?
         end
 
         def tag(name, title)
