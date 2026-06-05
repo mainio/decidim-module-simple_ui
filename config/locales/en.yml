@@ -181,6 +181,9 @@ en:
         search_bar: Search
       flag_modal:
         report: Report
+    surveys:
+      survey_l:
+        explore: Explore
   devise:
     shared:
       credentials:

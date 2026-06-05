@@ -177,6 +177,9 @@ fi:
         search_bar: Hae
       flag_modal:
         report: Ilmoita
+    surveys:
+      survey_l:
+        explore: Tutustu
   devise:
     shared:
       credentials:
