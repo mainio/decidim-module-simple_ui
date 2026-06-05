@@ -60,14 +60,12 @@ edit_link(
   <section class="layout-main__section layout-main__buttons" data-buttons>
     <% if endorsements_enabled? %>
       <% if allowed_to?(:endorse, :debate, debate: debate) %>
-        <%= endorsement_buttons_cell(debate) %>
-      <% else %>
-        <%= endorsers_list_cell(debate) %>
+        <%= cell("decidim/endorsement_block", debate) %>
       <% end %>
     <% end %>
 
     <div>
-      <%= render partial: "decidim/shared/tags", locals: { resource: debate } %>
+      <%= cell("decidim/tags", debate) %>
     </div>
   </section>
   <%= cell "decidim/endorsers_list", debate, layout: :full %>
@@ -122,7 +120,7 @@ edit_link(
   </section>
   <div class="action-divider">
     <div class="record-action-container">
-      <%= cell "decidim/share_button", nil, default_classes: false %>
+      <%= cell "decidim/share_widget", debate %>
       <%= cell "decidim/report_button", debate, button_classes: "button button__lg button__transparent-secondary" %>
       <%= cell "decidim/comments_button", nil %>
     </div>

@@ -1,6 +1,6 @@
 <% leaf = item.tree_node? ? item.leaf : item %>
 <% data_checkboxes_tree_id = [check_boxes_tree_id, leaf.value].join("_") %>
-<% is_blank_root = leaf.value.blank? %>
+<% is_blank_root = leaf.root? %>
 <% data ||= {} %>
 <% data[:disable_dynamic_change] = true %>
 <% data[:checkboxes_tree] = data_checkboxes_tree_id if item.tree_node? && item.node.present? %>
@@ -22,7 +22,10 @@
           class: "reset-defaults",
           data:,
           is_root_check_box: is_blank_root,
-          parent_id:
+          id: data_checkboxes_tree_id,
+          namespace: form.options[:namespace],
+          parent_id:,
+          object: form.object
         ),
         leaf.value.to_s,
         nil

@@ -1,4 +1,5 @@
 <%= content_tag :ul, class: tags_classes do %>
-  <%= content_tag :li, tag(category_name, t("decidim.tags.filter_results_for_category", resource: category_name)) if category? %>
-  <%= content_tag :li, tag(scope_name, t("decidim.tags.filter_results_for_scope", resource: scope_name)) if scope? %>
+  <% taxonomies.each do |taxonomy| %>
+    <%= content_tag :li, link_to_tag(taxonomy[:url], taxonomy[:name], t("decidim.tags.filter_results_for_taxonomy", resource: taxonomy[:name])) %>
+  <% end %>
 <% end %>

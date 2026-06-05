@@ -7,7 +7,7 @@ module Decidim
 
       included do
         def self.ransackable_scopes(_auth_object = nil)
-          [:with_category, :with_scope, :with_any_scope]
+          [:with_any_taxonomies]
         end
       end
     end

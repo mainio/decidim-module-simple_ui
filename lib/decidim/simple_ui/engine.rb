@@ -60,14 +60,14 @@ module Decidim
           Decidim::Proposals::ProposalLCell.include(
             Decidim::SimpleUi::ProposalLCellExtensions
           )
-          Decidim::ShareButtonCell.include(
-            Decidim::SimpleUi::ShareButtonCellExtensions
-          )
           Decidim::TagsCell.include(
             Decidim::SimpleUi::TagsCellExtensions
           )
           Decidim::AddressCell.include(
             Decidim::SimpleUi::AddressCellExtensions
+          )
+          Decidim::MapCell.include(
+            Decidim::SimpleUi::MapCellExtensions
           )
 
           # Controller extensions
@@ -91,11 +91,13 @@ module Decidim
           Decidim::Proposals::ApplicationHelper.include(
             Decidim::SimpleUi::ProposalsApplicationHelperExtensions
           )
-          Decidim::Proposals::MapHelper.include(
-            Decidim::SimpleUi::Proposals::MapHelperExtensions
+          Decidim::Accountability::ApplicationHelper.include(
+            Decidim::SimpleUi::Accountability::ApplicationHelperExtensions
           )
-          Decidim::Meetings::MapHelper.include(
-            Decidim::SimpleUi::Meetings::MapHelperExtensions
+
+          # Model extensions
+          Decidim::Accountability::Result.include(
+            Decidim::SimpleUi::ResultExtensions
           )
           Decidim::Accountability::ApplicationHelper.include(
             Decidim::SimpleUi::Accountability::ApplicationHelperExtensions

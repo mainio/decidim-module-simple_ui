@@ -9,7 +9,7 @@
 
 <section class="layout-aside__section <%= current_settings.votes_enabled? && (show_endorsements_card? || current_user) ? 'action-divider' : '' %> component-background-color">
   <div class="record-action-container">
-    <%= cell "decidim/share_button", nil, default_classes: false %>
+    <%= cell "decidim/share_widget", @proposal %>
     <%= cell "decidim/report_button", @proposal, button_classes: "button button__lg button__transparent-secondary" %>
     <%= cell "decidim/comments_button", nil %>
   </div>

@@ -20,9 +20,7 @@ module Decidim
         def default_filter_params
           {
             search_text_cont: "",
-            with_scope: "",
-            with_any_scope: "",
-            with_category: ""
+            with_any_taxonomies: nil
           }
         end
       end

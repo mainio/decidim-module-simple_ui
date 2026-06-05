@@ -50,8 +50,8 @@
 
     <div id="meetings" class="layout-main__section layout-main__heading w-full">
       <% if display_map %>
-        <div class="meetings-list__map">
-          <%= cell "decidim/meetings/meetings_map", search.result %>
+        <div class="meeting-list__map">
+          <%= cell "decidim/map", search.result, metadata_card: "decidim/meetings/meeting_card_metadata" %>
         </div>
       <% end %>
 

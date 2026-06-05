@@ -57,16 +57,12 @@
             <%= cell("decidim/public_participation", form) %>
           <% end %>
 
-          <% if questionnaire.requires_tos_agreement? %>
-            <div class="answer-questionnaire__tos">
-              <%= form.check_box :tos_agreement, label: t("decidim.forms.questionnaires.show.tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
-              <div>
-                <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>
-              </div>
+          <div class="answer-questionnaire__tos">
+            <%= form.check_box :tos_agreement, label: t("decidim.forms.questionnaires.show.tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
+            <div>
+              <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>
             </div>
-          <% elsif current_participatory_space.can_participate?(current_user) %>
-            <%= form.hidden_field :tos_agreement, value: "1" %>
-          <% end %>
+          </div>
         <% end %>
 
         <%= cell(
