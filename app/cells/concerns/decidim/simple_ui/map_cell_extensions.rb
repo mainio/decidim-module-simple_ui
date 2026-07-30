@@ -19,7 +19,7 @@ module Decidim
 
               extra = if record.is_a?(Decidim::Meetings::Meeting)
                         { description: strip_tags(translated_attribute(record.description)) }
-                      elsif record.is_?(Decidim::Proposals::Proposal)
+                      elsif record.is_a?(Decidim::Proposals::Proposal)
                         { body: decidim_html_escape(present(record).body) }
                       end
 
@@ -38,8 +38,10 @@ module Decidim
             data.map do |record|
               extra = if record.is_a?(Decidim::Meetings::Meeting)
                         { description: strip_tags(translated_attribute(record.description)) }
-                      elsif record.is_?(Decidim::Proposals::Proposal)
+                      elsif record.is_a?(Decidim::Proposals::Proposal)
                         { body: decidim_html_escape(present(record).body) }
+                      else
+                        {}
                       end
 
               record.slice(:latitude, :longitude, :address)
