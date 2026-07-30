@@ -20,8 +20,6 @@
   </div>
 
   <div class="double-col_off mx-auto">
-    <%= render partial: "scope_filters" %>
-
     <section id="results">
       <%= cell "decidim/accountability/results", results %>
       <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope) %>

@@ -1,3 +1,8 @@
+<% if @focus_mode %>
+  <% content_for :focus_mode, true %>
+  <% content_for :focus_mode_return_path, budget_projects_path(budget) %>
+<% end %>
+
 <% add_decidim_meta_tags(
   title: translated_attribute(project.title),
   description: translated_attribute(project.description)
@@ -16,11 +21,11 @@ edit_link(
 <%= append_stylesheet_pack_tag "decidim_budgets" %>
 
 <div id="project-item">
-  <%= render partial: "budget_summary", locals: { include_heading: true, project_item: true, responsive: true } %>
+  <%= render partial: "budget_summary", locals: { project_item: true, responsive: true } %>
   <% content_for :item_header do %>
     <% unless voting_finished? %>
       <div class="layout-2col">
-        <%= render partial: "budget_summary", locals: { include_heading: true, project_item: true, responsive: false } %>
+        <%= render partial: "budget_summary", locals: { project_item: true, responsive: false } %>
       </div>
       <%= render partial: "budget_excess" %>
       <%= render partial: "budget_confirm" %>
@@ -41,7 +46,7 @@ edit_link(
     </section>
     <section class="layout-main__section">
       <% if tabs.any? %>
-        <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
+        <div class="mt-8" data-controller="accordion" data-multiselectable="false" data-collapsible="false">
           <ul class="tab-x-container">
             <% tabs.each_with_index do |tab, i| %>
               <li>
@@ -59,11 +64,6 @@ edit_link(
           <% end %>
         </div>
       <% end %>
-    </section>
-    <section class="layout-main__section layout-main__buttons" data-buttons>
-      <div class="ml-auto">
-        <%= cell "decidim/budgets/project_tags", project %>
-      </div>
     </section>
 
     <% content_for :aside do %>

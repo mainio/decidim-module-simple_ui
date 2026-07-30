@@ -27,7 +27,7 @@ edit_link(
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: debates_path, commentable: debate } do %>
   <section class="layout-main__section layout-main__heading">
     <h1 class="h2 decorator">
-      <%== present(debate).title(links: true, html_escape: true) %>
+      <%== present(debate).title(html_escape: true) %>
     </h1>
 
     <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
@@ -58,9 +58,9 @@ edit_link(
   <% end %>
 
   <section class="layout-main__section layout-main__buttons" data-buttons>
-    <% if endorsements_enabled? %>
-      <% if allowed_to?(:endorse, :debate, debate: debate) %>
-        <%= cell("decidim/endorsement_block", debate) %>
+    <% if likes_enabled? %>
+      <% if allowed_to?(:like, :debate, debate: debate) %>
+        <%= cell("decidim/like_block", debate) %>
       <% end %>
     <% end %>
 
@@ -68,7 +68,7 @@ edit_link(
       <%= cell("decidim/tags", debate) %>
     </div>
   </section>
-  <%= cell "decidim/endorsers_list", debate, layout: :full %>
+  <%= cell "decidim/likers_list", debate %>
 
   <% content_for :aside do %>
   <% if allowed_to?(:edit, :debate, debate: debate) || admin_allowed_to?(:update, :debate, debate: debate) || allowed_to?(:close, :debate, debate: debate) || admin_allowed_to?(:close, :debate, debate: debate) %>
@@ -97,7 +97,7 @@ edit_link(
         </div>
 
         <div class="text-md font-semibold [&>svg]:inline-block">
-          <%= format_date_range(debate.start_time, debate.end_time) || t("open", scope: "decidim.debates.debates.show") %>
+          <%= format_date_range(debate.start_time, debate.end_time) || t("open_ended", scope: "decidim.debates.debates.show") %>
         </div>
       </div>
       <div class="text-gray-2 space-y-1.5">
@@ -110,9 +110,9 @@ edit_link(
           </div>
           <div>
             <span class="block text-center mb-2">
-              <%= t("groups_count", scope: "decidim.debates.debates.show") %>
+              <%= t("participants_count", scope: "decidim.debates.debates.show") %>
             </span>
-            <span class="text-4xl md:text-5xl font-bold block text-center"><%= debate_presenter.groups_count %></span>
+            <span class="text-4xl md:text-5xl font-bold block text-center"><%= debate_presenter.participants_count %></span>
           </div>
         </div>
       </div>

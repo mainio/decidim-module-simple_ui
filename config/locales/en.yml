@@ -151,6 +151,8 @@ en:
         index:
           all_processes: All processes
     proposals:
+      collaborative_draft_l:
+        explore: Explore
       proposal_l:
         explore: Open
         proposal_vote_count: Votes
@@ -208,8 +210,10 @@ en:
           comments: Comments
   simple_ui:
     orders:
-      order: "Order: "
-      random: "Random"
       highest_cost: Highest cost
       lowest_cost: Lowest cost
+      most_contributed: Most contributed
       most_voted: Most voted
+      order: "Order: "
+      random: "Random"
+      recent: Recent

@@ -50,8 +50,8 @@
   </section>
 
   <section class="layout-main__section layout-main__buttons">
-    <% if endorsements_enabled? %>
-      <%= cell("decidim/endorsement_block", post) %>
+    <% if likes_enabled? %>
+      <%= cell("decidim/like_block", post) %>
     <% end %>
   </section>
 

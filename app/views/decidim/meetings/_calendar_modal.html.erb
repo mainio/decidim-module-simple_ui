@@ -1,5 +1,5 @@
 <div class="filter-container mt-6 md:mt-12">
-  <button class="button button__sm button__transparent-secondary" data-dialog-open="calendarShare">
+  <button class="button button__sm button__transparent-secondary" data-dialog-open="calendarShare" role=menuitem>
     <%= t(".export_calendar") %>
     <%= icon "download-cloud-2-line", class: "fill-current" %>
   </button>
@@ -17,6 +17,7 @@
     <div class="meeting-list__modal-input">
       <input id="urlCalendarUrl" type="text" title="<%= t(".calendar_url") %>" value="<%= "#{path}" %>" readonly>
       <button
+        data-controller="clipboard-copy"
         data-clipboard-copy="#urlCalendarUrl"
         data-clipboard-copy-label="<%= t(".copy_calendar_url_copied") %>"
         data-clipboard-copy-message="<%= t(".copy_calendar_url_message") %>"

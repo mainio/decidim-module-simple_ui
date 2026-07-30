@@ -1,6 +1,6 @@
 <section class="layout-main__section layout-main__buttons" data-buttons>
-  <% if endorsements_enabled? %>
-    <%= cell("decidim/endorsement_block", @proposal) %>
+  <% if likes_enabled? %>
+    <%= cell("decidim/like_block", @proposal) %>
   <% end %>
 
   <div>
@@ -8,4 +8,4 @@
   </div>
 </section>
 
-<%= cell "decidim/endorsers_list", @proposal, layout: :full %>
+<%= cell "decidim/likers_list", @proposal %>
