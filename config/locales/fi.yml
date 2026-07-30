@@ -150,6 +150,8 @@ fi:
         index:
           all_processes: Kaikki prosessit
     proposals:
+      collaborative_draft_l:
+        explore: Tutustu
       proposal_l:
         explore: Tutustu
         proposal_vote_count: Ääntä
@@ -204,8 +206,10 @@ fi:
           comments: Kommentit
   simple_ui:
     orders:
-      order: "Järjestä: "
-      random: Satunnainen
       highest_cost: Kallein ensin
       lowest_cost: Edullisin ensin
+      most_contributed: Eniten osallistumisia
       most_voted: Eniten ääniä saaneet ensin
+      order: "Järjestä: "
+      random: Satunnainen
+      recent: Viimeisimmät
