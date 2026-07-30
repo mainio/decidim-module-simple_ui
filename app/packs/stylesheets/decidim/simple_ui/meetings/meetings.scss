@@ -1,0 +1,7 @@
+#meetings {
+  .meeting-list {
+    &__map {
+      @apply md:ml-0;
+    }
+  }
+}
