@@ -94,11 +94,6 @@ module Decidim
           Decidim::Accountability::ApplicationHelper.include(
             Decidim::SimpleUi::Accountability::ApplicationHelperExtensions
           )
-
-          # Model extensions
-          Decidim::Accountability::Result.include(
-            Decidim::SimpleUi::ResultExtensions
-          )
         end
       end
 
@@ -116,7 +111,6 @@ module Decidim
       end
 
       initializer "decidim_simple_ui.register_icons" do |_app|
-        Decidim.icons.register(name: "login-box-line", icon: "user-line", category: "system", description: "Sign in", engine: :core)
         Decidim.icons.register(name: "checkbox-multiple-line", icon: "checkbox-multiple-line", category: "system", description: "Checkbox", engine: :core)
         Decidim.icons.register(name: "settings-2-line", icon: "settings-2-line", category: "system", description: "Settings-2", engine: :core)
       end
