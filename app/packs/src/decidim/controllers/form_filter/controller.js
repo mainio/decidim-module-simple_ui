@@ -18,10 +18,15 @@ export default class extends Controller {
     this.mounted = false;
     this.changeEvents = true;
     this.theCheckBoxesTree = new CheckBoxesTree();
+    this.queue = 0;
 
     this._updateInitialState();
     this._onFormChange = delayed(this, this._onFormChange.bind(this));
     this._onPopState = this._onPopState.bind(this);
+    this._onAjaxSuccess = this._onAjaxSuccess.bind(this);
+    this._onAjaxError = this._onAjaxError.bind(this);
+    this._onResetClick = this._onResetClick.bind(this);
+    this._onFilterKeydown = this._onFilterKeydown.bind(this);
 
     if (window.Decidim.PopStateHandler) {
       this.popStateSubmitter = false;
@@ -43,7 +48,17 @@ export default class extends Controller {
       element.removeEventListener("change", this._onFormChange);
     });
 
+    this.element.removeEventListener("keydown", this._onFilterKeydown);
+
+    const resetButton = document.getElementById("reset-filters");
+    if (resetButton) {
+      resetButton.removeEventListener("click", this._onResetClick);
+    }
+
     unregisterCallback(`filters-${this.id}`)
+
+    document.removeEventListener("ajax:success", this._onAjaxSuccess);
+    document.removeEventListener("ajax:error", this._onAjaxError);
   }
 
   /**
@@ -54,7 +69,6 @@ export default class extends Controller {
   mountComponent() {
     if (this.mounted) return;
     this.mounted = true;
-    let queue = 0;
 
     if (window.performance?.getEntriesByType("navigation")[0]?.type === "back_forward") {
       const savedFiltersJSON = sessionStorage.getItem("filteredParams");
@@ -75,57 +89,14 @@ export default class extends Controller {
 
     const resetButton = document.getElementById("reset-filters");
     if (resetButton) {
-      resetButton.addEventListener("click", () => this._clearForm());
+      resetButton.addEventListener("click", this._onResetClick);
     }
 
-    const submitButton = this.element.querySelector('button[type="submit"]');
-    this.element.querySelectorAll('input[type="search"], input[type="checkbox"], input[type="radio"]').forEach((input) => {
-      input.addEventListener("keydown", (e) => {
-        const inputs = [...this.element.querySelectorAll('input[type="radio"][name="filter[with_date]"]')];
-        const processDateMenu = document.getElementById("panel-dropdown-menu-process-date");
-        const dateFilterTrigger = document.getElementById("trigger-menu-process-date");
-        let caret;
-        if (dateFilterTrigger) {
-          caret = dateFilterTrigger.querySelector("svg");
-        }
+    this.element.addEventListener("keydown", this._onFilterKeydown);
 
-        const currentIndex = inputs.indexOf(e.target);
-
-        switch (e.key) {
-          case "Enter":
-            e.preventDefault();
-            submitButton?.click();
-            break;
-          case "ArrowDown":
-            e.preventDefault();
-            if (inputs.length) {
-              const nextIndex = currentIndex === -1 || currentIndex === inputs.length - 1 ? 0 : currentIndex + 1;
-              inputs[nextIndex].focus();
-            }
-            break;
-
-          case "ArrowUp":
-            e.preventDefault();
-            if (inputs.length) {
-              const prevIndex = currentIndex <= 0 ? inputs.length - 1 : currentIndex - 1;
-              inputs[prevIndex].focus();
-            }
-            break;
-
-          case "Escape":
-            e.preventDefault();
-            if (processDateMenu && !processDateMenu.classList.contains("hidden")) {
-              processDateMenu.classList.add("hidden");
-              caret?.classList.remove("rotate-180");
-              dateFilterTrigger.focus();
-            }
-        }
-      })
-    })
-
-    let contentContainer = document.querySelector("main");
-    if (!contentContainer && this.element.dataset.remoteFill) {
-      contentContainer = document.querySelector(this.element.dataset.remoteFill);
+    this.contentContainer = document.querySelector("main");
+    if (!this.contentContainer && this.element.dataset.remoteFill) {
+      this.contentContainer = document.querySelector(this.element.dataset.remoteFill);
     }
 
     this.element.querySelectorAll("input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])").forEach((element) => {
@@ -139,35 +110,110 @@ export default class extends Controller {
         this.currentFormRequest.abort();
       }
       this.currentFormRequest = e.detail[0];
-      queue += 1;
-      if (queue > 0 && contentContainer && !contentContainer.classList.contains("spinner-container")) {
-        contentContainer.classList.add("spinner-container");
+      this.queue += 1;
+      if (this.queue > 0 && this.contentContainer && !this.contentContainer.classList.contains("spinner-container")) {
+        this.contentContainer.classList.add("spinner-container");
       }
-    });
+    })
 
-    document.addEventListener("ajax:success", () => {
-      const [currentPath] = this._currentStateAndPath();
-      this._saveFilters(currentPath);
-
-      queue -= 1;
-      if (queue <= 0 && contentContainer) {
-        contentContainer.classList.remove("spinner-container");
-      }
-    });
-
-    document.addEventListener("ajax:error", () => {
-      queue -= 1;
-      if (queue <= 0 && contentContainer) {
-        contentContainer.classList.remove("spinner-container");
-        contentContainer.classlist.add("hide");
-      }
-    });
+    document.addEventListener("ajax:success", this._onAjaxSuccess);
+    document.addEventListener("ajax:error", this._onAjaxError);
 
     this.theCheckBoxesTree.setContainerForm(this.element);
 
     registerCallback(`filters-${this.id}`, (currentState) => {
       this._onPopState(currentState);
-    });
+    })
+  }
+
+  /**
+   * Handles keydown events
+   *@private
+   *@param {Event} - The keydown event
+   *@returns {Void} - Returns nothing
+   */
+  _onFilterKeydown(e) {
+    if (!e.target.matches('input[type="search"], input[type="checkbox"], input[type="radio"]')) {
+      return;
+    }
+
+    const inputs = [...this.element.querySelectorAll('input[type="radio"][name="filter[with_date]"]')];
+    const processDateMenu = document.getElementById("panel-dropdown-menu-process-date");
+    const dateFilterTrigger = document.getElementById("trigger-menu-process-date");
+    let caret;
+    if (dateFilterTrigger) {
+      caret = dateFilterTrigger.querySelector("svg");
+    }
+
+    const currentIndex = inputs.indexOf(e.target);
+
+    switch (e.key) {
+      case "Enter":
+        e.preventDefault();
+        Rails.fire(this.element, "submit");
+        break;
+      case "ArrowDown":
+        e.preventDefault();
+        if (inputs.length) {
+          const nextIndex = currentIndex === -1 || currentIndex === inputs.length - 1 ? 0 : currentIndex + 1;
+          inputs[nextIndex].focus();
+        }
+        break;
+
+      case "ArrowUp":
+        e.preventDefault();
+        if (inputs.length) {
+          const prevIndex = currentIndex <= 0 ? inputs.length - 1 : currentIndex - 1;
+          inputs[prevIndex].focus();
+        }
+        break;
+
+      case "Escape":
+        e.preventDefault();
+        if (processDateMenu && !processDateMenu.classList.contains("hidden")) {
+          processDateMenu.classList.add("hidden");
+          caret?.classList.remove("rotate-180");
+          dateFilterTrigger.focus();
+        }
+    }
+  }
+
+  /**
+   * Handles ajax:success event
+   * @private
+   * @returns {Void} - Returns nothing
+   */
+
+  _onAjaxSuccess() {
+    const [currentPath] = this._currentStateAndPath();
+    this._saveFilters(currentPath);
+
+    this.queue -= 1;
+    if (this.queue <= 0 && this.contentContainer) {
+      this.contentContainer.classList.remove("spinner-container");
+    }
+  }
+
+  /**
+   * Handles ajax:error event
+   * @private
+   * @returns {Void} - Returns nothing
+   */
+  _onAjaxError() {
+    this.queue -= 1;
+    if (this.queue <= 0 && this.contentContainer) {
+      this.contentContainer.classList.remove("spinner-container");
+      this.contentContainer.classList.add("hide");
+    }
+  }
+
+  /**
+   * Handles the reset-filters click
+   * @private
+   * @returns {Void} - Returns nothing
+   */
+  _onResetClick() {
+    this._clearForm();
   }
 
   /**
@@ -270,7 +316,7 @@ export default class extends Controller {
       element.checked = false;
     })
     const radio = this.element.querySelector("fieldset input[type=radio]");
-    if (radio) firstRadio.checked = true;
+    if (radio) radio.checked = true;
 
     const searchInput = this.element.querySelector("input[type=search]");
     if (searchInput) searchInput.value = "";
