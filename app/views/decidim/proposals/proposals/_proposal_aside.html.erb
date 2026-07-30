@@ -1,4 +1,4 @@
-<% if current_settings.votes_enabled? && (show_endorsements_card? || current_user) %>
+<% if current_settings.votes_enabled? %>
   <section class="layout-aside__section component-background-color">
     <div class="space-y-2 py-4">
       <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
@@ -7,7 +7,7 @@
   </section>
 <% end %>
 
-<section class="layout-aside__section <%= current_settings.votes_enabled? && (show_endorsements_card? || current_user) ? 'action-divider' : '' %> component-background-color">
+<section class="layout-aside__section <%= current_settings.votes_enabled? ? 'action-divider' : '' %> component-background-color">
   <div class="record-action-container">
     <%= cell "decidim/share_widget", @proposal %>
     <%= cell "decidim/report_button", @proposal, button_classes: "button button__lg button__transparent-secondary" %>
@@ -23,8 +23,6 @@
         <span><%= t("edit_proposal", scope: "decidim.proposals.proposals.show") %></span>
         <%= icon "pencil-line" %>
         <% end %>
-      <% else %>
-        <%= amend_button_for @proposal %>
       <% end %>
 
       <% if amendments_enabled? && can_react_to_emendation?(@proposal) %>
