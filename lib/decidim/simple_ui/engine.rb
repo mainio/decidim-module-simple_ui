@@ -71,6 +71,9 @@ module Decidim
           )
 
           # Controller extensions
+          Decidim::ApplicationController.include(
+            Decidim::SimpleUi::ApplicationControllerExtensions
+          )
           Decidim::HomepageController.include(
             Decidim::SimpleUi::HomepageControllerExtensions
           )
