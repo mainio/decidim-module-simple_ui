@@ -1,7 +1,7 @@
 <% if id == "process-date" %>
   <div class="flex flex-col gap-2 relative w-full md:flex-row md:text-left md:items-center">
     <span class="text-md"><%= t(".show") %></span>
-    <button id="trigger-menu-process-date" class="datefilter-dropdown" data-control="panel-dropdown-menu-process-date" aria-controls="panel-dropdown-menu-process-date" aria-expanded="false">
+    <button id="trigger-menu-process-date" type="button" class="datefilter-dropdown" data-control="panel-dropdown-menu-process-date" aria-controls="panel-dropdown-menu-process-date" aria-expanded="false">
       <span class="active-filter"><%= t(".choose") %></span>
       <%= icon "arrow-down-s-line", class: "h-6 w-6 mt-px transition-transform duration-300" %>
     </button>
@@ -23,7 +23,7 @@
 <% else %>
   <% unless id == "activity" %>
     <div class="filter-container">
-      <button id="trigger-menu-<%= id %>" data-controls="panel-dropdown-menu-<%= id %>" data-open="false" data-open-md="true">
+      <button id="trigger-menu-<%= id %>" type="button" data-controls="panel-dropdown-menu-<%= id %>" data-open="false" data-open-md="true">
         <%= icon "arrow-down-s-line" %>
         <%= icon "arrow-up-s-line" %>
         <span><%= label %></span>

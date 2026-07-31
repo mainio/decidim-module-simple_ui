@@ -12,7 +12,6 @@ import { registerCallback, unregisterCallback, pushState, replaceState, state } 
  * @augments Controller
  */
 export default class extends Controller {
-
   connect() {
     this.id = this.element.id || this._getUID();
     this.mounted = false;
@@ -50,10 +49,7 @@ export default class extends Controller {
 
     this.element.removeEventListener("keydown", this._onFilterKeydown);
 
-    const resetButton = document.getElementById("reset-filters");
-    if (resetButton) {
-      resetButton.removeEventListener("click", this._onResetClick);
-    }
+    document.removeEventListener("click", this._onResetClick);
 
     unregisterCallback(`filters-${this.id}`)
 
@@ -87,10 +83,7 @@ export default class extends Controller {
       }
     }
 
-    const resetButton = document.getElementById("reset-filters");
-    if (resetButton) {
-      resetButton.addEventListener("click", this._onResetClick);
-    }
+    document.addEventListener("click", this._onResetClick);
 
     this.element.addEventListener("keydown", this._onFilterKeydown);
 
@@ -212,7 +205,8 @@ export default class extends Controller {
    * @private
    * @returns {Void} - Returns nothing
    */
-  _onResetClick() {
+  _onResetClick(e) {
+    if (!e.target.closest("#reset-filters")) return;
     this._clearForm();
   }
 
