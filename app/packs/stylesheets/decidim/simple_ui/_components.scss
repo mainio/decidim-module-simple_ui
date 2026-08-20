@@ -14,11 +14,12 @@
   }
 }
 
-.accountability__status{
+.accountability__status {
   &-simple {
     &_title {
       @apply text-black text-xl;
     }
+
     &_value {
       @apply text-black text-xl font-bold;
     }

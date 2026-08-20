@@ -13,7 +13,7 @@ header {
         @apply leading-7 px-2;
       }
 
-      button[type=submit] {
+      button[type="submit"] {
         @apply w-9 h-full top-0 right-0 bg-secondary text-white border-l border-black;
 
         svg {
