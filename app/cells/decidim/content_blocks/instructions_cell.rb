@@ -34,8 +34,20 @@ module Decidim
         return if description.blank?
 
         description = strip_tags(description)
-        hh = Text::Hyphen.new(language: I18n.locale, left: 2, right: 2)
+        hh = Text::Hyphen.new(language: hyphen_language, left: 2, right: 2)
         hh.visualise(description, "&shy;")
+      rescue LoadError
+        description
+      end
+
+      def hyphen_language
+        locale = I18n.locale.to_s
+        mapping = {
+          "en" => "en_us",
+          "pt" => "pt_br",
+          "zh" => "zh_cn"
+        }
+        mapping.fetch(locale, locale)
       end
 
       # A MD5 hash of model attributes because is needed because

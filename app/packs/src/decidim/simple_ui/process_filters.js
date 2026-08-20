@@ -14,12 +14,12 @@ $(() => {
   const caret = dateFilterTrigger.querySelector("svg");
   const activeFilter = processDateMenu.querySelector('input[checked="checked"]');
 
-  if(activeFilter) {
+  if (activeFilter) {
     setFilterText(activeFilter);
   }
 
   const closeDropdown = () => {
-    if(!processDateMenu.classList.contains("hidden")) {
+    if (!processDateMenu.classList.contains("hidden")) {
       processDateMenu.classList.add("hidden");
       caret.classList.remove("rotate-180");
     }

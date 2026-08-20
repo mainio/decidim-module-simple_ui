@@ -4,6 +4,7 @@
   h1 {
     @apply break-words;
   }
+
   .vertical-tabs {
     @apply container mt-12 gap-8 lg:gap-8 md:grid-cols-12;
 
@@ -23,11 +24,11 @@
       }
     }
 
-    >*:first-child {
+    > *:first-child {
       @apply col-span-full md:col-span-7;
     }
 
-    >*:last-child {
+    > *:last-child {
       @apply col-span-full md:col-span-4 md:col-start-9;
     }
   }

@@ -90,8 +90,8 @@ a.card__list[id^="accountability__result_"] {
   @apply p-4 flex flex-col items-center justify-center space-y-2 2xl:w-48;
 
   [id^="proposal-"][id$="vote-button"] {
-      @apply 2xl:min-w-44;
-    }
+    @apply 2xl:min-w-44;
+  }
 }
 
 .title_large-image {

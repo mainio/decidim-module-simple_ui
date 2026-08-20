@@ -1,5 +1,5 @@
 /* eslint-disable no-div-regex, no-useless-escape, no-param-reassign, id-length */
-/* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
+/* eslint max-lines: ["error", {"max": 410, "skipBlankLines": true}] */
 
 import { Controller } from "@hotwired/stimulus"
 import delayed from "src/decidim/refactor/moved/delayed"
@@ -63,7 +63,9 @@ export default class extends Controller {
    * @returns {Void} - Returns nothing
    */
   mountComponent() {
-    if (this.mounted) return;
+    if (this.mounted) {
+      return;
+    }
     this.mounted = true;
 
     if (window.performance?.getEntriesByType("navigation")[0]?.type === "back_forward") {
@@ -121,9 +123,9 @@ export default class extends Controller {
 
   /**
    * Handles keydown events
-   *@private
-   *@param {Event} - The keydown event
-   *@returns {Void} - Returns nothing
+   * @private
+   * @param {Event} e - The keydown event
+   * @returns {Void} - Returns nothing
    */
   _onFilterKeydown(e) {
     if (!e.target.matches('input[type="search"], input[type="checkbox"], input[type="radio"]')) {
@@ -133,41 +135,44 @@ export default class extends Controller {
     const inputs = [...this.element.querySelectorAll('input[type="radio"][name="filter[with_date]"]')];
     const processDateMenu = document.getElementById("panel-dropdown-menu-process-date");
     const dateFilterTrigger = document.getElementById("trigger-menu-process-date");
-    let caret;
-    if (dateFilterTrigger) {
-      caret = dateFilterTrigger.querySelector("svg");
-    }
-
+    const caret = dateFilterTrigger
+      ? dateFilterTrigger.querySelector("svg")
+      : null;
     const currentIndex = inputs.indexOf(e.target);
 
     switch (e.key) {
-      case "Enter":
-        e.preventDefault();
-        Rails.fire(this.element, "submit");
-        break;
-      case "ArrowDown":
-        e.preventDefault();
-        if (inputs.length) {
-          const nextIndex = currentIndex === -1 || currentIndex === inputs.length - 1 ? 0 : currentIndex + 1;
-          inputs[nextIndex].focus();
-        }
-        break;
-
-      case "ArrowUp":
-        e.preventDefault();
-        if (inputs.length) {
-          const prevIndex = currentIndex <= 0 ? inputs.length - 1 : currentIndex - 1;
-          inputs[prevIndex].focus();
-        }
-        break;
-
-      case "Escape":
-        e.preventDefault();
-        if (processDateMenu && !processDateMenu.classList.contains("hidden")) {
-          processDateMenu.classList.add("hidden");
-          caret?.classList.remove("rotate-180");
-          dateFilterTrigger.focus();
-        }
+    case "Enter":
+      e.preventDefault();
+      Rails.fire(this.element, "submit");
+      break;
+    case "ArrowDown":
+      e.preventDefault();
+      if (inputs.length) {
+        const nextIndex = currentIndex === -1 || currentIndex === inputs.length - 1
+          ? 0
+          : currentIndex + 1;
+        inputs[nextIndex].focus();
+      }
+      break;
+    case "ArrowUp":
+      e.preventDefault();
+      if (inputs.length) {
+        const prevIndex = currentIndex <= 0
+          ? inputs.length - 1
+          : currentIndex - 1;
+        inputs[prevIndex].focus();
+      }
+      break;
+    case "Escape":
+      e.preventDefault();
+      if (processDateMenu && !processDateMenu.classList.contains("hidden")) {
+        processDateMenu.classList.add("hidden");
+        caret?.classList.remove("rotate-180");
+        dateFilterTrigger.focus();
+      }
+      break;
+    default:
+      break;
     }
   }
 
@@ -176,7 +181,6 @@ export default class extends Controller {
    * @private
    * @returns {Void} - Returns nothing
    */
-
   _onAjaxSuccess() {
     const [currentPath] = this._currentStateAndPath();
     this._saveFilters(currentPath);
@@ -203,10 +207,13 @@ export default class extends Controller {
   /**
    * Handles the reset-filters click
    * @private
+   * @param {Event} e - The click event
    * @returns {Void} - Returns nothing
    */
   _onResetClick(e) {
-    if (!e.target.closest("#reset-filters")) return;
+    if (!e.target.closest("#reset-filters")) {
+      return;
+    }
     this._clearForm();
   }
 
@@ -296,7 +303,6 @@ export default class extends Controller {
     return order;
   }
 
-
   /**
    * Clears the form to start with a clean state.
    * @private
@@ -310,10 +316,14 @@ export default class extends Controller {
       element.checked = false;
     })
     const radio = this.element.querySelector("fieldset input[type=radio]");
-    if (radio) radio.checked = true;
+    if (radio) {
+      radio.checked = true;
+    }
 
     const searchInput = this.element.querySelector("input[type=search]");
-    if (searchInput) searchInput.value = "";
+    if (searchInput) {
+      searchInput.value = "";
+    }
   }
 
   /**
@@ -403,7 +413,6 @@ export default class extends Controller {
    */
   _currentStateAndPath() {
     const formAction = this.element.action;
-
     const params = new URLSearchParams();
     const fields = this.element.querySelectorAll("input:not(.ignore-filter), select:not(.ignore-filter)");
 
@@ -449,7 +458,7 @@ export default class extends Controller {
   /**
    * Saves the changed filters on sessionStorage API.
    * @private
-   * @param {string} pathWithQueryStrings - path with all the query strings for filter. To be used with backToListLink().
+   * @param {string} pathWithQueryStrings - path with all the query strings for filter.
    * @returns {Void} - Returns nothing.
    */
   _saveFilters(pathWithQueryStrings) {
@@ -460,5 +469,4 @@ export default class extends Controller {
     const pathName = this.element.action;
     sessionStorage.setItem("filteredParams", JSON.stringify({[pathName]: pathWithQueryStrings}));
   }
-
 }

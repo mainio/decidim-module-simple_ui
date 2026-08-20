@@ -2,7 +2,7 @@
   @apply rounded-none;
 
   svg {
-    fill: currentColor
+    fill: currentColor;
   }
 }
 
@@ -12,8 +12,8 @@ a.button {
 
 .button.is-hover,
 .button.is-focus,
-.button:not([disabled]):not([class*=button__text]):not(label):hover,
-.button:not([disabled]):not([class*=button__text]):not(label):focus {
+.button:not([disabled]):not([class*="button__text"]):not(label):hover,
+.button:not([disabled]):not([class*="button__text"]):not(label):focus {
   @apply bg-none;
 
   &.button__transparent-secondary {

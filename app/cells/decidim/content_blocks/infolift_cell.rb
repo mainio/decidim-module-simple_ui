@@ -3,13 +3,7 @@
 module Decidim
   module ContentBlocks
     class InfoliftCell < Decidim::ViewModel
-      include Decidim::CtaButtonHelper
       include Decidim::SanitizeHelper
-
-      # Needed so that the `CtaButtonHelper` can work.
-      def decidim_participatory_processes
-        Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
-      end
 
       def title
         model.settings.title

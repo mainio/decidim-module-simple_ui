@@ -36,6 +36,10 @@ module Decidim
             share
           )
         end
+
+        def available_icons
+          self.class.available_icons
+        end
       end
     end
   end
