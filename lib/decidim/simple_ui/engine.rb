@@ -48,6 +48,8 @@ module Decidim
       initializer "decidim_simple_ui.add_customizations", after: "decidim.action_controller" do
         config.to_prepare do
           # Cell extensions
+          Cell::ViewModel.include(Decidim::SimpleUi::ViewModelExtensions)
+
           Decidim::ContentBlocks::ParticipatorySpaceHeroCell.include(
             Decidim::SimpleUi::ParticipatorySpaceHeroCellExtensions
           )
