@@ -3,8 +3,12 @@
   <%= yield :item_header %>
 </div>
 <div class="layout-item">
-  <% main_tag = main_enabled ? :main : :div %>
-  <%= content_tag main_tag, class: "layout-item__main" do %>
+  <% if main_enabled %>
+    <main class="layout-item__main">
+  <% else %>
+    <div class="layout-item__main">
+  <% end %>
+
     <% if params[:included_in] %>
       <%= render partial: "layouts/decidim/shared/linked_resource" %>
     <% end %>
@@ -24,7 +28,13 @@
     <% end %>
 
     <%= yield %>
+
+  <% if main_enabled %>
+    </main>
+  <% else %>
+    </div>
   <% end %>
+
   <aside class="layout-item__aside  <%= 'component-background-color' unless controller.controller_name == 'proposals' %>" aria-label=<%= t(".aside") %>>
     <%= yield :aside %>
   </aside>
