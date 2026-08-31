@@ -43,6 +43,9 @@ back_path = component_settings.participatory_texts_enabled? ? main_component_pat
   <%= render partial: "decidim/shared/components/back_link", locals: { url: back_path, text: t(".back_to_listing") } %>
 <% end %>
 
+<% coauthorships_html = cell("decidim/coauthorships", @proposal, context_actions: [:date]).call %>
+<% amendments_html = cell("decidim/amendable/amendments", @proposal).call %>
+
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: } do %>
 
   <section class="layout-main__section layout-main__heading">
@@ -54,7 +57,7 @@ back_path = component_settings.participatory_texts_enabled? ? main_component_pat
 
     <% unless component_settings.participatory_texts_enabled? %>
       <div class="layout-author">
-        <%= cell "decidim/coauthorships", @proposal, context_actions: [:date] %>
+        <%= coauthorships_html %>
 
         <% if not ["section","subsection"].include? @proposal.participatory_text_level %>
           <%= cell("decidim/proposals/proposal_metadata", @proposal).state_item&.dig(:text) %>
@@ -100,7 +103,7 @@ back_path = component_settings.participatory_texts_enabled? ? main_component_pat
   <%= cell "decidim/tab_panels", tab_panel_items %>
 
   <section class="layout-main__section">
-    <%= cell "decidim/amendable/amendments", @proposal %>
+    <%= amendments_html %>
   </section>
 
   <%= render partial: "actions" %>

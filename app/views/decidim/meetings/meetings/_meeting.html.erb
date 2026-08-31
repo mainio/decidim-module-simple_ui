@@ -1,3 +1,8 @@
+<% author_html = cell("decidim/author", author_presenter_for(meeting.author), from: meeting, context_actions: nil, layout: :compact).call %>
+<% comments_button_html = cell("decidim/comments_button", nil).call %>
+<% online_meeting_html = cell("decidim/meetings/online_meeting_link", meeting).call unless meeting.in_person? || meeting.withdrawn? %>
+<% pad_iframe_html = cell("decidim/pad_iframe", meeting).call %>
+
 <%= render layout: "layouts/decidim/shared/layout_item" do %>
 
   <%= render partial: "schema_org_event_meeting" %>
@@ -34,7 +39,7 @@
     <div class="layout-author <%= "has_status" if meeting.private_meeting? || meeting.withdrawn? %>">
       <div class="relative flex items-center justify-center w-full">
         <div class="w-10/12 flex items-center gap-4">
-          <%= cell "decidim/author", author_presenter_for(meeting.author), from: meeting, context_actions: nil, layout: :compact %>
+          <%= author_html %>
         </div>
         <%= render "decidim/shared/resource_actions", resource: meeting do %>
           <%= render "decidim/meetings/meetings/meeting_actions" %>
@@ -51,7 +56,7 @@
 
   <section class="layout-main__section">
     <% unless meeting.in_person? || meeting.withdrawn? %>
-      <%= cell "decidim/meetings/online_meeting_link", meeting %>
+      <%= online_meeting_html %>
     <% end %>
   </section>
 
@@ -72,10 +77,10 @@
   <%= cell("decidim/tags", meeting) %>
 
   <section class="layout-main__section layout-main__buttons" data-buttons>
-    <%= cell "decidim/comments_button", nil %>
+    <%= comments_button_html %>
   </section>
 
-  <%= pad_iframe_for meeting %>
+  <%= pad_iframe_html if pad_iframe_html %>
 
   <% content_for :aside do %>
     <div class="hidden md:block">

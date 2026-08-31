@@ -44,7 +44,7 @@
       </div>
     <% end %>
 
-    <%= view_context.render partial: "decidim/proposals/proposals/vote_button", locals: { proposal: model, from_proposals_list: false } unless model.withdrawn? %>
+    <%= controller.view_context.render partial: "decidim/proposals/proposals/vote_button", locals: { proposal: model, from_proposals_list: false } unless model.withdrawn? %>
   <% else %>
     <span class="button button__lg button__secondary min-w-44">
       <%= model.is_a?(Decidim::Debates::Debate) && model.ongoing? ? t(".participate") : t(".explore") %>

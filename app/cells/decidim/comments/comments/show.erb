@@ -1,3 +1,9 @@
+<% comment_threads_html = "".html_safe %>
+<% comments.each do |comment| %>
+  <% comment_threads_html << cell("decidim/comments/comment_thread", comment, order:).call %>
+<% end %>
+<% announcement_html = cell("decidim/announcement", t("decidim.components.comments.loading"), callout_class: "primary loading-comments hidden").call %>
+
 <%= content_tag :div, id: node_id, data: { decidim_comments: comments_data } do %>
   <div id="comments">
     <div class="comments">
@@ -19,13 +25,11 @@
       <%= blocked_comments_warning %>
       <div class="comment-threads" id="<%= threads_node_id %>" aria-live="polite">
         <%= comments_loading %>
-        <% comments.each do |comment| %>
-          <%= cell("decidim/comments/comment_thread", comment, order:) %>
-        <% end %>
+        <%= comment_threads_html %>
       </div>
       <%= add_comment %>
       <%= user_comments_blocked_warning %>
     </div>
-    <%= cell("decidim/announcement", t("decidim.components.comments.loading"), callout_class: "primary loading-comments hidden") %>
+    <%= announcement_html %>
   </div>
 <% end %>
