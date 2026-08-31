@@ -15,6 +15,11 @@ edit_link(
 <%= append_javascript_pack_tag "decidim_budgets" %>
 <%= append_stylesheet_pack_tag "decidim_budgets" %>
 
+<% budget_info_html = cell("decidim/budgets/budget_information_modal", budget).call %>
+<% project_status_html = cell("decidim/budgets/project_selected_status", project, as_label: true).call %>
+<% share_button_html = cell("decidim/share_button", nil, default_classes: false).call %>
+<% comments_button_html = cell("decidim/comments_button", nil).call %>
+
 <div id="project-item">
   <%= render partial: "budget_summary", locals: { include_heading: true, project_item: true, responsive: true } %>
   <% content_for :item_header do %>
@@ -28,8 +33,8 @@ edit_link(
   <% end %>
   <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: budget_projects_path(budget) } do %>
     <section class="layout-main__section layout-main__heading">
-      <%= cell("decidim/budgets/budget_information_modal", budget) %>
-      <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
+      <%= budget_info_html %>
+      <%= project_status_html %>
       <h1 class="h1 decorator budget__definition-project__title editor-content">
         <%= decidim_sanitize translated_attribute project.title %>
       </h1>
@@ -81,8 +86,8 @@ edit_link(
         <% end %>
       </section>
       <section class="layout-aside__section actions__secondary">
-        <%= cell "decidim/share_button", nil, default_classes: false %>
-        <%= cell "decidim/comments_button", nil %>
+        <%= share_button_html %>
+        <%= comments_button_html %>
       </section>
     <% end %>
 
