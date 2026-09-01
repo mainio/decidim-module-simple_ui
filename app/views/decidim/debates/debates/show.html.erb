@@ -24,15 +24,21 @@ edit_link(
   <%= render partial: "decidim/shared/component_announcement" %>
 </aside>
 
+<% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
+<% author_html = cell("decidim/author", debate_presenter.author, skip_profile_link: true).call %>
+<% endorsers_list_html = cell("decidim/endorsers_list", debate, layout: :full).call %>
+<% share_button_html = cell("decidim/share_button", nil, default_classes: false).call %>
+<% report_button_html = cell("decidim/report_button", debate, button_classes: "button button__lg button__transparent-secondary").call %>
+<% comments_button_html = cell("decidim/comments_button", nil).call %>
+
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: debates_path, commentable: debate } do %>
   <section class="layout-main__section layout-main__heading">
     <h1 class="h2 decorator">
       <%== present(debate).title(links: true, html_escape: true) %>
     </h1>
 
-    <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
     <div class="layout-author">
-      <%= cell "decidim/author", debate_presenter.author, skip_profile_link: true %>
+      <%= author_html %>
       <% if debate.closed? %>
         <span class="success label proposal-status">
           <%= t("debate_closed", scope: "decidim.debates.debates.show") %>
@@ -70,7 +76,7 @@ edit_link(
       <%= render partial: "decidim/shared/tags", locals: { resource: debate } %>
     </div>
   </section>
-  <%= cell "decidim/endorsers_list", debate, layout: :full %>
+  <%= endorsers_list_html %>
 
   <% content_for :aside do %>
   <% if allowed_to?(:edit, :debate, debate: debate) || admin_allowed_to?(:update, :debate, debate: debate) || allowed_to?(:close, :debate, debate: debate) || admin_allowed_to?(:close, :debate, debate: debate) %>
@@ -122,9 +128,9 @@ edit_link(
   </section>
   <div class="action-divider">
     <div class="record-action-container">
-      <%= cell "decidim/share_button", nil, default_classes: false %>
-      <%= cell "decidim/report_button", debate, button_classes: "button button__lg button__transparent-secondary" %>
-      <%= cell "decidim/comments_button", nil %>
+      <%= share_button_html %>
+      <%= report_button_html %>
+      <%= comments_button_html %>
     </div>
   </div>
 
