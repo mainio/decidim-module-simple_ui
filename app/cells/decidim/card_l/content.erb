@@ -1,13 +1,12 @@
+<% content_class = respond_to?(:main_image?) && main_image? ? "card__list-image_content" : "card__list-content" %>
+<% title_and_details_html = render :title_and_details %>
+
 <% if respond_to?(:supports?) && supports? %>
-  <%= content_tag(:div, class: respond_to?(:main_image?) && main_image? ? "card__list-image_content" : "card__list-content") do %>
-    <%= render :title_and_details %>
-  <% end %>
+  <%= content_tag(:div, title_and_details_html, class: content_class) %>
 <% elsif has_link_to_resource? && !link_whole_card? %>
-  <%= link_to resource_path, class: respond_to?(:main_image?) && main_image? ? "card__list-image_content" : "card__list-content" do %>
-    <%= render :title_and_details %>
+  <%= link_to resource_path, class: content_class do %>
+    <%= title_and_details_html %>
   <% end %>
 <% else %>
-  <%= content_tag(:div, class: respond_to?(:main_image?) && main_image? ? "card__list-image_content" : "card__list-content") do %>
-    <%= render :title_and_details %>
-  <% end %>
+  <%= content_tag(:div, title_and_details_html, class: content_class) %>
 <% end %>
