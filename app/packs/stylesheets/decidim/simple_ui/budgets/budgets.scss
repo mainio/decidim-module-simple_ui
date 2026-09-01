@@ -5,6 +5,14 @@
 
       .card__list {
         @apply w-full lg:w-[65%];
+
+        .text-success {
+          @apply flex gap-1 mt-1;
+
+          svg {
+            @apply mt-0.5;
+          }
+        }
       }
 
       .budget__card__list-project {
