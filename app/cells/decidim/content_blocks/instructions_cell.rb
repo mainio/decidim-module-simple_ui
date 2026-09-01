@@ -7,6 +7,11 @@ module Decidim
     class InstructionsCell < Decidim::ViewModel
       include Decidim::SanitizeHelper
 
+      # Transform locale "en" -> "en_us" for Text::Hyphen
+      LOCALE_TRANSFORMATIONS = {
+        "en" => "en_us"
+      }.freeze
+
       def title
         model.settings.title
       end
@@ -34,7 +39,7 @@ module Decidim
         return if description.blank?
 
         description = strip_tags(description)
-        hh = Text::Hyphen.new(language: I18n.locale, left: 2, right: 2)
+        hh = Text::Hyphen.new(language: transform_locale, left: 2, right: 2)
         hh.visualise(description, "&shy;")
       end
 
@@ -48,6 +53,10 @@ module Decidim
         hash << I18n.locale.to_s
 
         hash.join(Decidim.cache_key_separator)
+      end
+
+      def transform_locale
+        LOCALE_TRANSFORMATIONS.fetch(I18n.locale.to_s, I18n.locale.to_s)
       end
     end
   end
