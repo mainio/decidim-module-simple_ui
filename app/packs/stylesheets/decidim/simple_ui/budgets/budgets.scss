@@ -209,3 +209,17 @@
     }
   }
 }
+
+#budget-confirm {
+  #budget-confirm-content {
+    #budget-confirm-current-order {
+      .card__list__content {
+        @apply flex items-center;
+
+        .card__list-text {
+          @apply ml-4;
+        }
+      }
+    }
+  }
+}
