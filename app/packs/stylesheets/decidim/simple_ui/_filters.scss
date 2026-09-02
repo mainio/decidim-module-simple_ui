@@ -68,6 +68,12 @@
       }
     }
 
+    #panel-dropdown-menu-date {
+      label {
+        @apply flex gap-1;
+      }
+    }
+
     input[type="checkbox"],
     input[type="radio"] {
       &:checked {
