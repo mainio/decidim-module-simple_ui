@@ -74,6 +74,10 @@ module Decidim
             Decidim::SimpleUi::CardLCellExtensions
           )
 
+          Decidim::CardLCell.include(
+            Decidim::SimpleUi::CardLCellExtensions
+          )
+
           # Controller extensions
           Decidim::HomepageController.include(
             Decidim::SimpleUi::HomepageControllerExtensions
