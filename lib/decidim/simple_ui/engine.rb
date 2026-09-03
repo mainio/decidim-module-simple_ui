@@ -70,6 +70,10 @@ module Decidim
             Decidim::SimpleUi::MapCellExtensions
           )
 
+          Decidim::CardLCell.include(
+            Decidim::SimpleUi::CardLCellExtensions
+          )
+
           # Controller extensions
           Decidim::ApplicationController.include(
             Decidim::SimpleUi::ApplicationControllerExtensions
