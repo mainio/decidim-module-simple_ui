@@ -199,6 +199,9 @@ en:
           aside: Aside
           comments: Comments
   simple_ui:
+    actions:
+      explore: Explore
+      participate: Participate
     orders:
       order: "Order: "
       random: "Random"
