@@ -195,6 +195,9 @@ fi:
           aside: Sivuvalikko
           comments: Kommentit
   simple_ui:
+    actions:
+      explore: Tutustu
+      participate: Osallistu
     orders:
       order: "Järjestä: "
       random: Satunnainen
