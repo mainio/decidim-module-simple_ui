@@ -205,6 +205,9 @@ fi:
           aside: Sivuvalikko
           comments: Kommentit
   simple_ui:
+    actions:
+      explore: Tutustu
+      participate: Osallistu
     orders:
       highest_cost: Kallein ensin
       lowest_cost: Edullisin ensin
