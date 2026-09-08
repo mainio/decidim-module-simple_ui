@@ -9,5 +9,6 @@ module Decidim
   # allows users to create simple_ui in a participatory space.
   module SimpleUi
     autoload :SettingsManipulator, "decidim/simple_ui/settings_manipulator"
+    autoload :ProposalsViewContextPatch, "decidim/simple_ui/proposals_view_context_patch"
   end
 end
