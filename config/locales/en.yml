@@ -150,6 +150,9 @@ en:
       participatory_processes:
         index:
           all_processes: All processes
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Show all proposals
     proposals:
       proposal_l:
         explore: Open
