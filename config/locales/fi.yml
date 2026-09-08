@@ -149,6 +149,9 @@ fi:
             past: Päättyneet
         index:
           all_processes: Kaikki prosessit
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Näytä kaikki ideat
     proposals:
       proposal_l:
         explore: Tutustu
