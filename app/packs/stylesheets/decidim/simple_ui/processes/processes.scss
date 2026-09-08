@@ -1,4 +1,5 @@
-#participatory-process-homepage-highlighted-proposals {
+#participatory-process-homepage-highlighted-proposals,
+#participatory-process-group-homepage-highlighted-proposals {
   a[href$="/proposals/new"] {
     @apply hidden;
   }
