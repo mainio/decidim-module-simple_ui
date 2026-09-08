@@ -35,16 +35,18 @@
 <div class="<%= supports_enabled ? 'component-background-color vote-open' : 'component-background-color card-open' %>">
   <% if supports_enabled %>
     <% if !model.component.current_settings.votes_hidden? %>
-      <div>
-        <%= t(".proposal_vote_count") %>
-      </div>
-
-      <div class="font-bold text-2xl">
-        <%= model.proposal_votes_count %>
-      </div>
+      <% progress ||= model.proposal_votes_count || 0 %>
+      <% total ||= model.maximum_votes || 0 %>
+      <%= cell(
+        "decidim/progress_bar",
+        progress,
+        total:,
+        units_name: "decidim.proposals.proposals.votes_count.count",
+        element_id: "proposal-#{model.id}-votes-count"
+      ) %>
     <% end %>
 
-    <%= controller.view_context.render partial: "decidim/proposals/proposals/vote_button", locals: { proposal: model, from_proposals_list: false } unless model.withdrawn? %>
+    <%= Decidim::SimpleUi::ProposalsViewContextPatch.render(controller, model.component, partial: "decidim/proposals/proposals/vote_button", locals: { proposal: model, from_proposals_list: false }, assigns: { current_user: }) unless model.withdrawn? %>
   <% else %>
     <span class="button button__lg button__secondary min-w-44">
       <%= model.is_a?(Decidim::Debates::Debate) && model.ongoing? ? t(".participate") : t(".explore") %>

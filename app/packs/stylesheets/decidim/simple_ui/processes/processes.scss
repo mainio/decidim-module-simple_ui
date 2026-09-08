@@ -1,0 +1,5 @@
+#participatory-process-homepage-highlighted-proposals {
+  a[href$="/proposals/new"] {
+    @apply hidden;
+  }
+}
