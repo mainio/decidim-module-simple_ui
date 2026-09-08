@@ -16,5 +16,6 @@ Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/s
 Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/accountability/results")
 Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/proposals/proposals")
 Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/meetings/meetings")
+Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/processes/processes")
 
 Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/budgets/budgets") unless Decidim.module_installed? :budgets_booth
