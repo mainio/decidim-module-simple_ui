@@ -188,6 +188,9 @@ en:
     shared:
       credentials:
         login: Login with account information
+      omniauth:
+        developer:
+          sign_in_button: Sign in with developer
   layouts:
     decidim:
       footer:

@@ -184,6 +184,9 @@ fi:
     shared:
       credentials:
         login: Kirjaudu ylläpitäjän antamalla tunnuksella
+      omniauth:
+        developer:
+          sign_in_button: Kirjaudu kehittäjätunnuksilla
   layouts:
     decidim:
       footer:
