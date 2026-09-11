@@ -154,6 +154,8 @@ en:
       highlighted_proposals:
         see_all: Show all proposals
     proposals:
+      collaborative_draft_l:
+        explore: Explore
       proposal_l:
         explore: Open
         proposal_vote_count: Votes
@@ -211,8 +213,10 @@ en:
       explore: Explore
       participate: Participate
     orders:
-      order: "Order: "
-      random: "Random"
       highest_cost: Highest cost
       lowest_cost: Lowest cost
+      most_contributed: Most contributed
       most_voted: Most voted
+      order: "Order: "
+      random: "Random"
+      recent: Recent
