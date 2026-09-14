@@ -14,10 +14,6 @@
           <%= t("description", scope: "decidim.budgets.projects.budget_summary.checked_out") %>
         </p>
       </div>
-    <% else %>
-      <p class="budget-summary__progressbox--checked_out">
-        <%= current_rule_description %>
-      </p>
     <% end %>
   <% end %>
   <%= render partial: "order_progress_summary_content", locals: { responsive: , include_heading: } %>
