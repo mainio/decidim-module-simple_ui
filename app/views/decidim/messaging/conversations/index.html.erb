@@ -1,0 +1,22 @@
+<% add_decidim_page_title(t("conversations", scope: "layouts.decidim.user_menu")) %>
+<div class="row column component-background">
+  <div class="one-col mx-auto space-y-4 text-center">
+    <h1 class="title-decorator h2 md:h1">
+      <%= t("decidim.messaging.conversations.index.title") %>
+    </h1>
+
+    <%= render partial: "new_conversation_button" %>
+  </div>
+</div>
+
+<div class="row column one-col mx-auto">
+  <% if validation_messages.present? %>
+    <% validation_messages.each do |message| %>
+      <%= cell("decidim/announcement", message) %>
+    <% end %>
+  <% else %>
+    <section class="layout-main__section">
+      <%= render partial: "conversation", collection: @conversations %>
+    </section>
+  <% end %>
+</div>
