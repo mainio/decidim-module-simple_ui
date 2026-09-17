@@ -16,8 +16,10 @@ module Decidim
         # This override walks the call stack and finds the first frame from an
         # actual cell class file (*_cell.rb), which is always the correct method.
         def state_for_implicit_render(_options)
+          own_file = "#{self.class.name.demodulize.underscore}.rb"
+
           caller.each do |frame|
-            next unless frame.include?("_cell.rb:")
+            next unless frame.include?("/#{own_file}:")
 
             match = frame.match(/`(\w+)'/)
             next unless match
