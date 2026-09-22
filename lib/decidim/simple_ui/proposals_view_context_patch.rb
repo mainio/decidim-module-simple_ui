@@ -3,7 +3,7 @@
 module Decidim
   module SimpleUi
     module ProposalsViewContextPatch
-      def self.render(controller, component, **options)
+      def self.render(controller, component, **)
         renderer = Decidim::Proposals::ProposalsController.renderer.new(
           controller.request.env.dup.merge(
             "decidim.current_component" => component,
@@ -11,7 +11,7 @@ module Decidim
           )
         )
 
-        renderer.render(**options)
+        renderer.render(**)
       end
     end
   end
