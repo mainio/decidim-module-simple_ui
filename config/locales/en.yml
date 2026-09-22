@@ -16,6 +16,9 @@ en:
     blogs:
       post_l:
         explore: Open
+      posts:
+        show:
+          back_to_listing: Show other posts
     budgets:
       project_l:
         explore: Open
@@ -120,6 +123,9 @@ en:
       debate_l:
         explore: Open
         participate: Participate
+      debates:
+        show:
+          back_to_listing: Show other debates
     forms:
       admin:
         models:

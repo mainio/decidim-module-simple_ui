@@ -30,8 +30,13 @@ edit_link(
 <% share_widget_html = cell("decidim/share_widget", debate).call %>
 <% report_button_html = cell("decidim/report_button", debate, button_classes: "button button__lg button__transparent-secondary").call %>
 <% comments_button_html = cell("decidim/comments_button", nil).call %>
+<% back_path = debates_path %>
 
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: debates_path, commentable: debate } do %>
+<% content_for :item_header do %>
+  <%= render partial: "decidim/shared/components/back_link", locals: { url: back_path, text: t(".back_to_listing") } %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path:, commentable: debate } do %>
   <section class="layout-main__section layout-main__heading">
     <h1 class="h2 decorator">
       <%== present(debate).title(links: true, html_escape: true) %>
