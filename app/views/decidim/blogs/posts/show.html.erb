@@ -18,6 +18,8 @@
 <%= append_javascript_pack_tag "decidim_blogs" %>
 <%= append_stylesheet_pack_tag "decidim_blogs" %>
 
+<% back_path = posts_path %>
+
 <aside class="row column one-col" aria-label="Announcement">
   <%= render partial: "decidim/shared/component_announcement" %>
 </aside>
@@ -26,7 +28,11 @@
   <%= render partial: "actions" %>
 <% end %>
 
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { columns: 10 } do %>
+<% content_for :item_header do %>
+  <%= render partial: "decidim/shared/components/back_link", locals: { url: back_path, text: t(".back_to_listing") } %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path:, columns: 10 } do %>
   <section class="layout-main__section layout-main__heading">
     <h1 class="title-decorator"><%= translated_attribute post.title %></h1>
 
