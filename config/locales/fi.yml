@@ -16,6 +16,9 @@ fi:
     blogs:
       post_l:
         explore: Tutustu
+      posts:
+        show:
+          back_to_listing: Näytä muut artikkelit
     budgets:
       project_l:
         explore: Tutustu
@@ -112,6 +115,9 @@ fi:
       debate_l:
         explore: Tutustu
         participate: Osallistu
+      debates:
+        show:
+          back_to_listing: Näytä muut keskustelut
     forms:
       admin:
         models:
