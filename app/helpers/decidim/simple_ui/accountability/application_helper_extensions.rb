@@ -9,8 +9,6 @@ module Decidim
         included do
           include Decidim::CheckBoxesTreeHelper
 
-          # rubocop:disable Metrics/CyclomaticComplexity
-          # rubocop:disable Metrics/PerceivedComplexity
           def filter_sections
             @filter_sections ||= begin
               items = []
@@ -19,9 +17,6 @@ module Decidim
                 items.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.proposals.proposals.filters", id: "scope")
               end
             end
-            # rubocop:enable Metrics/PerceivedComplexity
-            # rubocop:enable Metrics/CyclomaticComplexity
-
             items.reject { |item| item[:collection].blank? }
           end
         end
