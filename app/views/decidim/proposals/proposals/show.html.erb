@@ -50,7 +50,7 @@ back_path = component_settings.participatory_texts_enabled? ? main_component_pat
 
   <section class="layout-main__section layout-main__heading">
     <% if @proposal.emendation? %>
-      <h1 class="h2 decorator"><%= t("changes_at_title", scope: "decidim.proposals.proposals.show", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h1>
+      <h1 class="h2 decorator"><%= t("changes_at_title", scope: "decidim.proposals.proposals.show", title: present(@proposal.amendable).title(html_escape: true)) %></h1>
     <% else %>
       <h1 class="h2 decorator"><%= present(@proposal).title(html_escape: true) %></h1>
     <% end %>
