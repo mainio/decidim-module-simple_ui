@@ -5,6 +5,8 @@ en:
       result_l:
         explore: Open
       results:
+        home:
+          empty: There are no results yet.
         search:
           search_bar: Search
           search_placeholder: Search
