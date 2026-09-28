@@ -5,6 +5,8 @@ fi:
       result_l:
         explore: Tutustu
       results:
+        home:
+          empty: Ei yhtään tulosta.
         search:
           search_bar: Hakusana
           search_placeholder: Kirjoita hakusana
