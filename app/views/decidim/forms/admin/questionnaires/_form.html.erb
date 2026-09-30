@@ -10,7 +10,7 @@
       <div class="row column" data-controls-visibility="#tos-agreement-content">
         <%= form.check_box :requires_tos_agreement, label: t("models.components.requires_tos_agreement", scope: "decidim.forms.admin") %>
       </div>
-      <div id="tos-agreement-content" class="row column<%= " hidden" unless form.object.requires_tos_agreement? %>">
+      <div class="row column">
         <%= form.translated :editor, :tos, toolbar: :content, lines: 10, label: t("models.components.tos", scope: "decidim.forms.admin"), aria: { label: :tos } %>
       </div>
     </div>
