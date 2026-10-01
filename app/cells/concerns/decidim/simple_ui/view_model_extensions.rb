@@ -21,10 +21,10 @@ module Decidim
           caller.each do |frame|
             next unless frame.include?("/#{own_file}:")
 
-            match = frame.match(/`(\w+)'/)
+            match = frame.match(/`(\w+)'|#(\w+)'/)
             next unless match
 
-            return match.captures.first
+            return match.captures.compact.first
           end
           "show"
         end
