@@ -7,7 +7,7 @@ module Decidim
 
       included do
         def explore_action_text
-          if model.is_a?(Decidim::Debates::Debate) && model.open?
+          if model.is_a?(Decidim::Debates::Debate) && model.ongoing?
             t(".participate", default: t("simple_ui.actions.participate"))
           else
             t(".explore", default: t("simple_ui.actions.explore"))
