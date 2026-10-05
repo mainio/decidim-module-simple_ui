@@ -19,6 +19,10 @@
     > [id^="html-block"] {
       @apply w-full prose max-w-none [&+*]:border-t-0;
     }
+
+    .participatory-space__metadata {
+      @apply pb-4;
+    }
   }
 
   &__content-block {
