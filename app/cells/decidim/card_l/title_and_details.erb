@@ -22,7 +22,8 @@
   <% end %>
 >
   <p class="h3 card__list-title_large <%= 'title_large-image' if main_image_enabled %>">
-    <%= title %>
+    <%= link_to title, resource_path unless supports_enabled %>
+    <%= title if supports_enabled %>
   </p>
 
   <%= render :description %>
@@ -48,10 +49,10 @@
 
     <%= Decidim::SimpleUi::ProposalsViewContextPatch.render(controller, model.component, partial: "decidim/proposals/proposals/vote_button", locals: { proposal: model, from_proposals_list: false }, assigns: { current_user: }) unless model.withdrawn? %>
   <% else %>
-    <span class="button button__lg button__secondary min-w-44">
+    <%= link_to resource_path, class: "button button__lg button__secondary min-w-44" do %>
       <%= explore_action_text %>
       <%= icon "arrow-right-line" %>
-    </span>
+    <% end %>
   <% end %>
 </div>
 
