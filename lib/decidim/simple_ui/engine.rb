@@ -117,7 +117,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_simple_ui.webpacker.assets_path" do
+      initializer "decidim_simple_ui.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 

@@ -25,7 +25,7 @@ fi:
       budgets_list:
         voted: "Olet jo äänestänyt näillä alueilla:"
         voting_possible: "Voit äänestää vielä näillä alueilla:"
-        voting_prohibited: "Et voi äänestää näillä alueilla: "
+        voting_prohibited: "Et voi äänestää näillä alueilla:"
       project_l:
         explore: Tutustu
       projects:
@@ -35,7 +35,6 @@ fi:
           total_budget: 'Sinulla on käytettävissäsi %{budget}. Valitse ensin äänestettävät ehdotukset alla olevasta listasta. Valintojen jälkeen, paina "Olen valmis" -painiketta.'
         index:
           back_to_budgets: Näytä kaikki alueet
-          voting_not_allowed: Et voi äänestää tällä alueella
         order_progress:
           ready: Olen valmis
         order_selected_projects:

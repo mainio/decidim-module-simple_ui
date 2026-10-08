@@ -1,4 +1,4 @@
-<% if voting_finished? %>
+<% if voting_finished? || !current_user %>
   <div id="budgets" class="card__list-list">
     <% budgets.each do |budget| %>
       <%= cell("decidim/budgets/budget_list_item", budget) %>
