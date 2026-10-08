@@ -15,7 +15,9 @@
 
         <div class="mt-auto gap-4 flex">
           <% if show_votes %>
-            <%= cell("decidim/budgets/project_votes_count", project, layout: :one_line, class: "display-block card__list-text") %>
+            <div class="vote-count card__list-text">
+              <%= cell("decidim/budgets/project_votes_count", project, layout: :with_count_label) %>
+            </div>
           <% end %>
         </div>
       </div>

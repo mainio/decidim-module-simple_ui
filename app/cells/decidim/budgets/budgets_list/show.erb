@@ -6,15 +6,24 @@
   </div>
 <% else %>
   <div id="budgets" class="card__list-list">
-    <% if voted_budgets.exists? %>
-      <% if voted? && votable_budgets?%>
+    <% if votable_budgets.any? %>
+      <% if voted? %>
         <p class="h6"><%= t(".voting_possible") %></p>
       <% end %>
 
-      <%= render :card_list %>
+      <% votable_budgets.each do |budget| %>
+        <%= cell("decidim/budgets/budget_list_item", budget) %>
+      <% end %>
     <% end %>
 
-    <% if !voting_finished? && voted? %>
+    <% if not_votable_budgets.any? %>
+      <p class="h6"><%= t(".voting_prohibited") %></p>
+      <% not_votable_budgets.each do |budget| %>
+        <%= cell("decidim/budgets/budget_list_item", budget) %>
+      <% end %>
+    <% end %>
+
+    <% if voted? %>
       <p class="h6"><%= t(".voted") %></p>
       <div id="voted-budgets" class="card__list-list">
         <% voted.each do |budget| %>

@@ -26,13 +26,7 @@
       </h1>
       <p class="my-4 h5"><%= t(".total_budget", amount: budget_to_currency(budget.total_budget)) %></p>
       <div class="flex flex-col mt-4 space-y-4 lg:flex-row lg:justify-center lg:items-center lg:gap-4 lg:space-y-0">
-        <button id="show-projects" class="button button__lg button__transparent-secondary"><%= t(".browse") %></button>
-        <% if voting_open? %>
-          <%= button_to budget_voting_index_path, class: "button button__lg button__secondary start-vote-button", method: :get, disabled: !voting_open? do %>
-            <%= vote_text %>
-            <%= icon "arrow-right-line", class:"pt-1 h-6 w-6" %>
-          <% end %>
-        <% end %>
+        <a id="show-projects" href="#projects" class="button button__lg button__transparent-secondary"><%= t(".browse") %></a>
       </div>
     <% end %>
   </div>

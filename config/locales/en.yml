@@ -25,6 +25,7 @@ en:
       budgets_list:
         voted: "You have already voted on these areas:"
         voting_possible: "You can still vote on these areas:"
+        voting_prohibited: "You cannot vote on these areas:"
       project_l:
         explore: Open
       projects:
@@ -34,6 +35,7 @@ en:
           total_budget: 'You can allocate %{budget}. First choose the votable proposals to vote from the list below. After making your selections, press the "I am ready" button.'
         index:
           back_to_budgets: Show all areas
+          voting_not_allowed: You cannot vote on this budget
         order_progress:
           ready: I am ready
         pre_voting_budget_summary:

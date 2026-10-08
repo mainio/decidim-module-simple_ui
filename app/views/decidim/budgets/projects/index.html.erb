@@ -1,7 +1,7 @@
 <%= append_javascript_pack_tag "decidim_budgets" %>
 <%= append_stylesheet_pack_tag "decidim_budgets" %>
 
-<% cell("decidim/budgets/limit_announcement", budget) %>
+<%= cell("decidim/budgets/limit_announcement", budget) %>
 
 <% unless voting_open? %>
   <aside class="row column one-col" aria-label="Announcement">
