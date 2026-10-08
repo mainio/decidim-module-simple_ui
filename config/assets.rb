@@ -12,6 +12,11 @@ Decidim::Shakapacker.register_entrypoints(
   decidim_simple_ui_proposal_settings: "#{base_path}/app/packs/entrypoints/decidim_simple_ui_proposal_settings.js",
   decidim_simple_ui_registration: "#{base_path}/app/packs/entrypoints/decidim_simple_ui_registration.js"
 )
+unless Decidim.module_installed?(:budgets_booth)
+  Decidim::Shakapacker.register_entrypoints(
+    decidim_simple_ui_progress_fixed: "#{base_path}/app/packs/entrypoints/decidim_simple_ui_progress_fixed.js"
+  )
+end
 Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/simple_ui")
 Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/accountability/results")
 Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/proposals/proposals")
