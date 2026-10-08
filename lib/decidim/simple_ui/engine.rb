@@ -71,9 +71,11 @@ module Decidim
           Decidim::MapCell.include(
             Decidim::SimpleUi::MapCellExtensions
           )
-
           Decidim::CardLCell.include(
             Decidim::SimpleUi::CardLCellExtensions
+          )
+          Decidim::Budgets::BudgetsListCell.include(
+            Decidim::SimpleUi::BudgetsListCellExtensions
           )
 
           # Controller extensions

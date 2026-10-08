@@ -1,0 +1,17 @@
+<% if highlighted.any? %>
+  <% reordered_highlighted_budgets.each do |budget| %>
+    <% if allowed_to?(:create, :order, budget:, workflow: current_workflow) %>
+      <%= cell("decidim/budgets/budget_list_item", budget) %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% non_highlighted = reorder(budgets).where.not(id: (highlighted + voted).map(&:id)) %>
+
+<% if non_highlighted.exists? %>
+  <% non_highlighted.each do |budget| %>
+    <% if allowed_to?(:create, :order, budget:, workflow: current_workflow) %>
+      <%= cell("decidim/budgets/budget_list_item", budget) %>
+    <% end %>
+  <% end %>
+<% end %>

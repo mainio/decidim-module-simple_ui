@@ -1,0 +1,38 @@
+<%= link_to resource_path, class: "#{card_class} card__highlight" do %>
+  <div class="card__highlight-text md:w-[70%]">
+    <div class="max-[391px]:pb-1.5">
+      <p class="text-[--primary] inline-block font-bio text-[22px] align-middle md:h3">
+        <%= decidim_escape_translated(title) %>
+      </p>
+      <% if voted? %>
+        <%= icon "check-double-line", class: "inline-block align-middle fill-success ml-2 h-[1.5em] w-[1.5em]" %>
+      <% end %>
+      <% unless voted? %>
+        <div class="divide-x-2 divide-gray-3 pt-2">
+          <%= render :projects_count %>
+        </div>
+      <% end %>
+    </div>
+    <% if voted? %>
+      <div class="divide-x-2 divide-gray-3 pt-2">
+        <%= render :projects_count %>
+      </div>
+    <% end %>
+  </div>
+  <% if voting_context? %>
+    <div class="budget__card__highlight-vote">
+      <div class="budget__card__highlight-vote__header">
+        <span class="budget__card__highlight-vote__text">
+          <%= t("name", scope: "decidim.budgets.models.budget.fields") %>
+        </span>
+        <span class="budget__card__highlight-vote__number">
+          <%= budget_to_currency(total_budget) %>
+        </span>
+      </div>
+      <span class="button button__lg button__secondary mt-4">
+        <span><%= button_text %></span>
+        <%= icon "arrow-right-line" %>
+      </span>
+    </div>
+  <% end %>
+<% end %>

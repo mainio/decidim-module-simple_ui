@@ -22,8 +22,29 @@ en:
         show:
           back_to_listing: Show other posts
     budgets:
+      budgets_list:
+        voted: "You have already voted on these areas:"
+        voting_possible: "You can still vote on these areas:"
       project_l:
         explore: Open
+      projects:
+        budget_summary:
+          choose_budget: You decide the %{budget_title} budget
+          choose_description: Choose the votable proposals you like and cast your vote after that.
+          total_budget: 'You can allocate %{budget}. First choose the votable proposals to vote from the list below. After making your selections, press the "I am ready" button.'
+        index:
+          back_to_budgets: Show all areas
+        order_progress:
+          ready: I am ready
+        pre_voting_budget_summary:
+          browse: Browse votable proposals
+          pre_vote:
+            result_voted: Review your vote
+          total_budget: "Total budget for the area: %{amount}"
+        order_selected_projects:
+          assigned: "Budget left: "
+        show:
+          view_all_projects: Show other votable proposals
     comments:
       comment_form:
         add_comment: Add comment

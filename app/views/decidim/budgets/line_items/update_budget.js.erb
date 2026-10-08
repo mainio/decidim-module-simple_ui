@@ -1,0 +1,33 @@
+var $orderSelectedProjectsCount = $('#order-selected-projects-count');
+var $orderSelectedProjects = $('#order-selected-projects');
+var $orderProgress = $('#order-progress');
+var $projectItem = $('#project-<%= project.id %>-item');
+var $budgetConfirm = $('#budget-confirm');
+var $projectBudgetButton = $('#project-<%= project.id %>-budget-button');
+
+if ($orderProgress.length > 0) {
+  morphdom($orderProgress[0], '<%= j(render partial: "decidim/budgets/projects/order_progress").strip.html_safe %>');
+  morphdom($orderSelectedProjects[0], '<%= j(render partial: "decidim/budgets/projects/order_selected_projects").strip.html_safe %>');
+}
+
+morphdom($budgetConfirm[0], '<%= j(render partial: "decidim/budgets/projects/budget_confirm").strip.html_safe %>');
+
+if ($orderSelectedProjectsCount.length > 0) {
+  morphdom($orderSelectedProjectsCount[0], '<%= j(render partial: "decidim/budgets/projects/projects_count", locals: { count: current_order.projects.size }).strip.html_safe %>')
+}
+
+if ($projectItem.length > 0) {
+  <% if params[:action] == "create" %>
+    morphdom($projectItem[0], '<%= j(render partial: "decidim/budgets/projects/project", locals: { project: }).strip.html_safe %>');
+  <% else %>
+    morphdom($projectItem[0], '<%= j(render partial: "decidim/budgets/projects/project", locals: { project: }).strip.html_safe %>');
+  <% end %>
+}
+
+function parseCurrency(string) {
+  const cleaned = string.replace(/[^\d,.-]/g, "").replace(/\s/g, "");
+
+  const normalized = cleaned.replace(",", ".");
+
+  return parseFloat(normalized);
+}

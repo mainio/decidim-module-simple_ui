@@ -208,3 +208,13 @@ input[type="search"]::-webkit-search-cancel-button {
     }
   }
 }
+
+.filter {
+  label {
+    @apply flex items-center gap-2;
+
+    [id^="dropdown-title-with_any_category_"] {
+      @apply truncate max-w-[120px] block;
+    }
+  }
+}

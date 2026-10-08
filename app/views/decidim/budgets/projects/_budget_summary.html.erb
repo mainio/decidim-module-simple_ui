@@ -1,22 +1,40 @@
-<div id="order-progress<%= "-responsive" if responsive %>" class="budget-summary <%= responsive ? "block md:hidden" : "hidden md:block" %>" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
-  <% if current_order_checked_out? %>
-    <span class="budget-summary__checkout">
-      <%= t("title", scope: "decidim.budgets.projects.budget_summary.checked_out") %>
-    </span>
-    <div class="budget-summary__content__header">
-      <span class="budget-summary__content__header--title">
-        <%= t("name", scope: "decidim.components.budgets") %>
-      </span>
-      /
-      <%= translated_attribute(budget.title) %>
-      <p class="budget-summary__content__header--description">
-        <%= t("description", scope: "decidim.budgets.projects.budget_summary.checked_out") %>
+<% if voting_open? && !current_order_checked_out? %>
+  <div class="card budget-summary flex" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
+    <div class="card__content my-2 flex flex-col space-y-4 one-col text-left xl:my-8">
+      <h1 class="h2 md:h1">
+        <%= t(".choose_budget", budget_title: translated_attribute(budget.title)) %>
+      </h1>
+      <p class="text-md">
+        <%= t(".choose_description") %>
       </p>
     </div>
-  <% else %>
-    <p class="budget-summary__progressbox--checked_out">
-      <%= current_rule_description %>
-    </p>
-  <% end %>
-  <%= render partial: "order_progress_summary_content", locals: { responsive: } %>
-</div>
+
+    <div class="vote-progress-container">
+      <div class="vote-progress-content">
+        <div class="progress-background md:px-4">
+          <% if current_order.projects_rule? %>
+            <div class="budget-summary__total" data-total-allocation="<%= current_order.available_allocation %>">
+              <span class="mini-title text-md">
+                <%= t(".total_projects", max_projects: current_order.maximum_projects).html_safe %>
+              </span>
+            </div>
+          <% else %>
+            <div class="budget-summary__total text-left my-2" data-total-allocation="<%= current_order.available_allocation %>" data-total-budget="<%= budget.total_budget %>">
+              <p class="text-md"><%= t(".total_budget", budget: budget_to_currency(budget.total_budget)).html_safe %></p>
+            </div>
+          <% end %>
+
+          <%= render partial: "order_selected_projects" %>
+
+          <%= render partial: "order_progress" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="progress-spacer"></div>
+  </div>
+<% else %>
+  <%= render partial: "pre_voting_budget_summary" %>
+<% end %>
+
+<%= render partial: "budget_confirm" %>

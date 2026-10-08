@@ -22,8 +22,29 @@ fi:
         show:
           back_to_listing: Näytä muut artikkelit
     budgets:
+      budgets_list:
+        voted: "Olet jo äänestänyt näillä alueilla:"
+        voting_possible: "Voit äänestää vielä näillä alueilla:"
       project_l:
         explore: Tutustu
+      projects:
+        budget_summary:
+          choose_budget: Voit päättää budjetista alueella %{budget_title}
+          choose_description: Valitse sellaiset äänestettävät ehdotukset, joista pidät ja anna äänesi sen jälkeen.
+          total_budget: 'Sinulla on käytettävissäsi %{budget}. Valitse ensin äänestettävät ehdotukset alla olevasta listasta. Valintojen jälkeen, paina "Olen valmis" -painiketta.'
+        index:
+          back_to_budgets: Näytä kaikki alueet
+        order_progress:
+          ready: Olen valmis
+        order_selected_projects:
+          assigned: "Budjettia jäljellä: "
+        pre_voting_budget_summary:
+          browse: Selaa äänestettäviä ehdotuksia
+          pre_vote:
+            result_voted: Tarkasta äänesi
+          total_budget: "Alueen kokonaisbudjetti: %{amount}"
+        show:
+          view_all_projects: Näytä muut äänestettävät ehdotukset
     comments:
       comment_form:
         add_comment: Lisää kommentti

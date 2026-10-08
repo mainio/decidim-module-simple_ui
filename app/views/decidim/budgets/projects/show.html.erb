@@ -1,8 +1,3 @@
-<% if @focus_mode %>
-  <% content_for :focus_mode, true %>
-  <% content_for :focus_mode_return_path, budget_projects_path(budget) %>
-<% end %>
-
 <% add_decidim_meta_tags(
   title: translated_attribute(project.title),
   description: translated_attribute(project.description)
@@ -13,67 +8,66 @@ edit_link(
   resource_locator([project.budget, project]).edit,
   :update,
   :project,
-  project:
+  project: project
 )
 %>
 
 <%= append_javascript_pack_tag "decidim_budgets" %>
 <%= append_stylesheet_pack_tag "decidim_budgets" %>
 
-<% budget_info_html = cell("decidim/budgets/budget_information_modal", budget).call %>
-<% project_status_html = cell("decidim/budgets/project_selected_status", project, as_label: true).call %>
-<% share_button_html = cell("decidim/share_button", nil, default_classes: false).call %>
-<% comments_button_html = cell("decidim/comments_button", nil).call %>
+<%= cell("decidim/budgets/limit_announcement", budget) %>
 
-<div id="project-item">
-  <%= render partial: "budget_summary", locals: { project_item: true, responsive: true } %>
-  <% content_for :item_header do %>
-    <% unless voting_finished? %>
-      <div class="layout-2col">
-        <%= render partial: "budget_summary", locals: { project_item: true, responsive: false } %>
-      </div>
-      <%= render partial: "budget_excess" %>
-      <%= render partial: "budget_confirm" %>
+<aside class="row column one-col" aria-label="Announcement">
+  <%= render partial: "decidim/shared/component_announcement" %>
+</aside>
+
+<main class="voting-wrapper">
+  <div class="projects-link">
+    <%= link_to budget_projects_path(budget), class: "link flex" do %>
+      <%= icon "arrow-left-s-line", class: "icon--small h-6 w-6 pt-1 fill-[--primary]", role: "img", "aria-hidden": true %>
+      <%= t("view_all_projects", scope: "decidim.budgets.projects.show") %>
     <% end %>
-  <% end %>
-  <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: budget_projects_path(budget) } do %>
-    <section class="layout-main__section layout-main__heading">
-      <%= budget_info_html %>
-      <%= project_status_html %>
-      <h1 class="h1 decorator budget__definition-project__title editor-content">
-        <%= decidim_sanitize translated_attribute project.title %>
-      </h1>
-    </section>
-    <section class="layout-main__section">
-      <div class="editor-content">
-        <%= decidim_sanitize translated_attribute project.description %>
-      </div>
-    </section>
-    <section class="layout-main__section">
-      <% if tab_panel_items.any? %>
-        <%= cell "decidim/tab_panels", tab_panel_items %>
-      <% end %>
-    </section>
+  </div>
 
-    <% content_for :aside do %>
-      <section class="layout-aside__section">
-        <span class="budget__definition-data__title">
-          <%= t("budget", scope: "decidim.budgets.projects.show") %>
-        </span>
-        <div class="budget__definition-data__number">
-          <%= budget_to_currency project.budget_amount %>
+  <% content_for :aside do %>
+    <div class="layout-aside__section layout-aside__buttons flex justify-center items-center project-info">
+      <div class="record-action-container card__content">
+        <div class="m-bottom flex flex-col space-y-3 mb-4 text-center">
+          <span class="definition-data__title"><%= t("budget", scope: "decidim.budgets.projects.show") %></span>
+          <span class="definition-data__number"><%= budget_to_currency project.budget_amount %></span>
         </div>
-      </section>
-      <section class="layout-aside__section layout-aside__buttons">
-        <% if voting_open? %>
-          <%= render partial: "project_budget_button", locals: { project: } %>
+
+        <%= cell("decidim/budgets/project_votes_count", project, layout: :one_line, class: "display-block text-center") %>
+
+        <% if voting_finished? %>
+          <%= cell("decidim/budgets/project_voted_hint", project, class: "display-block voted-block") %>
+        <% else %>
+          <%= cell("decidim/budgets/project_voted_hint", project, class: "display-block voted-block") if current_order_checked_out? && voted_for?(project) %>
         <% end %>
-      </section>
-      <section class="layout-aside__section actions__secondary">
-        <%= share_button_html %>
-        <%= comments_button_html %>
-      </section>
-    <% end %>
+      </div>
+    </div>
+
+    <div class="layout-aside__section layout-aside__buttons action-divider">
+      <div class="record-action-container">
+        <%= cell "decidim/share_widget", project %>
+        <%= cell "decidim/comments_button", nil %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render layout: "layouts/decidim/shared/layout_item", locals: { main_enabled: false } do %>
+    <div class="row w-full space-y-8 lg:mx-0">
+      <div id="project" class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9 flex justify-between">
+        <h1 class="h2 md:h1"><%= translated_attribute project.title %></h1>
+      </div>
+      <div class="columns mediumlarge-8 mediumlarge-pull-4 space-y-8">
+        <div class="section space-y-8">
+          <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
+          <%= decidim_sanitize_editor translated_attribute project.description %>
+        </div>
+        <%= attachments_for project %>
+      </div>
+    </div>
 
     <% content_for :item_footer do %>
       <%= comments_for project, polymorphic: [project.budget] %>
@@ -82,4 +76,5 @@ edit_link(
       </ul>
     <% end %>
   <% end %>
-</div>
+</main>
+
