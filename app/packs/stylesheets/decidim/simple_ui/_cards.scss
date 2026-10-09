@@ -52,9 +52,14 @@
   }
 }
 
-.card__list-image_list {
-  > .card__list + .card__list {
-    @apply mt-0;
+.card__list-image {
+  &_list {
+    > .card__list + .card__list {
+      @apply mt-0;
+    }
+  }
+  &_content {
+    @apply w-full;
   }
 }
 
