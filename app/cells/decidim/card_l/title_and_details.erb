@@ -1,6 +1,7 @@
 <%
   supports_enabled = respond_to?(:supports?) && supports?
   main_image_enabled = respond_to?(:main_image?) && main_image?
+  amendment = resource.respond_to?(:emendation?) && resource.emendation?
 %>
 
 <% if main_image_enabled %>
@@ -22,7 +23,7 @@
   <% end %>
 >
   <p class="h3 card__list-title_large <%= 'title_large-image' if main_image_enabled %>">
-    <% if resource.emendation? %>
+    <% if amendment %>
       <%= "Amendment for - " + present(resource.amendable).title(html_escape: true) %>
     <% else %>
       <%= title %>
