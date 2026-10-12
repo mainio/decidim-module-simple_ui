@@ -22,18 +22,16 @@
   </div>
 
   <div class="one-col mx-auto">
-    <div class="flex justify-between gap-10">
-      <section id="blogs" class="layout-main__section layout-main__heading">
-        <% if posts.empty? %>
-          <%= cell("decidim/announcement", t("empty", scope: "decidim.blogs.posts.index")) %>
-        <% end %>
+    <section id="blogs" class="layout-main__section layout-main__heading">
+      <% if posts.empty? %>
+        <%= cell("decidim/announcement", t("empty", scope: "decidim.blogs.posts.index")) %>
+      <% end %>
 
-        <% paginate_posts.each do |post| %>
-          <%= card_for post, size: :l %>
-        <% end %>
+      <% paginate_posts.each do |post| %>
+        <%= card_for post, size: :l %>
+      <% end %>
 
-        <%= decidim_paginate paginate_posts %>
-      </section>
-    </div>
+      <%= decidim_paginate paginate_posts %>
+    </section>
   </div>
 </main>
