@@ -187,6 +187,7 @@ en:
       collaborative_draft_l:
         explore: Explore
       proposal_l:
+        amendment_for: "Amendment for %{title}"
         explore: Open
         proposal_vote_count: Votes
         votes_hidden: Votes hidden
