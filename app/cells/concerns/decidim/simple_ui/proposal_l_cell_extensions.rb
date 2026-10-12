@@ -15,7 +15,7 @@ module Decidim
         end
 
         def supports?
-          model.component.current_settings.votes_enabled? && current_user
+          model.component.current_settings.votes_enabled?
         end
       end
     end
