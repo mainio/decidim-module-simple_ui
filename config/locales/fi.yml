@@ -186,6 +186,7 @@ fi:
       collaborative_draft_l:
         explore: Tutustu
       proposal_l:
+        amendment_for: "Muutos kohteelle - %{title}"
         explore: Tutustu
         proposal_vote_count: Ääntä
         votes_hidden: Äänet piilotettu

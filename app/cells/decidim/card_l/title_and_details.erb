@@ -24,7 +24,7 @@
 >
   <p class="h3 card__list-title_large <%= 'title_large-image' if main_image_enabled %>">
     <% if amendment %>
-      <%= "Amendment for - " + present(resource.amendable).title(html_escape: true) %>
+      <%= t(".amendment_for", title: present(resource.amendable).title) %>
     <% else %>
       <%= title %>
     <% end %>
