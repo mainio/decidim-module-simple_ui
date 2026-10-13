@@ -1,0 +1,10 @@
+<section class="layout-main__section">
+  <%= content_tag :ul, class: tags_classes, data: { tags: "" } do %>
+    <% taxonomies.each do |tax| %>
+      <%= content_tag :li, class: "tag" do %>
+        <%= icon("price-tag-3-line") %>
+        <span><%= tax[:name] %></span>
+      <% end %>
+    <% end %>
+  <% end %>
+</section>

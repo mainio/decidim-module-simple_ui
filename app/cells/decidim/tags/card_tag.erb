@@ -1,5 +1,0 @@
-<%= content_tag :ul, class: tags_classes do %>
-  <% taxonomies.each do |taxonomy| %>
-    <%= content_tag :li, link_to_tag(taxonomy[:url], taxonomy[:name], t("decidim.tags.filter_results_for_taxonomy", resource: taxonomy[:name])) %>
-  <% end %>
-<% end %>
