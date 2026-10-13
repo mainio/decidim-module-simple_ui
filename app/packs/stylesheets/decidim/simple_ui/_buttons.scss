@@ -62,3 +62,7 @@ a.button {
     }
   }
 }
+
+.card__action-button {
+  @apply min-w-44;
+}
