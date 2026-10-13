@@ -62,9 +62,6 @@ module Decidim
           Decidim::Proposals::ProposalLCell.include(
             Decidim::SimpleUi::ProposalLCellExtensions
           )
-          Decidim::TagsCell.include(
-            Decidim::SimpleUi::TagsCellExtensions
-          )
           Decidim::AddressCell.include(
             Decidim::SimpleUi::AddressCellExtensions
           )
