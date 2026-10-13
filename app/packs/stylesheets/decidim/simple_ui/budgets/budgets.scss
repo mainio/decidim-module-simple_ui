@@ -4,13 +4,36 @@
   @apply w-full mx-auto xl:space-y-8 xl:mb-0 lg:w-3/5;
 
   a {
-    :hover p {
-      @apply underline;
+    &:hover {
+      p {
+        @apply underline;
+      }
+    }
+
+    &:focus {
+      @apply no-underline;
+
+      p {
+        @apply underline;
+      }
+    }
+  }
+
+  .button.is-hover,
+  .button.is-focus,
+  .button:not([disabled]):not([class*="button__text"]):not(label):hover,
+  .button:not([disabled]):not([class*="button__text"]):not(label):focus {
+    &.button__secondary {
+      @apply text-white bg-[--secondary] border-[--secondary];
+
+      svg {
+        @apply fill-white;
+      }
     }
   }
 
   .card__highlight {
-    @apply flex flex-col space-y-10 rounded-none ring-2 hover:no-underline hover:ring-background lg:space-y-0 lg:flex-row;
+    @apply flex flex-col space-y-10 rounded-none ring-2 hover:ring-background lg:space-y-0 lg:flex-row;
 
     > :not([hidden]) ~ :not([hidden]) {
       @apply max-[391px]:mt-0 max-[496px]:mt-2.5 p-4 mt-10 lg:mt-0;
@@ -92,6 +115,10 @@
           @apply hidden;
         }
       }
+    }
+
+    &__item {
+      @apply md:flex-row
     }
   }
 }

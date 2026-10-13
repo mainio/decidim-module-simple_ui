@@ -63,10 +63,6 @@
   }
 }
 
-a.card__list[id^="accountability__result_"] {
-  @apply gap-0;
-}
-
 #highlighted-processes {
   .card__highlight {
     @apply hover:ring-[--primary] mb-8;
@@ -115,6 +111,37 @@ a.card__list[id^="accountability__result_"] {
       & * {
         @apply w-full h-full object-cover;
       }
+    }
+  }
+}
+
+.tag {
+  @apply hover:no-underline;
+}
+
+a.card__list {
+  @apply focus:no-underline;
+
+  &[id^="accountability__result_"] {
+    @apply gap-0;
+  }
+
+  .button.is-hover,
+  .button.is-focus,
+  .button:not([disabled]):not([class*="button__text"]):not(label):hover,
+  .button:not([disabled]):not([class*="button__text"]):not(label):focus {
+    &.button__secondary {
+      @apply text-white bg-[--secondary] border-[--secondary];
+
+      svg {
+        @apply fill-white;
+      }
+    }
+  }
+
+  &:focus {
+    .h2, .h3, .h4, .h5, .h6 {
+      @apply underline;
     }
   }
 }
