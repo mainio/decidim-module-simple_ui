@@ -281,7 +281,7 @@
 }
 
 .progress-background {
-  @apply bg-[#f2fcfd];
+  @apply bg-[#f2fcfd] md:px-4;
 }
 
 .budget-progress {

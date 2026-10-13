@@ -30,15 +30,17 @@ fi:
         explore: Tutustu
       projects:
         budget_summary:
+          allowed_votes: Valitse vähintään %{min_projects} projekti(a).
           choose_budget: Voit päättää budjetista alueella %{budget_title}
           choose_description: Valitse sellaiset äänestettävät ehdotukset, joista pidät ja anna äänesi sen jälkeen.
-          total_budget: 'Sinulla on käytettävissäsi %{budget}. Valitse ensin äänestettävät ehdotukset alla olevasta listasta. Valintojen jälkeen, paina "Olen valmis" -painiketta.'
+          total_budget: 'Sinulla on käytettävissäsi %{budget}, käytä vähintään %{min} äänestääksesi. Valitse ensin äänestettävät ehdotukset alla olevasta listasta. Valintojen jälkeen, paina "Olen valmis" -painiketta.'
         index:
           back_to_budgets: Näytä kaikki alueet
         order_progress:
           ready: Olen valmis
         order_selected_projects:
           assigned: "Budjettia jäljellä: "
+          choices: "Valintoja jäljellä: "
         pre_voting_budget_summary:
           browse: Selaa äänestettäviä ehdotuksia
           pre_vote:
