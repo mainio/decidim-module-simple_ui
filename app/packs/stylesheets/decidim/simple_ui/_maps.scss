@@ -6,27 +6,32 @@
 }
 
 .leaflet-popup {
-  .leaflet-popup-close-button {
-    @apply pt-2.5 pr-2.5;
-  }
-
   .leaflet-popup-content-wrapper {
-    @apply bg-gray-3 text-[#757575];
+    @apply bg-gray-3;
 
-    .tooltip {
+    .card__list {
+      @apply border-none;
+
       &-content {
-        @apply space-y-4;
-      }
+        @apply space-y-4 flex-col;
 
-      &-title {
-        @apply text-[--primary];
-      }
 
-      &-metadata {
-        @apply flex gap-10;
+        .card__list {
+          &-title {
+            @apply text-black;
+          }
 
-        span {
-          @apply flex gap-4;
+          &-metadata {
+            @apply justify-between;
+
+            span {
+              @apply text-[#474747];
+
+              svg {
+                @apply fill-[#474747];
+              }
+            }
+          }
         }
       }
     }
