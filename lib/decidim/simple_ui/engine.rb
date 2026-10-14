@@ -74,6 +74,9 @@ module Decidim
           Decidim::Budgets::BudgetsListCell.include(
             Decidim::SimpleUi::BudgetsListCellExtensions
           )
+          Decidim::CommentsButtonCell.include(
+            Decidim::SimpleUi::CommentsButtonCellExtensions
+          )
 
           # Controller extensions
           Decidim::ApplicationController.include(
