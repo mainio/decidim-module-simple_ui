@@ -4,6 +4,8 @@
   @apply w-full mx-auto xl:space-y-8 xl:mb-0 lg:w-3/5;
 
   a {
+    @apply hover:no-underline;
+
     &:hover {
       p {
         @apply underline;
