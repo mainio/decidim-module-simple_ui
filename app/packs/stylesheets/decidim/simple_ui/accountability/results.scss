@@ -3,3 +3,14 @@
     @apply w-fit;
   }
 }
+
+// Result aside progress/date aside -element background color change
+.layout-item__aside {
+  .accountability {
+    &__result {
+      &-aside {
+        @apply bg-[#f2fcfd];
+      }
+    }
+  }
+}
