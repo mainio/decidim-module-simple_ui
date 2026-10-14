@@ -1,0 +1,9 @@
+.datepicker {
+  &__calendar-button {
+    @apply mt-0 top-1.5;
+  }
+
+  &__clock-button {
+    @apply mt-0 top-1.5;
+  }
+}
