@@ -1,0 +1,11 @@
+.autoComplete_wrapper {
+  ul {
+    @apply border border-solid border-gray p-1.5 text-md text-md font-normal;
+
+    li {
+      &:hover {
+        @apply cursor-pointer;
+      }
+    }
+  }
+}
