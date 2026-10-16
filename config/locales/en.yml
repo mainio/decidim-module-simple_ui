@@ -1,5 +1,10 @@
 ---
 en:
+  activemodel:
+    attributes:
+      content_block_attachment:
+        hero_image: image upload
+        image: image upload
   decidim:
     accountability:
       result_l:

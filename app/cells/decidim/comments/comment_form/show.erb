@@ -1,4 +1,12 @@
-<%= decidim_form_for(form_object, url: decidim_comments.comments_path(order:), method: :post, remote: true, html: { id: form_id }) do |form| %>
+<%= decidim_form_for(form_object, url: decidim_comments.comments_path(order:), method: :post, remote: true, html: { id: form_id, class:"px-0.5 w-full" }) do |form| %>
+  <% unless reply? %>
+    <div class="comment__form-mobile-banner">
+      <p class="font-semibold text-2xl"><%= t("decidim.components.add_comment_form.add_comment") %></p>
+      <button type="button" class="close-button close-add-comment-fullscreen">
+        <%= icon "close-line" %>
+      </button>
+    </div>
+  <% end %>
   <%= form.hidden_field :commentable_gid, id: nil %>
   <%= form.hidden_field :alignment, id: nil, class: "alignment-input" %>
   <%= comment_as %>
@@ -17,7 +25,7 @@
   ) %>
 
   <div class="comment__form-submit">
-    <div class="flex max-[439px]:flex-col max-[439px]:gap-2 w-full flex-row justify-between items-start mb-4">
+    <div class="flex max-[439px]:flex-col max-[439px]:items-center max-[439px]:gap-2 w-full flex-row justify-between items-start mb-4">
       <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
 
       <button type="submit" class="button button__lg button__transparent-secondary" disabled="disabled">

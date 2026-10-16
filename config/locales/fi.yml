@@ -1,5 +1,10 @@
 ---
 fi:
+  activemodel:
+    attributes:
+      content_block_attachment:
+        hero_image: kuvan lisäystä
+        image: kuvan lisäystä
   decidim:
     accountability:
       result_l:

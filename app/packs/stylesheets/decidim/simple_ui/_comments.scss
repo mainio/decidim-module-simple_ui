@@ -5,3 +5,15 @@
 .add-comment {
   @apply bg-[#f2fcfd] p-2;
 }
+
+.comments {
+  .comments {
+    &__header {
+      @apply flex-col gap-2 items-center md:flex-row;
+
+      .comment-order-by {
+        @apply ml-0;
+      }
+    }
+  }
+}
