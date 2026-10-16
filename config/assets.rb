@@ -20,6 +20,7 @@ end
 Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/accountability/results")
 Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/blogs/blogs")
 Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/budgets/budgets")
+Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/collaborative_texts/collaborative_texts") if Decidim.module_installed?(:collaborative_texts)
 Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/conversations/conversations")
 Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/meetings/meetings")
 Decidim::Shakapacker.register_stylesheet_import("stylesheets/decidim/simple_ui/processes/processes")

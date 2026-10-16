@@ -44,7 +44,7 @@
   }
 
   &-image_list {
-    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 2xl:gap-0 2xl:flex 2xl:flex-col 2xl:space-y-10;
+    @apply grid grid-cols-1 gap-4 sm:grid-cols-1 xl:grid-cols-2 2xl:gap-0 2xl:flex 2xl:flex-col 2xl:space-y-10;
   }
 
   &-metadata {
@@ -82,7 +82,7 @@
 }
 
 .vote-open {
-  @apply p-4 flex flex-col items-center justify-center space-y-2 2xl:w-48;
+  @apply p-4 flex flex-col items-center justify-center space-y-2 md:min-w-56 2xl:w-48;
 
   [id^="proposal-"][id$="vote-button"] {
     @apply 2xl:min-w-44;

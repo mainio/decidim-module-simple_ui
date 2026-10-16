@@ -64,6 +64,28 @@
 
 .participatory-space-hero {
   img {
-    @apply aspect-[2/1] md:aspect-[5/2] lg:aspect-[3/1] xl:aspect-[5/1] object-cover;
+    @apply aspect-[2/1] md:aspect-[5/2] lg:aspect-[3/1] xl:aspect-[5/1] object-cover m-auto;
+  }
+}
+
+#homepage-upcoming-meetings,
+.participatory-space__container {
+  .content-block {
+    &__title {
+      @apply flex-col items-center md:flex-row;
+
+      a {
+        @apply inline-block ml-0 flex md:ml-auto;
+      }
+    }
+  }
+}
+
+#statistics,
+.content-block {
+  .statistic {
+    &__container {
+      @apply grid-cols-1;
+    }
   }
 }

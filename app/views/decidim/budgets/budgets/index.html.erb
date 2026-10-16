@@ -6,7 +6,7 @@
   <%= render partial: "decidim/shared/component_announcement" %>
 </aside>
 
-<div class="one-col">
+<main class="one-col">
   <% if current_workflow.budgets.empty? %>
     <%= cell("decidim/announcement", t("empty", scope: "decidim.budgets.budgets_list")) %>
   <% end %>
@@ -18,4 +18,4 @@
   <section class="layout-main__section layout-main__heading">
     <%= cell("decidim/budgets/budgets_list", current_workflow) %>
   </section>
-</div>
+</main>
