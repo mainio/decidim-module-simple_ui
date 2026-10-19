@@ -1,0 +1,12 @@
+<nav role="navigation" class="grid grid-cols-1 gap-x-8 gap-y-10 text-md text-white md:grid-cols-2">
+  <% topics.each_with_index do |topic, index| %>
+    <div aria-labelledby="footer-topic-<%= index %>" class="inline-block">
+      <div class="h6 mb-2 md:mb-2"><%= topic[:title] %></div>
+      <ul class="space-y-1 break-inside-avoid md:space-y-1">
+        <% topic[:pages].each do |page| %>
+          <li><%= link_to page[:title], page[:path] %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</nav>

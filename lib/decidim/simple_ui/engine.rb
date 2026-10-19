@@ -77,6 +77,9 @@ module Decidim
           Decidim::CommentsButtonCell.include(
             Decidim::SimpleUi::CommentsButtonCellExtensions
           )
+          Decidim::FooterTopicsCell.include(
+            Decidim::SimpleUi::FooterTopicsCellExtensions
+          )
 
           # Controller extensions
           Decidim::ApplicationController.include(
