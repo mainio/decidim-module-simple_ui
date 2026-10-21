@@ -58,6 +58,7 @@
       @apply mt-0;
     }
   }
+
   &_content {
     @apply w-full;
   }
@@ -134,7 +135,11 @@ a.card__list {
   }
 
   &:focus {
-    .h2, .h3, .h4, .h5, .h6 {
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
       @apply underline;
     }
   }
