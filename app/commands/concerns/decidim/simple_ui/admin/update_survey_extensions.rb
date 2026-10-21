@@ -3,13 +3,13 @@
 module Decidim
   module SimpleUi
     module Admin
-      module UpdateQuestionnaireExtensions
+      module UpdateSurveyExtensions
         extend ActiveSupport::Concern
 
         included do
           private
 
-          def update_questionnaire
+          def update_questionnaire_attributes
             @questionnaire.update!(
               title: @form.title,
               description: @form.description,

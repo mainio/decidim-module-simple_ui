@@ -98,6 +98,11 @@ module Decidim
             Decidim::SimpleUi::ResultsControllerExtensions
           )
 
+          # Form extensions
+          Decidim::Forms::QuestionnaireForm.include(
+            Decidim::SimpleUi::QuestionnaireFormExtensions
+          )
+
           # Helper extensions
           Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper.include(
             Decidim::SimpleUi::ParticipatoryProcessHelperExtensions
@@ -107,6 +112,11 @@ module Decidim
           )
           Decidim::Accountability::ApplicationHelper.include(
             Decidim::SimpleUi::Accountability::ApplicationHelperExtensions
+          )
+
+          # Model extensions
+          Decidim::Surveys::Survey.include(
+            Decidim::SimpleUi::SurveyExtensions
           )
         end
       end

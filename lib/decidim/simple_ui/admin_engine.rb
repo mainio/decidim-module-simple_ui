@@ -27,10 +27,13 @@ module Decidim
 
       initializer "decidim_simple_ui_admin.add_customizations", after: "decidim.action_controller" do
         config.to_prepare do
-          if Decidim.module_installed?(:forms)
-            Decidim::Forms::Admin::UpdateQuestionnaire.include(
-              Decidim::SimpleUi::Admin::UpdateQuestionnaireExtensions
+          if Decidim.module_installed?(:surveys)
+            Decidim::Surveys::Admin::UpdateSurvey.include(
+              Decidim::SimpleUi::Admin::UpdateSurveyExtensions
             )
+          end
+
+          if Decidim.module_installed?(:forms)
             Decidim::Forms::Admin::QuestionnaireForm.include(
               Decidim::SimpleUi::Admin::QuestionnaireFormExtensions
             )

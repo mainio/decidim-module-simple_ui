@@ -31,15 +31,20 @@ describe "SurveyTOS" do
       questionnaire.update!(
         title: { en: "Simple survey" },
         description: { en: "A survey without TOS" },
-        tos: { en: "Terms of service text" },
+        tos: nil,
         requires_tos_agreement: false
       )
     end
 
-    it "displays the survey title" do
+    it "doesn't require TOS agreement to answer" do
       visit_component
 
-      expect(page).to have_content("Simple survey")
+      click_on "Simple survey"
+
+      expect(page).to have_no_css("#questionnaire_tos_agreement")
+      click_on "Submit"
+      click_on "OK"
+      expect(page).to have_content("Survey successfully responded.")
     end
   end
 
@@ -53,12 +58,20 @@ describe "SurveyTOS" do
       )
     end
 
-    it "shows the TOS text" do
+    it "requires TOS agreement to answer" do
       visit_component
 
       click_on "Survey with TOS"
 
-      expect(page).to have_content("You must accept these terms")
+      expect(page).to have_css("#questionnaire_tos_agreement")
+
+      click_on "Submit"
+      click_on "OK"
+      expect(page).to have_content("There was a problem responding the survey.")
+      check "questionnaire_tos_agreement"
+      click_on "Submit"
+      click_on "OK"
+      expect(page).to have_content("Survey successfully responded.")
     end
   end
 end
