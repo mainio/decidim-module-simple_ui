@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "decidim/core/test/factories"
+require "decidim/budgets/test/factories"
+# frozen_string_literal: true
 
 FactoryBot.define do
   factory :simple_ui_component, parent: :component do

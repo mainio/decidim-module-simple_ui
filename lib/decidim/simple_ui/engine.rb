@@ -104,6 +104,10 @@ module Decidim
             Decidim::SimpleUi::ResultsControllerExtensions
           )
 
+          Decidim::Budgets::BudgetsController.include(
+            Decidim::SimpleUi::BudgetsControllerExtensions
+          )
+
           # Form extensions
           Decidim::Forms::QuestionnaireForm.include(
             Decidim::SimpleUi::QuestionnaireFormExtensions
