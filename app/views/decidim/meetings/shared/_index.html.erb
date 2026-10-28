@@ -5,9 +5,7 @@
 <% title = component.present? ? translated_attribute(component.name) : t("decidim.components.meetings.name") %>
 
 <% if display_announcement %>
-  <aside class="row column one-col" aria-label="Announcement">
-    <%= render partial: "decidim/shared/component_announcement" %>
-  </aside>
+  <%= render partial: "decidim/shared/component_announcement" %>
 <% end %>
 
 <section role="region" aria-label=<%= t(".header") %>>

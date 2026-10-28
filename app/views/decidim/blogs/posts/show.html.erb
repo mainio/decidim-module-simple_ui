@@ -20,9 +20,7 @@
 
 <% back_path = posts_path %>
 
-<aside class="row column one-col" aria-label="Announcement">
-  <%= render partial: "decidim/shared/component_announcement" %>
-</aside>
+<%= render partial: "decidim/shared/component_announcement" %>
 
 <% content_for :aside do %>
   <%= render partial: "actions" %>
@@ -60,6 +58,8 @@
       <%= cell("decidim/like_block", post) %>
     <% end %>
   </section>
+
+  <%= cell "decidim/likers_list", post %>
 
   <% content_for :item_footer do %>
     <%= comments_for post %>

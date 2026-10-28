@@ -20,9 +20,7 @@ edit_link(
   }
 %>
 
-<aside class="row column one-col" aria-label="Announcement">
-  <%= render partial: "decidim/shared/component_announcement" %>
-</aside>
+<%= render partial: "decidim/shared/component_announcement" %>
 
 <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
 <% author_html = cell("decidim/author", debate_presenter.author, skip_profile_link: true).call %>

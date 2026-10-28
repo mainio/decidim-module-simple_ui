@@ -4,9 +4,7 @@
 <%= cell("decidim/budgets/limit_announcement", budget) %>
 
 <% unless voting_open? %>
-  <aside class="row column one-col" aria-label="Announcement">
-    <%= render partial: "decidim/shared/component_announcement" %>
-  </aside>
+  <%= render partial: "decidim/shared/component_announcement" %>
 <% end %>
 
 <main class="voting-wrapper">

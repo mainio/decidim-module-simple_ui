@@ -7,9 +7,7 @@
 <%= append_javascript_pack_tag "decidim_forms" %>
 
 <% if current_component.manifest_name == "surveys" %>
-  <aside class="row column one-col" aria-label="Announcement">
-    <%= render partial: "decidim/shared/component_announcement" %>
-  </aside>
+  <%= render partial: "decidim/shared/component_announcement" %>
 <% end %>
 
 <main>
