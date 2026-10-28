@@ -21,19 +21,6 @@
     }
   }
 
-  .button.is-hover,
-  .button.is-focus,
-  .button:not([disabled]):not([class*="button__text"]):not(label):hover,
-  .button:not([disabled]):not([class*="button__text"]):not(label):focus {
-    &.button__secondary {
-      @apply text-white bg-[--secondary] border-[--secondary];
-
-      svg {
-        @apply fill-white;
-      }
-    }
-  }
-
   .card__highlight {
     @apply flex flex-col space-y-10 rounded-none ring-2 hover:ring-background lg:space-y-0 lg:flex-row;
 
@@ -77,6 +64,25 @@
 
 #projects {
   .budget-list {
+    .budget-list__item {
+      a {
+        &:hover,
+        &:focus {
+          @apply no-underline;
+
+          p {
+            @apply underline;
+          }
+
+          .card__list-text {
+            p {
+              @apply no-underline;
+            }
+          }
+        }
+      }
+    }
+
     .project-item {
       @apply w-full flex-col gap-0 lg:flex-row lg:gap-4;
 
@@ -344,7 +350,7 @@
 
 .voting-wrapper {
   .budget__list--header {
-    @apply flex justify-end items-center mx-3.5;
+    @apply flex justify-center items-center mx-3.5 md:justify-end;
   }
 }
 
@@ -374,7 +380,7 @@
         @apply bg-none;
 
         &.button__transparent-secondary {
-          @apply text-white bg-[--primary];
+          @apply text-white bg-[--secondary];
 
           svg {
             @apply fill-white;
@@ -382,10 +388,10 @@
         }
 
         &.button__secondary {
-          @apply text-[--primary] bg-white border-[--primary];
+          @apply text-[--secondary] bg-white border-[--secondary];
 
           svg {
-            @apply fill-[--primary];
+            @apply fill-[--secondary];
           }
         }
       }

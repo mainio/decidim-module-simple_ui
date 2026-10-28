@@ -121,19 +121,6 @@ a.card__list {
     @apply gap-0;
   }
 
-  .button.is-hover,
-  .button.is-focus,
-  .button:not([disabled]):not([class*="button__text"]):not(label):hover,
-  .button:not([disabled]):not([class*="button__text"]):not(label):focus {
-    &.button__secondary {
-      @apply text-white bg-[--secondary] border-[--secondary];
-
-      svg {
-        @apply fill-white;
-      }
-    }
-  }
-
   &:focus {
     .h2,
     .h3,

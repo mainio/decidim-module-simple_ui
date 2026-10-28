@@ -17,7 +17,7 @@ a.button {
   @apply bg-none;
 
   &.button__transparent-secondary {
-    @apply text-white bg-[--primary];
+    @apply text-white bg-[--secondary];
 
     svg {
       @apply fill-white;
@@ -25,15 +25,15 @@ a.button {
   }
 
   &.button__secondary {
-    @apply text-[--primary] bg-white border-[--primary];
+    @apply text-[--secondary] bg-white border-[--secondary];
 
     svg {
-      @apply fill-[--primary];
+      @apply fill-[--secondary];
     }
   }
 
   &.budget__card__prevote-explore-button {
-    @apply text-white bg-[--primary];
+    @apply text-white bg-[--secondary];
 
     svg {
       @apply fill-white;
@@ -65,4 +65,8 @@ a.button {
 
 .card__action-button {
   @apply min-w-44;
+}
+
+button[title="Report"][data-dialog-open="flagModal"] {
+  @apply flex-row-reverse;
 }

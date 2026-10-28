@@ -80,12 +80,3 @@
     }
   }
 }
-
-#statistics,
-.content-block {
-  .statistic {
-    &__container {
-      @apply grid-cols-1;
-    }
-  }
-}

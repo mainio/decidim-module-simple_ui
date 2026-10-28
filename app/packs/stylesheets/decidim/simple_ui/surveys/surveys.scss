@@ -1,0 +1,11 @@
+.response-questionnaire__step {
+  .response-questionnaire {
+    &__step-counter {
+      @apply bg-transparent;
+    }
+  }
+}
+
+.answer-questionnaire__submit {
+  @apply flex justify-between;
+}

@@ -31,6 +31,10 @@ fi:
         voted: "Olet jo äänestänyt näillä alueilla:"
         voting_possible: "Voit äänestää vielä näillä alueilla:"
         voting_prohibited: "Et voi äänestää näillä alueilla:"
+      models:
+        budget:
+          fields:
+            name: Budjetti
       project_l:
         explore: Tutustu
       projects:

@@ -90,11 +90,11 @@ footer {
 }
 
 .double-col {
-  @apply container grid grid-cols-1 md:grid-cols-2 gap-4 py-5;
+  @apply container grid grid-cols-1 text-center gap-4 py-5 md:text-start md:grid-cols-2;
 }
 
 .double-col_off {
-  @apply container grid grid-cols-1 md:grid-cols-[23fr_73fr] gap-4 md:gap-11 py-5;
+  @apply container grid grid-cols-1 gap-4 py-5 lg:grid-cols-[23fr_73fr] lg:gap-11;
 }
 
 .double-col_off_reverse {

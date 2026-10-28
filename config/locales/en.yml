@@ -31,6 +31,10 @@ en:
         voted: "You have already voted on these areas:"
         voting_possible: "You can still vote on these areas:"
         voting_prohibited: "You cannot vote on these areas:"
+      models:
+        budget:
+          fields:
+            name: Budget
       project_l:
         explore: Open
       projects:

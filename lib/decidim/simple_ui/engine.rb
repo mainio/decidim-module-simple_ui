@@ -71,6 +71,9 @@ module Decidim
           Decidim::CardLCell.include(
             Decidim::SimpleUi::CardLCellExtensions
           )
+          Decidim::CardGCell.include(
+            Decidim::SimpleUi::CardGCellExtensions
+          )
           Decidim::Budgets::BudgetsListCell.include(
             Decidim::SimpleUi::BudgetsListCellExtensions
           )
@@ -79,6 +82,9 @@ module Decidim
           )
           Decidim::FooterTopicsCell.include(
             Decidim::SimpleUi::FooterTopicsCellExtensions
+          )
+          Decidim::LikersListCell.include(
+            Decidim::SimpleUi::LikersListCellExtensions
           )
 
           # Controller extensions
@@ -135,6 +141,7 @@ module Decidim
       end
 
       initializer "decidim_simple_ui.register_icons" do |_app|
+        Decidim.icons.register(name: "login-box-line", icon: "user-line", category: "system", description: "Sign in", engine: :core)
         Decidim.icons.register(name: "checkbox-multiple-line", icon: "checkbox-multiple-line", category: "system", description: "Checkbox", engine: :core)
         Decidim.icons.register(name: "settings-2-line", icon: "settings-2-line", category: "system", description: "Settings-2", engine: :core)
       end
