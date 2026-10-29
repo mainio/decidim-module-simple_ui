@@ -15,7 +15,7 @@ comment -box fullscreen.
 // 2. Handles dropdown menus: Dynamically updates button content based on user selection, hides selected items, and manages dropdown visibility.
 // This creates a responsive, interactive comment interface with mobile-friendly design and dynamic user group selection.
 
-import { initializeCommentsDropdown } from "../../decidim/comments/comments_dropdown";
+import { initializeCommentsDropdown } from "src/decidim/comments/comments_dropdown";
 import { isMobileScreen } from "src/decidim/comments/comments_screen_helper";
 
 // Add comment card for mobile
