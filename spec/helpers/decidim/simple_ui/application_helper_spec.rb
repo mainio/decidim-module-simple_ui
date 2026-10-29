@@ -37,7 +37,7 @@ module Decidim
           it "adds styling classes to <p> elements" do
             result = helper.style_rich_text("<p>Hello world</p>")
 
-            expect(result).to include('class="text-xl text-left md:text-center lg:w-4/6"')
+            expect(result).to include('class="text-xl text-center lg:w-4/6"')
             expect(result).to include("Hello world")
           end
         end
@@ -59,7 +59,7 @@ module Decidim
 
             expect(doc.css("p").length).to eq(3)
             expect(doc.css("a").length).to eq(2)
-            doc.css("p").each { |p| expect(p["class"]).to eq("text-xl text-left md:text-center lg:w-4/6") }
+            doc.css("p").each { |p| expect(p["class"]).to eq("text-xl text-center lg:w-4/6") }
             doc.css("a").each { |a| expect(a["class"]).to eq("text-[--primary] font-semibold underline") }
           end
         end
