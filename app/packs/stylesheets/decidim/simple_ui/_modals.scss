@@ -11,3 +11,13 @@
     }
   }
 }
+
+// Login modal
+
+[data-dialog] {
+  [data-dialog-container] {
+    &:has(> svg) {
+      @apply block items-start md:items-center gap-2;
+    }
+  }
+}
