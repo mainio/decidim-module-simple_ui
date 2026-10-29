@@ -240,6 +240,14 @@ en:
       omniauth:
         developer:
           sign_in_button: Sign in with developer
+        facebook:
+          sign_in_button: Sign in with Facebook
+        google_oauth2:
+          sign_in_button: Sign in with Google
+        mpassid:
+          sign_in_button: Sign in with pupil's edu account (MPASSid)
+        suomifi:
+          sign_in_button: Sign in with bank ID or mobile certificate (Suomi.fi)
   layouts:
     decidim:
       footer:

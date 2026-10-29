@@ -236,6 +236,14 @@ fi:
       omniauth:
         developer:
           sign_in_button: Kirjaudu kehittäjätunnuksilla
+        facebook:
+          sign_in_button: Kirjaudu sisään Facebook-tunnuksella
+        google_oauth2:
+          sign_in_button: Kirjaudu sisään Google-tunnuksella
+        mpassid:
+          sign_in_button: Kirjaudu sisään koululaisen edu-tunnuksella (MPASSid)
+        suomifi:
+          sign_in_button: Kirjaudu sisään pankkitunnuksilla tai mobiilivarmenteella (Suomi.fi)
   layouts:
     decidim:
       footer:
