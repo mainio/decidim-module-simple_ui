@@ -66,7 +66,3 @@ a.button {
 .card__action-button {
   @apply min-w-44;
 }
-
-button[title="Report"][data-dialog-open="flagModal"] {
-  @apply flex-row-reverse;
-}
