@@ -25,7 +25,7 @@
 
     morphdom($remainingVotesCount[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_count").strip.html_safe %>');
 
-    <% if remaining_votes_count_for(current_user) == 0 %>
+    <% if remaining_votes_count_for_user == 0 %>
       $notVotedButtons.each(function() {
         var $btn = $(this);
         $btn.prop('disabled', true);
@@ -45,7 +45,7 @@
 
 <% if show_voting_rules? %>
   (function() {
-    var $votingRules = $('.voting-rules');
+    var $votingRules = $('#voting-rules');
     if(!$votingRules[0]) { return; }
     morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
   }());

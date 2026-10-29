@@ -213,8 +213,11 @@ en:
         show:
           back_to_listing: Show other ideas
         voting_rules:
+          minimum_votes_per_user:
+            given_enough_votes: You have given enough votes.
+            votes_remaining: You have to vote %{remaining_votes} more proposals for your votes to be taken into account.
           vote_limit:
-            votes: "Remaining supports: %{number}"
+            votes: "Remaining votes: %{number}"
     shared:
       filters:
         clear_filters: Clear search and reload results

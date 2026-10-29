@@ -20,7 +20,7 @@ module Decidim
 
           rules << t("decidim.proposals.proposals.voting_rules.threshold_per_proposal.description", limit: threshold_per_proposal) if threshold_per_proposal_enabled?
 
-          if can_accumulate_supports_beyond_threshold?
+          if can_accumulate_votes_beyond_threshold?
             rules << t("decidim.proposals.proposals.voting_rules.can_accumulate_supports_beyond_threshold.description", limit: threshold_per_proposal)
           end
 
@@ -31,7 +31,7 @@ module Decidim
               if votes_given >= minimum_votes_per_user
                 t("decidim.proposals.proposals.voting_rules.minimum_votes_per_user.given_enough_votes")
               else
-                t("decidim.proposals.proposals.voting_rules.minimum_votes_per_user.supports_remaining", remaining_votes: minimum_votes_per_user - votes_given)
+                t("decidim.proposals.proposals.voting_rules.minimum_votes_per_user.votes_remaining", remaining_votes: remaining_minimum_votes_count_for_user)
               end
 
             rules << "#{description} #{votes}"

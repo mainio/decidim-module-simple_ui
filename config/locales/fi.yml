@@ -211,6 +211,12 @@ fi:
           explore: Tutustu
         show:
           back_to_listing: Näytä muut ideat
+        voting_rules:
+          minimum_votes_per_user:
+            given_enough_votes: Olet äänestänyt tarpeeksi monta ehdotusta.
+            votes_remaining: Sinun on äänestettävä %{remaining_votes} ehdotusta lisää, jotta äänesi otetaan huomioon.
+          vote_limit:
+            votes: 'Käytettävissä olevien äänien määrä: %{number}'
     shared:
       filters:
         clear_filters: Tyhjennä hakuvalinnat ja lataa tulokset uudestaan

@@ -1,0 +1,14 @@
+#statistics {
+  .statistic {
+    &__container {
+      @apply grid grid-cols-[repeat(auto-fit,minmax(345px,1fr))] md:grid-cols-3 lg:grid-cols-4 gap-4;
+    }
+  }
+}
+
+.home {
+  &__section,
+  .content-block {
+    @apply max-w-full;
+  }
+}
