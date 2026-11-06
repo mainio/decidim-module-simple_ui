@@ -7,6 +7,8 @@ module Decidim
 
       included do
         def show
+          enforce_permission_to :read, :homepage
+
           @frontpage = true
         end
       end
